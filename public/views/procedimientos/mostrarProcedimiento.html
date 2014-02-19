@@ -1,0 +1,15 @@
+<h2>{{procedimiento.nombre}}</h2>
+<ul class="list-inline">
+    <li ng-repeat="categoria in procedimiento.categorias">
+        <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>
+    </li>
+</ul>
+<div data-ng-show="global.user._id == procedimiento.user._id">
+    <a class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">
+        <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn" data-ng-click="remove();">
+        <i class="glyphicon glyphicon-trash"></i>
+    </a>
+</div>
+<div>{{procedimiento.descripcion}}</div>

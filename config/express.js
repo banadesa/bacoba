@@ -44,7 +44,8 @@ module.exports = function(app, passport, db) {
 
         // Request body parsing middleware should be above methodOverride
         app.use(express.urlencoded());
-        app.use(express.json());
+        app.use(express.json({limit: '100mb'}));
+        app.use(express.bodyParser({}));
         app.use(express.methodOverride());
 
         // Express/Mongo session storage
@@ -68,7 +69,7 @@ module.exports = function(app, passport, db) {
 
         // Routes should be at the last
         app.use(app.router);
-        
+
         // Setting the fav icon and static folder
         app.use(express.favicon());
         app.use(express.static(config.root + '/public'));

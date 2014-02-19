@@ -8,19 +8,22 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Article Schema
+ * Categoria Schema
  */
-var ArticleSchema = new Schema({
+var CategoriaSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    title: {
+    updated: {
+        type: Date
+    },
+    name: {
         type: String,
         default: '',
         trim: true
     },
-    content: {
+    description: {
         type: String,
         default: '',
         trim: true
@@ -34,17 +37,17 @@ var ArticleSchema = new Schema({
 /**
  * Validations
  */
-ArticleSchema.path('title').validate(function(title) {
-    return title.length;
-}, 'Title cannot be blank');
+CategoriaSchema.path('name').validate(function(name) {
+    return name.length;
+}, 'Name cannot be blank');
 
 /**
  * Statics
  */
-ArticleSchema.statics.load = function(id, cb) {
+CategoriaSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
     }).populate('user', 'name username').exec(cb);
 };
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Categoria', CategoriaSchema);

@@ -4,20 +4,35 @@
 angular.module('mean').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-        when('/articles', {
-            templateUrl: 'views/articles/list.html'
-        }).
-        when('/articles/create', {
-            templateUrl: 'views/articles/create.html'
-        }).
-        when('/articles/:articleId/edit', {
-            templateUrl: 'views/articles/edit.html'
-        }).
-        when('/articles/:articleId', {
-            templateUrl: 'views/articles/view.html'
-        }).
         when('/', {
             templateUrl: 'views/index.html'
+        }).
+        when('/procedimientos', {
+            templateUrl: 'views/procedimientos/list.html'
+        }).
+        when('/procedimientos/create', {
+            templateUrl: 'views/procedimientos/create.html'
+        }).
+        when('/procedimientos/:procedimientoId/edit', {
+            templateUrl: 'views/procedimientos/edit.html'
+        }).
+        when('/procedimientos/:procedimientoId', {
+            templateUrl: 'views/procedimientos/view.html'
+        }).
+        when('/procedimientos/pasos/:procedimientoId', {
+            templateUrl: 'views/procedimientos/pasos.html'
+        }).
+        when('/categorias', {
+            templateUrl: 'views/categorias/list.html'
+        }).
+        when('/categorias/create', {
+            templateUrl: 'views/categorias/create.html'
+        }).
+        when('/categorias/:categoriaId/edit', {
+            templateUrl: 'views/categorias/edit.html'
+        }).
+        when('/categorias/:categoriaId', {
+            templateUrl: 'views/categorias/view.html'
         }).
         otherwise({
             redirectTo: '/'

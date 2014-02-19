@@ -1,0 +1,12 @@
+<section data-ng-controller="ProcedimientosController" data-ng-init="find()">
+	<ul class="procedimientos unstyled">
+		<li data-ng-repeat="procedimiento in procedimientos">
+			<span>{{procedimiento.created | date:'medium'}}</span> /
+			<span>{{procedimiento.user.name}}</span>
+			<h2><a data-ng-href="#!/procedimientos/{{procedimiento._id}}">{{procedimiento.nombre}}</a></h2>
+			<div>{{procedimiento.descripcion}}</div>
+		</li>
+	</ul>
+	<a href="/#!/procedimientos/create">Create</a>
+	<h1 data-ng-hide="!procedimientos || procedimientos.length">No procedimientos yet. <br> Why don't you <a href="/#!/procedimientos/create">Create One</a>?</h1>
+</section>

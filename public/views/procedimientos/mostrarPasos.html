@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered table-hover" id="tablaPasosEdicion">
+	<tr>
+		<th class="col-sm-1 text-center">No. Paso</th>	
+		<th class="text-center">Descripcion</th>	
+		<th class="col-sm-2 text-center">Acciones</th>	
+	</tr>
+	<tr ng-repeat="pasos in procedimiento.pasos">
+		<td> <div class="text-center">{{pasos.numeroPaso}}</div></td>
+		<td> {{pasos.descripcion | truncate:100}} </td>
+		<td class=" text-center">
+			<ul class="list-inline">
+				<li class="glyphicon glyphicon-arrow-up btn-link"></li>
+				<li class="glyphicon glyphicon-arrow-down btn-link"></li>
+				<li ng-click="agregarPasoIntermedio($index)" class="glyphicon glyphicon-plus-sign btn-link"></li>
+				<li ng-click="enviarDatosEditarPaso($index)" class="glyphicon glyphicon-edit btn-link"></li>			
+				<li ng-click="eliminarPaso($index)" class="glyphicon glyphicon-trash btn-link"></li>
+		</td>
+	</tr>	
+</table>

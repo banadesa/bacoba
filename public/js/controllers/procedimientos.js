@@ -254,7 +254,7 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         $scope.descripcionPaso = $scope.procedimiento.pasos[id].descripcion;
         $scope.numeroPaso = $scope.procedimiento.pasos[id].numeroPaso;
         $scope.imagenPaso = $scope.procedimiento.pasos[id].imagen;
-        $scope.videoPaso = $scope.procedimiento.pasos[id].video;
+        $scope.videoPasoFake = $scope.procedimiento.pasos[id].video.substring(10,$scope.procedimiento.pasos[id].video.length);
         $scope.edicionPaso = true;
         $scope.focusElement('descripcionPaso');
     };
@@ -292,19 +292,24 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         $scope.formaPaso.$setPristine();
         $scope.edicionPaso = false;
         $scope.indexPaso;
-        $scope.ultimoPaso();
         $scope.fileImagen = '';
         $scope.fileVideo = '';
+        $scope.videoPasoFake = '';
+        $scope.imagenPaso = '';
+        $scope.descripcionPaso = '';
+        $scope.numeroPaso = '';
+        $scope.ultimoPaso();
         $scope.focusElement('descripcionPaso');
-
-    }
+    };
 
     /**
      *Quita la ruta falsa puesta por chrome a la imagen
      */
-     $scope.quitaRutaImagen = function() {
-        $scope.imagenPaso = $scope.imagenPasoFile.replace('C:\\fakepath\\','');
-     }
+     $scope.quitaRutaVideo = function() {
+        if ($scope.videoPaso) {
+            $scope.videoPasoFake = $scope.videoPaso.replace('C:\\fakepath\\','');
+        };
+     };
 
      $scope.verImagen = function() {
         leerArchivo.readAsDataUrl($scope.fileImagen, $scope)

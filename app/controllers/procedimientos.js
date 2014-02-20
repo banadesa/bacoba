@@ -142,21 +142,13 @@ exports.upload = function (req, res) {
                         } else {
                             /// write file to uploads/fullsize folder
                             fs.writeFile(newPathImagen, data, function (err) {
-                            console.log('newPathImagen');
-                            console.log(newPathImagen);
-                            console.log('thumbPath');
-                            console.log(thumbPath);
                             im.resize({
                                 srcPath: newPathImagen,
                                 dstPath: thumbPath,
-                                width:   200
+                                width:   "300!",
+                                height:   "150!"
                             }, function(err, stdout, stderr){
                                   if (err) throw err;
-                                  console.log('resized image to fit within 200x200px');
-                                  console.log('stdout');
-                                  console.log(stdout);
-                                  console.log('stderr');
-                                  console.log(stderr);
                             });
                                 res.send('no se pudo cargar la imagen');
                             });

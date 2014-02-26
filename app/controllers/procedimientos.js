@@ -42,13 +42,21 @@ exports.create = function(req, res) {
             */
             var rootPath = path.normalize(__dirname + '/../..');
             rootPath = rootPath + '/public/contenido/' + procedimiento._id;
-            var imagenesPath = rootPath + '/imagenes'
-            var imagenesThumbsPath = rootPath + '/imagenes/thumbs'
-            var videosPath = rootPath + '/videos'
-            fs.mkdir(rootPath, function(e){ });
-            fs.mkdir(imagenesPath, function(e){ });
-            fs.mkdir(imagenesThumbsPath, function(e){ });
-            fs.mkdir(videosPath, function(e){ });
+            var imagenesPath = rootPath + '/imagenes';
+            var imagenesThumbsPath = rootPath + '/imagenes/thumbs';
+            var videosPath = rootPath + '/videos';
+            fs.mkdir(rootPath, function(e){
+                console.log(e);
+            });
+            fs.mkdir(imagenesPath, function(e){
+                console.log(e);
+            });
+            fs.mkdir(imagenesThumbsPath, function(e){
+                console.log(e);
+            });
+            fs.mkdir(videosPath, function(e){
+                console.log(e);
+            });
 
             res.jsonp(procedimiento);
         }
@@ -127,59 +135,62 @@ exports.upload = function (req, res) {
             var rootPath = path.normalize(__dirname + '/../..');
             rootPath = rootPath + '/public/contenido/' + procedimientoId;
             /*Guarda la imagen*/
-             if (req.files['image']) {
-                 if (req.files['image'].size !== 0) {
-                    var imagen = req.files['image'];
-                    var imagenName = imagen.name
+            if (req.files.image) {
+                if (req.files.image.size !== 0) {
+                    var imagen = req.files.image;
+                    var imagenName = imagen.name;
                     newImagenName = Math.round(new Date().getTime() / 1000) + imagenName ;
                     var newPathImagen = rootPath + '/imagenes/' + newImagenName;
                     var thumbPath = rootPath + '/imagenes/thumbs/' + newImagenName;
                     fs.readFile(imagen.path, function (err, data) {
                         /// If there's an error
                         if(!imagenName){
-                            console.log("There was an error")
-                            res.send('no existe el nombre de la');
+                            console.log('There was an error');
+                            res.send('Nose se guardo la imagen');
                         } else {
                             /// write file to uploads/fullsize folder
                             fs.writeFile(newPathImagen, data, function (err) {
-                            im.resize({
-                                srcPath: newPathImagen,
-                                dstPath: thumbPath,
-                                width:   "300!",
-                                height:   "150!"
-                            }, function(err, stdout, stderr){
-                                  if (err) throw err;
-                            });
+                                im.resize({
+                                    srcPath: newPathImagen,
+                                    dstPath: thumbPath,
+                                    width:   '300!',
+                                    height:   '150!'
+                                }, function(err){
+                                    if (err) throw err;
+                                });
                                 res.send('no se pudo cargar la imagen');
+                                console.log(err);
                             });
                         }
                     });
                 } else {
-                     newImagenName = '';
+                    newImagenName = '';
                 }
-             };
+            }
 
             /*Guarda el video*/
-            if (req.files['video']){
-                if (req.files['video'].size !== 0) {
-                    var video = req.files['video'];
-                    var videoName = video.name
+            if (req.files.video){
+                if (req.files.video.size !== 0) {
+                    var video = req.files.video;
+                    var videoName = video.name;
                     newVideoName = Math.round(new Date().getTime() / 1000) + videoName;
                     var newPathVideo = rootPath + '/videos/' + newVideoName;
                     fs.readFile(video.path, function (err, data) {
                         /// If there's an error
                         if(!videoName){
-                            console.log("There was an error")
+                            console.log('There was an error');
                             res.send('no existe el nombre del video');
                         } else {
                             /// write file to uploads/fullsize folder
                             fs.writeFile(newPathVideo, data, function (err) {
                                 res.send('no se pudo cargar el video');
+                                console.log(err);
                             });
                         }
+                        console.log(err);
                     });
                 } else {
-                    newVideoName = ''
+                    newVideoName = '';
                 }
             }
 
@@ -188,7 +199,7 @@ exports.upload = function (req, res) {
                 imagenUrl: newImagenName
             };
             res.send(JSON.stringify(responseObj));
-        };
+        }
     }
     else {
         res.send({ msg: 'No existia el archivo ' + new Date().toString() });

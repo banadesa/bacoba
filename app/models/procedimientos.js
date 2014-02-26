@@ -48,6 +48,19 @@ var ProcedimientoSchema = new Schema({
             type: String,
             default: '',
             trim: true
+        },
+        version: {
+            type: String,
+            default: '1.0.0',
+            trim: true
+        },
+        eliminado: {
+            type: Boolean,
+            default: false
+        },
+        actual: {
+            type: Boolean,
+            default: true
         }
     }],
     estado: {
@@ -55,11 +68,22 @@ var ProcedimientoSchema = new Schema({
         default: 'I',
         trim: true
     },
-    version: {
+    versionActual: {
         type: String,
-        default: '0.1',
+        default: '0',
         trim: true
     },
+    versiones: [{
+        version: {
+            type: String,
+            default: '',
+            trim: true
+        },
+        fecha: {
+            type: Date,
+            default: Date.now
+        }
+     }],
     categorias: [{
         type: Schema.ObjectId,
         ref: 'Categoria'
@@ -94,6 +118,15 @@ var ProcedimientoSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },
+    visitas: {
+        type: Number,
+        default: 0
+    },
+    eliminado: {
+        type: String,
+        default: 'N',
+        trim: true
     }
 });
 
@@ -109,7 +142,14 @@ ProcedimientoSchema.path('nombre').validate(function(nombre) {
  */
 ProcedimientoSchema.statics.load = function(id, cb) {
     this.findOne({
-        _id: id
+        _id: id,
+    },
+    function(err, procedimiento){
+        if (err) { return next(err);}
+        procedimiento.visitas += 1;
+        procedimiento.save(function(err) {
+            if (err) { return next(err);}
+        })
     }).populate('categorias', 'name').populate('user', 'name username').exec(cb);
 };
 

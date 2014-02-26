@@ -20,50 +20,64 @@ angular.module('mean.directives', [])
         };
     })
     .directive('fileInput', ['$parse', function ($parse) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            var model = $parse(attrs.fileInput);
-            var modelSetter = model.assign;
-            element.bind('change', function(){
-                scope.$apply(function(){
-                    modelSetter(scope, element[0].files[0]);
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                var model = $parse(attrs.fileInput);
+                var modelSetter = model.assign;
+                element.bind('change', function(){
+                    scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                    });
                 });
-            });
-        }
-    };
-    }])    .directive('ngThumb', ['$window', function($window) {
-
+            }
+        };
+    }])
+    .directive('videoPaso', function () {
+        return {
+            template: '<input value=\"{{videoPasoFake}}\" id=\"videoPaso\" cols=\"30\" placeholder=\"Video\" class=\"form-control\">',
+            restrict: 'E',
+            link: function(scope) {
+                scope.$watch('fileVideo', function(value) {
+                    if (value) {
+                        scope.videoPasoFake = value.name;
+                    }
+                });
+            }
+        };
+    })
+    .directive('ngThumb', function() {
         return {
             restrict: 'A',
             template: '<canvas/>',
             link: function(scope, element, attributes) {
                 scope.$watch('fileImagen', function(value){
-                    scope.formaPaso.$pristine = false;
-                    var params = scope.$eval(attributes.ngThumb);
-                    var canvas = element.find('canvas');
-                    var reader = new FileReader();
-                    reader.onload = onLoadFile;
-                    reader.readAsDataURL(scope.fileImagen);
 
-                    function onLoadFile(event) {
+                    var onLoadFile = function(event) {
                         var img = new Image();
                         img.onload = onLoadImage;
                         img.src = event.target.result;
+                    };
 
-                    }
-
-                    function onLoadImage() {
+                    var onLoadImage = function() {
                         var width = params.width || this.width / this.height * params.height;
                         var height = params.height || this.height / this.width * params.width;
                         canvas.attr({ width: width, height: height });
                         canvas[0].getContext('2d').drawImage(this, 0, 0, width, height);
-                    }
-                    if (!value) {
+                    };
+
+                    scope.formaPaso.$pristine = false;
+                    var params = scope.$eval(attributes.ngThumb);
+                    var canvas = element.find('canvas');
+                     if (!value) {
                         canvas[0].getContext('2d').clearRect(0, 0, 300, 300);
-                        canvas[0].getContext('2d').fillStyle = "#999999";
-                        canvas[0].getContext('2d').font = "italic 15px sans-serif Helvetica";
-                        canvas[0].getContext('2d').fillText("Seleccione una Imagen", 70, 80);
+                        canvas[0].getContext('2d').fillStyle = '#999999';
+                        canvas[0].getContext('2d').font = 'italic 15px sans-serif Helvetica';
+                        canvas[0].getContext('2d').fillText('Seleccione una Imagen', 70, 80);
+                    } else {
+                        var reader = new FileReader();
+                        reader.onload = onLoadFile;
+                        reader.readAsDataURL(scope.fileImagen);
                     }
                 });
                 scope.$watch('imagenPaso', function(value) {
@@ -73,15 +87,15 @@ angular.module('mean.directives', [])
                         img.onload = function(){
                             canvas[0].getContext('2d').drawImage(this,0,0);
                         };
-                        img.src="/contenido/"+ scope.procedimiento._id + "/imagenes/thumbs/" + value;
+                        img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/thumbs/' + value;
                     } else {
                         canvas[0].getContext('2d').clearRect(0, 0, 300, 300);
-                        canvas[0].getContext('2d').fillStyle = "#999999";
-                        canvas[0].getContext('2d').font = "italic 15px sans-serif Helvetica";
-                        canvas[0].getContext('2d').fillText("Seleccione una Imagen", 70, 80);
+                        canvas[0].getContext('2d').fillStyle = '#999999';
+                        canvas[0].getContext('2d').font = 'italic 15px sans-serif Helvetica';
+                        canvas[0].getContext('2d').fillText('Seleccione una Imagen', 70, 80);
                     }
                 });
             }
         };
-    }]);
+    });
 

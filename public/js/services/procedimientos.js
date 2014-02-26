@@ -22,7 +22,7 @@ angular.module('mean.procedimientos')
                 console.log('tipo');
                 console.log(tipo);
                 fd.append(tipo, files[i]);
-            };
+            }
             $http.post(uploadUrl, fd, {
                 transformRequest: angular.identity,
                 headers: {'Content-Type': undefined}
@@ -35,7 +35,7 @@ angular.module('mean.procedimientos')
             });
         } else {
             deferred.resolve('');
-        };
+        }
         return deferred.promise;
-    }
+    };
 }]);

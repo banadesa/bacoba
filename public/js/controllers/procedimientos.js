@@ -189,14 +189,8 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
             }
             if (edita) {
                 $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
-                console.log('$scope.procedimiento.versionActual');
-                console.log($scope.procedimiento.versionActual);
                 $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
-                console.log('$scope.versionEdita');
-                console.log($scope.versionEdita);
                 $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
-                console.log('$scope.versionAgruegaQuita');
-                console.log($scope.versionAgruegaQuita);
             }
         });
     };
@@ -219,7 +213,7 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         var posFinal = 0;
         // Si es recien creado o no tiene ninguna version
         if (version === '0' || !version || $scope.procedimiento.pasos.length < 2) {
-            return '1.0.0'
+            return '1.0.0';
         }
         //Si la posicion es mayor a las existentes retornar
         //la misma version
@@ -229,8 +223,8 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
 
         //Busca la posicion del numero a editar
         while (i < posicion-1 && version.indexOf('.', posInicial+1) !== -1){
-                posInicial = version.indexOf('.', posInicial+1);
-                i++;
+            posInicial = version.indexOf('.', posInicial+1);
+            i++;
         }
 
         //Le suma uno ya que el posInicial esta en el .
@@ -252,7 +246,7 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         // de poner en 0 las subversiones subsiguientes
         if (posFinal === version.length) {
             nomas = true;
-        };
+        }
 
         //Dependiendo del signo suma, resta o pone en 0 la version segun la
         //posicion enviada, mientras no sea el fin llama recursivamente el
@@ -280,7 +274,7 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         }
 
         return resultado;
-    }
+    };
 
     /**
      * Pone el foco en un elemento segun su id y va al top de la pagina
@@ -342,8 +336,8 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
                     $scope.procedimiento.pasos[i].numeroPaso = $scope.procedimiento.pasos[i].numeroPaso - 1;
                 } else {
                     if ($scope.procedimiento.pasos[i].actual && !$scope.procedimiento.pasos[i].eliminado) {
-                         $scope.procedimiento.pasos[i].actual = false;
-                         $scope.procedimiento.pasos.push({
+                        $scope.procedimiento.pasos[i].actual = false;
+                        $scope.procedimiento.pasos.push({
                             'numeroPaso': $scope.procedimiento.pasos[i].numeroPaso - 1,
                             'descripcion': $scope.procedimiento.pasos[i].descripcion,
                             'imagen': $scope.procedimiento.pasos[i].imagen,
@@ -352,7 +346,6 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
                             'actual': true,
                             'eliminado': false
                         });
-
                     }
                 }
             }
@@ -363,8 +356,8 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
                     $scope.procedimiento.pasos[i].numeroPaso = $scope.procedimiento.pasos[i].numeroPaso + 1;
                 } else {
                     if ($scope.procedimiento.pasos[i].actual && !$scope.procedimiento.pasos[i].eliminado) {
-                         $scope.procedimiento.pasos[i].actual = false;
-                         $scope.procedimiento.pasos.push({
+                        $scope.procedimiento.pasos[i].actual = false;
+                        $scope.procedimiento.pasos.push({
                             'numeroPaso': $scope.procedimiento.pasos[i].numeroPaso + 1,
                             'descripcion': $scope.procedimiento.pasos[i].descripcion,
                             'imagen': $scope.procedimiento.pasos[i].imagen,
@@ -373,7 +366,6 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
                             'actual': true,
                             'eliminado': false
                         });
-
                     }
                 }
              //   $scope.procedimiento.pasos[i].numeroPaso = $scope.procedimiento.pasos[i].numeroPaso + 1;
@@ -408,7 +400,7 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         $scope.imagenPaso = $scope.procedimiento.pasos[id].imagen;
         $scope.videoPasoFake = $scope.procedimiento.pasos[id].video.substring(10,$scope.procedimiento.pasos[id].video.length);
         $scope.edicionPaso = true;
-        $scope.focusElement('descripcionPaso');
+        $scope.focusElement('taTextElement');
     };
 
     /**
@@ -419,7 +411,7 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
     $scope.agregarPasoIntermedio = function(id) {
         $scope.indexPaso = id;
         $scope.numeroPaso = $scope.procedimiento.pasos[$scope.indexPaso].numeroPaso + 1;
-        $scope.focusElement('descripcionPaso');
+        $scope.focusElement('taTextElement');
     };
 
     /**
@@ -452,34 +444,26 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         $scope.videoPasoFake = '';
         $scope.imagenPaso = '';
         $scope.descripcionPaso = '';
+        console.log('$scope.displayElements');
+        console.log($scope);
         $scope.numeroPaso = $scope.ultimoPaso();
-        $scope.focusElement('descripcionPaso');
+        $scope.focusElement('taTextElement');
     };
 
     /* Ordena los pasos en orden Ascendente */
     $scope.sortPasos = function() {
-        console.log('hice un sort');
         $scope.procedimiento.pasos.sort(function(a,b) {
-                console.log("b " + b.numeroPaso + " a " +
-                    a.numeroPaso + " resta " + (parseInt(b.numeroPaso) - parseInt(a.numeroPaso)) +
-                    " a.actual " + a.actual + " b.actual " + b.actual);
-                var n = b.actual - a.actual
-                if (n !== 0) {
-                    return n
-                };
-
-                n = parseInt(b.numeroPaso) - parseInt(a.numeroPaso);
-                if (n !== 0) {
-                    return n
-                };
-                return b.version - a.version
-                /*if (a.actual && b.actual) {
-                    return parseInt(b.numeroPaso) - parseInt(a.numeroPaso) ;
-                } else {
-                    return -1;
-                }*/
+            var n = b.actual - a.actual;
+            if (n !== 0) {
+                return n;
+            }
+            n = parseInt(b.numeroPaso) - parseInt(a.numeroPaso);
+            if (n !== 0) {
+                return n;
+            }
+            return b.version - a.version;
         });
-    }
+    };
 }]);
 
 

@@ -69,7 +69,7 @@ angular.module('mean.directives', [])
                     scope.formaPaso.$pristine = false;
                     var params = scope.$eval(attributes.ngThumb);
                     var canvas = element.find('canvas');
-                     if (!value) {
+                    if (!value) {
                         canvas[0].getContext('2d').clearRect(0, 0, 300, 300);
                         canvas[0].getContext('2d').fillStyle = '#999999';
                         canvas[0].getContext('2d').font = 'italic 15px sans-serif Helvetica';

@@ -43,3 +43,17 @@ footer p {
     cursor: inherit;
     display: block;
 }
+.lighter{
+    padding: 0.5em;
+}
+
+.border-around{
+    border:1px solid rgba(2,2,2,0.1);
+    border-radius: 6px;
+    vertical-align: text-bottom;
+}
+
+.height-textarea{
+    min-height: 150px;
+    height: auto;
+}

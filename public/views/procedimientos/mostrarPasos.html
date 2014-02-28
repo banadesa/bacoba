@@ -8,7 +8,7 @@
 		<th class="text-center">Actual</th>
 		<th class="col-sm-2 text-center">Acciones</th>
 	</tr>
-	<tr ng-repeat="pasos in procedimiento.pasos | filter:actual=true">
+	<tr ng-repeat="pasos in procedimiento.pasos | filter:{actual: true}">
 		<td> <div class="text-center">{{$index}}</div></td>
 		<td> <div class="text-center">{{pasos.numeroPaso}}</div></td>
 		<td> {{pasos.descripcion | truncate:100}} </td>

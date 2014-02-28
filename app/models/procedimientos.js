@@ -83,7 +83,7 @@ var ProcedimientoSchema = new Schema({
             type: Date,
             default: Date.now
         }
-     }],
+    }],
     categorias: [{
         type: Schema.ObjectId,
         ref: 'Categoria'
@@ -145,11 +145,11 @@ ProcedimientoSchema.statics.load = function(id, cb) {
         _id: id,
     },
     function(err, procedimiento){
-        if (err) { return next(err);}
+        if (err) { return err;}
         procedimiento.visitas += 1;
         procedimiento.save(function(err) {
-            if (err) { return next(err);}
-        })
+            if (err) { return err;}
+        });
     }).populate('categorias', 'name').populate('user', 'name username').exec(cb);
 };
 

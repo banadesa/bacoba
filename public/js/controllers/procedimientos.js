@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.procedimientos').
-controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '$anchorScroll', 'Global', 'Procedimientos','Categorias','cargarArchivo',
-   function ($scope, $routeParams, $location, $anchorScroll, Global, Procedimientos, Categorias, cargarArchivo) {
+controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', 'Global', 'Procedimientos','Categorias','cargarArchivo',
+   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, Global, Procedimientos, Categorias, cargarArchivo) {
     $scope.global = Global;
 
     $scope.popularCategorias = function(query) {
@@ -400,7 +400,6 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         $scope.imagenPaso = $scope.procedimiento.pasos[id].imagen;
         $scope.videoPasoFake = $scope.procedimiento.pasos[id].video.substring(10,$scope.procedimiento.pasos[id].video.length);
         $scope.edicionPaso = true;
-        $scope.focusElement('taTextElement');
     };
 
     /**
@@ -411,7 +410,6 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
     $scope.agregarPasoIntermedio = function(id) {
         $scope.indexPaso = id;
         $scope.numeroPaso = $scope.procedimiento.pasos[$scope.indexPaso].numeroPaso + 1;
-        $scope.focusElement('taTextElement');
     };
 
     /**
@@ -443,11 +441,8 @@ controller('ProcedimientosController', ['$scope', '$routeParams', '$location', '
         $scope.fileVideo = '';
         $scope.videoPasoFake = '';
         $scope.imagenPaso = '';
-        $scope.descripcionPaso = '';
-        console.log('$scope.displayElements');
-        console.log($scope);
+        $scope.descripcionPaso = null;
         $scope.numeroPaso = $scope.ultimoPaso();
-        $scope.focusElement('taTextElement');
     };
 
     /* Ordena los pasos en orden Ascendente */

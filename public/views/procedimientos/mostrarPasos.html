@@ -11,7 +11,7 @@
 	<tr ng-repeat="pasos in procedimiento.pasos | filter:{actual: true}">
 		<td> <div class="text-center">{{$index}}</div></td>
 		<td> <div class="text-center">{{pasos.numeroPaso}}</div></td>
-		<td> {{pasos.descripcion | truncate:100}} </td>
+		<td> {{pasos.descripcion | notags | truncate:100 }} </td>
 		<td> {{pasos.version }} </td>
 		<td> {{pasos.eliminado }} </td>
 		<td> {{pasos.actual }} </td>

@@ -3,7 +3,7 @@
  * Truncate Filter
  * @Param text
  * @Param length, default is 10
- * @Param end, default is "..."
+ * @Param end, default is '...'
  * @return string
  */
 angular.module('mean.filters', []).
@@ -22,5 +22,32 @@ angular.module('mean.filters', []).
                 return String(text).substring(0, length-end.length) + end;
             }
 
+        };
+    })
+    .filter('notags', function () {
+        return function (text) {
+                return String(text).replace(/<h1>/g,' ')
+                .replace(/<h2>/g,' ')
+                .replace(/<div>/g,' ')
+                .replace(/<li>/g,' ')
+                .replace(/<ul>/g,' ')
+                .replace(/<ol>/g,' ')
+                .replace(/<pre>/g,' ')
+                .replace(/<b>/g,' ')
+                .replace(/<i>/g,' ')
+                .replace(/<u>/g,' ')
+                .replace(/&#160;/g,' ')
+                .replace(/<\/h1>/g,' ')
+                .replace(/<\/h2>/g,' ')
+                .replace(/<\/div>/g,' ')
+                .replace(/<\/li>/g,' ')
+                .replace(/<\/ul>/g,' ')
+                .replace(/<\/ol>/g,' ')
+                .replace(/<\/pre>/g,' ')
+                .replace(/<\/b>/g,' ')
+                .replace(/<\/i>/g,' ')
+                .replace(/<\/u>/g,' ')
+                .replace(/<\/a>/g,' ')
+                .replace(/<a[^>]+>/g,' ')
         };
     });

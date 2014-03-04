@@ -19,6 +19,12 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/mostrarPasos.html'
         };
     })
+    .directive('mostrarPasosEdit', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/procedimientos/mostrarPasosEdit.html'
+        };
+    })
     .directive('fileInput', ['$parse', function ($parse) {
         return {
             restrict: 'A',
@@ -33,7 +39,7 @@ angular.module('mean.directives', [])
             }
         };
     }])
-    .directive('videoPaso', function () {
+    .directive('videoPaso', function() {
         return {
             template: '<input value=\"{{videoPasoFake}}\" id=\"videoPaso\" cols=\"30\" placeholder=\"Video\" class=\"form-control\">',
             restrict: 'E',
@@ -97,5 +103,35 @@ angular.module('mean.directives', [])
                 });
             }
         };
-    });
+    })
+    .directive('baImagen',function() {
+        return {
+            restrict: 'E',
+            template: '<canvas/>',
+            link: function(scope, element, attributes) {
+                var value = attributes.value;
+                var canvas = element.find('canvas');
+                var img = new Image();
+                var width, height;
+                var porcentaje; //porcentaje que se necesita multiplicar para que quede con 1000 de width
+                if (value) {
+                    img.onload = function(){
+                        //Si el width es mayor que
+                        if (this.width > 1000) {
+                            porcentaje = (1 - ((this.width - 1000)/this.width))
+                            width = porcentaje*this.width;
+                            height = porcentaje*this.height;
+                        } else {
+                            width = this.width;
+                            height = this.height;
+                        }
+
+                        canvas.attr({ width: width, height: height });
+                        canvas[0].getContext('2d').drawImage(this,0,0,width,height);
+                    };
+                    img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/' + value;
+                }
+            }
+        }
+    }) ;
 

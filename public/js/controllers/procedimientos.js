@@ -191,6 +191,11 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
                 $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
                 $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
+                $scope.modificando = true; //Para saber si estoy modificando los pasos
+            }
+            else {
+                $scope.sortPasosAsc();
+                $scope.modificando = false;
             }
         });
     };
@@ -445,7 +450,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.numeroPaso = $scope.ultimoPaso();
     };
 
-    /* Ordena los pasos en orden Ascendente */
+    /**
+     *Ordena los pasos en orden Descendente
+     */
     $scope.sortPasos = function() {
         $scope.procedimiento.pasos.sort(function(a,b) {
             var n = b.actual - a.actual;
@@ -459,6 +466,46 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             return b.version - a.version;
         });
     };
+
+    /**
+     *Ordena los pasos en orden Ascendente
+     */
+    $scope.sortPasosAsc = function() {
+        $scope.procedimiento.pasos.sort(function(a,b) {
+            var n = b.actual - a.actual;
+            if (n !== 0) {
+                return n;
+            }
+            n = parseInt(a.numeroPaso) - parseInt(b.numeroPaso);
+            if (n !== 0) {
+                return n;
+            }
+            return a.version - b.version;
+        });
+    };
+
+    /**
+     *Determinar si es el ultimo o primer paso
+     *@param {string} tipo si se quiere saber si el ultimo o primer paso
+     *@param {number) id  numero de paso o id del array
+     *@return {boolean} regresa true si el es ultimo primer paso
+     */
+     $scope.ultimoOPrimerPaso = function(tipo, id) {
+        if (tipo === 'u' && id === 0) {
+            return true;
+        }
+        if (tipo === 'p' && id === 1) {
+            return true
+        };
+        return false;
+     }
+
+     /**
+       *Redirige a la pagina que muestra el procedimiento y los pasos
+       */
+    $scope.irProcedimiento = function() {
+        $location.path('procedimientos/' + $scope.procedimiento._id );
+    }
 }]);
 
 

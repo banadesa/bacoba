@@ -10,28 +10,32 @@ config(function($provide){
         $provide.decorator('taOptions', ['$delegate', function(taOptions){
             // $delegate is the taOptions we are decorating
             // here we change taOptions to be the default of taOptions for example
-            taOptions = {toolbar: [
-                ['h1', 'h2', 'p', 'pre','bold', 'italics', 'underline',
-                'ul', 'ol','insertLink','redo', 'undo']
-            ],
-            classes: {
-                focussed: "focussed",
-                toolbar: "btn-toolbar",
-                toolbarGroup: "btn-group",
-                toolbarButton: "btn-sm btn-default",
-                toolbarButtonActive: "active",
-                disabled: "disabled",
-                textEditor: 'height-textarea form-control',
-                htmlEditor: 'form-control'
-            },
-            setup: {
-            // wysiwyg mode
-            textEditorSetup: function(element){
-                element.triggerHandler('focus');
-            },
-            // raw html
-            htmlEditorSetup: function(element){ }
-            }};
+            taOptions = {
+                toolbar: [
+                    ['h1', 'h2', 'p', 'pre','bold', 'italics', 'underline',
+                    'ul', 'ol','insertLink','redo', 'undo']
+                ],
+                classes: {
+                    focussed: 'focussed',
+                    toolbar: 'btn-toolbar',
+                    toolbarGroup: 'btn-group',
+                    toolbarButton: 'btn-sm btn-default',
+                    toolbarButtonActive: 'active',
+                    disabled: 'disabled',
+                    textEditor: 'height-textarea form-control',
+                    htmlEditor: 'form-control'
+                },
+                setup: {
+                    // wysiwyg mode
+                    textEditorSetup: function(element){
+                        element.triggerHandler('focus');
+                    },
+                    // raw html
+                    htmlEditorSetup: function(element){
+                        element.triggerHandler('focus');
+                    }
+                }
+            };
             return taOptions; // whatever you return will be the taOptions
         }]);
     });

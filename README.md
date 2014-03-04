@@ -11,3 +11,12 @@ Los cambios son los siguienes
         <pre>scope.displayElements.text[0].focus();</pre>
     </li>
 </ol>
+
+<h3>Pendientes para version 1.0.0</h3>
+<ul>
+    <li>Hacer que se puedan enlazar otros pasos</li>
+    <li>Advertencia al eliminar un procedimiento o paso</li>
+    <!--li></li>
+    <li></li>
+    <li></li-->
+</ul>

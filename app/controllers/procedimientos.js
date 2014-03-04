@@ -49,10 +49,9 @@ exports.create = function(req, res) {
                 console.log(e);
             });
             fs.mkdir(imagenesPath, function(e){
-                console.log(e);
-            });
-            fs.mkdir(imagenesThumbsPath, function(e){
-                console.log(e);
+                fs.mkdir(imagenesThumbsPath, function(e){
+                    console.log(e);
+                });
             });
             fs.mkdir(videosPath, function(e){
                 console.log(e);
@@ -123,7 +122,10 @@ exports.all = function(req, res) {
         }
     });
 };
-
+/**
+ *Carga la imagen y video del procedimiento ademas de hacer
+ *un thumbnail de la imagen
+ */
 exports.upload = function (req, res) {
     var im = require('imagemagick');
     var procedimientoId = req.param('procedimientoId');

@@ -1,15 +1,21 @@
-<h2>{{procedimiento.nombre}}</h2>
+<div data-ng-click="irProcedimiento()" style="cursor:pointer" tooltip="Has Click para ver el procedimiento" tooltip-placement="bottom" class="text-center">
+    <h1>{{procedimiento.nombre}}</h1>
+</div>
 <ul class="list-inline">
     <li ng-repeat="categoria in procedimiento.categorias">
         <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>
     </li>
 </ul>
 <div data-ng-show="global.user._id == procedimiento.user._id">
-    <a class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">
+    <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">
         <i class="glyphicon glyphicon-edit"></i>
     </a>
-    <a class="btn" data-ng-click="remove();">
+    <a class="btn" tooltip="Eliminar Procedimiento" data-ng-click="remove();">
         <i class="glyphicon glyphicon-trash"></i>
+    </a>
+    <a class="btn" tooltip="Editar Pasos del Procedimiento"  href="/#!/procedimientos/pasos/{{procedimiento._id}}">
+        <i class="glyphicon glyphicon-pencil" ng-show="{{modificando}}"></i>
     </a>
 </div>
 <div>{{procedimiento.descripcion}}</div>
+

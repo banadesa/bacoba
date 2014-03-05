@@ -1,7 +1,12 @@
+        <ul class="otracosa">
+            <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" >
+            <a href="#paso{{paso.numeroPaso}}">Paso No.{{paso.numeroPaso}}</a></li>
+        </ul>
 <div ng-repeat="paso in procedimiento.pasos | filter:{actual: true}">
-    <h3 class="label-primary " id="paso{{numeroPaso}}">Paso N°{{paso.numeroPaso}}</h3>
+    <h3 class="label-success" id="paso{{paso.numeroPaso}}">Paso N°{{paso.numeroPaso}}</h3>
     <p>
         <div ng-bind-html="paso.descripcion"></div>
     </p>
     <ba-imagen value={{paso.imagen}}></ba-imagen>
 </div>
+<h3 class="label-success text-center">FIN</h3>

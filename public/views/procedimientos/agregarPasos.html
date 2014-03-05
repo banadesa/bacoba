@@ -15,7 +15,7 @@
         <label class="col-md-2 control-label" for="imagenPaso">Imagen</label>
         <div class="col-md-10">
             <div class="img-thumbnail" ng-thumb="{ file: fileImagen, height: 150, width:300 }"></div>
-            <span class="btn btn-default btn-file btn-sm">
+            <span class="btn btn-default btn-file btn">
                 Buscar
                 <input type="file" file-input="fileImagen" accept="image/*" name="imagen">
             </span>
@@ -26,9 +26,12 @@
         <div class="col-md-10">
             <div class="input-group">
                 <video_paso></video_paso>
-                <span class="btn btn-default btn-file btn-sm input-group-btn">
-                    Buscar
-                    <input type="file" file-input="fileVideo" accept="video/*" name="video">
+                <span class="input-group-btn">
+                        <button class="btn btn-default btn btn-file" type="button">
+                            <input type="file" file-input="fileVideo" accept="video/*" name="video">
+                            Buscar
+                        </button>
+                    </div>
                 </span>
             </div>
         </div>

@@ -7,12 +7,13 @@
     "angular-cookies": "latest",
     "angular-mocks": "latest",
     "angular-route": "latest",
-    "bootstrap": "3.0.3",
+    "bootstrap": "latest",
     "angular-bootstrap": "0.10.0",
     "angular-ui-utils": "0.1.0",
     "angular-ui-select2": "~0.0.5",
     "fontawesome": "latest",
     "textAngular": "latest",
-    "angular-snap": "~1.4.0"
+    "angular-snap": "~1.4.0",
+    "snapjs": "*"
   }
 }

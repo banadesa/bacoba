@@ -16,7 +16,7 @@
             <label class="control-label col-md-2" for="categoria">Categoria:</label>
                 <div class="col-md-10">
                     <select ui-select2="{allowClear: true}" multiple style="width:450px"ng-model="categoriaSel" name="categoria" id="categoria" data-placeholder="Selecccione una Categoria">
-                     <<option ng-repeat="categoria in categorias" value="{{ categoria._id}}" > {{categoria.name}}</option>
+                     <option ng-repeat="categoria in categorias" value="{{ categoria._id}}" > {{categoria.name}}</option>
                     </select>
                 </div>
         </div>

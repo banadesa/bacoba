@@ -37,9 +37,8 @@ exports.create = function(req, res) {
                 procedimiento: procedimiento
             });
         } else {
-            /*Crea el directorio del procedimiento
-            *y imagenes y videos del mismo
-            */
+            //Crea el directorio del procedimiento,
+            //imagenes y videos del mismo
             var rootPath = path.normalize(__dirname + '/../..');
             rootPath = rootPath + '/public/contenido/' + procedimiento._id;
             var imagenesPath = rootPath + '/imagenes';

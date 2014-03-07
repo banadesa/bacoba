@@ -1,4 +1,7 @@
-<div data-ng-click="irProcedimiento()" style="cursor:pointer" tooltip="Has Click para ver el procedimiento" tooltip-placement="bottom" class="text-center">
+<div ng-show="modificando" data-ng-click="irProcedimiento()" style="cursor:pointer" tooltip="Has click para ver el procedimiento" tooltip-placement="bottom" class="text-center">
+    <h1>{{procedimiento.nombre}}</h1>
+</div>
+<div ng-hide="modificando" class="text-center">
     <h1>{{procedimiento.nombre}}</h1>
 </div>
 <ul class="list-inline">
@@ -18,4 +21,5 @@
     </a>
 </div>
 <h3>{{procedimiento.descripcion}}</h3>
+
 

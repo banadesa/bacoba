@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.procedimientos').
-controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', 'Global', 'Procedimientos','Categorias','cargarArchivo',
-   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, Global, Procedimientos, Categorias, cargarArchivo) {
+controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService',
+   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
     $scope.global = Global;
 
     $scope.popularCategorias = function(query) {
@@ -32,19 +32,28 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
 
     $scope.remove = function(procedimiento) {
-        if (procedimiento) {
-            procedimiento.$remove();
+        var modalOptions = {
+            closeButtonText: 'Cancelar',
+            actionButtonText: 'Eliminar Procedimiento',
+            headerText: '¿Eliminar el procedimiento ' + $scope.procedimiento.nombre + '?',
+            bodyText: 'Esta seguro que desea eliminar este procedimiento?'
+        };
 
-            for (var i in $scope.procedimientos) {
-                if ($scope.procedimientos[i] === procedimiento) {
-                    $scope.procedimientos.splice(i, 1);
+        modalService.showModal({}, modalOptions).then(function (result) {
+            if (procedimiento) {
+                procedimiento.$remove();
+
+                for (var i in $scope.procedimientos) {
+                    if ($scope.procedimientos[i] === procedimiento) {
+                        $scope.procedimientos.splice(i, 1);
+                    }
                 }
             }
-        }
-        else {
-            $scope.procedimiento.$remove();
-            $location.path('procedimientos');
-        }
+            else {
+                $scope.procedimiento.$remove();
+                $location.path('procedimientos');
+            }
+        });
     };
 
     /**
@@ -297,33 +306,43 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      * Elimina un paso del procedimiento
      *
      * @Param {number} id numero de indice en la tabla mostrarPasos
+     * @Param {number} paso numero de paso en la tabla mostrarPasos
      */
-    $scope.eliminarPaso = function(id) {
-        var pasoBorrar = $scope.procedimiento.pasos[id].numeroPaso;
+    $scope.eliminarPaso = function(id, paso) {
+        var modalOptions = {
+            closeButtonText: 'Cancelar',
+            actionButtonText: 'Eliminar Paso',
+            headerText: '¿Eliminar el Paso N° ' + paso + '?',
+            bodyText: 'Esta seguro que desea eliminar este paso?'
+        };
 
-        //Ya que la version al eliminar un paso es mayor a la edicion
-        //se iguala la version de editar
-        $scope.versionEdita = $scope.versionAgruegaQuita;
-        $scope.procedimiento.versionActual = $scope.versionAgruegaQuita;
-        //Asigna la nueva version al paso y lo identifica como eliminado y no actual
-        $scope.procedimiento.pasos[id].version = $scope.versionAgruegaQuita;
-        $scope.procedimiento.pasos[id].eliminado = true;
-        $scope.procedimiento.pasos[id].actual = false ;
+        modalService.showModal({}, modalOptions).then(function (result) {
+            var pasoBorrar = $scope.procedimiento.pasos[id].numeroPaso;
 
-        //Si es el utltimo paso no cambia el orden del resto
-        if (id !== 0) {
-            $scope.cambiarOrdenPasos(id-1,'eliminar');
-        }
+            //Ya que la version al eliminar un paso es mayor a la edicion
+            //se iguala la version de editar
+            $scope.versionEdita = $scope.versionAgruegaQuita;
+            $scope.procedimiento.versionActual = $scope.versionAgruegaQuita;
+            //Asigna la nueva version al paso y lo identifica como eliminado y no actual
+            $scope.procedimiento.pasos[id].version = $scope.versionAgruegaQuita;
+            $scope.procedimiento.pasos[id].eliminado = true;
+            $scope.procedimiento.pasos[id].actual = false ;
 
-        $scope.updatePaso();
-        //Si el paso a borrar es igual al paso que se esta editando
-        //reiniciar la forma
-        if (pasoBorrar === $scope.numeroPaso) {
-            $scope.reiniciarForma();
-        }
-        else {
-            $scope.numeroPaso = $scope.ultimoPaso();
-        }
+            //Si es el utltimo paso no cambia el orden del resto
+            if (id !== 0) {
+                $scope.cambiarOrdenPasos(id-1,'eliminar');
+            }
+
+            $scope.updatePaso();
+            //Si el paso a borrar es igual al paso que se esta editando
+            //reiniciar la forma
+            if (pasoBorrar === $scope.numeroPaso) {
+                $scope.reiniciarForma();
+            }
+            else {
+                $scope.numeroPaso = $scope.ultimoPaso();
+            }
+        });
     };
 
     /**
@@ -415,6 +434,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     $scope.agregarPasoIntermedio = function(id) {
         $scope.indexPaso = id;
         $scope.numeroPaso = $scope.procedimiento.pasos[$scope.indexPaso].numeroPaso + 1;
+        $scope.descripcionPaso = 'baujar';
+        $scope.descripcionPaso = '';
     };
 
     /**
@@ -490,22 +511,33 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *@param {number) id  numero de paso o id del array
      *@return {boolean} regresa true si el es ultimo primer paso
      */
-     $scope.ultimoOPrimerPaso = function(tipo, id) {
+    $scope.ultimoOPrimerPaso = function(tipo, id) {
         if (tipo === 'u' && id === 0) {
             return true;
         }
         if (tipo === 'p' && id === 1) {
-            return true
-        };
+            return true;
+        }
         return false;
-     }
+    };
 
      /**
        *Redirige a la pagina que muestra el procedimiento y los pasos
        */
     $scope.irProcedimiento = function() {
         $location.path('procedimientos/' + $scope.procedimiento._id );
-    }
+    };
+
+    /**
+     *Se va al paso deseado segun el id
+     *@param {number} numero de paso al que se desea ir
+     */
+    $scope.irPaso = function(elemento) {
+        var pasoId = '#paso' + elemento;
+        $('html, body').animate({
+            scrollTop: $(pasoId).offset().top
+        });
+    };
 }]);
 
 

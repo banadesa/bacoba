@@ -51,6 +51,7 @@ exports.create = function(req, res) {
                 fs.mkdir(imagenesThumbsPath, function(e){
                     console.log(e);
                 });
+                console.log(e);
             });
             fs.mkdir(videosPath, function(e){
                 console.log(e);

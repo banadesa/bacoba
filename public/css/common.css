@@ -182,7 +182,7 @@ footer p {
   }
 }
 
-.otracosa {
+.nav-lateral {
     position: fixed;
-    left: 0px
+    right: 0px
 }

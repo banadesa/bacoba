@@ -15,7 +15,7 @@
 				<li class="glyphicon" ng-show="ultimoOPrimerPaso('p',paso.numeroPaso)"></li>
 				<li tooltip="Agregar paso sobre este" ng-click="agregarPasoIntermedio($index)" class="glyphicon glyphicon-plus-sign btn-link"></li>
 				<li tooltip="Editar paso"ng-click="enviarDatosEditarPaso($index)" class="glyphicon glyphicon-edit btn-link"></li>
-				<li tooltip="Eliminar paso" ng-click="eliminarPaso($index)" class="glyphicon glyphicon-trash btn-link"></li>
+				<li tooltip="Eliminar paso" ng-click="eliminarPaso($index, paso.numeroPaso)" class="glyphicon glyphicon-trash btn-link"></li>
 		</td>
 	</tr>
 </table>

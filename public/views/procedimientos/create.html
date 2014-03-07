@@ -10,20 +10,21 @@
 			<label class="col-md-2 control-label" for="descripcion">Descripcion</label>
 			<div class="col-md-10">
 				<textarea data-ng-model="descripcion" id="descripcion" cols="30" rows="10" placeholder="Descripcion" class="form-control" required></textarea>
-			</div>			
+			</div>
 		</div>
 		<div class="form-group">
             <label class="control-label col-md-2" for="categoria">Categoria:</label>
                 <div class="col-md-10">
-                    <select ui-select2="{allowClear: true}" multiple style="width:450px"ng-model="categoriaSel" name="categoria" id="categoria" data-placeholder="Selecccione una Categoria">                     
+                    <select ui-select2="{allowClear: true}" multiple style="width:450px"ng-model="categoriaSel" name="categoria" id="categoria" data-placeholder="Selecccione una Categoria">
                      <<option ng-repeat="categoria in categorias" value="{{ categoria._id}}" > {{categoria.name}}</option>
                     </select>
                 </div>
-        </div>		
+        </div>
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
-				<input type="submit" class="btn btn-default">
+				<input type="submit" class="btn btn-primary" value="Guardar">
+                <a class="btn btn-default" ng-href="#!/procedimientos">Cancelar</a>
 			</div>
-		</div>	
+		</div>
 	</form>
 </section>

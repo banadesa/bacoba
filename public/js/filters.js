@@ -54,6 +54,6 @@ angular.module('mean.filters', []).
                 .replace(/<\/i>/g,' ')
                 .replace(/<\/u>/g,' ')
                 .replace(/<\/a>/g,' ')
-                .replace(/<\/p>/g,' ')
+                .replace(/<\/p>/g,' ');
             };
     });

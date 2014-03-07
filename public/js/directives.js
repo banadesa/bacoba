@@ -89,11 +89,15 @@ angular.module('mean.directives', [])
                 scope.$watch('imagenPaso', function(value) {
                     var canvas = element.find('canvas');
                     var img = new Image();
+                    console.log('qui toy');
+                    console.log(value);
                     if (value) {
+                        img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/thumbs/' + value;
                         img.onload = function(){
+                            console.log('this');
+                            console.log(this);
                             canvas[0].getContext('2d').drawImage(this,0,0);
                         };
-                        img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/thumbs/' + value;
                     } else {
                         canvas[0].getContext('2d').clearRect(0, 0, 300, 300);
                         canvas[0].getContext('2d').fillStyle = '#999999';
@@ -118,7 +122,7 @@ angular.module('mean.directives', [])
                     img.onload = function(){
                         //Si el width es mayor que
                         if (this.width > 1000) {
-                            porcentaje = (1 - ((this.width - 1000)/this.width))
+                            porcentaje = (1 - ((this.width - 1000)/this.width));
                             width = porcentaje*this.width;
                             height = porcentaje*this.height;
                         } else {
@@ -132,6 +136,6 @@ angular.module('mean.directives', [])
                     img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/' + value;
                 }
             }
-        }
+        };
     }) ;
 

@@ -89,7 +89,7 @@ exports.show = function(req, res) {
  * List of categorias
  */
 exports.all = function(req, res) {
-    Categoria.find().sort('-created').populate('user', 'name username').exec(function(err, categorias) {
+    Categoria.find().sort('-padre').populate('padre', 'name').populate('user', 'name username').exec(function(err, categorias) {
         if (err) {
             res.render('error', {
                 status: 500

@@ -5,6 +5,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
    function ($scope, $rootScope, $routeParams, $location, $anchorScroll, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
     $scope.global = Global;
 
+    /**
+     *Busca todas las cateogrias y las mete a un arreglo
+     */
     $scope.popularCategorias = function(query) {
         Categorias.query(query, function (categorias) {
             $scope.categorias = categorias;
@@ -538,6 +541,14 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             scrollTop: $(pasoId).offset().top
         });
     };
+
+    /**
+     *Guarda el rating dado por un usuario a un procedimiento
+     */
+    $scope.guardarRating = function(){
+        console.log('hola');
+        console.log($scope.rate);
+    }
 }]);
 
 

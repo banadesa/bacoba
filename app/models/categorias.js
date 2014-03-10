@@ -15,9 +15,9 @@ var CategoriaSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    updated: {
-        type: Date
-    },
+    updated: [{
+        type: Date,
+    }],
     name: {
         type: String,
         default: '',
@@ -31,6 +31,10 @@ var CategoriaSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },
+    padre: {
+        type: Schema.ObjectId,
+        ref: 'Categoria'
     }
 });
 
@@ -47,7 +51,7 @@ CategoriaSchema.path('name').validate(function(name) {
 CategoriaSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate('user', 'name username').exec(cb);
+    }).populate('padre', 'name').populate('user', 'name username').exec(cb);
 };
 
 mongoose.model('Categoria', CategoriaSchema);

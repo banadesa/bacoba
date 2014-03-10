@@ -1,7 +1,9 @@
-<section data-ng-controller="CategoriasController"  data-ng-init="findOne()">
+<section data-ng-controller="CategoriasController"  data-ng-init="findOne();popularCategorias()">
+	<h1 class="text-center">Editar Categoria</h1>
+	<br/>
 	<form class="form-horizontal col-md-6" role="form" data-ng-submit="update()">
 		<div class="form-group">
-			<label class="col-md-2 control-label" for="name">Name</label>
+			<label class="col-md-2 control-label" for="name">Nombre</label>
 			<div class="col-md-10">
 				<input type="text" class="form-control" data-ng-model="categoria.name" id="name" placeholder="Name" required>
 			</div>
@@ -12,10 +14,18 @@
 				<textarea data-ng-model="categoria.description" id="description" cols="30" rows="10" placeholder="Description" class="form-control" required></textarea>
 			</div>
 		</div>
-
+		<div class="form-group">
+			<label class="col-md-2 control-label" for="padre">Padre</label>
+			<div class="col-md-10">
+				<select ui-select2 data-placeholder="Selecccione una Categoria" data-ng-model="categoria.padre" id="padre" placeholder="Categoria Padre" style="width:450px">
+					<option ng-repeat="categoria in categorias" value="{{categoria._id}}">{{categoria.name}}</option>
+				</select>
+			</div>
+		</div>
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
-				<input type="submit" class="btn btn-default">
+				<input type="submit" class="btn btn-primary">
+				<a ng-href="#!/categorias" class="btn btn-default">Cancelar</a>
 			</div>
 		</div>
 	</form>

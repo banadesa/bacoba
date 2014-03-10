@@ -9,9 +9,9 @@
 		<td> {{paso.descripcion | notags | truncate:100 }} </td>
 		<td class=" text-center">
 			<ul class="list-inline">
-				<li tooltip="Mover aso hacia abajo" ng-click="cambiarOrdenPasos($index,'sube')" class="glyphicon glyphicon-arrow-up btn-link" ng-hide="ultimoOPrimerPaso('u',$index)"></li>
+				<li tooltip="Mover paso hacia abajo" ng-click="cambiarOrdenPasos($index,'sube')" class="glyphicon glyphicon-arrow-up btn-link" ng-hide="ultimoOPrimerPaso('u',$index)"></li>
 				<li class="glyphicon" ng-show="ultimoOPrimerPaso('u',$index)"></li>
-				<li tooltip="Mover aso hacia arriba" ng-click="cambiarOrdenPasos($index,'baja')" class="glyphicon glyphicon-arrow-down btn-link" ng-hide="ultimoOPrimerPaso('p',paso.numeroPaso)"></li>
+				<li tooltip="Mover paso hacia arriba" ng-click="cambiarOrdenPasos($index,'baja')" class="glyphicon glyphicon-arrow-down btn-link" ng-hide="ultimoOPrimerPaso('p',paso.numeroPaso)"></li>
 				<li class="glyphicon" ng-show="ultimoOPrimerPaso('p',paso.numeroPaso)"></li>
 				<li tooltip="Agregar paso sobre este" ng-click="agregarPasoIntermedio($index)" class="glyphicon glyphicon-plus-sign btn-link"></li>
 				<li tooltip="Editar paso"ng-click="enviarDatosEditarPaso($index)" class="glyphicon glyphicon-edit btn-link"></li>

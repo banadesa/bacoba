@@ -22,17 +22,17 @@ Los cambios son los siguienes
     <li><del>Debe ser registrado por usuarios</del></li>
     <li><del>Manejo de versiones en los procedimientos</del> Se manejan versiones pero no permite
     mostrar o editar versiones anteriores</li>
-    <li>Se puede navegar por categorias</li>
-    <li>Cada categoria puede tener infinita subcategorias</li>
-    <li>Se pueda crear un procedimiento a partir de otro</li>
+    <li><del>Cada categoria puede tener infinita subcategorias</del></li>
     <li>Los usuarios puedan dar rating a los procedimientos</li>
     <li>Los usuarios puedan dejar comentarios en los procedimientos</li>
-    <li>Los usuarios solo pueden ver los procedimientos de sus categorias</li>
     <li>Un paso pueda ser otro procedimiento</li>
+    <li>Se pueda exportar un procedimiento a PDF</li>
+    <li>Se pueda compartir un procedimiento por correo</li>
+    <li>Se pueda crear un procedimiento a partir de otro</li>
+    <li>Los usuarios solo pueden ver los procedimientos de sus categorias</li>
+    <li>Se puede navegar por categorias</li>
     <li>Hacer que se puedan enlazar otros pasos</li>
     <li>En la pagina principal se muestren los ultimos procedimientos visitos</li>
     <li>En la pagina principal se muestren los procedimientos mas vistos en la categoria del usuario</li>
     <li>Se pueda hacer una busqueda del procedimiento segun el nombre o la descripcion</li>
-    <li>Se pueda exportar un procedimiento a PDF</li>
-    <li>Se pueda compartir un procedimiento por correo</li>
 </ul>

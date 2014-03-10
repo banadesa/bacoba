@@ -1,8 +1,14 @@
 <div ng-show="modificando" data-ng-click="irProcedimiento()" style="cursor:pointer" tooltip="Has click para ver el procedimiento" tooltip-placement="bottom" class="text-center">
-    <h1>{{procedimiento.nombre}}</h1>
+    <h1>{{procedimiento.nombre}}
+    </h1>
 </div>
 <div ng-hide="modificando" class="text-center">
-    <h1>{{procedimiento.nombre}}</h1>
+    <h1>{{procedimiento.nombre}}
+    </h1>
+    <div class="btn-lg">
+        <rating value="rate" readonly="false" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="guardarRating()">
+        </rating>
+    </div>
 </div>
 <ul class="list-inline">
     <li ng-repeat="categoria in procedimiento.categorias">

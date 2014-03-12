@@ -79,13 +79,13 @@ angular.module('mean.procedimientos')
                     $scope.modalOptions.ok = function (result) {
                         $modalInstance.close(result);
                     };
-                    $scope.modalOptions.close = function (result) {
+                    $scope.modalOptions.close = function (/*result*/) {
                         $modalInstance.dismiss('cancel');
                     };
-                }
+                };
             }
 
             return $modal.open(tempModalDefaults).result;
         };
-
-}]);
+    }
+]);

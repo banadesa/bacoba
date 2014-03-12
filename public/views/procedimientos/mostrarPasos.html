@@ -1,10 +1,12 @@
+<!--Crea el menu lateral para ver los pasos -->
 <div class=" nav-lateral">
     <ul class="list-unstyled">
         <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" >
-            <div class="btn-link" ng-click="irPaso(paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
+            <div class="btn-link" ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
         </li>
     </ul>
 </div>
+<!--**************************************-->
 <div ng-repeat="paso in procedimiento.pasos | filter:{actual: true}">
     <div class="row">
     <h3 class="label-success col-lg-11" id="paso{{paso.numeroPaso}}">Paso N°{{paso.numeroPaso}}</h3>
@@ -15,4 +17,4 @@
     </p>
     <ba-imagen value={{paso.imagen}}></ba-imagen>
 </div>
-<h3 class="label-success text-center">FIN</h3>
+

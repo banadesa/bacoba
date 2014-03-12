@@ -1,0 +1,26 @@
+
+<div class="container">
+<form class="form col-md-6"  role="form">
+<div class="form-group">
+    <label class="col-md-2 control-label" for="comentario">Comentario:</label>
+    <div class="col-md-10">
+        <textarea data-ng-model="descripcionComentario" id="comentario" rows="5" placeholder="Comentario" class="col-sm-4 col-md-4 form-control" required></textarea>
+    </div>
+</div>
+<h4 class="text-left col-md-offset-2 col-md-10">
+    <rating value="rateUser" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+</h4>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <button class="btn btn-info" ng-click="guardarRating()">
+            <span class="glyphicon glyphicon-floppy-save">
+            </span>
+            Guardar
+        </button>
+        <button class="btn btn-default" ng-click="comentar=!comentar">
+            Cancelar
+        </button>
+    </div>
+</div>
+</form>
+</div>

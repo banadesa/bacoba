@@ -7,6 +7,12 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/agregarPasos.html'
         };
     })
+    .directive('agregarComentario', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/procedimientos/agregarComentario.html'
+        };
+    })
     .directive('mostrarProcedimiento', function() {
         return {
             restrict: 'E',

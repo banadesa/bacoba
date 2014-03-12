@@ -38,11 +38,11 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         var modalOptions = {
             closeButtonText: 'Cancelar',
             actionButtonText: 'Eliminar Procedimiento',
-            headerText: '¿Eliminar el procedimiento ' + $scope.procedimiento.nombre + '?',
-            bodyText: 'Esta seguro que desea eliminar este procedimiento?'
+            headerText: '¿Eliminar el procedimiento "' + $scope.procedimiento.nombre + '"?',
+            bodyText: 'Se eliminar el procedimiento de forma permanente'
         };
 
-        modalService.showModal({}, modalOptions).then(function (result) {
+        modalService.showModal({}, modalOptions).then(function (/*result*/) {
             if (procedimiento) {
                 procedimiento.$remove();
 
@@ -99,7 +99,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.reiniciarForma();
             });
     };
-
+    /**
+     *Edita un paso segun los cambios y aumenta el numero de version
+     */
     $scope.editarPaso = function() {
         $scope.procedimiento.versionActual = $scope.versionEdita;
         if ($scope.procedimiento.pasos[$scope.indexPaso].version === $scope.versionEdita ) {
@@ -135,6 +137,14 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         procedimiento.$update();
     };
 
+    /**
+     *Mande la instruccion de update del procedimiento al servidor
+     *cuando agrega un comentario
+     */
+    $scope.updateComentario = function() {
+        var procedimiento = $scope.procedimiento;
+        procedimiento.$update();
+    };
     /**
      *Agrega un paso al procedimiento, y reinicia la forma
      */
@@ -208,6 +218,20 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             else {
                 $scope.sortPasosAsc();
                 $scope.modificando = false;
+                $scope.totalVotos = $scope.procedimiento.rating.uno +
+                    $scope.procedimiento.rating.dos +
+                    $scope.procedimiento.rating.tres +
+                    $scope.procedimiento.rating.cuatro +
+                    $scope.procedimiento.rating.cinco;
+                $scope.rate = Math.round((($scope.procedimiento.rating.uno * 1) +
+                    ($scope.procedimiento.rating.dos * 2) +
+                    ($scope.procedimiento.rating.tres * 3) +
+                    ($scope.procedimiento.rating.cinco * 5) +
+                    ($scope.procedimiento.rating.cuatro * 4)) /
+                    ($scope.totalVotos));
+                $scope.comentar = false;
+                $scope.comentado = false;
+                $scope.rateUser = 0;
             }
         });
     };
@@ -300,8 +324,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.focusElement = function(elemento) {
         //$('html, body').animate({ scrollTop: 0 }, 'fast');
-        $location.hash('top');
-        $anchorScroll();
         document.getElementById(elemento).focus();
     };
 
@@ -316,10 +338,10 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             closeButtonText: 'Cancelar',
             actionButtonText: 'Eliminar Paso',
             headerText: '¿Eliminar el Paso N° ' + paso + '?',
-            bodyText: 'Esta seguro que desea eliminar este paso?'
+            bodyText: 'Esta seguro que desea eliminar el paso "' + $scope.procedimiento.pasos[id].descripcion +  '"?'
         };
 
-        modalService.showModal({}, modalOptions).then(function (result) {
+        modalService.showModal({}, modalOptions).then(function (/*result*/) {
             var pasoBorrar = $scope.procedimiento.pasos[id].numeroPaso;
 
             //Ya que la version al eliminar un paso es mayor a la edicion
@@ -532,23 +554,48 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
 
     /**
-     *Se va al paso deseado segun el id
-     *@param {number} numero de paso al que se desea ir
+     *Se va al elemento deseado segun el id
+     *@param {string} elemento al que se desea ir
      */
-    $scope.irPaso = function(elemento) {
-        var pasoId = '#paso' + elemento;
+    $scope.irElemento = function(elemento) {
+        //var pasoId = '#paso' + elemento;
         $('html, body').animate({
-            scrollTop: $(pasoId).offset().top
+            scrollTop: $(elemento).offset().top
         });
     };
 
     /**
      *Guarda el rating dado por un usuario a un procedimiento
+     *y el comentario
      */
     $scope.guardarRating = function(){
-        console.log('hola');
-        console.log($scope.rate);
-    }
+        if ($scope.descripcionComentario && $scope.rateUser !== 0) {
+            switch($scope.rateUser) {
+                case 1:
+                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.uno + 1;
+                break;
+                case 2:
+                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.dos + 1;
+                break;
+                case 3:
+                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.tres + 1;
+                break;
+                case 4:
+                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.cuatro + 1;
+                break;
+                case 5:
+                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.cinco + 1;
+                break;
+            };
+            $scope.procedimiento.comentarios.push({
+                'user': this.numeroPaso,
+                'comentario': this.descripcionPaso,
+                'rating': this.rateUser
+            });
+            $scope.updateComentario();
+            $scope.comentado=true;
+        }
+    };
 }]);
 
 

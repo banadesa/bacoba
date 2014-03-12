@@ -104,17 +104,32 @@ var ProcedimientoSchema = new Schema({
         },
         rating: {
             type: Number,
-            default: '',
+            default: 0,
             trim: true
         }
     }],
-    rating: [{
-        1: Number,
-        2: Number,
-        3: Number,
-        4: Number,
-        5: Number
-    }],
+    rating: {
+        uno: {
+            type: Number,
+            default: 0
+        },
+        dos: {
+            type: Number,
+            default: 0
+        },
+        tres: {
+            type: Number,
+            default: 0
+        },
+        cuatro: {
+            type: Number,
+            default: 0
+        },
+        cinco: {
+            type: Number,
+            default: 0
+        }
+    },
     user: {
         type: Schema.ObjectId,
         ref: 'User'

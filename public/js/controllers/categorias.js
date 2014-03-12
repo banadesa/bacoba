@@ -9,7 +9,7 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
             description: this.description,
             padre: this.categoria.padre
         });
-        categoria.$save(function(response) {
+        categoria.$save(function(/*response*/) {
             $location.path('categorias/');
         });
 
@@ -25,17 +25,16 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
      *
      */
     $scope.remove = function(categoria) {
-         var modalOptions = {
+        var modalOptions = {
             closeButtonText: 'Cancelar',
             actionButtonText: 'Eliminar Categoria',
             headerText: '¿Eliminar la categoria '+ categoria.name + '?',
             bodyText: 'Esta seguro que desea eliminar esta categoria?'
         };
 
-        modalService.showModal({}, modalOptions).then(function (result) {
+        modalService.showModal({}, modalOptions).then(function (/*result*/) {
             if (categoria) {
                 categoria.$remove();
-
                 for (var i in $scope.categorias) {
                     if ($scope.categorias[i] === categoria) {
                         $scope.categorias.splice(i, 1);

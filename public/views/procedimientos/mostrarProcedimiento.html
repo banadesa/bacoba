@@ -6,10 +6,19 @@
     <h1>{{procedimiento.nombre}}
     </h1>
     <div class="btn-lg">
-        <rating value="rate" readonly="false" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="guardarRating()">
-        </rating>
+        <rating value="rate" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="guardarRating()">
+        </rating>({{totalVotos}})
     </div>
+    <div class="center" ng-hide="comentar && !comentado">
+        <button class="btn btn-info" ng-click="comentar=!comentar">
+        <span class="glyphicon glyphicon-comment">
+        </span>
+             Comentar
+    </button>
+    </div>
+    <div ng-show="comentado" class="label-success">Gracias por el comentario!!</div>
 </div>
+<agregar_comentario ng-show="comentar && !comentado"></agregar_comentario>
 <ul class="list-inline">
     <li ng-repeat="categoria in procedimiento.categorias">
         <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>

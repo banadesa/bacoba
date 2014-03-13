@@ -1,0 +1,14 @@
+
+<h3 class="label-success">Comentarios</h3>
+
+<ul class="list-unstyled" style="display:block">
+    <li ng-repeat="comentario in procedimiento.comentarios">
+        <p>
+            <span>{{comentario.user.name}}</span>
+            <span>{{comentario.fecha}}</span>
+            <h2>{{comentario.comentario}}</h2>
+            <rating value="comentario.rating" readonly="true" >
+            </rating>
+        </p>
+    </li>
+</ul>

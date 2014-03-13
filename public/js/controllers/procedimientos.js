@@ -209,6 +209,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             for (var i = $scope.procedimiento.categorias.length - 1; i >= 0; i--) {
                 $scope.categoriaSel.push($scope.procedimiento.categorias[i]._id);
             }
+            $scope.alerts = [];
             if (edita) {
                 $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
                 $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
@@ -229,8 +230,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                     ($scope.procedimiento.rating.cinco * 5) +
                     ($scope.procedimiento.rating.cuatro * 4)) /
                     ($scope.totalVotos));
-                $scope.comentar = false;
-                $scope.comentado = false;
+                $scope.btnComentar = true;
+                $scope.frmComentar = false;
                 $scope.rateUser = 0;
             }
         });
@@ -572,30 +573,51 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         if ($scope.descripcionComentario && $scope.rateUser !== 0) {
             switch($scope.rateUser) {
                 case 1:
-                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.uno + 1;
-                break;
+                    $scope.procedimiento.rating.uno =$scope.procedimiento.rating.uno + 1;
+                    break;
                 case 2:
-                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.dos + 1;
-                break;
+                    $scope.procedimiento.rating.dos =$scope.procedimiento.rating.dos + 1;
+                    break;
                 case 3:
-                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.tres + 1;
-                break;
+                    $scope.procedimiento.rating.tres =$scope.procedimiento.rating.tres + 1;
+                    break;
                 case 4:
-                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.cuatro + 1;
-                break;
+                    $scope.procedimiento.rating.cuatro =$scope.procedimiento.rating.cuatro + 1;
+                    break;
                 case 5:
-                $scope.procedimiento.rating.uno =$scope.procedimiento.rating.cinco + 1;
-                break;
-            };
+                    $scope.procedimiento.rating.cinco =$scope.procedimiento.rating.cinco + 1;
+                    break;
+            }
+            console.log('$scope.procedimiento.rating');
+            console.log($scope.procedimiento.rating);
             $scope.procedimiento.comentarios.push({
-                'user': this.numeroPaso,
-                'comentario': this.descripcionPaso,
+                'user': this.global.user._id,
+                'comentario': this.descripcionComentario,
                 'rating': this.rateUser
             });
             $scope.updateComentario();
-            $scope.comentado=true;
+            $scope.btnComentar=false;
+            $scope.frmComentar=false;
+            $scope.agregarAlerta('success','¡Gracias por el comentario!');
         }
     };
+    /**
+     *Agrega alertas que se mostraran en pantalla
+     *@param {string} type  tipo alerta **danger rojo **success verde
+     *@param {string} msg mensaje que se mostrara
+     */
+    $scope.agregarAlerta = function(type,msg) {
+        $scope.alerts.push({type: type, msg: msg});
+    };
+
+    /**
+     *Cierre una alerta
+     *@param {number} posicion en el array
+     */
+    $scope.cerrarAlerta = function(index) {
+        $scope.alerts.splice(index,1);
+    };
+
 }]);
 
 

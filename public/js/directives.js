@@ -7,10 +7,22 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/agregarPasos.html'
         };
     })
+    .directive('mostrarPasosEdit', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/procedimientos/mostrarPasosEdit.html'
+        };
+    })
     .directive('agregarComentario', function() {
         return {
             restrict: 'E',
             templateUrl: 'views/procedimientos/agregarComentario.html'
+        };
+    })
+    .directive('mostrarComentarios', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/procedimientos/mostrarComentarios.html'
         };
     })
     .directive('mostrarProcedimiento', function() {
@@ -23,12 +35,6 @@ angular.module('mean.directives', [])
         return {
             restrict: 'E',
             templateUrl: 'views/procedimientos/mostrarPasos.html'
-        };
-    })
-    .directive('mostrarPasosEdit', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'views/procedimientos/mostrarPasosEdit.html'
         };
     })
     .directive('fileInput', ['$parse', function ($parse) {

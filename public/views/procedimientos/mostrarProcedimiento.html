@@ -9,16 +9,16 @@
         <rating value="rate" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="guardarRating()">
         </rating>({{totalVotos}})
     </div>
-    <div class="center" ng-hide="comentar && !comentado">
-        <button class="btn btn-info" ng-click="comentar=!comentar">
+    <div class="center" ng-show="btnComentar">
+        <button class="btn btn-info" ng-click="btnComentar=!btnComentar;frmComentar=!frmComentar">
         <span class="glyphicon glyphicon-comment">
         </span>
              Comentar
     </button>
     </div>
-    <div ng-show="comentado" class="label-success">Gracias por el comentario!!</div>
+    <alert ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
 </div>
-<agregar_comentario ng-show="comentar && !comentado"></agregar_comentario>
+<agregar_comentario ng-show="frmComentar"></agregar_comentario>
 <ul class="list-inline">
     <li ng-repeat="categoria in procedimiento.categorias">
         <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>

@@ -71,6 +71,7 @@ exports.update = function(req, res) {
     procedimiento = _.extend(procedimiento, req.body);
     procedimiento.save(function(err) {
         if (err) {
+            console.log(err);
             return res.send('users/signup', {
                 errors: err.errors,
                 procedimiento: procedimiento
@@ -111,6 +112,7 @@ exports.show = function(req, res) {
  */
 exports.all = function(req, res) {
     Procedimiento.find().sort('-created').populate('categorias', 'name')
+    .populate('comentarios.user', 'name')
     .populate('user', 'name username')
     .exec(function(err, procedimientos) {
         if (err) {

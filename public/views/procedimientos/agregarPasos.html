@@ -1,38 +1,46 @@
 <form class="form-horizontal col-md-6"  role="form" data-ng-submit="manejarPaso()" name="formaPaso" id="formaPaso">
     <div class="form-group c">
-        <label class="col-md-2 control-label" for="numeroPaso">No. Paso</label>
+        <label class="col-md-2 control-label" for="numeroPaso">No. Paso</label><span class="btn btn-info" ng-click="relacionarProcedimiento()">{{btnDesRelProcedimiento}}</span>
         <div class="col-md-2">
             <input value="{{numeroPaso}}" id="numeroPaso" cols="30" placeholder="No. Paso" class="form-control text-center" disabled>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label" for="descripcionPaso">Descripcion</label>
-        <div class="col-md-10">
-            <text-angular ng-model="descripcionPaso"></text-angular>
+     <div class="form-group" ng-show="relProcedimiento">
+            <label class="col-md-3 control-label" for="ProcedimientoRelacionado">Procedimiento</label>
+            <div class="col-md-10">
+                <input class="form-control" ng-model="ProcedimientoRelacionado"></input>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label" for="imagenPaso">Imagen</label>
-        <div class="col-md-10">
-            <div class="img-thumbnail" ng-thumb="{ file: fileImagen, height: 150, width:300 }"></div>
-            <span class="btn btn-default btn-file btn">
-                Buscar
-                <input type="file" file-input="fileImagen" accept="image/*" name="imagen">
-            </span>
+    <div ng-hide="relProcedimiento">
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="descripcionPaso">Descripcion</label>
+            <div class="col-md-10">
+                <text-angular ng-model="descripcionPaso"></text-angular>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label" for="videoPaso">Video</label>
-        <div class="col-md-10">
-            <div class="input-group">
-                <video_paso></video_paso>
-                <span class="input-group-btn">
-                        <button class="btn btn-default btn btn-file" type="button">
-                            <input type="file" file-input="fileVideo" accept="video/*" name="video">
-                            Buscar
-                        </button>
-                    </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="imagenPaso">Imagen</label>
+            <div class="col-md-10">
+                <div class="img-thumbnail" ng-thumb="{ file: fileImagen, height: 150, width:300 }"></div>
+                <span class="btn btn-default btn-file btn">
+                    Buscar
+                    <input type="file" file-input="fileImagen" accept="image/*" name="imagen">
                 </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="videoPaso">Video</label>
+            <div class="col-md-10">
+                <div class="input-group">
+                    <video_paso></video_paso>
+                    <span class="input-group-btn">
+                            <button class="btn btn-default btn btn-file" type="button">
+                                <input type="file" file-input="fileVideo" accept="video/*" name="video">
+                                Buscar
+                            </button>
+                        </div>
+                    </span>
+                </div>
             </div>
         </div>
     </div>

@@ -215,6 +215,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
                 $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
                 $scope.modificando = true; //Para saber si estoy modificando los pasos
+                $scope.relProcedimiento = false;
+                $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
             }
             else {
                 $scope.sortPasosAsc();
@@ -632,6 +634,21 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.frmComentar=!$scope.frmComentar;
         $timeout(function() {$scope.focusElement('comentario')},100);
     }
+
+    /**
+     *Esconde los campos de descripcion, imagen y video
+     *de la forma de agregar paso y muestra un select box
+     *donde se guardara el paso
+     *
+     */
+    $scope.relacionarProcedimiento = function(){
+        $scope.relProcedimiento = !$scope.relProcedimiento;
+        if ($scope.relProcedimiento) {
+            $scope.btnDesRelProcedimiento = 'Crear paso nuevo';
+        } else {
+            $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
+        }
+    };
 }]);
 
 

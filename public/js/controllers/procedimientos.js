@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.procedimientos').
-controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService',
-   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
+controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', '$timeout', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService',
+   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
     $scope.global = Global;
 
     /**
@@ -219,23 +219,29 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             else {
                 $scope.sortPasosAsc();
                 $scope.modificando = false;
-                $scope.totalVotos = $scope.procedimiento.rating.uno +
-                    $scope.procedimiento.rating.dos +
-                    $scope.procedimiento.rating.tres +
-                    $scope.procedimiento.rating.cuatro +
-                    $scope.procedimiento.rating.cinco;
-                $scope.rate = Math.round((($scope.procedimiento.rating.uno * 1) +
-                    ($scope.procedimiento.rating.dos * 2) +
-                    ($scope.procedimiento.rating.tres * 3) +
-                    ($scope.procedimiento.rating.cinco * 5) +
-                    ($scope.procedimiento.rating.cuatro * 4)) /
-                    ($scope.totalVotos));
+                $scope.calculaRating();
                 $scope.btnComentar = true;
                 $scope.frmComentar = false;
                 $scope.rateUser = 0;
             }
         });
     };
+    /**
+     *Calcula el rating y suma la cantidad de votos  de un procedimiento
+     */
+    $scope.calculaRating = function() {
+        $scope.totalVotos = $scope.procedimiento.rating.uno +
+            $scope.procedimiento.rating.dos +
+            $scope.procedimiento.rating.tres +
+            $scope.procedimiento.rating.cuatro +
+            $scope.procedimiento.rating.cinco;
+        $scope.rate = Math.round((($scope.procedimiento.rating.uno * 1) +
+            ($scope.procedimiento.rating.dos * 2) +
+            ($scope.procedimiento.rating.tres * 3) +
+            ($scope.procedimiento.rating.cinco * 5) +
+            ($scope.procedimiento.rating.cuatro * 4)) /
+            ($scope.totalVotos));
+    }
 
     /**
      *Recibe un numero de version y lo modifica segun los parametros
@@ -324,7 +330,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      * @Param {string} elemento Elemento que se desea poner el foco
      */
     $scope.focusElement = function(elemento) {
-        //$('html, body').animate({ scrollTop: 0 }, 'fast');
         document.getElementById(elemento).focus();
     };
 
@@ -560,6 +565,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.irElemento = function(elemento) {
         //var pasoId = '#paso' + elemento;
+        console.log(elemento);
         $('html, body').animate({
             scrollTop: $(elemento).offset().top
         });
@@ -590,7 +596,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             }
             console.log('$scope.procedimiento.rating');
             console.log($scope.procedimiento.rating);
-            $scope.procedimiento.comentarios.push({
+            $scope.procedimiento.comentarios.unshift({
                 'user': this.global.user._id,
                 'comentario': this.descripcionComentario,
                 'rating': this.rateUser
@@ -598,7 +604,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.updateComentario();
             $scope.btnComentar=false;
             $scope.frmComentar=false;
-            $scope.agregarAlerta('success','¡Gracias por el comentario!');
+            $scope.calculaRating();
+            $scope.agregarAlerta('success','¡Gracias por su comentario!');
         }
     };
     /**
@@ -617,7 +624,14 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     $scope.cerrarAlerta = function(index) {
         $scope.alerts.splice(index,1);
     };
-
+    /**
+     *Muestra la forma de comentario y esconde el boton
+     */
+    $scope.muestraComentario = function() {
+        $scope.btnComentar=!$scope.btnComentar;
+        $scope.frmComentar=!$scope.frmComentar;
+        $timeout(function() {$scope.focusElement('comentario')},100);
+    }
 }]);
 
 

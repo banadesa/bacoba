@@ -11,10 +11,10 @@
     </div>
     <div class="center" ng-show="btnComentar">
         <button class="btn btn-info" ng-click="btnComentar=!btnComentar;frmComentar=!frmComentar">
-        <span class="glyphicon glyphicon-comment">
-        </span>
+            <span class="glyphicon glyphicon-comment">
+            </span>
              Comentar
-    </button>
+        </button>
     </div>
     <alert ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
 </div>

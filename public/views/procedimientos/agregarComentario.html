@@ -4,7 +4,7 @@
 <div class="form-group">
     <label class="col-md-2 control-label" for="comentario">Comentario:</label>
     <div class="col-md-10">
-        <textarea data-ng-model="descripcionComentario" id="comentario" rows="5" placeholder="Comentario" class="col-sm-4 col-md-4 form-control" required></textarea>
+        <textarea data-ng-model="descripcionComentario" id="comentario" rows="5" placeholder="Comentario" class="col-sm-4 col-md-4 form-control" required name="comentario"></textarea>
     </div>
 </div>
 <h4 class="text-left col-md-offset-2 col-md-10">
@@ -17,9 +17,9 @@
             </span>
             Guardar
         </button>
-        <button class="btn btn-default" ng-click="btnComentar=!btnComentar;frmComentar=!frmComentar;">
+        <div class="btn btn-default" ng-click="btnComentar=!btnComentar;frmComentar=!frmComentar;">
             Cancelar
-        </button>
+        </div>
     </div>
 </div>
 </form>

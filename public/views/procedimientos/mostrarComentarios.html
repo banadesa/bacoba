@@ -1,14 +1,21 @@
 
-<h3 class="label-success">Comentarios</h3>
+<div class="row">
+<h3 class="label-success col-lg-11">Comentarios</h3>
+</div>
 
-<ul class="list-unstyled" style="display:block">
-    <li ng-repeat="comentario in procedimiento.comentarios">
-        <p>
-            <span>{{comentario.user.name}}</span>
-            <span>{{comentario.fecha}}</span>
-            <h2>{{comentario.comentario}}</h2>
-            <rating value="comentario.rating" readonly="true" >
+<ul class="list-unstyled">
+    <li class="row" style="padding:20px" ng-repeat="comentario in procedimiento.comentarios">
+            <div><b>{{comentario.user.name || global.user.name}}: </b></div>
+            <rating class="text-warning" value="comentario.rating" readonly="true" >
             </rating>
-        </p>
+            <div style="font-size:25px">{{comentario.comentario}}</div>
+            <small class="text-muted"> {{comentario.fecha | date: 'medium'}}</small>
+            <div class="col-lg-11" style="height:1px;background: #999DA1;">
+            </div>
     </li>
+    <h3 ng-hide="procedimiento.comentarios">No hay comentario para este procedimiento, se el primero en <button class="btn btn-info" ng-click="muestraComentario();">
+            <span class="glyphicon glyphicon-comment">
+            </span>
+             Comentar
+        </button> </h3>
 </ul>

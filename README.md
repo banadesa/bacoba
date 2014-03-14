@@ -23,8 +23,8 @@ Los cambios son los siguienes
     <li><del>Manejo de versiones en los procedimientos</del> Se manejan versiones pero no permite
     mostrar o editar versiones anteriores</li>
     <li><del>Cada categoria puede tener infinita subcategorias</del></li>
-    <li>Los usuarios puedan dar rating a los procedimientos</li>
-    <li>Los usuarios puedan dejar comentarios en los procedimientos</li>
+    <li><del>Los usuarios puedan dar rating a los procedimientos</del></li>
+    <li><del>Los usuarios puedan dejar comentarios en los procedimientos</del></li>
     <li>Un paso pueda ser otro procedimiento</li>
     <li>Se pueda exportar un procedimiento a PDF</li>
     <li>Se pueda compartir un procedimiento por correo</li>

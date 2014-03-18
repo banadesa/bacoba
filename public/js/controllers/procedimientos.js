@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.procedimientos').
-controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', '$timeout', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService',
-   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
+controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', '$timeout', '$http', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService',
+   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
     $scope.global = Global;
 
     /**
@@ -76,7 +76,14 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         }
 
         var uploadUrl = '/procedimientos/upload?procedimientoId=' + $scope.procedimiento._id;
-
+        if ($scope.procedimientoRelacionado) {
+            $scope.descripcionPaso = $scope.procedimientoRelacionado.nombre;
+            $scope.videoPaso='';
+            $scope.imagenPaso='';
+            $scope.procedimientoPaso = $scope.procedimientoRelacionado._id;
+        } else {
+            $scope.procedimientoPaso = '';
+        }
         cargarArchivo
             .uploadFileToUrl(files, uploadUrl)
             .then(function(data) {
@@ -108,6 +115,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.procedimiento.pasos[$scope.indexPaso].descripcion = $scope.descripcionPaso;
             $scope.procedimiento.pasos[$scope.indexPaso].imagen = $scope.imagenPaso;
             $scope.procedimiento.pasos[$scope.indexPaso].video = $scope.videoPaso;
+            $scope.procedimiento.pasos[$scope.indexPaso].procedimiento = $scope.procedimientoPaso;
         } else {
             $scope.procedimiento.pasos[$scope.indexPaso].actual = false;
             $scope.procedimiento.pasos.push({
@@ -159,6 +167,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             'descripcion': $scope.descripcionPaso,
             'imagen': $scope.imagenPaso,
             'video': $scope.videoPaso,
+            'procedimiento': $scope.procedimientoPaso,
             'version': $scope.versionAgruegaQuita,
             'actual': true,
             'eliminado': false
@@ -189,6 +198,31 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         });
     };
 
+  $scope.buscaProcedimientos = function(val) {
+      return $http.get('procedimientos/', {
+      params: {
+        nombre: val
+      }
+    }).then(function(res){
+      var procedimientos = [];
+      angular.forEach(res.data, function(item){
+        console.log('$scope.procedimientoRelacionado');
+        console.log($scope.procedimientoRelacionado);
+        procedimientos.push(item);
+      });
+      return procedimientos;
+    });
+    /*return $scope.find().then(function(){
+      var procedimientos = [];
+      angular.forEach($scope.procedimientos, function(item){
+        procedimientos.push(item.formatted_address);
+      });
+      console.log('procedimientos');
+      console.log(procedimientos);
+      return procedimientos;
+
+    });*/
+  };
     /**
      *Encuentra un procedimiento especifico
      *
@@ -216,6 +250,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
                 $scope.modificando = true; //Para saber si estoy modificando los pasos
                 $scope.relProcedimiento = false;
+                $scope.seleccionProcedimientoActivo = true;
+                $scope.procedimientoRelacionado = '';
                 $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
             }
             else {
@@ -227,6 +263,16 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.rateUser = 0;
             }
         });
+    };
+    /**
+     *funciones luego que se selecciona un procedimiento en la busqueda
+     *@param {object} $item objeto que contiene la respuesta del typeahead
+     *@param {object} $model no estoy seguro
+     *@param {string} label nombre que se muestra en el typeahead
+     */
+    $scope.seleccionarProcedimiento = function($item, $model, $label) {
+        $scope.procedimientoRelacionado = $item;
+        $scope.seleccionProcedimientoActivo = false;
     };
     /**
      *Calcula el rating y suma la cantidad de votos  de un procedimiento
@@ -502,6 +548,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.imagenPaso = '';
         $scope.descripcionPaso = null;
         $scope.numeroPaso = $scope.ultimoPaso();
+        $scope.seleccionProcedimientoActivo = true;
+        $scope.procedimientoRelacionado = '';
+        $scope.relProcedimiento = false;
     };
 
     /**

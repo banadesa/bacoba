@@ -49,6 +49,10 @@ var ProcedimientoSchema = new Schema({
             default: '',
             trim: true
         },
+        procedimiento: {
+            type: Schema.ObjectId,
+            ref: 'Procedimiento'
+        },
         version: {
             type: String,
             default: '1.0.0',

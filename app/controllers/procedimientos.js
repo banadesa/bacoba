@@ -111,7 +111,18 @@ exports.show = function(req, res) {
  * List of procedimientos
  */
 exports.all = function(req, res) {
-    Procedimiento.find().sort('-created').populate('categorias', 'name')
+    var nombreConsulta;
+    var campos;
+    if (req.query.nombre) {
+        var nombreConsulta = new RegExp(req.query.nombre,'gi')
+        campos = {nombre: 1, _id: 1, descripcion: 1}
+    }
+    else {
+        var nombreConsulta = new RegExp('','gi')
+        campos = {}
+    }
+
+    Procedimiento.find({nombre: nombreConsulta},campos).sort('-created').populate('categorias', 'name')
     .populate('comentarios.user', 'name')
     .populate('user', 'name username')
     .exec(function(err, procedimientos) {

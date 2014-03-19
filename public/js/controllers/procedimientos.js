@@ -198,31 +198,24 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         });
     };
 
-  $scope.buscaProcedimientos = function(val) {
-      return $http.get('procedimientos/', {
-      params: {
-        nombre: val
-      }
-    }).then(function(res){
-      var procedimientos = [];
-      angular.forEach(res.data, function(item){
-        console.log('$scope.procedimientoRelacionado');
-        console.log($scope.procedimientoRelacionado);
-        procedimientos.push(item);
-      });
-      return procedimientos;
-    });
-    /*return $scope.find().then(function(){
-      var procedimientos = [];
-      angular.forEach($scope.procedimientos, function(item){
-        procedimientos.push(item.formatted_address);
-      });
-      console.log('procedimientos');
-      console.log(procedimientos);
-      return procedimientos;
-
-    });*/
-  };
+    /**
+     *Busca procedimientos por el nombre
+     *@param {string} val nombre del procedimiento
+      *@return {object} procedimiento con el nombre y la descripcion
+     */
+    $scope.buscaProcedimientos = function(val) {
+        return $http.get('procedimientos/', {
+            params: {
+                nombre: val
+            }
+        }).then(function(res){
+            var procedimientos = [];
+            angular.forEach(res.data, function(item){
+                procedimientos.push(item);
+            });
+            return procedimientos;
+        });
+    };
     /**
      *Encuentra un procedimiento especifico
      *
@@ -267,10 +260,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     /**
      *funciones luego que se selecciona un procedimiento en la busqueda
      *@param {object} $item objeto que contiene la respuesta del typeahead
-     *@param {object} $model no estoy seguro
-     *@param {string} label nombre que se muestra en el typeahead
      */
-    $scope.seleccionarProcedimiento = function($item, $model, $label) {
+    $scope.seleccionarProcedimiento = function($item) {
         $scope.procedimientoRelacionado = $item;
         $scope.seleccionProcedimientoActivo = false;
     };
@@ -289,7 +280,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             ($scope.procedimiento.rating.cinco * 5) +
             ($scope.procedimiento.rating.cuatro * 4)) /
             ($scope.totalVotos));
-    }
+    };
 
     /**
      *Recibe un numero de version y lo modifica segun los parametros
@@ -681,8 +672,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     $scope.muestraComentario = function() {
         $scope.btnComentar=!$scope.btnComentar;
         $scope.frmComentar=!$scope.frmComentar;
-        $timeout(function() {$scope.focusElement('comentario')},100);
-    }
+        $timeout(function() {$scope.focusElement('comentario');},100);
+    };
 
     /**
      *Esconde los campos de descripcion, imagen y video

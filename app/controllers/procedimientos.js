@@ -114,12 +114,12 @@ exports.all = function(req, res) {
     var nombreConsulta;
     var campos;
     if (req.query.nombre) {
-        var nombreConsulta = new RegExp(req.query.nombre,'gi')
-        campos = {nombre: 1, _id: 1, descripcion: 1}
+        nombreConsulta = new RegExp(req.query.nombre,'gi');
+        campos = {nombre: 1, _id: 1, descripcion: 1};
     }
     else {
-        var nombreConsulta = new RegExp('','gi')
-        campos = {}
+        nombreConsulta = new RegExp('','gi');
+        campos = {};
     }
 
     Procedimiento.find({nombre: nombreConsulta},campos).sort('-created').populate('categorias', 'name')

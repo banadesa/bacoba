@@ -9,7 +9,7 @@
             <label class="col-md-2 control-label">Procedimiento</label>
     <div class="col-md-11">
     <div class="input-group">
-        <input type="text" ng-model="procedimientoRelacionado.nombre" placeholder="Escriba el nombre del procedimiento" typeahead="nombre as proc.nombre for proc in buscaProcedimientos($viewValue) | limitTo:5" typeahead-loading="loadingProcedimientos" class="form-control" typeahead-on-select='seleccionarProcedimiento($item, $model, $label)' typeahead-template-url="views/procedimientos/seleccionProcedimientos.html" ng-disabled="!seleccionProcedimientoActivo" id='procedimientoRelacionado'>
+        <input type="text" ng-model="procedimientoRelacionado.nombre" placeholder="Escriba el nombre del procedimiento" typeahead="nombre as proc.nombre for proc in buscaProcedimientos($viewValue) | limitTo:5" typeahead-loading="loadingProcedimientos" class="form-control" typeahead-on-select='seleccionarProcedimiento($item)' typeahead-template-url="views/procedimientos/seleccionProcedimientos.html" ng-disabled="!seleccionProcedimientoActivo" id='procedimientoRelacionado'>
         <span class="input-group-btn">
             <div ng-show="!seleccionProcedimientoActivo" class="btn btn-default" ng-click="seleccionProcedimientoActivo=true;procedimientoRelacionado='';focusElement('procedimientoRelacionado')">X</div>
             <div ng-show="seleccionProcedimientoActivo" class="btn disabled glyphicon glyphicon-search"></div>

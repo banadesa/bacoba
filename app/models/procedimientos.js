@@ -21,7 +21,8 @@ var ProcedimientoSchema = new Schema({
     nombre: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        index: true
     },
     descripcion: {
         type: String,

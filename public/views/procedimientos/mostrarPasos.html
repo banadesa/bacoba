@@ -10,11 +10,11 @@
 <div ng-repeat="paso in procedimiento.pasos | filter:{actual: true}">
     <div class="row">
     <h3 class="label-success col-lg-11" id="paso{{paso.numeroPaso}}">Paso N°{{paso.numeroPaso}}</h3>
-
     </div>
     <p>
-        <div ng-bind-html="paso.descripcion"></div>
+        <span ng-bind-html="paso.descripcion"></span>&nbsp<span class="btn btn-sm btn-info" ng-click="mostrarProcedimiento(paso.procedimiento,paso.numeroPaso);" ng-show="paso.procedimiento"> <span class="glyphicon glyphicon-eye-open"></span> Mostar Procedimiento</span>
+        <div ng-show="expression"></div>
     </p>
-    <ba-imagen value={{paso.imagen}}></ba-imagen>
+    <ba-imagen value={{paso.imagen}} ng-show="paso.imagen"></ba-imagen>
 </div>
 

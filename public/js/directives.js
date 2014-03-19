@@ -20,7 +20,7 @@ angular.module('mean.directives', [])
         };
     })
     .directive('mostrarComentarios', function() {
-        return {
+    return {
             restrict: 'E',
             templateUrl: 'views/procedimientos/mostrarComentarios.html'
         };
@@ -101,13 +101,9 @@ angular.module('mean.directives', [])
                 scope.$watch('imagenPaso', function(value) {
                     var canvas = element.find('canvas');
                     var img = new Image();
-                    console.log('qui toy');
-                    console.log(value);
                     if (value) {
                         img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/thumbs/' + value;
                         img.onload = function(){
-                            console.log('this');
-                            console.log(this);
                             canvas[0].getContext('2d').drawImage(this,0,0);
                         };
                     } else {

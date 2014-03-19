@@ -490,6 +490,16 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     $scope.enviarDatosEditarPaso = function(id) {
         $scope.indexPaso = id;
         $scope.descripcionPaso = $scope.procedimiento.pasos[id].descripcion;
+        if ($scope.procedimiento.pasos[id].procedimiento) {
+            $scope.procedimientoRelacionado.nombre = $scope.procedimiento.pasos[id].descripcion;
+            $scope.procedimientoRelacionado._id = $scope.procedimiento.pasos[id].procedimiento;
+            console.log('$scope.procedimientoRelacionado1')
+            console.log($scope.procedimientoRelacionado)
+            $scope.procedimientoPaso = $scope.procedimiento.pasos[id].procedimiento;
+            $scope.relacionarProcedimiento();
+            console.log('$scope.procedimientoRelacionado2')
+            console.log($scope.procedimientoRelacionado)
+        }
         $scope.numeroPaso = $scope.procedimiento.pasos[id].numeroPaso;
         $scope.imagenPaso = $scope.procedimiento.pasos[id].imagen;
         $scope.videoPasoFake = $scope.procedimiento.pasos[id].video.substring(10,$scope.procedimiento.pasos[id].video.length);

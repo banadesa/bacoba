@@ -145,5 +145,5 @@ angular.module('mean.directives', [])
                 }
             }
         };
-    }) ;
+    });
 

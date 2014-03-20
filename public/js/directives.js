@@ -19,16 +19,16 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/agregarComentario.html'
         };
     })
-    .directive('mostrarComentarios', function() {
-    return {
-            restrict: 'E',
-            templateUrl: 'views/procedimientos/mostrarComentarios.html'
-        };
-    })
     .directive('mostrarProcedimiento', function() {
         return {
             restrict: 'E',
             templateUrl: 'views/procedimientos/mostrarProcedimiento.html'
+        };
+    })
+    .directive('mostrarComentario', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/procedimientos/mostrarComentario.html'
         };
     })
     .directive('mostrarPasos', function() {

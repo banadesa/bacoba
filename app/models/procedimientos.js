@@ -170,7 +170,7 @@ ProcedimientoSchema.statics.load = function(id, cb) {
         procedimiento.save(function(err) {
             if (err) { return err;}
         });
-    }).populate('categorias', 'name').populate('comentarios.user', 'name').populate('user', 'name username').exec(cb);
+    }).populate('categorias', 'name').populate('comentarios.user', 'name').populate('user', 'name username').populate('pasos.procedimiento','pasos').exec(cb);
 };
 
 mongoose.model('Procedimiento', ProcedimientoSchema);

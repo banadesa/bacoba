@@ -77,14 +77,11 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
 
         var uploadUrl = '/procedimientos/upload?procedimientoId=' + $scope.procedimiento._id;
         if ($scope.procedimientoRelacionado.nombre) {
-            console.log('$scope.procedimientoRelacionado');
-            console.log($scope.procedimientoRelacionado);
             $scope.descripcionPaso = $scope.procedimientoRelacionado.nombre;
             $scope.videoPaso='';
             $scope.imagenPaso='';
             $scope.procedimientoPaso = $scope.procedimientoRelacionado._id;
         } else {
-            console.log('no existe el nombre rel')
             $scope.procedimientoPaso = null;
         }
         cargarArchivo
@@ -248,7 +245,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.relProcedimiento = false;
                 $scope.seleccionProcedimientoActivo = true;
                 $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
-                $scope.procedimientoRelacionado = new Object();
+                $scope.procedimientoRelacionado = {};
             }
             else {
                 $scope.sortPasosAsc();
@@ -502,7 +499,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.relacionarProcedimiento(true);
             $scope.seleccionProcedimientoActivo = false;
         } else {
-            $scope.procedimientoRelacionado = new Object();
+            $scope.procedimientoRelacionado = {};
             $scope.seleccionProcedimientoActivo = true;
             $scope.relacionarProcedimiento(false);
             $scope.imagenPaso = $scope.procedimiento.pasos[id].imagen;
@@ -521,7 +518,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.descripcionPaso = '';
         $scope.imagenPaso = '';
         $scope.videoPaso = '';
-        $scope.procedimientoRelacionado = new Object();
+        $scope.procedimientoRelacionado = {};
         $scope.seleccionProcedimientoActivo = true;
         $scope.relacionarProcedimiento(false);
     };
@@ -558,7 +555,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.descripcionPaso = null;
         $scope.numeroPaso = $scope.ultimoPaso();
         $scope.seleccionProcedimientoActivo = true;
-        $scope.procedimientoRelacionado = new Object();
+        $scope.procedimientoRelacionado = {};
         $scope.relProcedimiento = false;
     };
 
@@ -720,17 +717,16 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *@param {number} paso numero de paso al que pertence el procedimiento
      *
      */
-    $scope.mostrarProcedimiento = function(_id, paso) {
-        return $http.get('procedimientos/'+_id).then(function(res){
+    $scope.mostrarProcedimiento = function(/*_id, paso*/) {
+        /*return $http.get('procedimientos/'+_id).then(function(res){
             //console.log(res);
             var procs = [];
             angular.forEach(res.data, function(item){
                 procs.push(item);
             });
             return procs;
-        });
-        console.log('hola');
-    }
+        });*/
+    };
 }]);
 
 

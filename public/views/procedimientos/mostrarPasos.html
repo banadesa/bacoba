@@ -13,7 +13,15 @@
     </div>
     <p>
         <span ng-bind-html="paso.descripcion"></span>&nbsp<span class="btn btn-sm btn-info" ng-click="mostrarProcedimiento(paso.procedimiento,paso.numeroPaso);" ng-show="paso.procedimiento"> <span class="glyphicon glyphicon-eye-open"></span> Mostar Procedimiento</span>
-        <div ng-show="expression"></div>
+        <div ng-repeat="pa in paso.procedimiento.pasos | filter:{actual: true}">
+            <div class="row">
+            <h3 class="label-success col-lg-11" id="paso{{pa.numeroPaso}}">Paso N°{{pa.numeroPaso}}</h3>
+            </div>
+            <p>
+            <span ng-bind-html="pa.descripcion"></span>&nbsp<span class="btn btn-sm btn-info"> <span class="glyphicon glyphicon-eye-open"></span> Mostar Procedimiento</span>
+            </p>
+            <ba-imagen value={{pa.imagen}} ng-show="pa.imagen"></ba-imagen>
+        </div>
     </p>
     <ba-imagen value={{paso.imagen}} ng-show="paso.imagen"></ba-imagen>
 </div>

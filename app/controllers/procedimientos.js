@@ -125,6 +125,7 @@ exports.all = function(req, res) {
     Procedimiento.find({nombre: nombreConsulta},campos).sort('-created').populate('categorias', 'name')
     .populate('comentarios.user', 'name')
     .populate('user', 'name username')
+    .populate('pasos.procedimiento','pasos')
     .exec(function(err, procedimientos) {
         if (err) {
             res.render('error', {

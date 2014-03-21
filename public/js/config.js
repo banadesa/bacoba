@@ -8,19 +8,68 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/index.html'
         }).
         when('/procedimientos', {
-            templateUrl: 'views/procedimientos/list.html'
+            controller: 'ProcedimientosController',
+            templateUrl: 'views/procedimientos/list.html',
+            resolve: {
+                proc: function(Procedimientos) {
+                    return Procedimientos.query(function(procedimientos) {
+                        })
+                        .$promise.then(function(value){
+                            return value;
+                    });
+                }
+            }
         }).
         when('/procedimientos/create', {
-            templateUrl: 'views/procedimientos/create.html'
+            controller: 'ProcedimientosController',
+            templateUrl: 'views/procedimientos/create.html',
+            resolve: {
+                proc: function() {
+                    return 0;
+                }
+            }
         }).
         when('/procedimientos/:procedimientoId/edit', {
-            templateUrl: 'views/procedimientos/edit.html'
+            controller: 'ProcedimientosController',
+            templateUrl: 'views/procedimientos/edit.html',
+            resolve: {
+                proc: function($route, Procedimientos) {
+                    return Procedimientos.get({
+                        procedimientoId: $route.current.params.procedimientoId
+                    })
+                    .$promise.then(function(value){
+                        return value
+                    })
+                }
+            }
         }).
         when('/procedimientos/:procedimientoId', {
-            templateUrl: 'views/procedimientos/view.html'
+            controller: 'ProcedimientosController',
+            templateUrl: 'views/procedimientos/view.html',
+            resolve: {
+                proc: function($route, Procedimientos) {
+                    return Procedimientos.get({
+                        procedimientoId: $route.current.params.procedimientoId
+                    })
+                    .$promise.then(function(value){
+                        return value
+                    })
+                }
+            }
         }).
         when('/procedimientos/pasos/:procedimientoId', {
-            templateUrl: 'views/procedimientos/pasos.html'
+            controller: 'ProcedimientosController',
+            templateUrl: 'views/procedimientos/pasos.html',
+            resolve: {
+                proc: function($route, Procedimientos) {
+                    return Procedimientos.get({
+                        procedimientoId: $route.current.params.procedimientoId
+                    })
+                    .$promise.then(function(value){
+                        return value
+                    })
+                }
+            }
         }).
         when('/categorias', {
             templateUrl: 'views/categorias/list.html'

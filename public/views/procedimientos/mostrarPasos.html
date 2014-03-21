@@ -1,28 +1,23 @@
 <!--Crea el menu lateral para ver los pasos -->
 <div class=" nav-lateral">
     <ul class="list-unstyled">
-        <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" >
+        <li ng-repeat="paso in pasosd | filter:{actual: true}" >
             <div class="btn-link" ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
         </li>
     </ul>
 </div>
 <!--**************************************-->
-<div ng-repeat="paso in procedimiento.pasos | filter:{actual: true}">
+<div ng-repeat="paso in pasosd | filter:{actual: true}">
     <div class="row">
-    <h3 class="label-success col-lg-11" id="paso{{paso.numeroPaso}}">Paso N°{{paso.numeroPaso}}</h3>
+    <h3 class="label-success col-lg-11" id="paso{{paso.numeroPaso}}">Paso N°{{numpaso}}{{paso.numeroPaso}}</h3>
     </div>
     <p>
-        <span ng-bind-html="paso.descripcion"></span>&nbsp<span class="btn btn-sm btn-info" ng-click="mostrarProcedimiento(paso.procedimiento,paso.numeroPaso);" ng-show="paso.procedimiento"> <span class="glyphicon glyphicon-eye-open"></span> Mostar Procedimiento</span>
-        <div ng-repeat="pa in paso.procedimiento.pasos | filter:{actual: true}">
-            <div class="row">
-            <h3 class="label-success col-lg-11" id="paso{{pa.numeroPaso}}">Paso N°{{pa.numeroPaso}}</h3>
-            </div>
-            <p>
-            <span ng-bind-html="pa.descripcion"></span>&nbsp<span class="btn btn-sm btn-info"> <span class="glyphicon glyphicon-eye-open"></span> Mostar Procedimiento</span>
-            </p>
-            <ba-imagen value={{pa.imagen}} ng-show="pa.imagen"></ba-imagen>
-        </div>
+        <span ng-bind-html="paso.descripcion"></span>&nbsp<span class="btn btn-sm btn-info" ng-click="mostrarProcedimiento(paso._id, paso.numeroPaso)" ng-show="paso.procedimiento"> <span class="glyphicon glyphicon-eye-open"></span> Mostar Procedimiento</span>
+        <div id='subpaso{{paso.numeroPaso}}'></div>
     </p>
     <ba-imagen value={{paso.imagen}} ng-show="paso.imagen"></ba-imagen>
 </div>
 
+    <a class="btn" tooltip="Eliminar Procedimiento" data-ng-click="remove();">
+        <i class="glyphicon glyphicon-trash"></i>
+    </a>

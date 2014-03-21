@@ -1,5 +1,8 @@
-<section data-ng-controller="ProcedimientosController" data-ng-init="findOne()">
+<section data-ng-init="findOne()">
     <mostrar_procedimiento></mostrar_procedimiento>
-    <mostrar_pasos></mostrar_pasos>
+    <mostrar_pasos pasosd="procedimiento.pasos"  numpaso='0' procid="procedimiento._id" ></mostrar_pasos>
     <mostrar_comentarios></mostrar_comentarios>
+    <a class="btn" tooltip="Eliminar Procedimiento" data-ng-click="remove();">
+        <i class="glyphicon glyphicon-trash"></i>
+    </a>
 </section>

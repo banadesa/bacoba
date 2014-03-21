@@ -31,55 +31,22 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/mostrarComentario.html'
         };
     })
-    .directive('mostrarPasos', ['$filter', function() {
+    .directive('mostrarPasos', function() {
         return {
             restrict: 'E',
-            priority: 451,
-            scope: {numpaso: '@', pasosd: '=', procid: '='},
+            scope: {getPasos: '&pasosd'},
             templateUrl: 'views/procedimientos/mostrarPasos.html',
-            controller : function($scope, $compile){
-                /**
-                 *Muestra un procedimiento dentro de un paso
-                 *@param {string} _id _id del procedimiento que se cargara
-                 *@param {number} paso numero de paso al que pertence el procedimiento
-                 *
-                 */
-                $scope.mostrarProcedimiento = function(_id, paso) {
-                    console.log('buaaaa');
-                    var chart = angular.element(document.createElement('mostrar_procedimiento'));
-                    var el = $compile( chart )( $scope );
-
-                  //where do you want to place the new element?
-                  angular.element('#subpaso'+paso).append(chart);
-                  $scope.insertHere = el;
-                    /*return $http.get('procedimientos/'+_id).then(function(res){
-                        //console.log(res);
-                        var procs = [];
-                        angular.forEach(res.data, function(item){
-                            procs.push(item);
-                        });
-                        return procs;
-                    });*/
-                };
-            },
             link: function(scope, element, attrs, controller) {
-                if (attrs.numpaso === '0') {
-                    attrs.numpaso = '';
-                } else attrs.numpaso = attrs.numpaso + '.';
-                scope.pasosd.sort(function(a,b) {
-                    var n = b.actual - a.actual;
-                    if (n !== 0) {
-                        return n;
-                    }
-                    n = parseInt(a.numeroPaso) - parseInt(b.numeroPaso);
-                    if (n !== 0) {
-                        return n;
-                    }
-                    return a.version - b.version;
-                });
+                scope.pasosd = {};
+
+                console.log('scope');
+                console.log(scope);
+                angular.extend(scope.pasosd, {pasos: 'vacio'}, scope.getPasos());
+                console.log('scope.pasosd');
+                console.log(scope.pasosd);
             }
         };
-    }])
+    })
     .directive('fileInput', ['$parse', function ($parse) {
         return {
             restrict: 'A',
@@ -184,7 +151,7 @@ angular.module('mean.directives', [])
                         canvas.attr({ width: width, height: height });
                         canvas[0].getContext('2d').drawImage(this,0,0,width,height);
                     };
-                    img.src='/contenido/'+ scope.procid + '/imagenes/' + value;
+                    img.src='/contenido/'+ scope.procedimiento._id + '/imagenes/' + value;
                 }
             }
         };

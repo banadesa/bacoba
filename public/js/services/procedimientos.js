@@ -3,13 +3,15 @@
 //procedimientos service used for procedimientos REST endpoint
 angular.module('mean.procedimientos')
 .factory('Procedimientos', ['$resource', function($resource) {
-    return $resource('procedimientos/:procedimientoId', {
+    var Proc = $resource('procedimientos/:procedimientoId', {
         procedimientoId: '@_id'
     }, {
         update: {
             method: 'PUT'
         }
     });
+
+    return Proc
 }])
 .service('cargarArchivo', ['$http', '$q', function ($http, $q) {
     this.uploadFileToUrl = function(files, uploadUrl){
@@ -19,8 +21,6 @@ angular.module('mean.procedimientos')
         if (files.length > 0) {
             for (var i = files.length - 1; i >= 0; i--) {
                 tipo = files[i].type.substring(0,files[i].type.indexOf('/'));
-                console.log('tipo');
-                console.log(tipo);
                 fd.append(tipo, files[i]);
             }
             $http.post(uploadUrl, fd, {

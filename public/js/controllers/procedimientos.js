@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.procedimientos').
-controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', '$timeout', '$http', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService',
-   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http, Global, Procedimientos, Categorias, cargarArchivo, modalService) {
+controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location', '$anchorScroll', '$timeout', '$http', '$q', 'Global', 'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc',
+   function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http, $q, Global, Procedimientos, Categorias, cargarArchivo, modalService, proc) {
     $scope.global = Global;
 
     /**
@@ -193,9 +193,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
 
     $scope.find = function() {
-        Procedimientos.query(function(procedimientos) {
-            $scope.procedimientos = procedimientos;
-        });
+            $scope.procedimientos = proc;
     };
 
     /**
@@ -223,39 +221,35 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
 
     $scope.findOne = function(edita) {
-        Procedimientos.get({
-            procedimientoId: $routeParams.procedimientoId
-        }, function(procedimiento) {
-            $scope.procedimiento = procedimiento;
-            $scope.sortPasos();
-            $scope.numeroPaso = $scope.ultimoPaso();
+        $scope.procedimiento = proc;
+        $scope.sortPasos();
+        $scope.numeroPaso = $scope.ultimoPaso();
 
-            $scope.edicionPaso = false;
-            $scope.indexPaso = -1;
-            $scope.categoriaSel = [];
-            for (var i = $scope.procedimiento.categorias.length - 1; i >= 0; i--) {
-                $scope.categoriaSel.push($scope.procedimiento.categorias[i]._id);
-            }
-            $scope.alerts = [];
-            if (edita) {
-                $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
-                $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
-                $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
-                $scope.modificando = true; //Para saber si estoy modificando los pasos
-                $scope.relProcedimiento = false;
-                $scope.seleccionProcedimientoActivo = true;
-                $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
-                $scope.procedimientoRelacionado = {};
-            }
-            else {
-                $scope.sortPasosAsc();
-                $scope.modificando = false;
-                $scope.calculaRating();
-                $scope.btnComentar = true;
-                $scope.frmComentar = false;
-                $scope.rateUser = 0;
-            }
-        });
+        $scope.edicionPaso = false;
+        $scope.indexPaso = -1;
+        $scope.categoriaSel = [];
+        for (var i = $scope.procedimiento.categorias.length - 1; i >= 0; i--) {
+            $scope.categoriaSel.push($scope.procedimiento.categorias[i]._id);
+        }
+        $scope.alerts = [];
+        if (edita) {
+            $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
+            $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
+            $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
+            $scope.modificando = true; //Para saber si estoy modificando los pasos
+            $scope.relProcedimiento = false;
+            $scope.seleccionProcedimientoActivo = true;
+            $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
+            $scope.procedimientoRelacionado = {};
+        }
+        else {
+            $scope.sortPasosAsc();
+            $scope.modificando = false;
+            $scope.calculaRating();
+            $scope.btnComentar = true;
+            $scope.frmComentar = false;
+            $scope.rateUser = 0;
+        }
     };
     /**
      *funciones luego que se selecciona un procedimiento en la busqueda
@@ -709,23 +703,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         } else {
             $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
         }
-    };
-
-    /**
-     *Muestra un procedimiento dentro de un paso
-     *@param {string} _id _id del procedimiento que se cargara
-     *@param {number} paso numero de paso al que pertence el procedimiento
-     *
-     */
-    $scope.mostrarProcedimiento = function(/*_id, paso*/) {
-        /*return $http.get('procedimientos/'+_id).then(function(res){
-            //console.log(res);
-            var procs = [];
-            angular.forEach(res.data, function(item){
-                procs.push(item);
-            });
-            return procs;
-        });*/
     };
 }]);
 

@@ -1,8 +1,12 @@
 <section data-ng-init="findOne()">
     <mostrar_procedimiento></mostrar_procedimiento>
-    <mostrar_pasos pasosd="procedimiento.pasos"  numpaso='0' procid="procedimiento._id" ></mostrar_pasos>
+    <div class=" nav-lateral">
+        <ul class="list-unstyled">
+            <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" >
+                <div class="btn-link" ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
+            </li>
+        </ul>
+    </div>
+    <mostrar_pasos numpaso='0' procid="{{procedimiento._id}}" ></mostrar_pasos>
     <mostrar_comentarios></mostrar_comentarios>
-    <a class="btn" tooltip="Eliminar Procedimiento" data-ng-click="remove();">
-        <i class="glyphicon glyphicon-trash"></i>
-    </a>
 </section>

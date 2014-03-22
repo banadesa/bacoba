@@ -35,48 +35,86 @@ angular.module('mean.directives', [])
         return {
             restrict: 'E',
             priority: 451,
-            scope: {numpaso: '@', pasosd: '=', procid: '='},
+            scope: {numpaso: '@', procid: '@'},
             templateUrl: 'views/procedimientos/mostrarPasos.html',
-            controller : function($scope, $compile){
+            controller : function($scope, $compile, $http, Procedimientos){
+                /**
+                 *Se va al elemento deseado segun el id
+                 *@param {string} elemento al que se desea ir
+                 */
+                $scope.irElemento = function(elemento) {
+                    //var pasoId = '#paso' + elemento;
+                    console.log(elemento);
+                    $('html, body').animate({
+                        scrollTop: $(elemento).offset().top
+                    });
+                };
                 /**
                  *Muestra un procedimiento dentro de un paso
                  *@param {string} _id _id del procedimiento que se cargara
                  *@param {number} paso numero de paso al que pertence el procedimiento
+                 *@param {number} indice indice del paso
                  *
                  */
-                $scope.mostrarProcedimiento = function(_id, paso) {
-                    console.log('buaaaa');
-                    var chart = angular.element(document.createElement('mostrar_procedimiento'));
-                    var el = $compile( chart )( $scope );
+                $scope.mostrarProcedimiento = function(_id, paso, indice) {
+                    console.log('$scope.btnMostrarProc[indice].visible');
+                    console.log($scope.btnMostrarProc[indice].visible);
+                    if ($scope.btnMostrarProc[indice].visible) {
+                        $scope.btnMostrarProc[indice].visible = false;
+                        $scope.btnMostrarProc[indice].btnMsj = 'Ocultar Procedimiento';
+                        if (angular.element('#subpaso'+ paso).children().length === 0) {
+                            var procs = angular.element('<mostrar_pasos numpaso="' + paso + '" procid="' + _id + '" id="procs' + paso + '"></mostrar_pasos>');
+                            var el = $compile( procs )( $scope );
+                            angular.element('#subpaso'+ paso).append(procs);
+                            $scope.insertHere = el;
+                        } else {
+                            $scope.btnMostrarProc[indice].verDiv = true;
+                        }
+                    } else {
+                        $scope.btnMostrarProc[indice].visible = true;
+                        $scope.btnMostrarProc[indice].btnMsj = 'Mostrar Procedimiento';
+                        $scope.btnMostrarProc[indice].verDiv = false;
+                    }
+                };
 
-                  //where do you want to place the new element?
-                  angular.element('#subpaso'+paso).append(chart);
-                  $scope.insertHere = el;
-                    /*return $http.get('procedimientos/'+_id).then(function(res){
-                        //console.log(res);
-                        var procs = [];
-                        angular.forEach(res.data, function(item){
-                            procs.push(item);
-                        });
-                        return procs;
-                    });*/
+                $scope.buscarPasos = function(procid) {
+                    console.log('procedimientos/' + procid);
+                    Procedimientos.get({
+                          procedimientoId: procid
+                        })
+                        .$promise.then(function(value){
+                            $scope.pasosd = value.pasos;
+                            $scope.pasosd.sort(function(a,b) {
+                                var n = b.actual - a.actual;
+                                if (n !== 0) {
+                                    return n;
+                                }
+                                n = parseInt(a.numeroPaso) - parseInt(b.numeroPaso);
+                                if (n !== 0) {
+                                    return n;
+                                }
+                                return a.version - b.version;
+                            });
+                            console.log($scope.pasosd);
+                            $scope.btnMostrarProc = [];
+                            angular.forEach($scope.pasosd,function(value) {
+                                if (value.procedimiento) {
+                                    $scope.btnMostrarProc.push({procedimientoId: value.procedimiento, btnMsj: 'Mostrar Procedimiento', visible: true, verDiv : true});
+                                }
+                                else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
+                            });
+                            console.log($scope.btnMostrarProc);
+                        })
                 };
             },
             link: function(scope, element, attrs, controller) {
                 if (attrs.numpaso === '0') {
                     attrs.numpaso = '';
-                } else attrs.numpaso = attrs.numpaso + '.';
-                scope.pasosd.sort(function(a,b) {
-                    var n = b.actual - a.actual;
-                    if (n !== 0) {
-                        return n;
-                    }
-                    n = parseInt(a.numeroPaso) - parseInt(b.numeroPaso);
-                    if (n !== 0) {
-                        return n;
-                    }
-                    return a.version - b.version;
-                });
+                } else {
+                    attrs.numpaso = attrs.numpaso + '.';
+                }
+
+                scope.buscarPasos(scope.procid);
             }
         };
     }])

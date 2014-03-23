@@ -25,10 +25,10 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/mostrarProcedimiento.html'
         };
     })
-    .directive('mostrarComentario', function() {
+    .directive('mostrarComentarios', function() {
         return {
             restrict: 'E',
-            templateUrl: 'views/procedimientos/mostrarComentario.html'
+            templateUrl: 'views/procedimientos/mostrarComentarios.html'
         };
     })
     .directive('mostrarPasos', ['$filter', function() {
@@ -59,13 +59,16 @@ angular.module('mean.directives', [])
                 $scope.mostrarProcedimiento = function(_id, paso, indice) {
                     console.log('$scope.btnMostrarProc[indice].visible');
                     console.log($scope.btnMostrarProc[indice].visible);
+                    var subpaso = '#'+ $scope.subpaso + paso;
+                    console.log('subpaso');
+                    console.log(subpaso);
                     if ($scope.btnMostrarProc[indice].visible) {
                         $scope.btnMostrarProc[indice].visible = false;
                         $scope.btnMostrarProc[indice].btnMsj = 'Ocultar Procedimiento';
-                        if (angular.element('#subpaso'+ paso).children().length === 0) {
-                            var procs = angular.element('<mostrar_pasos numpaso="' + paso + '" procid="' + _id + '" id="procs' + paso + '"></mostrar_pasos>');
+                        if (angular.element(subpaso).children().length === 0) {
+                            var procs = angular.element('<mostrar_pasos numpaso="' + $scope.numpaso + paso + '" procid="' + _id + '" id="procs' + paso + '"></mostrar_pasos>');
                             var el = $compile( procs )( $scope );
-                            angular.element('#subpaso'+ paso).append(procs);
+                            angular.element(subpaso).append(procs);
                             $scope.insertHere = el;
                         } else {
                             $scope.btnMostrarProc[indice].verDiv = true;
@@ -113,7 +116,7 @@ angular.module('mean.directives', [])
                 } else {
                     attrs.numpaso = attrs.numpaso + '.';
                 }
-
+                scope.subpaso = 'subpaso' + attrs.numpaso.replace(/\./g,'');
                 scope.buscarPasos(scope.procid);
             }
         };

@@ -2,9 +2,11 @@
     <mostrar_procedimiento></mostrar_procedimiento>
     <div class=" nav-lateral">
         <ul class="list-unstyled">
-            <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" >
-                <div class="btn-link" ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
+            <li ng-click="irElemento('top')"> Inicio</li>
+            <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" id="sidebar{{paso}}">
+                <div ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
             </li>
+            <li ng-click="irElemento('#comentarios')"> Comentarios</li>
         </ul>
     </div>
     <mostrar_pasos numpaso='0' procid="{{procedimiento._id}}" ></mostrar_pasos>

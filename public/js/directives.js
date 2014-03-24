@@ -44,7 +44,6 @@ angular.module('mean.directives', [])
                  */
                 $scope.irElemento = function(elemento) {
                     //var pasoId = '#paso' + elemento;
-                    console.log(elemento);
                     $('html, body').animate({
                         scrollTop: $(elemento).offset().top
                     });
@@ -57,14 +56,10 @@ angular.module('mean.directives', [])
                  *
                  */
                 $scope.mostrarProcedimiento = function(_id, paso, indice) {
-                    console.log('$scope.btnMostrarProc[indice].visible');
-                    console.log($scope.btnMostrarProc[indice].visible);
                     var subpaso = '#'+ $scope.subpaso + paso;
-                    console.log('subpaso');
-                    console.log(subpaso);
                     if ($scope.btnMostrarProc[indice].visible) {
                         $scope.btnMostrarProc[indice].visible = false;
-                        $scope.btnMostrarProc[indice].btnMsj = 'Ocultar Procedimiento';
+                        $scope.btnMostrarProc[indice].btnMsj = 'Ocultar Detalle';
                         if (angular.element(subpaso).children().length === 0) {
                             var procs = angular.element('<mostrar_pasos numpaso="' + $scope.numpaso + paso + '" procid="' + _id + '" id="procs' + paso + '"></mostrar_pasos>');
                             var el = $compile( procs )( $scope );
@@ -75,13 +70,12 @@ angular.module('mean.directives', [])
                         }
                     } else {
                         $scope.btnMostrarProc[indice].visible = true;
-                        $scope.btnMostrarProc[indice].btnMsj = 'Mostrar Procedimiento';
+                        $scope.btnMostrarProc[indice].btnMsj = 'Ver Detalle';
                         $scope.btnMostrarProc[indice].verDiv = false;
                     }
                 };
 
                 $scope.buscarPasos = function(procid) {
-                    console.log('procedimientos/' + procid);
                     Procedimientos.get({
                           procedimientoId: procid
                         })
@@ -98,15 +92,13 @@ angular.module('mean.directives', [])
                                 }
                                 return a.version - b.version;
                             });
-                            console.log($scope.pasosd);
                             $scope.btnMostrarProc = [];
                             angular.forEach($scope.pasosd,function(value) {
                                 if (value.procedimiento) {
-                                    $scope.btnMostrarProc.push({procedimientoId: value.procedimiento, btnMsj: 'Mostrar Procedimiento', visible: true, verDiv : true});
+                                    $scope.btnMostrarProc.push({procedimientoId: value.procedimiento, btnMsj: 'Ver Detalle', visible: true, verDiv : true});
                                 }
                                 else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
                             });
-                            console.log($scope.btnMostrarProc);
                         })
                 };
             },

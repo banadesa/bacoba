@@ -6,7 +6,7 @@
     </div>
     <p>
         <span ng-bind-html="paso.descripcion"></span>&nbsp<span class="btn btn-sm btn-info" ng-click="mostrarProcedimiento(paso.procedimiento._id, paso.numeroPaso,$index)" ng-show="paso.procedimiento"> <span class="glyphicon glyphicon-eye-open"></span> {{btnMostrarProc[$index].btnMsj}}</span>
-        <div ng-show="btnMostrarProc[$index].verDiv" id='{{subpaso}}{{paso.numeroPaso}}'></div>
+        <div ng-show="btnMostrarProc[$index].verDiv" id="{{subpaso}}{{paso.numeroPaso}}"></div>
     </p>
     <ba-imagen value={{paso.imagen}} ng-show="paso.imagen"></ba-imagen>
 </div>

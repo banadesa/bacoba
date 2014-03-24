@@ -124,6 +124,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 'imagen': this.imagenPaso,
                 'video': this.videoPaso,
                 'version': this.versionEdita,
+                'procedimiento': $scope.procedimientoPaso,
                 'actual': true,
                 'eliminado': false
             });
@@ -615,11 +616,14 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *@param {string} elemento al que se desea ir
      */
     $scope.irElemento = function(elemento) {
-        //var pasoId = '#paso' + elemento;
-        console.log(elemento);
-        $('html, body').animate({
-            scrollTop: $(elemento).offset().top
-        });
+        if (elemento !== 'top') {
+            console.log(elemento);
+            $('html, body').animate({
+                scrollTop: $(elemento).offset().top
+            });
+        } else {
+             $("html, body").animate({ scrollTop: 0 });
+        }
     };
 
     /**

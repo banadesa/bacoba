@@ -1,3 +1,4 @@
+
 .navbar .nav>li>a.brand {
     padding-left:20px;
     margin-left:0
@@ -183,11 +184,37 @@ footer p {
 }
 
 .nav-lateral {
-    right: 0;
+  display: none;
+}
+@media (min-width: 768px) {
+  .nav-lateral {
+    display: inherit;
+    left: 0;
     top: 0;
     bottom:0;
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     position: fixed;
     overflow-y:scroll;
     overflow-x:hidden;
     padding-top: 80px;
+    background-color: #f5f6f7;
+  }
+
+  .nav-lateral li{
+    padding: 2px;
+    color: black;
+    line-height: 24px;
+    border-top: 1px solid #ebebed;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .nav-lateral li:hover{
+    background-color: #cbd0d5;
+  }
+  .content {
+    margin-left: 5%;
+  }
 }

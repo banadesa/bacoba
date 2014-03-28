@@ -74,7 +74,13 @@ angular.module('mean.directives', [])
                         $scope.btnMostrarProc[indice].verDiv = false;
                     }
                 };
-
+                /**
+                 *Busca los pasos de un procedimiento y los ordena de menor a
+                 *mayor
+                 *
+                 *@param {string} procid _id del procedimiento
+                 *
+                 */
                 $scope.buscarPasos = function(procid) {
                     Procedimientos.get({
                           procedimientoId: procid

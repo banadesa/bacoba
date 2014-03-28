@@ -25,6 +25,11 @@
     </li>
 </ul>
 <div data-ng-show="global.user._id == procedimiento.user._id">
+    <a tooltip="Descargar Procedimiento" class="btn btn-info" href="/#!/procedimientos/{{procedimiento._id}}/edit">
+        <span class="glyphicon glyphicon-download">
+        </span>
+        Descargar
+    </a>
     <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">
         <i class="glyphicon glyphicon-edit"></i>
     </a>

@@ -20,59 +20,13 @@ var crearPDF = function(proc) {
     var rootPath = path.normalize(__dirname + '/../..');
     rootPath = rootPath + '/public/contenido/'
     var doc = new pdfDoc;
-    var fechaActualizacion;
-    doc.pipe(fs.createWriteStream(rootPath + proc.nombre +'.pdf'));
-    //Inserta la Pagina Inicia
-    fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
-                            proc.updated[proc.updated.length -1].toISOString().substring(5,7) + '/' +
-                            proc.updated[proc.updated.length -1].toISOString().substring(0,4)
-    doc.fontSize(25)
-    .text('Banco Nacional de Desarrollo Agricola',doc.x,100, {
-        align: 'center'
-    })
-    .moveDown(4);
-
-    /*doc.image(path.normalize(__dirname + '/../..') + '/public/img/logo.png',{
-        width: 500
-    });*/
-
-    doc.fontSize(30)
-    .fillColor('green')
-    .text(proc.nombre,doc.x,300,{
-        align: 'center'
-    });
-
-    doc.fontSize(16)
-    .fillColor('black')
-    .text(fechaActualizacion, doc.x, 650, {
-        align: 'center'
-    })
-    .moveDown(1);
-
-    doc.fontSize(10)
-    .text('Version ' + proc.versionActual, doc.x, 680, {
-        align: 'right'
-    })
-
-    doc.addPage();
-
-    //Inserta la Pagina de descripcion
-    doc.fontSize(16)
-    .fillColor('black')
-    .text(proc.descripcion, doc.x, 100, {
-        align: 'left'
-    });
-
-    doc.addPage();
-
-
+    doc.pipe(fs.createWriteStream(rootPath + 'prueba.pdf'));
     for (var i = 0; i <= proc.pasos.length - 1; i++) {
         if (proc.pasos[i].actual) {
             doc.fontSize(15)
             .fillColor('green')
+            .rect(320, 15, 100, 100)
             .text('No.' + proc.pasos[i].numeroPaso);
-
-            console.log(doc.y);
 
             doc.moveDown();
             doc.fontSize(12)
@@ -80,9 +34,9 @@ var crearPDF = function(proc) {
             .text(proc.pasos[i].descripcion);
             doc.moveDown();
             if (proc.pasos[i].imagen) {
-                doc.image(rootPath + proc._id + '/imagenes/' + proc.pasos[i].imagen,
-                {
-                    fit: [300, 400]
+                doc.image(rootPath + proc._id + '/' + proc.pasos[i].imagen,
+                320, 15, {
+                    fit: [100, 100]
                 });
             }
         }
@@ -95,7 +49,7 @@ var crearPDF = function(proc) {
 exports.procedimiento = function(req, res, next, id) {
     Procedimiento.load(id, function(err, procedimiento) {
         if (err) return next(err);
-        if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
+        if (!procedimiento) return next(new Error('Failed to load procedimiento ' + id));
         req.procedimiento = procedimiento;
         crearPDF(procedimiento);
         next();

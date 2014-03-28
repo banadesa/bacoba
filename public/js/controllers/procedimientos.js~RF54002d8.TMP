@@ -711,29 +711,19 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
     /**
      *Crea el archivo PDF de un procedimiento
-     *
+     */
     $scope.generaProcedimientoAPdf = function() {
         var doc = new jsPDF();
-        var j = 10;
-        var data,img;
-
-// All units are in the set measurement for the document
-// This can be changed to "pt" (points), "mm" (Default), "cm", "in"
-
-        //Crea una pagina con el titulo y la descripcion
-        doc.setFontSize(40);
-        doc.text(50, 60, $scope.procedimiento.nombre);
-        doc.text(80, 75, $scope.procedimiento.versionActual);
-        doc.setFontSize(20);
-        doc.text(20, 90, $scope.procedimiento.descripcion);
+        doc.text(20, 20, 'Hello world!');
+        doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
         doc.addPage();
-
+        doc.text(20, 20, 'Do you like that?');
 
 // Making Data URI
         var out = doc.output();
         var url = 'data:application/pdf;base64,' + btoa(out);
         window.open(url);
-    }*/
+    }
 }]);
 
 

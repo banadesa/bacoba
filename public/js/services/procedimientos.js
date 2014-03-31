@@ -10,8 +10,7 @@ angular.module('mean.procedimientos')
             method: 'PUT'
         }
     });
-
-    return Proc
+    return Proc;
 }])
 .service('cargarArchivo', ['$http', '$q', function ($http, $q) {
     this.uploadFileToUrl = function(files, uploadUrl){

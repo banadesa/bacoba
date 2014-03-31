@@ -83,32 +83,32 @@ angular.module('mean.directives', [])
                  */
                 $scope.buscarPasos = function(procid) {
                     Procedimientos.get({
-                          procedimientoId: procid
-                        })
-                        .$promise.then(function(value){
-                            $scope.pasosd = value.pasos;
-                            $scope.pasosd.sort(function(a,b) {
-                                var n = b.actual - a.actual;
-                                if (n !== 0) {
-                                    return n;
-                                }
-                                n = parseInt(a.numeroPaso) - parseInt(b.numeroPaso);
-                                if (n !== 0) {
-                                    return n;
-                                }
-                                return a.version - b.version;
-                            });
-                            $scope.btnMostrarProc = [];
-                            angular.forEach($scope.pasosd,function(value) {
-                                if (value.procedimiento) {
-                                    $scope.btnMostrarProc.push({procedimientoId: value.procedimiento, btnMsj: 'Ver Detalle', visible: true, verDiv : true});
-                                }
-                                else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
-                            });
-                        })
+                        procedimientoId: procid
+                    })
+                    .$promise.then(function(value){
+                        $scope.pasosd = value.pasos;
+                        $scope.pasosd.sort(function(a,b) {
+                            var n = b.actual - a.actual;
+                            if (n !== 0) {
+                                return n;
+                            }
+                            n = parseInt(a.numeroPaso) - parseInt(b.numeroPaso);
+                            if (n !== 0) {
+                                return n;
+                            }
+                            return a.version - b.version;
+                        });
+                        $scope.btnMostrarProc = [];
+                        angular.forEach($scope.pasosd,function(value) {
+                            if (value.procedimiento) {
+                                $scope.btnMostrarProc.push({procedimientoId: value.procedimiento, btnMsj: 'Ver Detalle', visible: true, verDiv : true});
+                            }
+                            else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
+                        });
+                    });
                 };
             },
-            link: function(scope, element, attrs, controller) {
+            link: function(scope, element, attrs) {
                 if (attrs.numpaso === '0') {
                     attrs.numpaso = '';
                 } else {

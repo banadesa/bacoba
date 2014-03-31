@@ -18,14 +18,14 @@ var mongoose = require('mongoose'),
 
 var crearPDF = function(proc) {
     var rootPath = path.normalize(__dirname + '/../..');
-    rootPath = rootPath + '/public/contenido/'
-    var doc = new pdfDoc;
+    rootPath = rootPath + '/public/contenido/';
+    var doc = new pdfDoc();
     var fechaActualizacion;
     doc.pipe(fs.createWriteStream(rootPath + proc.nombre +'.pdf'));
     //Inserta la Pagina Inicia
     fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
                             proc.updated[proc.updated.length -1].toISOString().substring(5,7) + '/' +
-                            proc.updated[proc.updated.length -1].toISOString().substring(0,4)
+                            proc.updated[proc.updated.length -1].toISOString().substring(0,4);
     doc.fontSize(25)
     .text('Banco Nacional de Desarrollo Agricola',doc.x,100, {
         align: 'center'
@@ -52,7 +52,7 @@ var crearPDF = function(proc) {
     doc.fontSize(10)
     .text('Version ' + proc.versionActual, doc.x, 680, {
         align: 'right'
-    })
+    });
 
     doc.addPage();
 
@@ -88,7 +88,7 @@ var crearPDF = function(proc) {
         }
     }
     doc.end();
-}
+};
 /**
  * Find procedimiento by id
  */

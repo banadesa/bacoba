@@ -12,11 +12,11 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/procedimientos/list.html',
             resolve: {
                 proc: function(Procedimientos) {
-                    return Procedimientos.query(function(procedimientos) {
-                        })
+                    return Procedimientos.query(function() {
+                    })
                         .$promise.then(function(value){
                             return value;
-                    });
+                        });
                 }
             }
         }).
@@ -38,8 +38,8 @@ angular.module('mean').config(['$routeProvider',
                         procedimientoId: $route.current.params.procedimientoId
                     })
                     .$promise.then(function(value){
-                        return value
-                    })
+                        return value;
+                    });
                 }
             }
         }).
@@ -52,8 +52,8 @@ angular.module('mean').config(['$routeProvider',
                         procedimientoId: $route.current.params.procedimientoId
                     })
                     .$promise.then(function(value){
-                        return value
-                    })
+                        return value;
+                    });
                 }
             }
         }).
@@ -66,8 +66,8 @@ angular.module('mean').config(['$routeProvider',
                         procedimientoId: $route.current.params.procedimientoId
                     })
                     .$promise.then(function(value){
-                        return value
-                    })
+                        return value;
+                    });
                 }
             }
         }).

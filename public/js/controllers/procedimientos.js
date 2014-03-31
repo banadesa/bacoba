@@ -194,7 +194,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
 
     $scope.find = function() {
-            $scope.procedimientos = proc;
+        $scope.procedimientos = proc;
     };
 
     /**
@@ -623,7 +623,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 scrollTop: $(elemento).offset().top
             });
         } else {
-             $("html, body").animate({ scrollTop: 0 });
+            $('html, body').animate({ scrollTop: 0 });
         }
     };
 

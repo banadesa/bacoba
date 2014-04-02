@@ -17,10 +17,162 @@ var mongoose = require('mongoose'),
  */
 
 var crearPDF = function(proc) {
+    var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     rootPath = rootPath + '/public/contenido/';
     var doc = new pdfDoc();
     var fechaActualizacion;
+    var imgActual; //ruta completa de la imagen que se mostrara;
+    var imgWidth; // anchura de la imagen que se mostrara;
+    var imgHeight; //altura de la imagen que se mostrara;
+    var tamañoMaximo = 400; //tamaño maximo de las imagenes a mostrar
+
+    /**
+     *Recibe texto en html y lo transforma al formato PDF  necesario
+     */
+    var htmlAPdf = function (texto){
+        var extracto=''; //texto que ya ha sido extraidp
+        var tag=''; //tag que se encontro en el texto
+        var resto = ''; //texto que falta por extraer;
+        var tamTexto = 12; //tamaño del texto en el pdf
+        var continuar = true; // si continua en la misma linea o hace salto
+        var busqueda; // nombre del la siguiente variable que busca para el index of
+        var subrayado = false; // si el texto va subrayado o no
+        var indentado = 0; // si va indentado o no
+        var avanzo = 0; // cuanto caracteres se avanza para salir del tag
+        var avanzoPendiente = 0; // si es un tag acumulado cuanto mas debe avanzar para llegar
+                            //al otro tag
+        var bajar = 0; //cuantas lineas debe bajar
+        var textColor = 'black'; // color del texto
+        var tags = []; //tags a los que he entrado pero no he cerrado
+        var tagsPendientes = []; //tags a los que he entrado pero no he cerrado
+        //replace el caracter &#160 de forma global con un espacio
+        texto = texto.replace(/&#160;/g,' ');
+        // el span solo indica que el texto va corrido, que es asi por defecto asi
+        //que se quita
+        texto = texto.replace(/<span>/g,'').replace(/<\/span>/g,' ');
+        //reemplado el <br/> por <p></p> porque resulta mas facil manejar el salto
+        texto = texto.replace(/<br\/>/g,'<p></p>');
+        for (var i = 0; i <= texto.length - 1; i++) {
+            if (texto[i] !== '<') {
+                extracto = extracto + texto[i]
+            }
+            else {
+                if (extracto) {
+                    doc.fontSize(tamTexto)
+                    .fillColor(textColor)
+                    .text(extracto, {
+                        underline: subrayado,
+                        indent: indentado,
+                        continued: continuar
+                    })
+                    .moveDown(bajar);
+                    extracto = '';
+                    console.log('doc.x');
+                    console.log(doc.x);
+                    console.log('doc.y');
+                    console.log(doc.y);
+                };
+                if (texto[i+1] !== '/') {
+                    tag=texto.substring(i +1 ,texto.indexOf('>',i+1));
+                    i = i + tag.length + 1;
+                    tags.push(tag);
+                    switch (tag) {
+                    case 'h1':
+                        tamTexto = tamTexto + 6;
+                        continuar = false;
+                        bajar = bajar + 0.5;
+                        break;
+                    case 'h2':
+                        tamTexto = tamTexto + 4;
+                        continuar = false;
+                        bajar = bajar + 0.5;
+                        break;
+                    case 'b':
+                        tamTexto = tamTexto + 1;
+                        continuar = true;
+                        break;
+                    case 'u':
+                        subrayado = true;
+                        continuar = true;
+                        break;
+                    case 'li':
+                        indentado = indentado + 10;
+                        continuar = true;
+                        break;
+                    case 'div':
+                        continuar = false;
+                        break;
+                    case 'p':
+                        continuar = false;
+                        bajar = bajar + 1;
+                        break;
+                    case 'pre':
+                        continuar = false;
+                        break;
+                    case 'i':
+                        continuar = false;
+                        textColor = 'red';
+                        break;
+                    case 'ul':
+                        continuar = false;
+                        break;
+                    case 'ol':
+                        continuar = false;
+                        break;
+                    };
+                }
+                else {
+                    tag = tags.pop();
+                    i = i + 2 + tag.length;
+                    switch (tag) {
+                    case 'h1':
+                        tamTexto = tamTexto - 6;
+                        continuar = true;
+                        bajar = bajar - 0.5;
+                        break;
+                    case 'h2':
+                        tamTexto = tamTexto - 4;
+                        continuar = true;
+                        bajar = bajar - 0.5;
+                        break;
+                    case 'b':
+                        tamTexto = tamTexto - 1;
+                        continuar = true;
+                        break;
+                    case 'u':
+                        subrayado = false;
+                        continuar = true;
+                        break;
+                    case 'li':
+                        indentado = indentado - 10;
+                        continuar = true;
+                        break;
+                    case 'div':
+                        continuar = true;
+                        break;
+                    case 'p':
+                        continuar = false;
+                        bajar = bajar - 1;
+                        break;
+                    case 'pre':
+                        continuar = true;
+                        break;
+                    case 'i':
+                        continuar = true;
+                        textColor = 'black';
+                        break;
+                    case 'ul':
+                        continuar = true;
+                        break;
+                    case 'ol':
+                        continuar = true;
+                        break;
+                    };
+                }
+            }
+        }
+    };
     doc.pipe(fs.createWriteStream(rootPath + proc.nombre +'.pdf'));
     //Inserta la Pagina Inicia
     fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
@@ -30,18 +182,20 @@ var crearPDF = function(proc) {
     .text('Banco Nacional de Desarrollo Agricola',doc.x,100, {
         align: 'center'
     })
-    .moveDown(4);
+    .moveDown(1);
 
-    /*doc.image(path.normalize(__dirname + '/../..') + '/public/img/logo.png',{
-        width: 500
-    });*/
+    //Inserta el logo de la pagina principal
+    doc.image(path.normalize(__dirname + '/../..') + '/public/img/logo.jpg', 200,doc.y);
 
+    //nombre del procedimiento
     doc.fontSize(30)
     .fillColor('green')
-    .text(proc.nombre,doc.x,300,{
-        align: 'center'
+    .text(proc.nombre,doc.x,400,{
+        align: 'center',
+        fill: true
     });
 
+    //fecha de actualizacion del procedimiento
     doc.fontSize(16)
     .fillColor('black')
     .text(fechaActualizacion, doc.x, 650, {
@@ -49,6 +203,7 @@ var crearPDF = function(proc) {
     })
     .moveDown(1);
 
+    //version a imprimir del documento
     doc.fontSize(10)
     .text('Version ' + proc.versionActual, doc.x, 680, {
         align: 'right'
@@ -57,37 +212,90 @@ var crearPDF = function(proc) {
     doc.addPage();
 
     //Inserta la Pagina de descripcion
-    doc.fontSize(16)
+    //titulo
+    doc.fontSize(20)
     .fillColor('black')
-    .text(proc.descripcion, doc.x, 100, {
+    .text('Descripcion', doc.x, doc.y, {
+        align: 'center'
+    })
+    .moveDown(2);
+
+    //Descripcion del procedimiento
+    doc.fontSize(14)
+    .fillColor('black')
+    .text(proc.descripcion, doc.x, doc.y, {
         align: 'left'
     });
 
     doc.addPage();
 
-
-    for (var i = 0; i <= proc.pasos.length - 1; i++) {
+    /**
+     *Guarda paso a paso el documento en el archivo PDF
+     *recursivamente por la espera que daba leer el tamaño de
+     *las imagenes
+     *@param {string} i numero de paso
+     *@param {function} Callbacks()
+     */
+    function pasoAPdf(i, callback) {
         if (proc.pasos[i].actual) {
+            doc.moveDown(1);
             doc.fontSize(15)
             .fillColor('green')
             .text('No.' + proc.pasos[i].numeroPaso);
-
-            console.log(doc.y);
-
             doc.moveDown();
-            doc.fontSize(12)
-            .fillColor('black')
-            .text(proc.pasos[i].descripcion);
-            doc.moveDown();
+
+            htmlAPdf(proc.pasos[i].descripcion);
+            doc.moveDown(1);
             if (proc.pasos[i].imagen) {
-                doc.image(rootPath + proc._id + '/imagenes/' + proc.pasos[i].imagen,
-                {
-                    fit: [300, 400]
+                imgActual = rootPath + proc._id + '/imagenes/' + proc.pasos[i].imagen;
+                imgWidth = undefined;
+                imgHeight = undefined;
+                sizeOf(imgActual, function (err, dimensions) {
+                    imgWidth = dimensions.width;
+                    imgHeight = dimensions.height;
+                    if (imgHeight > tamañoMaximo || imgWidth > tamañoMaximo) {
+                        if (tamañoMaximo + doc.y > 730) {
+                            doc.addPage();
+                        }
+                        doc.image(imgActual,
+                        {
+                            fit: [tamañoMaximo, tamañoMaximo]
+                        });
+                    }
+                    else {
+                        if (imgHeight + doc.y > 730) {
+                            doc.addPage();
+                        }
+                        doc.image(imgActual);
+                    }
+                    callback();
                 });
+            } else {
+                callback();
             }
+        } else {
+            callback();
         }
     }
-    doc.end();
+
+    /**
+     *Si existe otro paso llama al siguiente,
+     *sino termina el documento PDF o
+     *@param {number} i numero de paso
+     */
+    function final(i) {
+         if (i +1 > proc.pasos.length -1) {
+            doc.end();
+        } else {
+            pasoAPdf(i+1,function(){
+               return final(i+1);
+            });
+        }
+    };
+
+    pasoAPdf(0, function(){
+        return final(0);
+    });
 };
 /**
  * Find procedimiento by id

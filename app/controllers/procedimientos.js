@@ -33,19 +33,13 @@ var crearPDF = function(proc) {
     var htmlAPdf = function (texto){
         var extracto=''; //texto que ya ha sido extraidp
         var tag=''; //tag que se encontro en el texto
-        var resto = ''; //texto que falta por extraer;
         var tamTexto = 12; //tamaño del texto en el pdf
         var continuar = true; // si continua en la misma linea o hace salto
-        var busqueda; // nombre del la siguiente variable que busca para el index of
         var subrayado = false; // si el texto va subrayado o no
         var indentado = 0; // si va indentado o no
-        var avanzo = 0; // cuanto caracteres se avanza para salir del tag
-        var avanzoPendiente = 0; // si es un tag acumulado cuanto mas debe avanzar para llegar
-                            //al otro tag
         var bajar = 0; //cuantas lineas debe bajar
         var textColor = 'black'; // color del texto
         var tags = []; //tags a los que he entrado pero no he cerrado
-        var tagsPendientes = []; //tags a los que he entrado pero no he cerrado
         //replace el caracter &#160 de forma global con un espacio
         texto = texto.replace(/&#160;/g,' ');
         // el span solo indica que el texto va corrido, que es asi por defecto asi
@@ -55,7 +49,7 @@ var crearPDF = function(proc) {
         texto = texto.replace(/<br\/>/g,'<p></p>');
         for (var i = 0; i <= texto.length - 1; i++) {
             if (texto[i] !== '<') {
-                extracto = extracto + texto[i]
+                extracto = extracto + texto[i];
             }
             else {
                 if (extracto) {
@@ -63,16 +57,17 @@ var crearPDF = function(proc) {
                     .fillColor(textColor)
                     .text(extracto, {
                         underline: subrayado,
-                        indent: indentado,
-                        continued: continuar
+                        indent: indentado//,
+                        // continued: continuar
                     })
+                    //.text(' ')
                     .moveDown(bajar);
                     extracto = '';
-                    console.log('doc.x');
-                    console.log(doc.x);
-                    console.log('doc.y');
-                    console.log(doc.y);
-                };
+                    // console.log('doc.x');
+                    // console.log(doc.x);
+                    // console.log('doc.y');
+                    // console.log(doc.y);
+                }
                 if (texto[i+1] !== '/') {
                     tag=texto.substring(i +1 ,texto.indexOf('>',i+1));
                     i = i + tag.length + 1;
@@ -120,7 +115,7 @@ var crearPDF = function(proc) {
                     case 'ol':
                         continuar = false;
                         break;
-                    };
+                    }
                 }
                 else {
                     tag = tags.pop();
@@ -128,49 +123,59 @@ var crearPDF = function(proc) {
                     switch (tag) {
                     case 'h1':
                         tamTexto = tamTexto - 6;
-                        continuar = true;
+                        // continuar = false;
                         bajar = bajar - 0.5;
                         break;
                     case 'h2':
                         tamTexto = tamTexto - 4;
-                        continuar = true;
+                        // continuar = false;
                         bajar = bajar - 0.5;
                         break;
                     case 'b':
                         tamTexto = tamTexto - 1;
-                        continuar = true;
                         break;
                     case 'u':
                         subrayado = false;
-                        continuar = true;
                         break;
                     case 'li':
                         indentado = indentado - 10;
-                        continuar = true;
+                        // continuar = true;
                         break;
                     case 'div':
-                        continuar = true;
+                        // continuar = true;
                         break;
                     case 'p':
-                        continuar = false;
+                        // continuar = false;
                         bajar = bajar - 1;
                         break;
                     case 'pre':
-                        continuar = true;
+                        // continuar = true;
                         break;
                     case 'i':
-                        continuar = true;
+                        // continuar = true;
                         textColor = 'black';
                         break;
                     case 'ul':
-                        continuar = true;
+                        // continuar = true;
                         break;
                     case 'ol':
-                        continuar = true;
+                        //continuar = true;
                         break;
-                    };
+                    }
+                    continuar = false;
                 }
             }
+        }
+        if (extracto) {
+             doc.fontSize(tamTexto)
+                .fillColor(textColor)
+                .text(extracto, {
+                    underline: subrayado,
+                    indent: indentado//,
+                    // continued: continuar
+                })
+                //.text(' ')
+                .moveDown(bajar);
         }
     };
     doc.pipe(fs.createWriteStream(rootPath + proc.nombre +'.pdf'));
@@ -250,9 +255,13 @@ var crearPDF = function(proc) {
                 imgActual = rootPath + proc._id + '/imagenes/' + proc.pasos[i].imagen;
                 imgWidth = undefined;
                 imgHeight = undefined;
+                console.log('imgActual');
+                console.log(imgActual);
                 sizeOf(imgActual, function (err, dimensions) {
                     imgWidth = dimensions.width;
                     imgHeight = dimensions.height;
+                    console.log('imgWidth,imgHeight');
+                    console.log(imgWidth,imgHeight);
                     if (imgHeight > tamañoMaximo || imgWidth > tamañoMaximo) {
                         if (tamañoMaximo + doc.y > 730) {
                             doc.addPage();
@@ -284,14 +293,14 @@ var crearPDF = function(proc) {
      *@param {number} i numero de paso
      */
     function final(i) {
-         if (i +1 > proc.pasos.length -1) {
+        if (i +1 > proc.pasos.length -1) {
             doc.end();
         } else {
             pasoAPdf(i+1,function(){
-               return final(i+1);
+                return final(i+1);
             });
         }
-    };
+    }
 
     pasoAPdf(0, function(){
         return final(0);

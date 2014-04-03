@@ -1,5 +1,7 @@
 <section data-ng-init="findOne()">
-    <mostrar_procedimiento></mostrar_procedimiento>
+    <div class="contenedor-pasos">
+        <mostrar_procedimiento></mostrar_procedimiento>
+    </div>
     <div class=" nav-lateral">
         <ul class="list-unstyled">
             <li ng-click="irElemento('top')"> Inicio</li>
@@ -9,6 +11,8 @@
             <li ng-click="irElemento('#comentarios')"> Comentarios</li>
         </ul>
     </div>
-    <mostrar_pasos numpaso='0' procid="{{procedimiento._id}}" ></mostrar_pasos>
-    <mostrar_comentarios></mostrar_comentarios>
+    <div class="contenedor-pasos">
+        <mostrar_pasos numpaso='0' procid="{{procedimiento._id}}" ></mostrar_pasos>
+        <mostrar_comentarios></mostrar_comentarios>
+    </div>
 </section>

@@ -1,0 +1,481 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'pdfkit' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink /usr/bin/node
+5 warn package.json crypto@0.0.3 crypto is also the name of a node core module.
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'pdfkit@~0.5.0', null ]
+8 verbose cache add name=undefined spec="pdfkit@~0.5.0" args=["pdfkit@~0.5.0",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'pdfkit@~0.5.0',
+9 verbose parsed url   path: 'pdfkit@~0.5.0',
+9 verbose parsed url   href: 'pdfkit@~0.5.0' }
+10 verbose cache add name="pdfkit" spec="~0.5.0" args=["pdfkit","~0.5.0"]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: '~0.5.0',
+11 verbose parsed url   path: '~0.5.0',
+11 verbose parsed url   href: '~0.5.0' }
+12 verbose addNamed [ 'pdfkit', '~0.5.0' ]
+13 verbose addNamed [ null, '>=0.5.0-0 <0.6.0-0' ]
+14 silly lockFile 80238913-pdfkit-0-5-0 pdfkit@~0.5.0
+15 verbose lock pdfkit@~0.5.0 /home/jepz/.npm/80238913-pdfkit-0-5-0.lock
+16 silly addNameRange { name: 'pdfkit', range: '>=0.5.0-0 <0.6.0-0', hasData: false }
+17 verbose url raw pdfkit
+18 verbose url resolving [ 'https://registry.npmjs.org/', './pdfkit' ]
+19 verbose url resolved https://registry.npmjs.org/pdfkit
+20 info trying registry request attempt 1 at 22:05:28
+21 verbose etag "8C3TSKJB46UKCI9Q7RH4J2964"
+22 http GET https://registry.npmjs.org/pdfkit
+23 http 200 https://registry.npmjs.org/pdfkit
+24 silly registry.get cb [ 200,
+24 silly registry.get   { date: 'Thu, 03 Apr 2014 04:05:29 GMT',
+24 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+24 silly registry.get     etag: '"DVW9QE4B1BCDKSSAGSH20HGRJ"',
+24 silly registry.get     'content-type': 'application/json',
+24 silly registry.get     via: '1.1 varnish',
+24 silly registry.get     'cache-control': 'max-age=1',
+24 silly registry.get     'content-length': '31902',
+24 silly registry.get     'accept-ranges': 'bytes',
+24 silly registry.get     age: '10995',
+24 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-jfk1032-JFK',
+24 silly registry.get     'x-cache': 'MISS, MISS',
+24 silly registry.get     'x-cache-hits': '0, 0',
+24 silly registry.get     'x-timer': 'S1396486934.552227497,VS0,VS2,VE11,VE10994786',
+24 silly registry.get     vary: 'Accept',
+24 silly registry.get     'keep-alive': 'timeout=10, max=50',
+24 silly registry.get     connection: 'Keep-Alive' } ]
+25 silly addNameRange number 2 { name: 'pdfkit', range: '>=0.5.0-0 <0.6.0-0', hasData: true }
+26 silly addNameRange versions [ 'pdfkit',
+26 silly addNameRange   [ '0.1.0',
+26 silly addNameRange     '0.1.1',
+26 silly addNameRange     '0.1.2',
+26 silly addNameRange     '0.1.3',
+26 silly addNameRange     '0.1.4',
+26 silly addNameRange     '0.1.5',
+26 silly addNameRange     '0.1.6',
+26 silly addNameRange     '0.1.7',
+26 silly addNameRange     '0.1.8',
+26 silly addNameRange     '0.1.9',
+26 silly addNameRange     '0.2.0',
+26 silly addNameRange     '0.2.1',
+26 silly addNameRange     '0.2.2',
+26 silly addNameRange     '0.2.3',
+26 silly addNameRange     '0.2.4',
+26 silly addNameRange     '0.2.5',
+26 silly addNameRange     '0.2.6',
+26 silly addNameRange     '0.2.7',
+26 silly addNameRange     '0.2.8',
+26 silly addNameRange     '0.3.0',
+26 silly addNameRange     '0.4.0',
+26 silly addNameRange     '0.4.2',
+26 silly addNameRange     '0.4.3',
+26 silly addNameRange     '0.5.0',
+26 silly addNameRange     '0.5.2' ] ]
+27 verbose addNamed [ 'pdfkit', '0.5.2' ]
+28 verbose addNamed [ '0.5.2', '0.5.2' ]
+29 silly lockFile da5e308d-pdfkit-0-5-2 pdfkit@0.5.2
+30 verbose lock pdfkit@0.5.2 /home/jepz/.npm/da5e308d-pdfkit-0-5-2.lock
+31 silly lockFile da5e308d-pdfkit-0-5-2 pdfkit@0.5.2
+32 silly lockFile da5e308d-pdfkit-0-5-2 pdfkit@0.5.2
+33 silly lockFile 80238913-pdfkit-0-5-0 pdfkit@~0.5.0
+34 silly lockFile 80238913-pdfkit-0-5-0 pdfkit@~0.5.0
+35 silly resolved [ { name: 'pdfkit',
+35 silly resolved     description: 'A PDF generation library for Node.js',
+35 silly resolved     keywords:
+35 silly resolved      [ 'pdf',
+35 silly resolved        'pdf writer',
+35 silly resolved        'pdf generator',
+35 silly resolved        'graphics',
+35 silly resolved        'document',
+35 silly resolved        'vector' ],
+35 silly resolved     version: '0.5.2',
+35 silly resolved     homepage: 'http://pdfkit.org/',
+35 silly resolved     author:
+35 silly resolved      { name: 'Devon Govett',
+35 silly resolved        email: 'devongovett@gmail.com',
+35 silly resolved        url: 'http://badassjs.com/' },
+35 silly resolved     repository:
+35 silly resolved      { type: 'git',
+35 silly resolved        url: 'https://github.com/devongovett/pdfkit.git' },
+35 silly resolved     bugs: { url: 'http://github.com/devongovett/pdfkit/issues' },
+35 silly resolved     devDependencies:
+35 silly resolved      { 'coffee-script': '>=1.0.1',
+35 silly resolved        codemirror: '~3.20.0',
+35 silly resolved        markdown: '~0.5.0',
+35 silly resolved        jade: '~1.1.5' },
+35 silly resolved     dependencies: { 'png-js': '>=0.1.0', linebreak: '~0.1.0' },
+35 silly resolved     scripts:
+35 silly resolved      { prepublish: 'coffee -o js -c lib/ && cp -r lib/font/data js/font/data',
+35 silly resolved        postpublish: 'rm -rf ./js' },
+35 silly resolved     main: './js/document',
+35 silly resolved     engine: [ 'node >= v0.6.0' ],
+35 silly resolved     readme: '# PDFKit\n### A PDF generation library for Node.js.\n\n## Description\n\nPDFKit is a PDF document generation library for Node that makes creating complex, multi-page, printable documents easy. \nIt\'s written in CoffeeScript, but you can choose to use the API in plain \'ol JavaScript if you like. The API embraces \nchainability, and includes both low level functions as well as abstractions for higher level functionality. The PDFKit API \nis designed to be simple, so generating complex documents is often as simple as a few function calls.\n\nCheck out some of the [documentation and examples](http://pdfkit.org/docs/getting_started.html) to see for yourself!\nYou can also read the guide as a [self-generated PDF](http://pdfkit.org/docs/guide.pdf) with example output displayed inline.\nIf you\'d like to see how it was generated, check out the README in the [docs](https://github.com/devongovett/pdfkit/tree/master/docs)\nfolder.\n\n## Installation\n\nInstallation uses the [npm](http://npmjs.org/) package manager.  Just type the following command after installing npm.\n\n    npm install pdfkit\n\n## Features\n\n* Vector graphics\n  * HTML5 canvas-like API\n  * Path operations\n  * SVG path parser for easy path creation\n  * Transformations\n  * Linear and radial gradients\n* Text\n  * Line wrapping\n  * Text alignments\n  * Bulleted lists\n* Font embedding\n  * Supports TrueType (.ttf), TrueType Collections (.ttc), and Datafork TrueType (.dfont) fonts\n  * Font subsetting\n* Image embedding\n  * Supports JPEG and PNG files (including indexed PNGs, and PNGs with transparency)\n* Annotations\n  * Links\n  * Notes\n  * Highlights\n  * Underlines\n  * etc.\n  \n## Coming soon!\n\n* Patterns fills\n* Outlines\n* PDF Security\n* Higher level APIs for creating tables and laying out content\n* More performance optimizations\n* Even more awesomeness, perhaps written by you! Please fork this repository and send me pull requests.\n    \n## Example\n\n    PDFDocument = require \'pdfkit\'\n    \n    # Create a document\n    doc = new PDFDocument\n    \n    # Pipe it\'s output somewhere, like to a file or HTTP response\n    doc.pipe fs.createWriteStream(\'output.pdf\')\n\n    # Embed a font, set the font size, and render some text\n    doc.font(\'fonts/PalatinoBold.ttf\')\n       .fontSize(25)\n       .text(\'Some text with an embedded font!\', 100, 100)\n\n    # Add another page\n    doc.addPage()\n       .fontSize(25)\n       .text(\'Here is some vector graphics...\', 100, 100)\n\n    # Draw a triangle\n    doc.save()\n       .moveTo(100, 150)\n       .lineTo(100, 250)\n       .lineTo(200, 250)\n       .fill("#FF3300")\n\n    # Apply some transforms and render an SVG path with the \'even-odd\' fill rule\n    doc.scale(0.6)\n       .translate(470, -380)\n       .path(\'M 250,75 L 323,301 131,161 369,161 177,301 z\')\n       .fill(\'red\', \'even-odd\')\n       .restore()\n\n    # Add some text with annotations\n    doc.addPage()\n       .fillColor("blue")\n       .text(\'Here is a link!\', 100, 100)\n       .underline(100, 100, 160, 27, color: "#0000FF")\n       .link(100, 100, 160, 27, \'http://google.com/\')\n\n    # Finalize PDF file\n    doc.end()\n     \n[The PDF output from this example](http://pdfkit.org/demo/out.pdf) (with a few additions) shows the power of PDFKit — producing \ncomplex documents with a very small amount of code.  For more, see the `demo` folder and the \n[PDFKit programming guide](http://pdfkit.org/docs/getting_started.html).\n\n## Documentation\n\nFor complete API documentation and more examples, see the [PDFKit website](http://pdfkit.org/).\n\n## License\n\nPDFKit is available under the MIT license.',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     _id: 'pdfkit@0.5.2',
+35 silly resolved     _from: 'pdfkit@~0.5.0' } ]
+36 info install pdfkit@0.5.2 into /home/jepz/Desarrollo/bacoba
+37 info installOne pdfkit@0.5.2
+38 info /home/jepz/Desarrollo/bacoba/node_modules/pdfkit unbuild
+39 verbose tar unpack /home/jepz/.npm/pdfkit/0.5.2/package.tgz
+40 silly lockFile 75ef77b3-rollo-bacoba-node-modules-pdfkit tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+41 verbose lock tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit /home/jepz/.npm/75ef77b3-rollo-bacoba-node-modules-pdfkit.lock
+42 silly lockFile 4098873c-epz-npm-pdfkit-0-5-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.5.2/package.tgz
+43 verbose lock tar:///home/jepz/.npm/pdfkit/0.5.2/package.tgz /home/jepz/.npm/4098873c-epz-npm-pdfkit-0-5-2-package-tgz.lock
+44 silly gunzTarPerm modes [ '755', '644' ]
+45 silly gunzTarPerm extractEntry package.json
+46 silly gunzTarPerm extractEntry .npmignore
+47 silly gunzTarPerm extractEntry README.md
+48 silly gunzTarPerm extractEntry LICENSE
+49 silly gunzTarPerm extractEntry js/data.js
+50 silly gunzTarPerm extractEntry js/path.js
+51 silly gunzTarPerm extractEntry js/font.js
+52 silly gunzTarPerm extractEntry js/gradient.js
+53 silly gunzTarPerm extractEntry js/page.js
+54 silly gunzTarPerm extractEntry js/document.js
+55 silly gunzTarPerm extractEntry js/line_wrapper.js
+56 silly gunzTarPerm extractEntry js/object.js
+57 silly gunzTarPerm extractEntry js/reference.js
+58 silly gunzTarPerm extractEntry js/image.js
+59 silly gunzTarPerm extractEntry js/mixins/annotations.js
+60 silly gunzTarPerm extractEntry js/mixins/color.js
+61 silly gunzTarPerm extractEntry js/mixins/fonts.js
+62 silly gunzTarPerm extractEntry js/mixins/images.js
+63 silly gunzTarPerm extractEntry js/mixins/text.js
+64 silly gunzTarPerm extractEntry js/mixins/vector.js
+65 silly gunzTarPerm extractEntry js/image/jpeg.js
+66 silly gunzTarPerm extractEntry js/image/png.js
+67 silly gunzTarPerm extractEntry js/font/afm.js
+68 silly gunzTarPerm extractEntry js/font/dfont.js
+69 silly gunzTarPerm extractEntry js/font/directory.js
+70 silly gunzTarPerm extractEntry js/font/subset.js
+71 silly gunzTarPerm extractEntry js/font/table.js
+72 silly gunzTarPerm extractEntry js/font/ttf.js
+73 silly gunzTarPerm extractEntry js/font/utils.js
+74 silly gunzTarPerm extractEntry js/font/data/Helvetica.afm
+75 silly gunzTarPerm extractEntry js/font/data/Courier-Bold.afm
+76 silly gunzTarPerm extractEntry js/font/data/Courier-Oblique.afm
+77 silly gunzTarPerm extractEntry js/font/data/Courier.afm
+78 silly gunzTarPerm extractEntry js/font/data/Helvetica-Bold.afm
+79 silly gunzTarPerm extractEntry js/font/data/Helvetica-BoldOblique.afm
+80 silly gunzTarPerm extractEntry js/font/data/Helvetica-Oblique.afm
+81 silly gunzTarPerm extractEntry js/font/data/Courier-BoldOblique.afm
+82 silly gunzTarPerm extractEntry js/font/data/MustRead.html
+83 silly gunzTarPerm extractEntry js/font/data/Symbol.afm
+84 silly gunzTarPerm extractEntry js/font/data/Times-Bold.afm
+85 silly gunzTarPerm extractEntry js/font/data/Times-BoldItalic.afm
+86 silly gunzTarPerm extractEntry js/font/data/Times-Italic.afm
+87 silly gunzTarPerm extractEntry js/font/data/Times-Roman.afm
+88 silly gunzTarPerm extractEntry js/font/data/ZapfDingbats.afm
+89 silly gunzTarPerm extractEntry js/font/tables/cmap.js
+90 silly gunzTarPerm extractEntry js/font/tables/glyf.js
+91 silly gunzTarPerm extractEntry js/font/tables/head.js
+92 silly gunzTarPerm extractEntry js/font/tables/hhea.js
+93 silly gunzTarPerm extractEntry js/font/tables/hmtx.js
+94 silly gunzTarPerm extractEntry js/font/tables/loca.js
+95 silly gunzTarPerm extractEntry js/font/tables/maxp.js
+96 silly gunzTarPerm extractEntry js/font/tables/name.js
+97 silly gunzTarPerm extractEntry js/font/tables/os2.js
+98 silly gunzTarPerm extractEntry js/font/tables/post.js
+99 silly lockFile 75ef77b3-rollo-bacoba-node-modules-pdfkit tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+100 silly lockFile 75ef77b3-rollo-bacoba-node-modules-pdfkit tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+101 silly lockFile 4098873c-epz-npm-pdfkit-0-5-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.5.2/package.tgz
+102 silly lockFile 4098873c-epz-npm-pdfkit-0-5-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.5.2/package.tgz
+103 info preinstall pdfkit@0.5.2
+104 verbose readDependencies using package.json deps
+105 verbose readDependencies using package.json deps
+106 verbose cache add [ 'linebreak@~0.1.0', null ]
+107 verbose cache add name=undefined spec="linebreak@~0.1.0" args=["linebreak@~0.1.0",null]
+108 verbose parsed url { protocol: null,
+108 verbose parsed url   slashes: null,
+108 verbose parsed url   auth: null,
+108 verbose parsed url   host: null,
+108 verbose parsed url   port: null,
+108 verbose parsed url   hostname: null,
+108 verbose parsed url   hash: null,
+108 verbose parsed url   search: null,
+108 verbose parsed url   query: null,
+108 verbose parsed url   pathname: 'linebreak@~0.1.0',
+108 verbose parsed url   path: 'linebreak@~0.1.0',
+108 verbose parsed url   href: 'linebreak@~0.1.0' }
+109 verbose cache add name="linebreak" spec="~0.1.0" args=["linebreak","~0.1.0"]
+110 verbose parsed url { protocol: null,
+110 verbose parsed url   slashes: null,
+110 verbose parsed url   auth: null,
+110 verbose parsed url   host: null,
+110 verbose parsed url   port: null,
+110 verbose parsed url   hostname: null,
+110 verbose parsed url   hash: null,
+110 verbose parsed url   search: null,
+110 verbose parsed url   query: null,
+110 verbose parsed url   pathname: '~0.1.0',
+110 verbose parsed url   path: '~0.1.0',
+110 verbose parsed url   href: '~0.1.0' }
+111 verbose addNamed [ 'linebreak', '~0.1.0' ]
+112 verbose addNamed [ null, '>=0.1.0-0 <0.2.0-0' ]
+113 silly lockFile a10c2339-linebreak-0-1-0 linebreak@~0.1.0
+114 verbose lock linebreak@~0.1.0 /home/jepz/.npm/a10c2339-linebreak-0-1-0.lock
+115 verbose cache add [ 'png-js@>=0.1.0', null ]
+116 verbose cache add name=undefined spec="png-js@>=0.1.0" args=["png-js@>=0.1.0",null]
+117 verbose parsed url { protocol: null,
+117 verbose parsed url   slashes: null,
+117 verbose parsed url   auth: null,
+117 verbose parsed url   host: null,
+117 verbose parsed url   port: null,
+117 verbose parsed url   hostname: null,
+117 verbose parsed url   hash: null,
+117 verbose parsed url   search: null,
+117 verbose parsed url   query: null,
+117 verbose parsed url   pathname: 'png-js@%3E=0.1.0',
+117 verbose parsed url   path: 'png-js@%3E=0.1.0',
+117 verbose parsed url   href: 'png-js@%3E=0.1.0' }
+118 verbose cache add name="png-js" spec=">=0.1.0" args=["png-js",">=0.1.0"]
+119 verbose parsed url { protocol: null,
+119 verbose parsed url   slashes: null,
+119 verbose parsed url   auth: null,
+119 verbose parsed url   host: null,
+119 verbose parsed url   port: null,
+119 verbose parsed url   hostname: null,
+119 verbose parsed url   hash: null,
+119 verbose parsed url   search: null,
+119 verbose parsed url   query: null,
+119 verbose parsed url   pathname: '%3E=0.1.0',
+119 verbose parsed url   path: '%3E=0.1.0',
+119 verbose parsed url   href: '%3E=0.1.0' }
+120 verbose addNamed [ 'png-js', '>=0.1.0' ]
+121 verbose addNamed [ null, '>=0.1.0' ]
+122 silly lockFile 6ffc9888-png-js-0-1-0 png-js@>=0.1.0
+123 verbose lock png-js@>=0.1.0 /home/jepz/.npm/6ffc9888-png-js-0-1-0.lock
+124 silly addNameRange { name: 'linebreak',
+124 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+124 silly addNameRange   hasData: false }
+125 silly addNameRange { name: 'png-js', range: '>=0.1.0', hasData: false }
+126 verbose url raw linebreak
+127 verbose url resolving [ 'https://registry.npmjs.org/', './linebreak' ]
+128 verbose url resolved https://registry.npmjs.org/linebreak
+129 info trying registry request attempt 1 at 22:05:30
+130 verbose etag "EAGYKQYB9WCQ03PG2UTOJ5OQ3"
+131 http GET https://registry.npmjs.org/linebreak
+132 verbose url raw png-js
+133 verbose url resolving [ 'https://registry.npmjs.org/', './png-js' ]
+134 verbose url resolved https://registry.npmjs.org/png-js
+135 info trying registry request attempt 1 at 22:05:30
+136 verbose etag "A58JCQLNSTKBUEUERGB0NSWL8"
+137 http GET https://registry.npmjs.org/png-js
+138 http 200 https://registry.npmjs.org/png-js
+139 silly registry.get cb [ 200,
+139 silly registry.get   { date: 'Thu, 03 Apr 2014 04:05:30 GMT',
+139 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+139 silly registry.get     etag: '"6DRASTVI9CZK44UQBRGAFI90T"',
+139 silly registry.get     'content-type': 'application/json',
+139 silly registry.get     via: '1.1 varnish',
+139 silly registry.get     'cache-control': 'max-age=1',
+139 silly registry.get     'content-length': '5102',
+139 silly registry.get     'accept-ranges': 'bytes',
+139 silly registry.get     age: '280',
+139 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-jfk1027-JFK',
+139 silly registry.get     'x-cache': 'MISS, MISS',
+139 silly registry.get     'x-cache-hits': '0, 0',
+139 silly registry.get     'x-timer': 'S1396497930.608685017,VS0,VS3,VE94,VE98',
+139 silly registry.get     vary: 'Accept',
+139 silly registry.get     'keep-alive': 'timeout=10, max=50',
+139 silly registry.get     connection: 'Keep-Alive' } ]
+140 silly addNameRange number 2 { name: 'png-js', range: '>=0.1.0', hasData: true }
+141 silly addNameRange versions [ 'png-js', [ '0.1.0', '0.1.1' ] ]
+142 verbose addNamed [ 'png-js', '0.1.1' ]
+143 verbose addNamed [ '0.1.1', '0.1.1' ]
+144 silly lockFile 01a20c43-png-js-0-1-1 png-js@0.1.1
+145 verbose lock png-js@0.1.1 /home/jepz/.npm/01a20c43-png-js-0-1-1.lock
+146 http 200 https://registry.npmjs.org/linebreak
+147 silly registry.get cb [ 200,
+147 silly registry.get   { date: 'Thu, 03 Apr 2014 04:05:30 GMT',
+147 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+147 silly registry.get     etag: '"AVHPG64TCL5SU5GU9QQNWJ90M"',
+147 silly registry.get     'content-type': 'application/json',
+147 silly registry.get     via: '1.1 varnish',
+147 silly registry.get     'cache-control': 'max-age=1',
+147 silly registry.get     'content-length': '4288',
+147 silly registry.get     'accept-ranges': 'bytes',
+147 silly registry.get     age: '280',
+147 silly registry.get     'x-served-by': 'cache-v42-ASH, cache-jfk1032-JFK',
+147 silly registry.get     'x-cache': 'MISS, MISS',
+147 silly registry.get     'x-cache-hits': '0, 0',
+147 silly registry.get     'x-timer': 'S1396497930.604813814,VS0,VS2,VE98,VE104',
+147 silly registry.get     vary: 'Accept',
+147 silly registry.get     'keep-alive': 'timeout=10, max=50',
+147 silly registry.get     connection: 'Keep-Alive' } ]
+148 silly addNameRange number 2 { name: 'linebreak', range: '>=0.1.0-0 <0.2.0-0', hasData: true }
+149 silly addNameRange versions [ 'linebreak', [ '0.1.0' ] ]
+150 verbose addNamed [ 'linebreak', '0.1.0' ]
+151 verbose addNamed [ '0.1.0', '0.1.0' ]
+152 silly lockFile b9da4317-linebreak-0-1-0 linebreak@0.1.0
+153 verbose lock linebreak@0.1.0 /home/jepz/.npm/b9da4317-linebreak-0-1-0.lock
+154 silly lockFile b9da4317-linebreak-0-1-0 linebreak@0.1.0
+155 silly lockFile b9da4317-linebreak-0-1-0 linebreak@0.1.0
+156 silly lockFile a10c2339-linebreak-0-1-0 linebreak@~0.1.0
+157 silly lockFile a10c2339-linebreak-0-1-0 linebreak@~0.1.0
+158 silly lockFile 01a20c43-png-js-0-1-1 png-js@0.1.1
+159 silly lockFile 01a20c43-png-js-0-1-1 png-js@0.1.1
+160 silly lockFile 6ffc9888-png-js-0-1-0 png-js@>=0.1.0
+161 silly lockFile 6ffc9888-png-js-0-1-0 png-js@>=0.1.0
+162 silly resolved [ { name: 'linebreak',
+162 silly resolved     version: '0.1.0',
+162 silly resolved     description: 'An implementation of the Unicode Line Breaking Algorithm (UAX #14)',
+162 silly resolved     repository:
+162 silly resolved      { type: 'git',
+162 silly resolved        url: 'https://github.com/devongovett/linebreaker.git' },
+162 silly resolved     keywords: [ 'unicode', 'text', 'wrapping' ],
+162 silly resolved     author: { name: 'Devon Govett', email: 'devongovett@gmail.com' },
+162 silly resolved     license: 'MIT',
+162 silly resolved     bugs: { url: 'https://github.com/devongovett/linebreaker/issues' },
+162 silly resolved     homepage: 'https://github.com/devongovett/linebreaker',
+162 silly resolved     devDependencies: { 'coffee-script': '~1.7.1', mocha: '*' },
+162 silly resolved     scripts:
+162 silly resolved      { prepublish: 'coffee -o js -c src/',
+162 silly resolved        postpublish: 'rm -rf ./js',
+162 silly resolved        test: 'node_modules/mocha/bin/mocha' },
+162 silly resolved     main: 'js/linebreaker.js',
+162 silly resolved     readme: '# linebreak\nAn implementation of the Unicode Line Breaking Algorithm (UAX #14)\n\n> Line breaking, also known as word wrapping, is the process of breaking a section of text into lines such that it will fit in the\n> available width of a page, window or other display area. The Unicode Line Breaking Algorithm performs part of this process. \n> Given an input text, it produces a set of positions called "break opportunities" that are appropriate points to begin a new line. \n> The selection of actual line break positions from the set of break opportunities is not covered by the Unicode Line Breaking Algorithm, \n> but is in the domain of higher level software with knowledge of the available width and the display size of the text.\n\nThis is a JavaScript/CoffeeScript implementation of the \n[Unicode Line Breaking Algorithm](http://www.unicode.org/reports/tr14/#SampleCode) for Node.js \n(and browsers I guess).  It is used by [PDFKit](http://github.com/devongovett/pdfkit/) for \nline wrapping text in PDF documents, but since the algorithm knows nothing about the actual\nvisual appearance or layout of text, it could be used for other things as well.\n\n## Installation\n\nYou can install via npm\n\n    npm install linebreak\n\n## Example\n\n```javascript\nvar LineBreaker = require(\'linebreak\');\n\nvar lorem = \'lorem ipsum...\';\nvar breaker = new LineBreaker(lorem);\nvar last = 0;\nvar bk;\n\nwhile (bk = breaker.nextBreak()) {\n  // get the string between the last break and this one\n  var word = lorem.slice(last, bk.position);\n  console.log(word);\n  \n  // you can also check bk.required to see if this was a required break...\n  if (bk.required) {\n    console.log(\'\\n\\n\');\n  }\n}\n```\n\n## Development Notes\n\nIn order to use the library, you shouldn\'t need to know this, but if you\'re interested in\ncontributing or fixing bugs, these things might be of interest.\n\n* The `src/classes.coffee` file is automatically generated from `LineBreak.txt` in the Unicode \n  database by `src/generate_data.coffee`. It should be rare that you need to run this, but\n  you may if, for instance, you want to change the Unicode version.\n  \n* You can run the tests using `npm test`. They are written using `mocha`, and generated from\n  `LineBreakTest.txt` from the Unicode database, which is included in the repository for performance\n  reasons while running them. About 150 of the over 6000 tests are currently skipped due to\n  implementation differences. It appears that some of the tests may be wrong or use different\n  tailoring from the spec.\n\n## License\n\nMIT',
+162 silly resolved     readmeFilename: 'readme.md',
+162 silly resolved     _id: 'linebreak@0.1.0',
+162 silly resolved     _from: 'linebreak@~0.1.0' },
+162 silly resolved   { name: 'png-js',
+162 silly resolved     description: 'A PNG decoder in CoffeeScript',
+162 silly resolved     version: '0.1.1',
+162 silly resolved     author:
+162 silly resolved      { name: 'Devon Govett',
+162 silly resolved        email: 'devongovett@gmail.com',
+162 silly resolved        url: 'http://badassjs.com/' },
+162 silly resolved     repository:
+162 silly resolved      { type: 'git',
+162 silly resolved        url: 'https://github.com/devongovett/png.js.git' },
+162 silly resolved     bugs: { url: 'http://github.com/devongovett/png.js/issues' },
+162 silly resolved     devDependencies: { 'coffee-script': '>=1.0.1' },
+162 silly resolved     scripts: { prepublish: 'coffee -c png-node.coffee' },
+162 silly resolved     main: 'png-node.js',
+162 silly resolved     engine: [ 'node >= v0.6.0' ],
+162 silly resolved     readme: 'png.js\n======\nA PNG decoder in JS for the canvas element or Node.js.\n\n## Browser Usage\nSimply include png.js and zlib.js on your HTML page, create a canvas element, and call PNG.load to load an image.\n\n    <canvas></canvas>\n    <script src="zlib.js"></script>\n    <script src="png.js"></script>\n    <script>\n        var canvas = document.getElementsByTagName(\'canvas\')[0];\n        PNG.load(\'some.png\', canvas);\n    </script>\n    \nThe source code for the browser version resides in `png.js` and also supports loading and displaying animated PNGs.\n    \n## Node.js Usage\nInstall the module using npm\n\n    sudo npm install png-js\n    \nRequire the module and decode a PNG\n\n    var PNG = require(\'png-js\');\n    PNG.decode(\'some.png\', function(pixels) {\n        // pixels is a 1d array of decoded pixel data\n    });\n    \nYou can also call `PNG.load` if you want to load the PNG (but not decode the pixels) synchronously.  If you already\nhave the PNG data in a buffer, simply use `new PNG(buffer)`.  In both of these cases, you need to call `png.decode`\nyourself which passes your callback the decoded pixels as a buffer.  If you already have a buffer you want the pixels\ncopied to, call `copyToImageData` with your buffer and the decoded pixels as returned from `decodePixels`.',
+162 silly resolved     readmeFilename: 'README.md',
+162 silly resolved     homepage: 'https://github.com/devongovett/png.js',
+162 silly resolved     _id: 'png-js@0.1.1',
+162 silly resolved     _from: 'png-js@>=0.1.0' } ]
+163 info install linebreak@0.1.0 into /home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+164 info install png-js@0.1.1 into /home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+165 info installOne linebreak@0.1.0
+166 info installOne png-js@0.1.1
+167 info /home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak unbuild
+168 info /home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js unbuild
+169 verbose tar unpack /home/jepz/.npm/linebreak/0.1.0/package.tgz
+170 silly lockFile f00063cc-es-pdfkit-node-modules-linebreak tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak
+171 verbose lock tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak /home/jepz/.npm/f00063cc-es-pdfkit-node-modules-linebreak.lock
+172 silly lockFile 91c45ec9--npm-linebreak-0-1-0-package-tgz tar:///home/jepz/.npm/linebreak/0.1.0/package.tgz
+173 verbose lock tar:///home/jepz/.npm/linebreak/0.1.0/package.tgz /home/jepz/.npm/91c45ec9--npm-linebreak-0-1-0-package-tgz.lock
+174 verbose tar unpack /home/jepz/.npm/png-js/0.1.1/package.tgz
+175 silly lockFile 3a9cc45d-dules-pdfkit-node-modules-png-js tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js
+176 verbose lock tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js /home/jepz/.npm/3a9cc45d-dules-pdfkit-node-modules-png-js.lock
+177 silly lockFile e7ffe4be-epz-npm-png-js-0-1-1-package-tgz tar:///home/jepz/.npm/png-js/0.1.1/package.tgz
+178 verbose lock tar:///home/jepz/.npm/png-js/0.1.1/package.tgz /home/jepz/.npm/e7ffe4be-epz-npm-png-js-0-1-1-package-tgz.lock
+179 silly gunzTarPerm modes [ '755', '644' ]
+180 silly gunzTarPerm modes [ '755', '644' ]
+181 silly gunzTarPerm extractEntry package.json
+182 silly gunzTarPerm extractEntry .npmignore
+183 silly gunzTarPerm extractEntry js/classes.js
+184 silly gunzTarPerm extractEntry js/generate_data.js
+185 silly gunzTarPerm extractEntry js/linebreaker.js
+186 silly gunzTarPerm extractEntry js/pairs.js
+187 silly gunzTarPerm extractEntry package.json
+188 silly gunzTarPerm extractEntry README.md
+189 silly gunzTarPerm extractEntry png-node.js
+190 silly gunzTarPerm extractEntry png.js
+191 silly gunzTarPerm extractEntry zlib.js
+192 silly gunzTarPerm extractEntry images/ball.png
+193 silly gunzTarPerm extractEntry images/broken.png
+194 silly gunzTarPerm extractEntry images/chompy.png
+195 silly gunzTarPerm extractEntry images/djay-indexed.png
+196 silly gunzTarPerm extractEntry images/djay.png
+197 silly gunzTarPerm extractEntry images/laptop.png
+198 silly gunzTarPerm extractEntry readme.md
+199 silly lockFile f00063cc-es-pdfkit-node-modules-linebreak tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak
+200 silly lockFile f00063cc-es-pdfkit-node-modules-linebreak tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak
+201 silly lockFile 91c45ec9--npm-linebreak-0-1-0-package-tgz tar:///home/jepz/.npm/linebreak/0.1.0/package.tgz
+202 silly lockFile 91c45ec9--npm-linebreak-0-1-0-package-tgz tar:///home/jepz/.npm/linebreak/0.1.0/package.tgz
+203 info preinstall linebreak@0.1.0
+204 verbose readDependencies using package.json deps
+205 verbose readDependencies using package.json deps
+206 silly resolved []
+207 verbose about to build /home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak
+208 info build /home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/linebreak
+209 verbose linkStuff [ false,
+209 verbose linkStuff   false,
+209 verbose linkStuff   false,
+209 verbose linkStuff   '/home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules' ]
+210 info linkStuff linebreak@0.1.0
+211 verbose linkBins linebreak@0.1.0
+212 verbose linkMans linebreak@0.1.0
+213 verbose rebuildBundles linebreak@0.1.0
+214 info install linebreak@0.1.0
+215 info postinstall linebreak@0.1.0
+216 silly gunzTarPerm extractEntry images/loading.png
+217 silly gunzTarPerm extractEntry images/spinfox.png
+218 silly gunzTarPerm extractEntry images/trees.png
+219 silly gunzTarPerm extractEntry index.html
+220 silly gunzTarPerm extractEntry png-node.coffee
+221 silly gunzTarPerm extractEntry png.coffee
+222 silly lockFile 3a9cc45d-dules-pdfkit-node-modules-png-js tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js
+223 silly lockFile 3a9cc45d-dules-pdfkit-node-modules-png-js tar:///home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js
+224 silly lockFile e7ffe4be-epz-npm-png-js-0-1-1-package-tgz tar:///home/jepz/.npm/png-js/0.1.1/package.tgz
+225 silly lockFile e7ffe4be-epz-npm-png-js-0-1-1-package-tgz tar:///home/jepz/.npm/png-js/0.1.1/package.tgz
+226 info preinstall png-js@0.1.1
+227 verbose readDependencies using package.json deps
+228 verbose readDependencies using package.json deps
+229 silly resolved []
+230 verbose about to build /home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js
+231 info build /home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules/png-js
+232 verbose linkStuff [ false,
+232 verbose linkStuff   false,
+232 verbose linkStuff   false,
+232 verbose linkStuff   '/home/jepz/Desarrollo/bacoba/node_modules/pdfkit/node_modules' ]
+233 info linkStuff png-js@0.1.1
+234 verbose linkBins png-js@0.1.1
+235 verbose linkMans png-js@0.1.1
+236 verbose rebuildBundles png-js@0.1.1
+237 info install png-js@0.1.1
+238 info postinstall png-js@0.1.1
+239 verbose about to build /home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+240 info build /home/jepz/Desarrollo/bacoba/node_modules/pdfkit
+241 verbose linkStuff [ false,
+241 verbose linkStuff   false,
+241 verbose linkStuff   false,
+241 verbose linkStuff   '/home/jepz/Desarrollo/bacoba/node_modules' ]
+242 info linkStuff pdfkit@0.5.2
+243 verbose linkBins pdfkit@0.5.2
+244 verbose linkMans pdfkit@0.5.2
+245 verbose rebuildBundles pdfkit@0.5.2
+246 verbose rebuildBundles [ 'linebreak', 'png-js' ]
+247 info install pdfkit@0.5.2
+248 info postinstall pdfkit@0.5.2
+249 error peerinvalid The package karma-requirejs does not satisfy its siblings' peerDependencies requirements!
+249 error peerinvalid Peer karma@0.10.10 wants karma-requirejs@~0.2.0
+250 error System Linux 3.11.0-18-generic
+251 error command "/usr/bin/node" "/usr/bin/npm" "install" "pdfkit"
+252 error cwd /home/jepz/Desarrollo/bacoba
+253 error node -v v0.10.26
+254 error npm -v 1.4.3
+255 error code EPEERINVALID
+256 verbose exit [ 1, true ]

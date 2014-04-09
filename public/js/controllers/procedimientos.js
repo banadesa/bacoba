@@ -111,6 +111,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.editarPaso = function() {
         $scope.procedimiento.versionActual = $scope.versionEdita;
+        $scope.procedimiento.versiones.push({version: $scope.versionEdita, fecha: new Date().getTime()});
+        $scope.descripcionPaso = $scope.formatearDescripcion($scope.descripcionPaso);
         if ($scope.procedimiento.pasos[$scope.indexPaso].version === $scope.versionEdita ) {
             $scope.procedimiento.pasos[$scope.indexPaso].descripcion = $scope.descripcionPaso;
             $scope.procedimiento.pasos[$scope.indexPaso].imagen = $scope.imagenPaso;
@@ -154,6 +156,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         var procedimiento = $scope.procedimiento;
         procedimiento.$update();
     };
+
     /**
      *Agrega un paso al procedimiento, y reinicia la forma
      */
@@ -161,8 +164,10 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         if ($scope.indexPaso !== -1 ) {
             $scope.cambiarOrdenPasos($scope.indexPaso-1,'agregar');
         }
+        $scope.descripcionPaso = $scope.formatearDescripcion($scope.descripcionPaso);
         $scope.versionEdita = $scope.versionAgruegaQuita;
         $scope.procedimiento.versionActual = $scope.versionAgruegaQuita;
+        $scope.procedimiento.versiones.push({version: $scope.versionAgruegaQuita, fecha: new Date().getTime()});
         $scope.procedimiento.pasos.push({
             'numeroPaso': $scope.numeroPaso,
             'descripcion': $scope.descripcionPaso,
@@ -709,31 +714,37 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
         }
     };
+
     /**
-     *Crea el archivo PDF de un procedimiento
-     *
-    $scope.generaProcedimientoAPdf = function() {
-        var doc = new jsPDF();
-        var j = 10;
-        var data,img;
-
-// All units are in the set measurement for the document
-// This can be changed to "pt" (points), "mm" (Default), "cm", "in"
-
-        //Crea una pagina con el titulo y la descripcion
-        doc.setFontSize(40);
-        doc.text(50, 60, $scope.procedimiento.nombre);
-        doc.text(80, 75, $scope.procedimiento.versionActual);
-        doc.setFontSize(20);
-        doc.text(20, 90, $scope.procedimiento.descripcion);
-        doc.addPage();
-
-
-// Making Data URI
-        var out = doc.output();
-        var url = 'data:application/pdf;base64,' + btoa(out);
-        window.open(url);
-    }*/
+     *Formatear la descripcion para quitar clases en el html y
+     *substituir los acentos y demas simbolos del español
+     *@param {string} texto texto a formatear
+     *@return {string} texto con las modificaciones
+     */
+    $scope.formatearDescripcion = function(texto) {
+        texto = texto.replace(/&#160;/g,' ');
+        texto = texto.replace(/&#241;/g,'ñ');
+        texto = texto.replace(/&#209;/g,'Ñ');
+        texto = texto.replace(/&#225;/g,'á');
+        texto = texto.replace(/&#193;/g,'Á');
+        texto = texto.replace(/&#233;/g,'é');
+        texto = texto.replace(/&#201;/g,'É');
+        texto = texto.replace(/&#237;/g,'í');
+        texto = texto.replace(/&#205;/g,'Í');
+        texto = texto.replace(/&#243;/g,'ó');
+        texto = texto.replace(/&#211;/g,'Ó');
+        texto = texto.replace(/&#250;/g,'ú');
+        texto = texto.replace(/&#218;/g,'Ú');
+        texto = texto.replace(/&#191;/g,'¿');
+        texto = texto.replace(/&#161;/g,'¡');
+        texto = texto.replace(/&#10;/g,' ');
+        console.log('texto2');
+        console.log(texto);
+        texto = texto.replace(/ class="[^"]+"/g,'');
+        console.log('texto2');
+        console.log(texto);
+        return texto
+    };
 }]);
 
 

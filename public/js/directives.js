@@ -61,7 +61,8 @@ angular.module('mean.directives', [])
                         $scope.btnMostrarProc[indice].visible = false;
                         $scope.btnMostrarProc[indice].btnMsj = 'Ocultar Detalle';
                         if (angular.element(subpaso).children().length === 0) {
-                            var procs = angular.element('<mostrar_pasos numpaso="' + $scope.numpaso + paso + '" procid="' + _id + '" id="procs' + paso + '"></mostrar_pasos>');
+                            var procs = angular.element('<mostrar_pasos numpaso="' + $scope.numpaso + paso +
+                                '" procid="' + _id + '" id="procs' + paso + '"></mostrar_pasos>');
                             var el = $compile( procs )( $scope );
                             angular.element(subpaso).append(procs);
                             $scope.insertHere = el;
@@ -101,7 +102,8 @@ angular.module('mean.directives', [])
                         $scope.btnMostrarProc = [];
                         angular.forEach($scope.pasosd,function(value) {
                             if (value.procedimiento) {
-                                $scope.btnMostrarProc.push({procedimientoId: value.procedimiento, btnMsj: 'Ver Detalle', visible: true, verDiv : true});
+                                $scope.btnMostrarProc.push({procedimientoId: value.procedimiento,
+                                    btnMsj: 'Ver Detalle', visible: true, verDiv : true});
                             }
                             else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
                         });
@@ -135,7 +137,8 @@ angular.module('mean.directives', [])
     }])
     .directive('videoPaso', function() {
         return {
-            template: '<input value=\"{{videoPasoFake}}\" id=\"videoPaso\" cols=\"30\" placeholder=\"Video\" class=\"form-control\">',
+            template: '<input value=\"{{videoPasoFake}}\" id=\"videoPaso\"' +
+                'cols=\"30\" placeholder=\"Video\" class=\"form-control\">',
             restrict: 'E',
             link: function(scope) {
                 scope.$watch('fileVideo', function(value) {

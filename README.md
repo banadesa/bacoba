@@ -26,7 +26,7 @@ Los cambios son los siguienes
     <li><del>Los usuarios puedan dar rating a los procedimientos</del></li>
     <li><del>Los usuarios puedan dejar comentarios en los procedimientos</del></li>
     <li><del>Un paso pueda ser otro procedimiento</del></li>
-    <li>Se pueda exportar un procedimiento a PDF</li>
+    <li><del>Se pueda exportar un procedimiento a PDF<del></li>
     <li>Se pueda compartir un procedimiento por correo</li>
     <li>Se pueda crear un procedimiento a partir de otro</li>
     <li>Los usuarios solo pueden ver los procedimientos de sus categorias</li>

@@ -14,11 +14,10 @@ var mongoose = require('mongoose'),
 /**
  *Crea el archivo PDF
  *@param {object} proc objeto que contiene el procedimiento del procedimiento
- *@param {boolean} subpaso indica si es un subpaso o no, y asi saber si crear un nuevo doc
  *@param {PdfDocument} doc PDF
  */
 
-var crearPDF = function(proc, subpaso, doc, callback) {
+var crearPDF = function(proc, doc, callback) {
     var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
@@ -37,31 +36,80 @@ var crearPDF = function(proc, subpaso, doc, callback) {
     nuevoProc.pasos = [];
     /**
      *Funcion que llena el array de los procedimientos con los usbpasos
+     *@param {string} err Error
      *@param {object} proc procedimiento original
-     *@param {object} nuevoProc agregando los pasos
+     *@param {number} i numero de posicion del objeto en el array
+     *@param {object} padreProc procedimiento padre
+     *@param {number} iPadre numero de posicion del objeto en el array del procedimiento Padre
+     *@param {object} nuevoProc procedimiento agregando los pasos
      *@param {number} veces cantindad de veces que se "metera" a un subproceso
      *@param {function} callback
      *@return {object} objeto modificado
      */
-    var llenarProc = function(proc, nuevoProc , veces, callback) {
-        for (var i = proc.pasos.length - 1; i >= 0; i--) {
+    var llenarProc = function(proc, i, padreProc, iPadre, pasoPadre, nuevoProc , veces, callback) {
             nuevoProc.pasos.push(proc.pasos[i]);
             nuevoProc.pasos[nuevoProc.pasos.length -1 ].rutaImg = proc._id;
-            if (proc.pasos[i].procedimiento) {
-                if (veces >= 0) {
-                    Procedimiento.load(proc.pasos[i].procedimiento._id, function(err, procedimiento) {
-                        console.log('tengo el resultado de' + procedimiento.nombre)
-                        if (err) return next(err);
-                        if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
-                        veces--;
-                        llenarProc(procedimiento, nuevoProc,veces, function() {
-                        });
-                    });
+            for (var j = pasoPadre.length - 1; j >= 0; j--) {
+                if (nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal) {
+                    nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = pasoPadre[j] + '.' + nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal;
+                } else {
+                    nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = pasoPadre[j] + '.' + nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPaso;
                 }
             }
-        }
-        //console.log('llamado a callback');
-        callback();
+            if (!nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal) {
+                nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPaso;
+            }
+            if (proc.pasos[i].actual) {
+                if (proc.pasos[i].procedimiento) {
+                    if (veces >= 0) {
+                        Procedimiento.load(proc.pasos[i].procedimiento._id, function(err, procedimiento) {
+                            if (err) return next(err);
+                            if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
+                            veces--;
+                            pasoPadre.push(proc.pasos[i].numeroPaso);
+                            i++;
+                            padreProc.push(proc);
+                            iPadre.push(i);
+                            if (i <= proc.pasos.length -1) {
+                                llenarProc(procedimiento, 0, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
+                            } else {
+                                if (padreProc.length > 0) {
+                                    pasoPadre.pop();
+                                    llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
+                                            iPadre, pasoPadre, nuevoProc, veces, callback);
+                                } else {
+                                    callback();
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    i++;
+                    if (i <= proc.pasos.length -1) {
+                        llenarProc(p1roc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
+                    } else {
+                        if (padreProc.length > 0) {
+                            pasoPadre.pop();
+                            llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
+                                    iPadre, pasoPadre, nuevoProc, veces, callback);
+                        } else {
+                            callback();
+                        }
+                    }
+                }
+            } else {
+                i++;
+                if (i <= proc.pasos.length -1) {
+                    llenarProc(proc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
+                } else {
+                    if (padreProc.length > 0) {
+                        llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
+                                iPadre, pasoPadre, nuevoProc, veces, callback);
+                    } else {
+                        callback();
+                    }
+                }
+            }
     }
 
     /**
@@ -71,22 +119,19 @@ var crearPDF = function(proc, subpaso, doc, callback) {
         var extracto=''; //texto que ya ha sido extraidp
         var tag=''; //tag que se encontro en el texto
         var tamTexto = 12; //tamaño del texto en el pdf
-        var continuar = false; // si continua en la misma linea o hace salto
+        var continuar = true; // si continua en la misma linea o hace salto
         var subrayado = false; // si el texto va subrayado o no
         var indentado = 0; // si va indentado o no
-        var bajar = 0; //cuantas lineas debe bajar
         var textColor = 'black'; // color del texto
         var refLink = ''; // link al que apunta el tag a
         var tags = []; //tags a los que he entrado pero no he cerrado
         var numLi = -1; //si esta en ol el numero que muestra el Li.
         var bulletLi = ''; //si esta en ul ponga el bullet Point.
-        //replace el caracter &#160 de forma global con un espacio
-        texto = texto.replace(/&#160;/g,' ');
         // el span solo indica que el texto va corrido, que es asi por defecto asi
         //que se quita
         texto = texto.replace(/<span>/g,'').replace(/<\/span>/g,' ');
-        //reemplado el <br/> por <p></p> porque resulta mas facil manejar el salto
-        texto = texto.replace(/<br\/>/g,'<p></p>');
+        //reemplado el <br/> por '' porque no debe haber saltos asi
+        texto = texto.replace(/<br\/>/g,'');
         for (var i = 0; i <= texto.length - 1; i++) {
             if (texto[i] !== '<') {
                 extracto = extracto + texto[i];
@@ -102,7 +147,6 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                             continued: continuar,
                             link: refLink
                         })
-                        .moveDown(bajar);
                         refLink='';
                     } else {
                         doc.fontSize(tamTexto)
@@ -112,7 +156,6 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                             indent: indentado,
                             continued: continuar
                         })
-                        .moveDown(bajar);
                     }
                     extracto = '';
                     continuar = true;
@@ -128,60 +171,56 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                     switch (tag) {
                     case 'h1':
                         tamTexto = tamTexto + 6;
-                        continuar = false;
-                        bajar = bajar + 0.5;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'h2':
                         tamTexto = tamTexto + 4;
-                        continuar = false;
-                        bajar = bajar + 0.5;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'b':
                         tamTexto = tamTexto + 1;
-                        continuar = true;
                         break;
                     case 'u':
                         subrayado = true;
-                        continuar = true;
                         break;
                     case 'li':
                         if (numLi >= 0 ) {
                             numLi ++;
                             extracto = extracto + numLi + '.  ';
-                            console.log('numLi');
-                            console.log(numLi);
                         }
                         if (bulletLi) {
                             extracto = extracto + bulletLi + '  ';
-                            console.log('bulletLi');
-                            console.log(bulletLi);
                         }
                         indentado = indentado + 10;
-                        continuar = false;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'div':
                         doc.text('')
                         .moveDown(1);
                         break;
                     case 'p':
-                        continuar = false;
-                        bajar = bajar + 1;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'pre':
-                        continuar = false;
-                        bajar = bajar + 1;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'i':
-                        continuar = true;
                         textColor = 'red';
                         break;
                     case 'ul':
                         bulletLi = '•';
-                        continuar = false;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'ol':
                         numLi = 0;
-                        continuar = false;
+                        doc.text('')
+                        .moveDown(1);
                         break;
                     case 'a':
                         textColor = 'blue';
@@ -191,15 +230,12 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                 else {
                     tag = tags.pop();
                     i = i + 2 + tag.length;
-                    console.log(tag);
                     switch (tag) {
                     case 'h1':
                         tamTexto = tamTexto - 6;
-                        bajar = bajar - 0.5;
                         break;
                     case 'h2':
                         tamTexto = tamTexto - 4;
-                        bajar = bajar - 0.5;
                         break;
                     case 'b':
                         tamTexto = tamTexto - 1;
@@ -213,10 +249,8 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                     case 'div':
                         break;
                     case 'p':
-                        bajar = bajar - 1;
                         break;
                     case 'pre':
-                        bajar = bajar - 1;
                         break;
                     case 'i':
                         textColor = 'black';
@@ -242,45 +276,54 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                 indent: indentado,
                 continued: continuar
             })
-            //.text(' ')
-            .moveDown(bajar);
+            extracto = '';
         }
     };
 /**
      *Guarda paso a paso el documento en el archivo PDF
      *recursivamente por la espera que daba leer el tamaño de
      *las imagenes
-     *@param {number} i numero de paso
-     *@param {function} Callbacks()
+     *@param {number} iPdf numero de paso
+     *@param {object} procPdf procedimiento que se hara PDF
      */
-    function pasoAPdf(i, callback) {
-        //TODO hacer por lo menos 3 nivel de recursivo
-        //TODO hace que el comentario no cambie el orden
-        //TODO borrar la clase cuando se graba un paso
-        //TODO cambiar que solo acepte imagenes png y jpeg
+    function pasoAPdf(iPdf, procPdf) {
 
-        if (proc.pasos[i].actual) {
-            doc.moveDown(1);
+        var factor; //factor por el que se debe multiplicar la imagen para reducir el tamaño
+        if (procPdf.pasos[iPdf].actual) {
+            //Inserta un espacio entre el paso anterior y este
+            doc.text('')
+            .moveDown(1);
             doc.fontSize(15)
             .fillColor('green')
-            .text('No.' + subpaso + proc.pasos[i].numeroPaso);
-            doc.moveDown();
-            htmlAPdf(proc.pasos[i].descripcion);
+            //Inserta el numero de paso
+            .text('No° ' + procPdf.pasos[iPdf].numeroPasoReal, {
+                underline: false,
+                indent: false,
+                align: 'left'
+            }).moveDown();
+            //manda la descripcion a la funcion htmlaPdf
+            htmlAPdf(procPdf.pasos[iPdf].descripcion);
             doc.moveDown(1);
-            if (proc.pasos[i].imagen) {
-                imgActual = rootPath + proc.pasos[i].rutaImg + '/imagenes/' + proc.pasos[i].imagen;
+            //Si es una imagen busca que las dimensiones de la misma y determina si es necesario un salto de pagina
+            if (procPdf.pasos[iPdf].imagen) {
+                imgActual = rootPath + procPdf.pasos[iPdf].rutaImg + '/imagenes/' + procPdf.pasos[iPdf].imagen;
                 imgWidth = undefined;
                 imgHeight = undefined;
                 sizeOf(imgActual, function (err, dimensions) {
                     imgWidth = dimensions.width;
                     imgHeight = dimensions.height;
                     if (imgHeight > tamañoMaximo || imgWidth > tamañoMaximo) {
+                        if (imgHeight > imgWidth) {
+                            factor = tamañoMaximo/imgHeight;
+                        } else {
+                            factor = tamañoMaximo/imgWidth;
+                        }
                         if (tamañoMaximo + doc.y > 730) {
                             doc.addPage();
                         }
                         doc.image(imgActual,
                         {
-                            fit: [tamañoMaximo, tamañoMaximo]
+                            fit: [factor * imgWidth, factor * imgHeight]
                         });
                     }
                     else {
@@ -289,34 +332,46 @@ var crearPDF = function(proc, subpaso, doc, callback) {
                         }
                         doc.image(imgActual);
                     }
-                    callback();
+                    final(iPdf, procPdf);
                 });
             } else {
-                callback();
+                final(iPdf, procPdf);
             }
         } else {
-            callback();
+            final(iPdf, procPdf);
         }
     }
 
     /**
      *Si existe otro paso llama al siguiente,
      *sino termina el documento PDF o
-     *@param {number} i numero de paso
+     *@param {number} iFinal numero de paso
+     *@param {object} procFinal procedimiento que se hara PDF
      */
-    function final(i) {
-        if (i +1 > proc.pasos.length -1) {
-                doc.end();
+    function final(iFinal, procFinal) {
+        if (iFinal + 1 > procFinal.pasos.length -1) {
+            doc.end();
         } else {
-            pasoAPdf(i+1,function(){
-                return final(i+1);
-            });
+            pasoAPdf(iFinal + 1, procFinal);
         }
     }
 
+    /**
+     *saca un string aleatorio de una longitud len
+     *sacado de http://stackoverflow.com/questions/1349404/generate-a-string-of-5-random-characters-in-javascript
+     *@param {number} len longitud del string a generarse
+     */
+
+    function stringGen(len) {
+        var text = " ";
+        var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+        for( var i=0; i < len; i++ )
+            text += charset.charAt(Math.floor(Math.random() * charset.length));
+        return text;
+    }
 
     rootPath = rootPath + '/public/contenido/';
-    doc.pipe(fs.createWriteStream(rootPath + proc.nombre +'.pdf'));
+    doc.pipe(fs.createWriteStream(rootPath + proc._id + '/' + proc.nombre + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf'));
     //Inserta la Pagina Inicia
     fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
                             proc.updated[proc.updated.length -1].toISOString().substring(5,7) + '/' +
@@ -371,13 +426,31 @@ var crearPDF = function(proc, subpaso, doc, callback) {
     });
 
     doc.addPage();
+    var err;
 
-    llenarProc(proc,nuevoProc, 4, function () {
-            pasoAPdf(0, function(){
-                console.log('voy a empezar a generar los pasos');
-                proc = nuevoProc;
-                return final(0);
-            });
+    llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
+        //Orden los pasos del procedimiento de forma ascendente
+        nuevoProc.pasos.sort(function(a,b) {
+            var n = b.actual - a.actual;
+            if (n !== 0) {
+                return n;
+            }
+            if (a.numeroPasoReal.toString() === b.numeroPasoReal.toString()) {
+                n === 0;
+            }
+            if (a.numeroPasoReal.toString() > b.numeroPasoReal.toString()) {
+                n = 1;
+            }
+
+            if (a.numeroPasoReal.toString() < b.numeroPasoReal.toString()) {
+                n = -1;
+            }
+            if (n !== 0) {
+                return n;
+            }
+            return a.version - b.version;
+        });
+        pasoAPdf(0, nuevoProc);
     });
 };
 /**
@@ -388,9 +461,12 @@ exports.procedimiento = function(req, res, next, id) {
         if (err) return next(err);
         if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
         req.procedimiento = procedimiento;
-        var doc = new pdfDoc();
-        crearPDF(procedimiento, '', doc);
+        if (procedimiento.pasos.length > 0) {
+            var doc = new pdfDoc();
+            crearPDF(procedimiento, doc);
+        }
         next();
+
     });
 };
 

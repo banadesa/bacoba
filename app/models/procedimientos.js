@@ -166,7 +166,9 @@ ProcedimientoSchema.statics.load = function(id, cb) {
     },
     function(err, procedimiento){
         if (err) { return err;}
-        procedimiento.visitas += 1;
+        if (procedimiento) {
+            procedimiento.visitas += 1;
+        }
         procedimiento.save(function(err) {
             if (err) { return err;}
         });

@@ -154,7 +154,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.updateComentario = function() {
         var procedimiento = $scope.procedimiento;
-        procedimiento.$update();
+        console.log('voy a comentar');
+        procedimiento.$comentar();
     };
 
     /**

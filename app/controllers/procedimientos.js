@@ -86,7 +86,7 @@ var crearPDF = function(proc, doc, callback) {
                 } else {
                     i++;
                     if (i <= proc.pasos.length -1) {
-                        llenarProc(p1roc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
+                        llenarProc(proc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
                     } else {
                         if (padreProc.length > 0) {
                             pasoPadre.pop();
@@ -668,5 +668,9 @@ exports.upload = function (req, res) {
         res.send({ msg: 'No existia el archivo ' + new Date().toString() });
     }
 };
+
+exports.updateComentario = function (req, res) {
+    console.log('comente');
+}
 
 

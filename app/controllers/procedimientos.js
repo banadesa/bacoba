@@ -17,7 +17,7 @@ var mongoose = require('mongoose'),
  *@param {PdfDocument} doc PDF
  */
 
-var crearPDF = function(proc, doc, callback) {
+var crearPDF = function(proc, doc) {
     var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
@@ -63,8 +63,8 @@ var crearPDF = function(proc, doc, callback) {
                 if (proc.pasos[i].procedimiento) {
                     if (veces >= 0) {
                         Procedimiento.load(proc.pasos[i].procedimiento._id, function(err, procedimiento) {
-                            if (err) return next(err);
-                            if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
+                            if (err) return console.log(err);
+                            if (!procedimiento) return console.log('Error al cargar el procedimiento ');
                             veces--;
                             pasoPadre.push(proc.pasos[i].numeroPaso);
                             i++;
@@ -110,7 +110,7 @@ var crearPDF = function(proc, doc, callback) {
                     }
                 }
             }
-    }
+    };
 
     /**
      *Recibe texto en html y lo transforma al formato PDF  necesario
@@ -146,7 +146,7 @@ var crearPDF = function(proc, doc, callback) {
                             indent: indentado,
                             continued: continuar,
                             link: refLink
-                        })
+                        });
                         refLink='';
                     } else {
                         doc.fontSize(tamTexto)
@@ -155,7 +155,7 @@ var crearPDF = function(proc, doc, callback) {
                             underline: subrayado,
                             indent: indentado,
                             continued: continuar
-                        })
+                        });
                     }
                     extracto = '';
                     continuar = true;
@@ -275,7 +275,7 @@ var crearPDF = function(proc, doc, callback) {
                 underline: subrayado,
                 indent: indentado,
                 continued: continuar
-            })
+            });
             extracto = '';
         }
     };
@@ -363,15 +363,15 @@ var crearPDF = function(proc, doc, callback) {
      */
 
     function stringGen(len) {
-        var text = " ";
-        var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+        var text = ' ';
+        var charset = 'abcdefghijklmnopqrstuvwxyz0123456789';
         for( var i=0; i < len; i++ )
             text += charset.charAt(Math.floor(Math.random() * charset.length));
         return text;
     }
 
     rootPath = rootPath + '/public/contenido/';
-    doc.pipe(fs.createWriteStream(rootPath + proc._id + '/' + proc.nombre + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf'));
+    doc.pipe(fs.createWriteStream(rootPath + proc._id + '/' + proc.nombre.replace(/ /g, '_') + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf'));
     //Inserta la Pagina Inicia
     fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
                             proc.updated[proc.updated.length -1].toISOString().substring(5,7) + '/' +
@@ -426,7 +426,6 @@ var crearPDF = function(proc, doc, callback) {
     });
 
     doc.addPage();
-    var err;
 
     llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
         //Orden los pasos del procedimiento de forma ascendente
@@ -436,7 +435,7 @@ var crearPDF = function(proc, doc, callback) {
                 return n;
             }
             if (a.numeroPasoReal.toString() === b.numeroPasoReal.toString()) {
-                n === 0;
+                n = 0;
             }
             if (a.numeroPasoReal.toString() > b.numeroPasoReal.toString()) {
                 n = 1;
@@ -671,6 +670,6 @@ exports.upload = function (req, res) {
 
 exports.updateComentario = function (req, res) {
     console.log('comente');
-}
+};
 
 

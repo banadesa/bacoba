@@ -744,6 +744,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         texto = texto.replace(/&#218;/g,'Ú');
         texto = texto.replace(/&#191;/g,'¿');
         texto = texto.replace(/&#161;/g,'¡');
+        texto = texto.replace(/&#34;/g,'\'');
         texto = texto.replace(/&#10;/g,' ');
         texto = texto.replace(/ class="[^"]+"/g,'');
         return texto;

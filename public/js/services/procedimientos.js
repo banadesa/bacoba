@@ -8,12 +8,6 @@ angular.module('mean.procedimientos')
     }, {
         update: {
             method: 'PUT'
-        },
-        comentar : {
-            method: 'PUT',
-            params: {
-                action: 'comentar'
-            }
         }
     });
     return Proc;

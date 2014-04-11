@@ -153,9 +153,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *cuando agrega un comentario
      */
     $scope.updateComentario = function() {
-        var procedimiento = $scope.procedimiento;
-        console.log('voy a comentar');
-        procedimiento.$comentar();
+        var comentario = $scope.comentario;
+        var comentar = '/procedimientos/' + $scope.procedimiento._id + '/comentar';
+        $http.post( comentar,  comentario);
     };
 
     /**
@@ -663,6 +663,12 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 'comentario': this.descripcionComentario,
                 'rating': this.rateUser
             });
+            $scope.comentario = {
+                'user': this.global.user._id,
+                'comentario': this.descripcionComentario,
+                'rating': this.rateUser
+            }
+
             $scope.updateComentario();
             $scope.btnComentar=false;
             $scope.frmComentar=false;

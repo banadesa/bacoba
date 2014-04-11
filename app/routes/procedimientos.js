@@ -16,9 +16,9 @@ module.exports = function(app) {
 
     app.get('/procedimientos', procedimientos.all);
 	app.post('/procedimientos', authorization.requiresLogin, procedimientos.create);
-	app.get('/procedimientos/:procedimientoId', procedimientos.show);
+	app.get('/procedimientos/:procedimientoId', authorization.requiresLogin, procedimientos.show);
     app.put('/procedimientos/:procedimientoId', authorization.requiresLogin, hasAuthorization, procedimientos.update);
-	app.put('/procedimientos/:procedimientoId/comentar', authorization.requiresLogin, procedimientos.updateComentario);
+	app.post('/procedimientos/:procedimientoId/comentar', authorization.requiresLogin, procedimientos.updateComentario);
 	app.del('/procedimientos/:procedimientoId', authorization.requiresLogin, hasAuthorization, procedimientos.destroy);
     app.post('/procedimientos/upload', procedimientos.upload);
 	//Finish with setting up the procedimientoId param

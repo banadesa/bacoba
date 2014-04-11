@@ -17,7 +17,7 @@ var mongoose = require('mongoose'),
  *@param {PdfDocument} doc PDF
  */
 
-var crearPDF = function(proc, doc) {
+var crearPDF = function(proc, doc, callback) {
     var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
@@ -63,8 +63,8 @@ var crearPDF = function(proc, doc) {
                 if (proc.pasos[i].procedimiento) {
                     if (veces >= 0) {
                         Procedimiento.load(proc.pasos[i].procedimiento._id, function(err, procedimiento) {
-                            if (err) return console.log(err);
-                            if (!procedimiento) return console.log('Error al cargar el procedimiento ');
+                            if (err) return next(err);
+                            if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
                             veces--;
                             pasoPadre.push(proc.pasos[i].numeroPaso);
                             i++;
@@ -146,7 +146,7 @@ var crearPDF = function(proc, doc) {
                             indent: indentado,
                             continued: continuar,
                             link: refLink
-                        });
+                        })
                         refLink='';
                     } else {
                         doc.fontSize(tamTexto)
@@ -155,7 +155,7 @@ var crearPDF = function(proc, doc) {
                             underline: subrayado,
                             indent: indentado,
                             continued: continuar
-                        });
+                        })
                     }
                     extracto = '';
                     continuar = true;
@@ -275,7 +275,7 @@ var crearPDF = function(proc, doc) {
                 underline: subrayado,
                 indent: indentado,
                 continued: continuar
-            });
+            })
             extracto = '';
         }
     };
@@ -363,7 +363,7 @@ var crearPDF = function(proc, doc) {
      */
 
     function stringGen(len) {
-        var text = ' ';
+        var text =' ';
         var charset = 'abcdefghijklmnopqrstuvwxyz0123456789';
         for( var i=0; i < len; i++ )
             text += charset.charAt(Math.floor(Math.random() * charset.length));
@@ -371,7 +371,7 @@ var crearPDF = function(proc, doc) {
     }
 
     rootPath = rootPath + '/public/contenido/';
-    doc.pipe(fs.createWriteStream(rootPath + proc._id + '/' + proc.nombre.replace(/ /g, '_') + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf'));
+    doc.pipe(fs.createWriteStream(rootPath + proc._id + '/' + proc.nombre + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf'));
     //Inserta la Pagina Inicia
     fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
                             proc.updated[proc.updated.length -1].toISOString().substring(5,7) + '/' +
@@ -426,6 +426,7 @@ var crearPDF = function(proc, doc) {
     });
 
     doc.addPage();
+    var err;
 
     llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
         //Orden los pasos del procedimiento de forma ascendente
@@ -435,7 +436,7 @@ var crearPDF = function(proc, doc) {
                 return n;
             }
             if (a.numeroPasoReal.toString() === b.numeroPasoReal.toString()) {
-                n = 0;
+                n === 0;
             }
             if (a.numeroPasoReal.toString() > b.numeroPasoReal.toString()) {
                 n = 1;
@@ -668,8 +669,20 @@ exports.upload = function (req, res) {
     }
 };
 
-exports.updateComentario = function (req, res) {
-    console.log('comente');
-};
+exports.updateComentario = function (req, res, next) {
+    var id = req.param('procedimientoId') // id del procedimiento
+    console.log('id');
+    console.log(id);
+    var comentario = req.body;
+    console.log('comentario');
+    console.log(comentario);
+    Procedimiento.findOne({_id: id}, function(err, procedimiento){
+      if (err) { return next(err); }
+      procedimiento.comentarios.unshift(comentario);
+      procedimiento.save(function(err) {
+        if (err) { return next(err); }
+      });
+    });
+}
 
 

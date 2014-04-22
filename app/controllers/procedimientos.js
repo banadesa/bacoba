@@ -9,23 +9,68 @@ var mongoose = require('mongoose'),
     _ = require('lodash'),
     fs = require('fs'),
     path = require('path'),
-    pdfDoc = require('pdfkit');
+    pdfDoc = require('pdfkit'),
+    nodemailer = require('nodemailer');
+
+/**
+ *Envia correos a solicitud
+ */
+exports.enviarCorreo = function(req, res) {
+    // create reusable transport method (opens pool of SMTP connections)
+    var proc = req.procedimiento;
+    var smtpTransport = nodemailer.createTransport('SMTP',{
+        service: 'Gmail',
+        auth: {
+            user: 'jepz20@gmail.com',
+            pass: 'blank'
+        }
+    });
+
+    // setup e-mail data with unicode symbols
+    var mailOptions = {
+        from: 'Jose Perdomo<jepz20@gmail.com>', // sender address
+        to: 'jepz20@yahoo.com', // list of receivers
+        subject: proc.nombre, // Subject line
+        text: 'El usuario ' + req.user.email + 'le ha enviado el manual ' +
+            proc.nombre + ' favor no responder este correo', // plaintext body
+        html: 'El usuario <b>' + req.user.email + '</b> le ha enviado el manual <b>' +
+            proc.nombre + '</b>' // html body
+    };
+
+    // send mail with defined transport object
+    smtpTransport.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+            res.send(error);
+        }else{
+            console.log('Message sent: ' + response.message);
+            res.send({success: true});
+        }
+
+        // if you don't want to use this transport object anymore, uncomment following line
+        //smtpTransport.close(); // shut down the connection pool, no more messages
+    });
+};
 
 /**
  *Crea el archivo PDF
  *@param {object} proc objeto que contiene el procedimiento del procedimiento
- *@param {PdfDocument} doc PDF
  */
 
-var crearPDF = function(proc, doc, callback) {
+exports.crearPdf = function(req, res) {
+    var doc = new pdfDoc();
     var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
+    var nombrePdf; // nombre del documento Pdf, sin ruta
+    var docPath; // ruta donde esta el documento
+    var url; // url del pdf
     var imgActual; //ruta completa de la imagen que se mostrara;
     var imgWidth; // anchura de la imagen que se mostrara;
     var imgHeight; //altura de la imagen que se mostrara;
     var tamañoMaximo = 400; //tamaño maximo de las imagenes a mostrar
     var nuevoProc = {}; //nuevo procedimiento donde se pondran los pasos y subpasos
+    var proc = req.procedimiento;
     nuevoProc._id = proc._id;
     nuevoProc.nombre = proc.nombre;
     nuevoProc.updated = proc.updated;
@@ -63,8 +108,8 @@ var crearPDF = function(proc, doc, callback) {
                 if (proc.pasos[i].procedimiento) {
                     if (veces >= 0) {
                         Procedimiento.load(proc.pasos[i].procedimiento._id, function(err, procedimiento) {
-                            if (err) return next(err);
-                            if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
+                            if (err) return console.log(err);
+                            if (!procedimiento) return console.log('Error al cargar el procedimiento ');
                             veces--;
                             pasoPadre.push(proc.pasos[i].numeroPaso);
                             i++;
@@ -146,7 +191,7 @@ var crearPDF = function(proc, doc, callback) {
                             indent: indentado,
                             continued: continuar,
                             link: refLink
-                        })
+                        });
                         refLink='';
                     } else {
                         doc.fontSize(tamTexto)
@@ -155,7 +200,7 @@ var crearPDF = function(proc, doc, callback) {
                             underline: subrayado,
                             indent: indentado,
                             continued: continuar
-                        })
+                        });
                     }
                     extracto = '';
                     continuar = true;
@@ -275,7 +320,7 @@ var crearPDF = function(proc, doc, callback) {
                 underline: subrayado,
                 indent: indentado,
                 continued: continuar
-            })
+            });
             extracto = '';
         }
     };
@@ -286,7 +331,7 @@ var crearPDF = function(proc, doc, callback) {
      *@param {number} iPdf numero de paso
      *@param {object} procPdf procedimiento que se hara PDF
      */
-    function pasoAPdf(iPdf, procPdf) {
+    var pasoAPdf = function(iPdf, procPdf) {
 
         var factor; //factor por el que se debe multiplicar la imagen para reducir el tamaño
         if (procPdf.pasos[iPdf].actual) {
@@ -340,7 +385,7 @@ var crearPDF = function(proc, doc, callback) {
         } else {
             final(iPdf, procPdf);
         }
-    }
+};
 
     /**
      *Si existe otro paso llama al siguiente,
@@ -351,6 +396,7 @@ var crearPDF = function(proc, doc, callback) {
     function final(iFinal, procFinal) {
         if (iFinal + 1 > procFinal.pasos.length -1) {
             doc.end();
+            res.send({url: url});
         } else {
             pasoAPdf(iFinal + 1, procFinal);
         }
@@ -369,9 +415,11 @@ var crearPDF = function(proc, doc, callback) {
             text += charset.charAt(Math.floor(Math.random() * charset.length));
         return text;
     }
-
+    nombrePdf = proc.nombre.replace(/ /g,'_') + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf';
     rootPath = rootPath + '/public/contenido/';
-    doc.pipe(fs.createWriteStream(rootPath + proc._id + '/' + proc.nombre + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf'));
+    docPath = rootPath + proc._id + '/' + nombrePdf;
+    url = '/contenido/' + proc._id + '/' + nombrePdf;
+    doc.pipe(fs.createWriteStream(docPath));
     //Inserta la Pagina Inicia
     fechaActualizacion = proc.updated[proc.updated.length -1].toISOString().substring(8,10) + '/' +
                             proc.updated[proc.updated.length -1].toISOString().substring(5,7) + '/' +
@@ -426,32 +474,35 @@ var crearPDF = function(proc, doc, callback) {
     });
 
     doc.addPage();
-    var err;
 
-    llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
-        //Orden los pasos del procedimiento de forma ascendente
-        nuevoProc.pasos.sort(function(a,b) {
-            var n = b.actual - a.actual;
-            if (n !== 0) {
-                return n;
-            }
-            if (a.numeroPasoReal.toString() === b.numeroPasoReal.toString()) {
-                n === 0;
-            }
-            if (a.numeroPasoReal.toString() > b.numeroPasoReal.toString()) {
-                n = 1;
-            }
+    if (proc.pasos) {
+        if (proc.pasos.length > 0) {
+            llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
+                //Orden los pasos del procedimiento de forma ascendente
+                nuevoProc.pasos.sort(function(a,b) {
+                    var n = b.actual - a.actual;
+                    if (n !== 0) {
+                        return n;
+                    }
+                    if (a.numeroPasoReal.toString() === b.numeroPasoReal.toString()) {
+                        n = 0;
+                    }
+                    if (a.numeroPasoReal.toString() > b.numeroPasoReal.toString()) {
+                        n = 1;
+                    }
 
-            if (a.numeroPasoReal.toString() < b.numeroPasoReal.toString()) {
-                n = -1;
-            }
-            if (n !== 0) {
-                return n;
-            }
-            return a.version - b.version;
-        });
-        pasoAPdf(0, nuevoProc);
-    });
+                    if (a.numeroPasoReal.toString() < b.numeroPasoReal.toString()) {
+                        n = -1;
+                    }
+                    if (n !== 0) {
+                        return n;
+                    }
+                    return a.version - b.version;
+                });
+                pasoAPdf(0, nuevoProc);
+            });
+        }
+    }
 };
 /**
  * Find procedimiento by id
@@ -461,10 +512,6 @@ exports.procedimiento = function(req, res, next, id) {
         if (err) return next(err);
         if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
         req.procedimiento = procedimiento;
-        if (procedimiento.pasos.length > 0) {
-            var doc = new pdfDoc();
-            crearPDF(procedimiento, doc);
-        }
         next();
 
     });
@@ -670,7 +717,7 @@ exports.upload = function (req, res) {
 };
 
 exports.updateComentario = function (req, res, next) {
-    var id = req.param('procedimientoId') // id del procedimiento
+    var id = req.param('procedimientoId'); // id del procedimiento
     console.log('id');
     console.log(id);
     var comentario = req.body;
@@ -683,6 +730,6 @@ exports.updateComentario = function (req, res, next) {
         if (err) { return next(err); }
       });
     });
-}
+};
 
 

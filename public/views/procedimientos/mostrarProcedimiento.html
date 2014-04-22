@@ -16,6 +16,8 @@
              Comentar
         </button>
     </div>
+    <div class="row"></div>
+
     <alert ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
 </div>
 <agregar_comentario ng-show="frmComentar"></agregar_comentario>
@@ -25,10 +27,11 @@
     </li>
 </ul>
 <div data-ng-show="global.user._id == procedimiento.user._id">
-    <a tooltip="Descargar Procedimiento" class="btn btn-info" href="/#!/procedimientos/{{procedimiento._id}}/edit">
-        <span class="glyphicon glyphicon-download">
-        </span>
-        Descargar
+    <a tooltip="Descargar Procedimiento" class="btn" data-ng-click="crearPdf();">
+        <i class="glyphicon glyphicon-download"></i>
+    </a>
+    <a tooltip="Enviar Procedimiento" class="btn" data-ng-click="enviarCorreo();">
+        <i class="glyphicon glyphicon-envelope"></i>
     </a>
     <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">
         <i class="glyphicon glyphicon-edit"></i>

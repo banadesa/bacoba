@@ -3,7 +3,8 @@
 .sass-cache/
 node_modules/
 public/lib
-public/contenido/
+public/pdfs/*
+public/contenido/*
 test/coverage/
 .bower-cache
 .bower-registry

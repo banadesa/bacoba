@@ -160,6 +160,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         var comentario = $scope.comentario;
         var comentar = '/procedimientos/' + $scope.procedimiento._id + '/comentar';
         $http.post( comentar,  comentario);
+        $scope.procedimiento.comentarios.unshift($scope.comentario);
     };
 
     /**
@@ -319,6 +320,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             ($scope.procedimiento.rating.cinco * 5) +
             ($scope.procedimiento.rating.cuatro * 4)) /
             ($scope.totalVotos));
+        console.log('$scope.totalVotos', '$scope.rate');
+        console.log($scope.totalVotos, $scope.rate);
     };
 
     /**
@@ -676,7 +679,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.guardarRating = function(){
         if ($scope.descripcionComentario && $scope.rateUser !== 0) {
-            switch($scope.rateUser) {
+              switch($scope.rateUser) {
                 case 1:
                     $scope.procedimiento.rating.uno =$scope.procedimiento.rating.uno + 1;
                     break;
@@ -693,8 +696,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                     $scope.procedimiento.rating.cinco =$scope.procedimiento.rating.cinco + 1;
                     break;
             }
-            console.log('$scope.procedimiento.rating');
-            console.log($scope.procedimiento.rating);
             $scope.comentario = {
                 'user': this.global.user._id,
                 'comentario': this.descripcionComentario,

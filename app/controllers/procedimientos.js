@@ -747,11 +747,26 @@ exports.updateComentario = function (req, res, next) {
     console.log('id');
     console.log(id);
     var comentario = req.body;
-    console.log('comentario');
-    console.log(comentario);
     Procedimiento.findOne({_id: id}, function(err, procedimiento){
-      if (err) { return next(err); }
-      procedimiento.comentarios.unshift(comentario);
+        if (err) { return next(err); }
+        procedimiento.comentarios.unshift(comentario);
+        switch(comentario.rating) {
+        case 1:
+        procedimiento.rating.uno =procedimiento.rating.uno + 1;
+        break;
+        case 2:
+        procedimiento.rating.dos =procedimiento.rating.dos + 1;
+        break;
+        case 3:
+        procedimiento.rating.tres =procedimiento.rating.tres + 1;
+        break;
+        case 4:
+        procedimiento.rating.cuatro =procedimiento.rating.cuatro + 1;
+        break;
+        case 5:
+        procedimiento.rating.cinco =procedimiento.rating.cinco + 1;
+        break;
+        }
       procedimiento.save(function(err) {
         if (err) { return next(err); }
       });

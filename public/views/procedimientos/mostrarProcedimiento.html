@@ -9,7 +9,7 @@
         <rating value="rate" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null" ng-click="guardarRating()">
         </rating>({{totalVotos}})
     </div>
-    <div class="center" ng-show="btnComentar">
+    <div class="center" collapse="!btnComentar">
         <button class="btn btn-info" ng-click="btnComentar=!btnComentar;frmComentar=!frmComentar">
             <span class="glyphicon glyphicon-comment">
             </span>
@@ -20,7 +20,8 @@
 
     <alert ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
 </div>
-<agregar_comentario ng-show="frmComentar"></agregar_comentario>
+<agregar_comentario></agregar_comentario>
+<enviar_correo></enviar_correo>
 <ul class="list-inline">
     <li ng-repeat="categoria in procedimiento.categorias">
         <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>
@@ -30,7 +31,7 @@
     <a tooltip="Descargar Procedimiento" class="btn" data-ng-click="crearPdf();">
         <i class="glyphicon glyphicon-download"></i>
     </a>
-    <a tooltip="Enviar Procedimiento" class="btn" data-ng-click="enviarCorreo();">
+    <a tooltip="Enviar Procedimiento" class="btn" ng-click="muestraFormaCorreo()">
         <i class="glyphicon glyphicon-envelope"></i>
     </a>
     <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">

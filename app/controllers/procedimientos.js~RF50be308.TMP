@@ -18,13 +18,8 @@ var mongoose = require('mongoose'),
 exports.enviarCorreo = function(req, res) {
     // create reusable transport method (opens pool of SMTP connections)
     var destinatario = {};
-    var comentario = ''
-    destinatario = req.body.destinatario;
-    // destinatario.correo = 'jperdomo@banadesa.hn';
-    // destinatario.nombre = 'Jose Eduardo Perdomo';
-    if (destinatario.comentario) {
-         comentario = 'con el siguiente comentario: <p>'+ destinatario.comentario + '</p>';
-    }
+    destinatario.correo = 'jperdomo@banadesa.hn';
+    destinatario.nombre = 'Jose Eduardo Perdomo';
     var proc = req.procedimiento;
     var smtpTransport = nodemailer.createTransport('SMTP',{
         host: "129.200.10.10",
@@ -41,10 +36,10 @@ exports.enviarCorreo = function(req, res) {
             to: destinatario.correo, // list of receivers
             subject: proc.nombre, // Subject line
             text: 'Distinguido' + destinatario.nombre + ',\n' + req.user.name + 'le ha enviado el manual ' +
-                proc.nombre + ' ' + comentario.replace('<p>', '').replace('</p>','\n') + ' \n*****favor no responder este correo*****', // plaintext body
+                proc.nombre + ' favor no responder este correo', // plaintext body
             html: '<p>Distinguido ' + destinatario.nombre + ',</p>' + '<b>' + req.user.name + '</b> le ha enviado el manual <b>' +
-               '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
-               '<p><small>*****favor no responder este correo</small></p>*****',
+               '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b>' +
+               '<p><small>favor no responder este correo</small></p>',
             attachments: [
                 {
                     fileName: proc.nombre + '.pdf',
@@ -66,7 +61,7 @@ exports.enviarCorreo = function(req, res) {
             // if you don't want to use this transport object anymore, uncomment following line
             //smtpTransport.close(); // shut down the connection pool, no more messages
         });
-    }, true);
+    });
     // setup e-mail data with unicode symbols
 };
 
@@ -75,12 +70,11 @@ exports.enviarCorreo = function(req, res) {
  *@param {object} req envio
  *@param {object} res respuesta
  *@param {function} callback funcion despues que se termine de hacer el pdf
- *@param {boolean} tieneCb si tiene callback o no
  */
 
-var crearPdf = exports.crearPdf = function(req, res, next) {
+var crearPdf = exports.crearPdf = function(req, res, callback) {
     var doc = new pdfDoc();
-    var externo = req.body.externo
+    var callbackCP = callback; // callback de la funcion en general;
     var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
@@ -418,10 +412,11 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     function final(iFinal, procFinal) {
         if (iFinal + 1 > procFinal.pasos.length -1) {
             doc.end();
-            if (externo) {
-                res.send({url: url})
+            console.log(typeof callbackCP);
+            if (callbackCP !== '[Function: callbacks]') {
+                callbackCP(docPath);
             } else {
-                next (docPath);
+                res.send({url: url})
             }
         } else {
             pasoAPdf(iFinal + 1, procFinal);

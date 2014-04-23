@@ -19,6 +19,12 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/agregarComentario.html'
         };
     })
+    .directive('enviarCorreo', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/procedimientos/enviarCorreo.html'
+        };
+    })
     .directive('mostrarProcedimiento', function() {
         return {
             restrict: 'E',

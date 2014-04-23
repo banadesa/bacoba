@@ -3,9 +3,10 @@
 angular.module('mean.procedimientos').
 controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location',
     '$anchorScroll', '$timeout', '$http', '$window' ,'$q', 'Global',
-    'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc',
+    'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc', 'modalCorreoService',
     function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http,
-        $window, $q, Global, Procedimientos, Categorias, cargarArchivo, modalService, proc) {
+        $window, $q, Global, Procedimientos, Categorias, cargarArchivo, modalService, proc,
+        modalCorreoService) {
     $scope.global = Global;
 
     /**
@@ -165,9 +166,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *Crear el Pdf en el servidor y lo abre en una nueva ventana
      */
     $scope.crearPdf = function() {
-        var procedimiento_pdf = $scope.procedimiento;
         var crearPdf = '/procedimientos/' + $scope.procedimiento._id + '/crearPdf';
-        $http.post(crearPdf,  procedimiento_pdf)
+        $http.post(crearPdf, {externo: true})
         .success(function(data) {
             $window.open(data.url);
         })
@@ -177,19 +177,21 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
 
     $scope.enviarCorreo = function() {
-        var procedimiento_correo = $scope.procedimiento;
         var enviarCorreo = '/procedimientos/' + $scope.procedimiento._id + '/enviarCorreo';
-        $http.post(enviarCorreo,  procedimiento_correo)
+        var destinatario = {};
+        destinatario.nombre = $scope.nombreDestinatario;
+        destinatario.correo = $scope.correoDestinatario;
+        destinatario.comentario = $scope.comentarioDestinatario;
+        $http.post(enviarCorreo, {destinatario: destinatario})
         .success(function(data) {
-            console.log('hola regrese con ');
-            console.log(data);
             if (data.success) {
-                            $scope.agregarAlerta('success','El correo se ha enviado Exitosamente!');
+                $scope.agregarAlerta('success','El correo se ha enviado Exitosamente!');
             }
         })
         .error(function(data) {
             console.log('hubo un error ' + data);
         });
+        $scope.frmCorreo = false;
     };
 
     /**
@@ -290,6 +292,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.calculaRating();
             $scope.btnComentar = true;
             $scope.frmComentar = false;
+            $scope.frmCorreo = false;
             $scope.rateUser = 0;
         }
     };
@@ -773,12 +776,26 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         texto = texto.replace(/&#218;/g,'Ú');
         texto = texto.replace(/&#191;/g,'¿');
         texto = texto.replace(/&#161;/g,'¡');
-        texto = texto.replace(/&#34;/g,'\'');
+        texto = texto.replace(/&#34;/g,'"');
         texto = texto.replace(/&#10;/g,' ');
         texto = texto.replace(/&#160;/g,' ');
         texto = texto.replace(/ class="[^"]+"/g,'');
         return texto;
     };
+
+    /**
+     *Muestra la forma para enviar el procedimiento por correo
+     */
+    $scope. muestraFormaCorreo = function() {
+        $scope.nombreDestinatario = '';
+        $scope.correoDestinatario = '';
+        $scope.comentarioDestinatario = '';
+        $scope.frmCorreo = !$scope.frmCorreo;
+        if ($scope.frmCorreo) {
+            $timeout(function() {$scope.focusElement('nombreDes');},100);
+        }
+        console.log($scope.frmCorreo)
+    }
 }]);
 
 

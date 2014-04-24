@@ -3,18 +3,15 @@ extends auth
 block auth
   form.signin.form-horizontal(action="/users/session", method="post")
     .form-group
-      label.col-md-4.control-label(for='email') Email
+      label.col-md-4.control-label(for='email') Usuario
       .col-md-8
-        input#email.form-control(type='text', name="email", placeholder='Email')
+        input#email.form-control(type='text', name="email", placeholder='Usuario')
 
     .form-group
-      label.col-md-4.control-label(for='password') Password
+      label.col-md-4.control-label(for='password') Contraseña
       .col-md-8
-        input#password.form-control(type='password', name="password", placeholder='Password')
+        input#password.form-control(type='password', name="password", placeholder='Contraseña')
 
     .form-group
       .col-md-offset-4.col-md-8
-        button.btn.btn-primary(type='submit') Sign in
-        &nbsp;
-        | or&nbsp;
-        a.show-signup(href="/signup") Sign up
+        button.btn.btn-primary(type='submit') Iniciar Sesion

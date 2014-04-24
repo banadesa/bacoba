@@ -8,6 +8,6 @@ block main
 block content
   #error-message-box
     #error-stack-trace
-      pre
-        code!= error
-
+    h1 Lo Sentimos...
+    p
+      div.label-success='La Pagina ' + url + ' no existe'

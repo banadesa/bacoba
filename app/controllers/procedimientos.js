@@ -44,7 +44,7 @@ exports.enviarCorreo = function(req, res) {
                 proc.nombre + ' ' + comentario.replace('<p>', '').replace('</p>','\n') + ' \n*****favor no responder este correo*****', // plaintext body
             html: '<p>Distinguido ' + destinatario.nombre + ',</p>' + '<b>' + req.user.name + '</b> le ha enviado el manual <b>' +
                '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
-               '<p><small>*****favor no responder este correo</small></p>*****',
+               '<p><small>*****favor no responder este correo*****</small></p>',
             attachments: [
                 {
                     fileName: proc.nombre + '.pdf',

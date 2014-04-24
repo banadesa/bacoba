@@ -14,7 +14,7 @@ var hasAuthorization = function(req, res, next) {
 
 module.exports = function(app) {
 
-    app.get('/categorias', categorias.all);
+    app.get('/categorias', authorization.requiresLogin, categorias.all);
 	app.post('/categorias', authorization.requiresLogin, categorias.create);
 	app.get('/categorias/:categoriaId', categorias.show);
 	app.put('/categorias/:categoriaId', authorization.requiresLogin, hasAuthorization, categorias.update);
@@ -22,5 +22,5 @@ module.exports = function(app) {
 
 	//Finish with setting up the categoriaId param
 	app.param('categoriaId', categorias.categoria);
-	
+
 };

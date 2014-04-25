@@ -1,22 +1,44 @@
 'use strict';
 
-angular.module('mean.users').controller('UsersController', ['$scope', '$routeParams', '$location', 'Global', 'Users', 'modalService', function ($scope, $routeParams, $location, Global, Users, modalService) {
+angular.module('mean.users').controller('UsersController', ['$scope', '$routeParams', '$location', '$http',
+ 'Global', 'Categorias', 'modalService',
+ function ($scope, $routeParams, $location, $http, Global, Categorias, modalService) {
     $scope.global = Global;
 
     $scope.create = function() {
-        var user = new Users({
-            name: this.name,
-            description: this.description,
-            padre: this.user.padre
+        var user = {
+            name: this.nombre,
+            email: this.email,
+            username: this.usuario,
+            password: this.clave,
+            administracion: this.administracion,
+            seguridad: this.seguridad,
+            categorias: []
+        };
+        $scope.alerts = [];
+        user.categorias = [];
+        for (var i = $scope.categoriaSel.length - 1; i >= 0; i--) {
+            user.categorias.push($scope.categoriaSel[i]);
+        }
+        $http.post('/users',user)
+        .success(function(data) {
+            console.log(data);
+            console.log(data.message);
+            if (data.message) {
+                $scope.agregarAlerta('danger',data.message);
+            } else {
+                $scope.nombre = '';
+                $scope.email = '';
+                $scope.usuario = '';
+                $scope.clave = '';
+                $scope.administracion = false;
+                $scope.seguridad = false;
+                $location.path('/');
+            }
+        })
+        .error(function(data) {
+            $scope.agregarAlerta('danger',data);
         });
-        user.$save(function(/*response*/) {
-            $location.path('users/');
-        });
-
-        this.name = '';
-        this.description = '';
-        this.users = '';
-        this.padre = '';
     };
 
     /**
@@ -73,9 +95,27 @@ angular.module('mean.users').controller('UsersController', ['$scope', '$routePar
     /**
      *Busca todas las cateogrias y las mete a un arreglo
      */
-    $scope.popularUsers = function(query) {
-        Users.query(query, function (users) {
-            $scope.users = users;
+    $scope.popularCategorias = function(query) {
+        Categorias.query(query, function (categorias) {
+            $scope.categorias = categorias;
         });
     };
+
+    /**
+     *Agrega alertas que se mostraran en pantalla
+     *@param {string} type  tipo alerta **danger rojo **success verde
+     *@param {string} msg mensaje que se mostrara
+     */
+    $scope.agregarAlerta = function(type,msg) {
+        $scope.alerts.push({type: type, msg: msg});
+    };
+
+    /**
+     *Cierre una alerta
+     *@param {number} posicion en el array
+     */
+    $scope.cerrarAlerta = function(index) {
+        $scope.alerts.splice(index,1);
+    };
+
 }]);

@@ -29,6 +29,14 @@ var UserSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Categoria'
     }],
+    administracion : {
+        type: Boolean,
+        default: false
+    },
+    seguridad : {
+        type: Boolean,
+        default: false
+    }
 });
 
 /**

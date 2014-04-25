@@ -52,6 +52,8 @@ exports.session = function(req, res) {
  * Create user
  */
 exports.create = function(req, res, next) {
+    console.log('req.body')
+    console.log(req.body)
     var user = new User(req.body);
     var message = null;
 
@@ -61,20 +63,25 @@ exports.create = function(req, res, next) {
             switch (err.code) {
                 case 11000:
                 case 11001:
-                    message = 'Username already exists';
+                    message = 'Usuario ya Existe';
                     break;
                 default:
-                    message = 'Please fill all the required fields';
+                    message = 'Favor Llene todos los campos';
             }
-
-            return res.render('users/signup', {
-                message: message,
-                user: user
-            });
+            console.log('message');
+            console.log(message);
+            console.log('user');
+            console.log(user);
+            res.send({
+            message: message,
+            success: true,
+            id: user._id
+        });
         }
-        req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/');
+        res.send({
+            message: message,
+            success: true,
+            id: user._id
         });
     });
 };

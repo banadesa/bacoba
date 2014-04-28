@@ -132,6 +132,7 @@ exports.all = function(req, res) {
 exports.update = function(req, res) {
     var user = req.usuario;
     var message = '';
+    console.log(req.body);
     user = _.extend(user, req.body);
     user.save(function(err) {
         if (err) {
@@ -154,7 +155,7 @@ exports.update = function(req, res) {
  * Delete an user
  */
 exports.destroy = function(req, res) {
-    var user = req.user;
+    var user = req.usuario;
 
     user.remove(function(err) {
         if (err) {

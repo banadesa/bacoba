@@ -2,10 +2,10 @@
 
 angular.module('mean.procedimientos').
 controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location',
-    '$anchorScroll', '$timeout', '$http', '$window' ,'$q', 'Global',
+    '$anchorScroll', '$timeout', '$http', '$window' ,'$q', 'Global', 'AppAlert',
     'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc',
     function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http,
-        $window, $q, Global, Procedimientos, Categorias, cargarArchivo, modalService, proc) {
+        $window, $q, Global, AppAlert, Procedimientos, Categorias, cargarArchivo, modalService, proc) {
     $scope.global = Global;
 
     /**
@@ -185,7 +185,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $http.post(enviarCorreo, {destinatario: destinatario})
         .success(function(data) {
             if (data.success) {
-                $scope.agregarAlerta('success','El correo se ha enviado Exitosamente!');
+                AppAlert.add('success','El correo se ha enviado Exitosamente!');
             }
         })
         .error(function(data) {
@@ -275,7 +275,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         for (var i = $scope.procedimiento.categorias.length - 1; i >= 0; i--) {
             $scope.categoriaSel.push($scope.procedimiento.categorias[i]._id);
         }
-        $scope.alerts = [];
         if (edita) {
             $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
             $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
@@ -705,25 +704,10 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.btnComentar=false;
             $scope.frmComentar=false;
             $scope.calculaRating();
-            $scope.agregarAlerta('success','¡Gracias por su comentario!');
+            AppAlert.add('success','¡Gracias por su comentario!');
         }
     };
-    /**
-     *Agrega alertas que se mostraran en pantalla
-     *@param {string} type  tipo alerta **danger rojo **success verde
-     *@param {string} msg mensaje que se mostrara
-     */
-    $scope.agregarAlerta = function(type,msg) {
-        $scope.alerts.push({type: type, msg: msg});
-    };
 
-    /**
-     *Cierre una alerta
-     *@param {number} posicion en el array
-     */
-    $scope.cerrarAlerta = function(index) {
-        $scope.alerts.splice(index,1);
-    };
     /**
      *Muestra la forma de comentario y esconde el boton
      */

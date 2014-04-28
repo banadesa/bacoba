@@ -1,6 +1,5 @@
 <section data-ng-controller="UsersController"  data-ng-init="findOne();popularCategorias()">
 	<h1 class="text-center">Editar Usuario</h1>
-	<alert class="my-repeat-animation" ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
 	<br/>
 	<form class="form-horizontal col-md-6" role="form" data-ng-submit="update()">
 		<div class="form-group">
@@ -18,7 +17,7 @@
 		<div class="form-group">
 			<label class="col-md-2 control-label" for="usuario">Usuario</label>
 			<div class="col-md-10">
-				<input type="text" data-ng-model="usuario.username" disabled="true" id="usuario" placeholder="Usuario" class="form-control" required>
+				<input type="text" data-ng-model="usuario.username" id="usuario" placeholder="Usuario" class="form-control" required>
 			</div>
 		</div>
 		<div class="form-group">

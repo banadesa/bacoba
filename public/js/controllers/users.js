@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.usuarios').controller('UsersController', ['$scope', '$routeParams', '$location', '$http',
- 'Global', 'Categorias', 'Usuarios', 'modalService',
- function ($scope, $routeParams, $location, $http, Global, Categorias, Usuarios, modalService) {
+ 'Global', 'AppAlert', 'Categorias', 'Usuarios', 'modalService',
+ function ($scope, $routeParams, $location, $http, Global, AppAlert, Categorias, Usuarios, modalService) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -43,23 +43,23 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
 
     /**
      *Elimina la user
-     *@param {object} user Categoria que se desea eliminar
+     *@param {object} user Usuario que se desea eliminar
      *
      */
-    $scope.remove = function(user) {
+    $scope.remove = function(usuario) {
         var modalOptions = {
             closeButtonText: 'Cancelar',
             actionButtonText: 'Eliminar Usuario',
-            headerText: '¿Eliminar el usuario '+ user.name + '?',
+            headerText: '¿Eliminar el usuario '+ usuario.username + '?',
             bodyText: 'Esta seguro que desea eliminar este usuario?'
         };
 
         modalService.showModal({}, modalOptions).then(function (/*result*/) {
-            if (user) {
-                user.$remove();
-                for (var i in $scope.users) {
-                    if ($scope.users[i] === user) {
-                        $scope.users.splice(i, 1);
+            if (usuario) {
+                usuario.$remove();
+                for (var i in $scope.usuarios) {
+                    if ($scope.usuarios[i] === usuario) {
+                        $scope.usuarios.splice(i, 1);
                     }
                 }
             }
@@ -67,8 +67,6 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
     };
 
     $scope.update = function() {
-        console.log('1');
-        console.log($scope.usuario);
         var usuario = $scope.usuario;
         $scope.alerts = [];
         if (!usuario.updated) {
@@ -79,18 +77,26 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         for (var i = $scope.categoriaSel.length - 1; i >= 0; i--) {
             usuario.categorias.push($scope.categoriaSel[i]);
         }
-        usuario.$update(function(data) {
+        $http({method:'PUT', url:'users/'+ usuario._id, data: usuario})
+        .success(function(data) {
             if (data.success) {
                 $location.path('users/');
+                AppAlert.add('success','¡Se actualizo el usuario exitosamente! ' + data.message);
             } else {
-                $location.path('users/');
-                console.log('despues del path');
-                $scope.agregarAlerta('danger','Error al actualizar el usuario ya que ' + data.message);
+                // console.log('data.usuario._id');
+                // console.log(data.usuario._id);
+                // $location.path('users/' + data.usuario._id +'/edit');
+                AppAlert.add('danger','Error al actualizar el usuario ya que ' + data.message);
             }
-        });
+        })
+        .error(function(data) {
+             AppAlert.add('danger','Error al actualizar el usuario ya que ' + data);
+        })
     };
 
     $scope.find = function() {
+        console.log('alerts');
+        console.log($scope.alerts);
         Usuarios.query(function(usuarios) {
             $scope.usuarios = usuarios;
         });
@@ -116,24 +122,4 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
             $scope.categorias = categorias;
         });
     };
-
-    /**
-     *Agrega alertas que se mostraran en pantalla
-     *@param {string} type  tipo alerta **danger rojo **success verde
-     *@param {string} msg mensaje que se mostrara
-     */
-    $scope.agregarAlerta = function(type,msg) {
-        $scope.alerts.push({type: type, msg: msg});
-        console.log('agregue una alerta');
-        console.log($scope.alerts);
-    };
-
-    /**
-     *Cierre una alerta
-     *@param {number} posicion en el array
-     */
-    $scope.cerrarAlerta = function(index) {
-        $scope.alerts.splice(index,1);
-    };
-
 }]);

@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('mean.system').controller('HeaderController', ['$scope', 'Global', 'AppAlert',
+ function ($scope, Global, AppAlert) {
     $scope.global = Global;
 
     $scope.menu = [{
@@ -15,4 +16,8 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
     }];
 
     $scope.isCollapsed = false;
+
+    $scope.cerrarAlerta = function(index) {
+        $scope.alerts.splice(index, 1);
+    }
 }]);

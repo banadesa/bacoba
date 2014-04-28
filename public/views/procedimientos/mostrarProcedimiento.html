@@ -18,7 +18,7 @@
     </div>
     <div class="row"></div>
 
-    <alert ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
+    <alert ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)" class="my-repeat-animation">{{alert.msg}}</alert>
 </div>
 <agregar_comentario></agregar_comentario>
 <enviar_correo></enviar_correo>

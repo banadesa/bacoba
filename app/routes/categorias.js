@@ -14,11 +14,11 @@ var hasAuthorization = function(req, res, next) {
 
 module.exports = function(app) {
 
-    app.get('/categorias', authorization.requiresLogin, categorias.all);
-	app.post('/categorias', authorization.requiresLogin, categorias.create);
-	app.get('/categorias/:categoriaId', categorias.show);
-	app.put('/categorias/:categoriaId', authorization.requiresLogin, hasAuthorization, categorias.update);
-	app.del('/categorias/:categoriaId', authorization.requiresLogin, hasAuthorization, categorias.destroy);
+    app.get('/categorias', authorization.requiresLogin, authorization.esAdministrador, categorias.all);
+	app.post('/categorias', authorization.requiresLogin, authorization.esAdministrador, categorias.create);
+	app.get('/categorias/:categoriaId', authorization.requiresLogin, authorization.esAdministrador, categorias.show);
+	app.put('/categorias/:categoriaId', authorization.requiresLogin, authorization.esAdministrador, categorias.update);
+	app.del('/categorias/:categoriaId', authorization.requiresLogin, authorization.esAdministrador, categorias.destroy);
 
 	//Finish with setting up the categoriaId param
 	app.param('categoriaId', categorias.categoria);

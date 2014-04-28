@@ -13,64 +13,6 @@ var mongoose = require('mongoose'),
     nodemailer = require('nodemailer');
 
 /**
- *Envia correos a solicitud
- */
-exports.enviarCorreo = function(req, res) {
-    // create reusable transport method (opens pool of SMTP connections)
-    var destinatario = {};
-    var comentario = ''
-    destinatario = req.body.destinatario;
-    // destinatario.correo = 'jperdomo@banadesa.hn';
-    // destinatario.nombre = 'Jose Eduardo Perdomo';
-    if (destinatario.comentario) {
-         comentario = 'con el siguiente comentario: <p>'+ destinatario.comentario + '</p>';
-    }
-    var proc = req.procedimiento;
-    var smtpTransport = nodemailer.createTransport('SMTP',{
-        host: "129.200.10.10",
-        secureConnection: false, // use SSL
-        port: 25, // port for secure SMTP
-        auth: {
-            user: "git@banadesa.hn",
-            pass: "tecno2013"
-        }
-    });
-    crearPdf(req,res, function(rutaArchivo) {
-        var mailOptions = {
-            from: 'Base de Conocimiento Banadesa<git@banadesa.hn>', // sender address
-            to: destinatario.correo, // list of receivers
-            subject: proc.nombre, // Subject line
-            text: 'Distinguido' + destinatario.nombre + ',\n' + req.user.name + 'le ha enviado el manual ' +
-                proc.nombre + ' ' + comentario.replace('<p>', '').replace('</p>','\n') + ' \n*****favor no responder este correo*****', // plaintext body
-            html: '<p>Distinguido ' + destinatario.nombre + ',</p>' + '<b>' + req.user.name + '</b> le ha enviado el manual <b>' +
-               '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
-               '<p><small>*****favor no responder este correo*****</small></p>',
-            attachments: [
-                {
-                    fileName: proc.nombre + '.pdf',
-                    filePath: rutaArchivo
-                }
-            ]
-        };
-
-        // send mail with defined transport object
-        smtpTransport.sendMail(mailOptions, function(error, response){
-            if(error){
-                console.log(error);
-                res.send(error);
-            }else{
-                console.log('Message sent: ' + response.message);
-                res.send({success: true});
-            }
-
-            // if you don't want to use this transport object anymore, uncomment following line
-            //smtpTransport.close(); // shut down the connection pool, no more messages
-        });
-    }, true);
-    // setup e-mail data with unicode symbols
-};
-
-/**
  *Crea el archivo PDF
  *@param {object} req envio
  *@param {object} res respuesta
@@ -80,7 +22,7 @@ exports.enviarCorreo = function(req, res) {
 
 var crearPdf = exports.crearPdf = function(req, res, next) {
     var doc = new pdfDoc();
-    var externo = req.body.externo
+    var externo = req.body.externo;
     var sizeOf = require('image-size');
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
@@ -419,7 +361,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         if (iFinal + 1 > procFinal.pasos.length -1) {
             doc.end();
             if (externo) {
-                res.send({url: url})
+                res.send({url: url});
             } else {
                 next (docPath);
             }
@@ -530,6 +472,65 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         }
     }
 };
+
+/**
+ *Envia correos a solicitud
+ */
+exports.enviarCorreo = function(req, res) {
+    // create reusable transport method (opens pool of SMTP connections)
+    var destinatario = {};
+    var comentario = '';
+    destinatario = req.body.destinatario;
+    // destinatario.correo = 'jperdomo@banadesa.hn';
+    // destinatario.nombre = 'Jose Eduardo Perdomo';
+    if (destinatario.comentario) {
+         comentario = 'con el siguiente comentario: <p>'+ destinatario.comentario + '</p>';
+    }
+    var proc = req.procedimiento;
+    var smtpTransport = nodemailer.createTransport('SMTP',{
+        host: '129.200.10.10',
+        secureConnection: false, // use SSL
+        port: 25, // port for secure SMTP
+        auth: {
+            user: 'git@banadesa.hn',
+            pass: 'tecno2013'
+        }
+    });
+    crearPdf(req,res, function(rutaArchivo) {
+        var mailOptions = {
+            from: 'Base de Conocimiento Banadesa<git@banadesa.hn>', // sender address
+            to: destinatario.correo, // list of receivers
+            subject: proc.nombre, // Subject line
+            text: 'Distinguido' + destinatario.nombre + ',\n' + req.user.name + 'le ha enviado el manual ' +
+                proc.nombre + ' ' + comentario.replace('<p>', '').replace('</p>','\n') + ' \n*****favor no responder este correo*****', // plaintext body
+            html: '<p>Distinguido ' + destinatario.nombre + ',</p>' + '<b>' + req.user.name + '</b> le ha enviado el manual <b>' +
+               '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
+               '<p><small>*****favor no responder este correo*****</small></p>',
+            attachments: [
+                {
+                    fileName: proc.nombre + '.pdf',
+                    filePath: rutaArchivo
+                }
+            ]
+        };
+
+        // send mail with defined transport object
+        smtpTransport.sendMail(mailOptions, function(error, response){
+            if(error){
+                console.log(error);
+                res.send(error);
+            }else{
+                console.log('Message sent: ' + response.message);
+                res.send({success: true});
+            }
+
+            // if you don't want to use this transport object anymore, uncomment following line
+            //smtpTransport.close(); // shut down the connection pool, no more messages
+        });
+    }, true);
+    // setup e-mail data with unicode symbols
+};
+
 /**
  * Find procedimiento by id
  */

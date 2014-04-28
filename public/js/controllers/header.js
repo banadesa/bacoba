@@ -11,7 +11,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
         'link': 'categorias'
     }, {
         'title': 'Usuarios',
-        'link': 'users/create'
+        'link': 'users/'
     }];
 
     $scope.isCollapsed = false;

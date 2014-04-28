@@ -3,10 +3,9 @@
 angular.module('mean.procedimientos').
 controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location',
     '$anchorScroll', '$timeout', '$http', '$window' ,'$q', 'Global',
-    'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc', 'modalCorreoService',
+    'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc',
     function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http,
-        $window, $q, Global, Procedimientos, Categorias, cargarArchivo, modalService, proc,
-        modalCorreoService) {
+        $window, $q, Global, Procedimientos, Categorias, cargarArchivo, modalService, proc) {
     $scope.global = Global;
 
     /**
@@ -795,8 +794,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         if ($scope.frmCorreo) {
             $timeout(function() {$scope.focusElement('nombreDes');},100);
         }
-        console.log($scope.frmCorreo)
-    }
+    };
 }]);
 
 

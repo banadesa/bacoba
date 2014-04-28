@@ -1,24 +1,30 @@
-<section data-ng-controller="CategoriasController" data-ng-init="find()">
+<section data-ng-controller="UsersController" data-ng-init="find()">
+    <alert class="my-repeat-animation" ng-repeat="alert in alerts" type="alert.type" close="cerrarAlerta($index)">{{alert.msg}}</alert>
     <table class="table table-striped table-hover table-bordered">
         <tr>
+            <th class="text-center col-sm-2" ><input type="text" placeholder="Buscar por Nombre" ng-model= "busqueda.name"></th>
+            <th class="text-center col-sm-5"><input type="text" placeholder="Buscar por Usuario" ng-model= "busqueda.username"</th>
+            <th class="text-center col-sm-2"><input type="text" placeholder="Buscar por Correo" ng-model= "busqueda.email"</th>
+        </tr>
+        <tr>
             <th class="text-center col-sm-2" >Nombre</th>
-            <th class="text-center col-sm-5">Descripcion</th>
-            <th class="text-center col-sm-2">Categoria Padre</th>
+            <th class="text-center col-sm-5">Usuario</th>
+            <th class="text-center col-sm-2">Correo Electronico</th>
             <th class="text-center col-sm-2">
-                <a href="/#!/categorias/create">
-                    <i class="glyphicon glyphicon-plus-sign"></i> Crear Categoria
+                <a href="/#!/users/create">
+                    <i class="glyphicon glyphicon-plus-sign"></i> Crear Usuario
                 </a>
             </th>
         </tr>
-        <tr ng-repeat="categoria in categorias">
-            <td class="col-sm-2">{{categoria.name}}</td>
-            <td class="col-sm-5">{{categoria.description}}</td>
-            <td class="col-sm-2">{{categoria.padre.name}}</td>
+        <tr ng-repeat="usuario in usuarios | filter:busqueda" class="my-repeat-animation">
+            <td class="col-sm-2">{{usuario.name}}</td>
+            <td class="col-sm-5">{{usuario.username}}</td>
+            <td class="col-sm-2">{{usuario.email}}</td>
             <td class="text-center col-sm-1">
-                <a tooltip="Editar Categoria" class="btn" href="/#!/categorias/{{categoria._id}}/edit">
+                <a tooltip="Editar Usuario" class="btn" href="/#!/users/{{usuario._id}}/edit">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>
-                <a tooltip="Eliminar Categoria" class="btn" data-ng-click="remove(categoria);">
+                <a tooltip="Eliminar Usuario" class="btn" data-ng-click="remove(usuario);">
                     <i class="glyphicon glyphicon-trash"></i>
                 </a>
             </td>

@@ -3,6 +3,8 @@
 // User routes use users controller
 var users = require('../controllers/users');
 
+var authorization = require('./middlewares/authorization');
+
 module.exports = function(app, passport) {
 
     app.get('/signin', users.signin);
@@ -11,7 +13,11 @@ module.exports = function(app, passport) {
     app.get('/users/me', users.me);
 
     // Setting up the users api
-    app.post('/users', users.create);
+    app.get('/users', authorization.requiresLogin, authorization.esAdministrador, users.all);
+    app.post('/users', authorization.requiresLogin, authorization.esAdministrador, users.create);
+    app.get('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.show);
+    app.put('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.update);
+    app.del('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.destroy);
 
     // Setting up the userId param
     app.param('userId', users.user);

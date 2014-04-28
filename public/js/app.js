@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'ui.route', 'mean.system',
-    'mean.directives', 'mean.filters', 'mean.procedimientos', 'mean.categorias','mean.users',
+    'mean.directives', 'mean.filters', 'mean.procedimientos', 'mean.categorias','mean.usuarios',
     'ui.select2','textAngular']);
 
 angular.module('mean.system', []);
@@ -44,4 +44,4 @@ config(function($provide){
     });
 
 angular.module('mean.categorias', []);
-angular.module('mean.users', []);
+angular.module('mean.usuarios', []);

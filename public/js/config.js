@@ -86,19 +86,34 @@ angular.module('mean').config(['$routeProvider',
         when('/users/create', {
             templateUrl: 'views/users/create.html'
         }).
+        when('/users', {
+            templateUrl: 'views/users/list.html'
+        }).
+        when('/users/create', {
+            templateUrl: 'views/users/create.html'
+        }).
+        when('/users/:userId/edit', {
+            templateUrl: 'views/users/edit.html'
+        }).
+        when('/users/:userId', {
+            templateUrl: 'views/users/view.html'
+        }).
+        when('/users/create', {
+            templateUrl: 'views/users/create.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
     }
 ]);
-angular.module('mean').run(['Global', '$rootScope', '$location',
-    function(Global, $rootScope, $location) {
-      $rootScope.$on('$routeChangeStart', function(evt) {
+angular.module('mean').run(['Global', '$rootScope',
+    function(Global, $rootScope) {
+      $rootScope.$on('$routeChangeStart', function() {
         if(!Global.authenticated){
           window.location = '/signin';
         }
       });
-}])
+}]);
 //Setting HTML5 Location Mode
 angular.module('mean').config(['$locationProvider',
     function($locationProvider) {

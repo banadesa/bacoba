@@ -12,11 +12,17 @@ var mongoose = require('mongoose'),
  */
 var UserSchema = new Schema({
     name: String,
-    email: String,
+    email: {
+        type: String,
+        unique: true
+    },
     username: {
         type: String,
         unique: true
     },
+    updated: [{
+        type: Date,
+    }],
     hashed_password: String,
     provider: String,
     salt: String,
@@ -132,6 +138,12 @@ UserSchema.methods = {
         var salt = new Buffer(this.salt, 'base64');
         return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
     }
+};
+
+UserSchema.statics.load = function(id, cb) {
+    this.findOne({
+        _id: id
+    }).populate('categorias', 'name').exec(cb);
 };
 
 mongoose.model('User', UserSchema);

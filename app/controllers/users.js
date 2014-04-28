@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    _ = require('lodash');
 
 /**
  * Auth callback
@@ -51,9 +52,7 @@ exports.session = function(req, res) {
 /**
  * Create user
  */
-exports.create = function(req, res, next) {
-    console.log('req.body')
-    console.log(req.body)
+exports.create = function(req, res) {
     var user = new User(req.body);
     var message = null;
 
@@ -63,15 +62,11 @@ exports.create = function(req, res, next) {
             switch (err.code) {
                 case 11000:
                 case 11001:
-                    message = 'Usuario ya Existe';
+                    message = 'Usuario  o Correo ya Existe';
                     break;
                 default:
                     message = 'Favor Llene todos los campos';
             }
-            console.log('message');
-            console.log(message);
-            console.log('user');
-            console.log(user);
             res.send({
             message: message,
             success: true,
@@ -97,8 +92,7 @@ exports.me = function(req, res) {
  * Find user by id
  */
 exports.user = function(req, res, next, id) {
-    User
-        .findOne({
+    User.findOne({
             _id: id
         })
         .exec(function(err, user) {
@@ -107,4 +101,80 @@ exports.user = function(req, res, next, id) {
             req.profile = user;
             next();
         });
+};
+
+/**
+ * Show an categoria
+ */
+exports.show = function(req, res) {
+    res.jsonp(req.usuario);
+};
+
+/**
+ * List of users
+ */
+exports.all = function(req, res) {
+    User.find().populate('categorias', 'name').exec(function(err, users) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(users);
+        }
+    });
+};
+
+
+/**
+ * Update a categoria
+ */
+exports.update = function(req, res) {
+    var user = req.usuario;
+    var message = '';
+    user = _.extend(user, req.body);
+    user.save(function(err) {
+        if (err) {
+            switch (err.code) {
+                case 11000:
+                case 11001:
+                    message = 'Usuario  o Correo ya Existe';
+                    break;
+                default:
+                    message = 'Favor Llene todos los campos';
+            }
+            res.send({'success': false, 'message':message, 'usuario': user});
+        } else {
+            res.send({'success': true, 'message': ''});
+        }
+    });
+};
+
+/**
+ * Delete an user
+ */
+exports.destroy = function(req, res) {
+    var user = req.user;
+
+    user.remove(function(err) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(user);
+        }
+    });
+};
+
+/**
+ * Find user by id
+ */
+exports.user = function(req, res, next, id) {
+    User.load(id, function(err, user) {
+        if (err) return next(err);
+        if (!user) return next(new Error('Error al cargar el usuario ' + id));
+        req.usuario = user;
+        next();
+    });
 };

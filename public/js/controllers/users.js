@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('mean.users').controller('UsersController', ['$scope', '$routeParams', '$location', '$http',
- 'Global', 'Categorias', 'modalService',
- function ($scope, $routeParams, $location, $http, Global, Categorias, modalService) {
+angular.module('mean.usuarios').controller('UsersController', ['$scope', '$routeParams', '$location', '$http',
+ 'Global', 'Categorias', 'Usuarios', 'modalService',
+ function ($scope, $routeParams, $location, $http, Global, Categorias, Usuarios, modalService) {
     $scope.global = Global;
 
     $scope.create = function() {
         var user = {
-            name: this.nombre,
+            name: this.name,
             email: this.email,
-            username: this.usuario,
-            password: this.clave,
+            username: this.username,
+            password: this.password,
             administracion: this.administracion,
             seguridad: this.seguridad,
             categorias: []
@@ -49,7 +49,7 @@ angular.module('mean.users').controller('UsersController', ['$scope', '$routePar
     $scope.remove = function(user) {
         var modalOptions = {
             closeButtonText: 'Cancelar',
-            actionButtonText: 'Eliminar Categoria',
+            actionButtonText: 'Eliminar Usuario',
             headerText: '¿Eliminar el usuario '+ user.name + '?',
             bodyText: 'Esta seguro que desea eliminar este usuario?'
         };
@@ -67,28 +67,44 @@ angular.module('mean.users').controller('UsersController', ['$scope', '$routePar
     };
 
     $scope.update = function() {
-        var user = $scope.user;
-        if (!user.updated) {
-            user.updated = [];
+        console.log('1');
+        console.log($scope.usuario);
+        var usuario = $scope.usuario;
+        $scope.alerts = [];
+        if (!usuario.updated) {
+            usuario.updated = [];
         }
-        user.updated.push(new Date().getTime());
-
-        user.$update(function() {
-            $location.path('users/' + user._id );
+        usuario.updated.push(new Date().getTime());
+        usuario.categorias = [];
+        for (var i = $scope.categoriaSel.length - 1; i >= 0; i--) {
+            usuario.categorias.push($scope.categoriaSel[i]);
+        }
+        usuario.$update(function(data) {
+            if (data.success) {
+                $location.path('users/');
+            } else {
+                $location.path('users/');
+                console.log('despues del path');
+                $scope.agregarAlerta('danger','Error al actualizar el usuario ya que ' + data.message);
+            }
         });
     };
 
     $scope.find = function() {
-        Users.query(function(users) {
-            $scope.users = users;
+        Usuarios.query(function(usuarios) {
+            $scope.usuarios = usuarios;
         });
     };
 
     $scope.findOne = function() {
-        Users.get({
+        Usuarios.get({
             userId: $routeParams.userId
-        }, function(user) {
-            $scope.user = user;
+        }, function(usuario) {
+            $scope.usuario = usuario;
+            $scope.categoriaSel = [];
+            for (var i = $scope.usuario.categorias.length - 1; i >= 0; i--) {
+                $scope.categoriaSel.push($scope.usuario.categorias[i]._id);
+            }
         });
     };
 
@@ -108,6 +124,8 @@ angular.module('mean.users').controller('UsersController', ['$scope', '$routePar
      */
     $scope.agregarAlerta = function(type,msg) {
         $scope.alerts.push({type: type, msg: msg});
+        console.log('agregue una alerta');
+        console.log($scope.alerts);
     };
 
     /**

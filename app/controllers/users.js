@@ -46,6 +46,10 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
+    console.log(req.user);
+    // for (var i = req.categorias.length - 1; i >= 0; i--) {
+    //     req.categorias[i]
+    // };
     res.redirect('/');
 };
 
@@ -146,7 +150,7 @@ exports.update = function(req, res) {
             }
             res.send({'success': false, 'message':message, 'usuario': user});
         } else {
-            res.send({'success': true, 'message': ''});
+            res.send({'success': true, 'message': '','usuario': user});
         }
     });
 };

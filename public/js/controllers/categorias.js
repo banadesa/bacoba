@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('mean.categorias').controller('CategoriasController', ['$scope', '$routeParams', '$location', 'Global', 'Categorias', 'modalService', function ($scope, $routeParams, $location, Global, Categorias, modalService) {
+angular.module('mean.categorias').controller('CategoriasController', ['$scope', '$routeParams', '$location',
+ 'Global', 'AppAlert', 'Categorias', 'modalService',
+  function ($scope, $routeParams, $location, Global, AppAlert, Categorias, modalService) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -9,8 +11,9 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
             description: this.description,
             padre: this.categoria.padre
         });
-        categoria.$save(function(/*response*/) {
+        categoria.$save(function(response) {
             $location.path('categorias/');
+            AppAlert.add('success', '¡La categoria ' + response.name + ' fue creada exitosamente!')
         });
 
         this.name = '';
@@ -51,8 +54,10 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
         }
         categoria.updated.push(new Date().getTime());
 
-        categoria.$update(function() {
-            $location.path('categorias/' + categoria._id );
+        categoria.$update(function(response) {
+            AppAlert.add('success', '¡La categoria ' + response.name + ' fue actualizada exitosamente!')
+            $location.path('categorias/');
+
         });
     };
 

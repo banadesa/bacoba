@@ -25,7 +25,7 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
             console.log(data);
             console.log(data.message);
             if (data.message) {
-                $scope.agregarAlerta('danger',data.message);
+                AppAlert.add('danger',data.message);
             } else {
                 $scope.nombre = '';
                 $scope.email = '';
@@ -34,10 +34,11 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
                 $scope.administracion = false;
                 $scope.seguridad = false;
                 $location.path('/');
+                AppAlert.add('success','¡Se creo el usuario exitosamente!');
             }
         })
         .error(function(data) {
-            $scope.agregarAlerta('danger',data);
+            AppAlert.add('danger',data);
         });
     };
 
@@ -81,12 +82,9 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         .success(function(data) {
             if (data.success) {
                 $location.path('users/');
-                AppAlert.add('success','¡Se actualizo el usuario exitosamente! ' + data.message);
+                AppAlert.add('success','¡Se actualizo el usuario ' + data.usuario.username + ' exitosamente! ' + data.message);
             } else {
-                // console.log('data.usuario._id');
-                // console.log(data.usuario._id);
-                // $location.path('users/' + data.usuario._id +'/edit');
-                AppAlert.add('danger','Error al actualizar el usuario ya que ' + data.message);
+                AppAlert.add('danger','Error al actualizar el usuario ' + data.usuario.username + ' ya que ' + data.message);
             }
         })
         .error(function(data) {

@@ -1,13 +1,8 @@
 <section data-ng-controller="UsersController" data-ng-init="find()">
     <table class="table table-striped table-hover table-bordered">
         <tr>
-            <th class="text-center col-sm-2" ><input type="text" placeholder="Buscar por Nombre" ng-model= "busqueda.name"></th>
-            <th class="text-center col-sm-5"><input type="text" placeholder="Buscar por Usuario" ng-model= "busqueda.username"</th>
-            <th class="text-center col-sm-2"><input type="text" placeholder="Buscar por Correo" ng-model= "busqueda.email"</th>
-        </tr>
-        <tr>
             <th class="text-center col-sm-2" >Nombre</th>
-            <th class="text-center col-sm-5">Usuario</th>
+            <th class="text-center col-sm-2">Usuario</th>
             <th class="text-center col-sm-2">Correo Electronico</th>
             <th class="text-center col-sm-2">
                 <a href="/#!/users/create">
@@ -15,9 +10,22 @@
                 </a>
             </th>
         </tr>
+        <tr>
+            <th class="text-center col-sm-2" ><input type="text" placeholder="Buscar por Nombre" ng-model= "busqueda.name"></th>
+            <th class="text-center col-sm-2"><input type="text" placeholder="Buscar por Usuario" ng-model= "busqueda.username"></th>
+            <th class="text-center col-sm-2"><input type="text" placeholder="Buscar por Correo" ng-model= "busqueda.email"></th>
+            <th class="text-center col-sm-2">
+                <button tooltip="Limpiar Busqueda" class="btn btn-primary btn-sm" ng-click="busqueda.name='';busqueda.username='';busqueda.email=''">
+                    <span>
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                    </span>
+                    Limpiar Busqueda
+                </button>
+            </th>
+        </tr>
         <tr ng-repeat="usuario in usuarios | filter:busqueda" class="my-repeat-animation">
-            <td class="col-sm-2">{{usuario.name}}</td>
-            <td class="col-sm-5">{{usuario.username}}</td>
+            <td class="col-sm-3">{{usuario.name}}</td>
+            <td class="col-sm-2">{{usuario.username}}</td>
             <td class="col-sm-2">{{usuario.email}}</td>
             <td class="text-center col-sm-1">
                 <a tooltip="Editar Usuario" class="btn" href="/#!/users/{{usuario._id}}/edit">

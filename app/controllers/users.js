@@ -46,11 +46,7 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-    console.log(req.user);
-    // for (var i = req.categorias.length - 1; i >= 0; i--) {
-    //     req.categorias[i]
-    // };
-    res.redirect('/');
+    res.redirect('/')
 };
 
 /**
@@ -102,6 +98,7 @@ exports.user = function(req, res, next, id) {
         .exec(function(err, user) {
             if (err) return next(err);
             if (!user) return next(new Error('Failed to load User ' + id));
+            console.log(req.profile);
             req.profile = user;
             next();
         });

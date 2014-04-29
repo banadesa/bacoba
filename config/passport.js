@@ -8,11 +8,12 @@ var mongoose = require('mongoose'),
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     LinkedinStrategy = require('passport-linkedin').Strategy,
     User = mongoose.model('User'),
+    Categoria = mongoose.model('Categoria'),
     config = require('./config');
 
 
 module.exports = function(passport) {
-    
+
     // Serialize the user id to push into the session
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -35,22 +36,50 @@ module.exports = function(passport) {
         },
         function(email, password, done) {
             User.findOne({
-                email: email
+                username: email
             }, function(err, user) {
                 if (err) {
                     return done(err);
                 }
                 if (!user) {
                     return done(null, false, {
-                        message: 'Unknown user'
+                        message: 'Usuario no existe'
                     });
                 }
                 if (!user.authenticate(password)) {
                     return done(null, false, {
-                        message: 'Invalid password'
+                        message: 'Contraseña incorrecta'
                     });
                 }
-                return done(null, user);
+                var categoriasTodas = [];
+                    /**
+                     *Busca las categorias hijo del usuario
+                     *@param {array} categoriasP arreglo de categorias
+                     *@param {function} cb callback
+                     */
+                    var buscaCategoriaHijos = function(categoriasP, i, cb) {
+                        if (i < categoriasP.length) {
+                             categoriasTodas.push(categoriasP[i]);
+                             Categoria.find({padre:categoriasP[i]}, {_id:1})
+                             .exec(function(err, categorias) {
+                                if (err) return console.log(err);
+                                    for (var j = categorias.length - 1; j >= 0; j--) {
+                                        categoriasP.push(categorias[j]._id);
+                                    }
+                                    buscaCategoriaHijos(categoriasP, i+1, cb);
+                            })
+                         }
+                        else cb();
+                    }
+                    buscaCategoriaHijos(user.categorias, 0, function() {
+                        user.categoriasTodas = [];
+                        user.categoriasTodas = user.categoriasTodas.concat(categoriasTodas);
+                        console.log('user');
+                        console.log(user);
+                        console.log('categoriasTodas');
+                        console.log(categoriasTodas);
+                        return done(null, user);
+                    });
             });
         }
     ));
@@ -184,8 +213,8 @@ module.exports = function(passport) {
             profileFields: ['id', 'first-name', 'last-name', 'email-address']
         },
         function(accessToken, refreshToken, profile, done) {
-          User.findOne({ 
-                'linkedin.id': profile.id 
+          User.findOne({
+                'linkedin.id': profile.id
             }, function (err, user) {
                 if (!user) {
                     user = new User({

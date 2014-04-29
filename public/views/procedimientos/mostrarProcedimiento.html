@@ -34,13 +34,13 @@
     <a tooltip="Enviar Procedimiento" class="btn" ng-click="muestraFormaCorreo()">
         <i class="glyphicon glyphicon-envelope"></i>
     </a>
-    <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit">
+    <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit" ng-show="global.user.administracion">
         <i class="glyphicon glyphicon-edit"></i>
     </a>
-    <a class="btn" tooltip="Eliminar Procedimiento" data-ng-click="remove();">
+    <a class="btn" tooltip="Eliminar Procedimiento" data-ng-click="remove();" ng-show="global.user.administracion">
         <i class="glyphicon glyphicon-trash"></i>
     </a>
-    <a ng-hide="modificando" class="btn" tooltip="Editar Pasos del Procedimiento"  href="/#!/procedimientos/pasos/{{procedimiento._id}}">
+    <a ng-hide="modificando || !global.user.administracion" class="btn" tooltip="Editar Pasos del Procedimiento"  href="/#!/procedimientos/pasos/{{procedimiento._id}}">
         <i class="glyphicon glyphicon-pencil"></i>
     </a>
 </div>

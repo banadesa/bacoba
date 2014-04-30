@@ -158,11 +158,15 @@ ProcedimientoSchema.path('nombre').validate(function(nombre) {
 }, 'Name cannot be blank');
 
 /**
- * Statics
+ * Statics carga la info de un procedimiento
+ *@param {objectId} id llave del procedimiento
+ *@param {array} categorias del procedimiento
+ *@param {function} cb callback a ejecturar
  */
-ProcedimientoSchema.statics.load = function(id, cb) {
+ProcedimientoSchema.statics.load = function(id, categoriasP, cb) {
     this.findOne({
         _id: id,
+        categorias: {$in: categoriasP}
     },
     function(err, procedimiento){
         if (err) { return err;}
@@ -172,7 +176,12 @@ ProcedimientoSchema.statics.load = function(id, cb) {
                 if (err) { return err;}
             });
         }
-    }).populate('categorias', 'name').populate('comentarios.user', 'name').populate('user', 'name username').populate('pasos.procedimiento','pasos').exec(cb);
+    })
+    .populate('categorias', 'name')
+    .populate('comentarios.user', 'name')
+    .populate('user', 'name username')
+    .populate('pasos.procedimiento','pasos')
+    .exec(cb);
 };
 
 mongoose.model('Procedimiento', ProcedimientoSchema);

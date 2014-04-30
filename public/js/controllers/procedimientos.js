@@ -265,35 +265,41 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
 
     $scope.findOne = function(edita) {
-        $scope.procedimiento = proc;
-        $scope.sortPasos();
-        $scope.numeroPaso = $scope.ultimoPaso();
+        if (proc.nombre) {
+            $scope.procedimiento = proc;
+            $scope.sortPasos();
+            $scope.numeroPaso = $scope.ultimoPaso();
 
-        $scope.edicionPaso = false;
-        $scope.indexPaso = -1;
-        $scope.categoriaSel = [];
-        for (var i = $scope.procedimiento.categorias.length - 1; i >= 0; i--) {
-            $scope.categoriaSel.push($scope.procedimiento.categorias[i]._id);
+            $scope.edicionPaso = false;
+            $scope.indexPaso = -1;
+            $scope.categoriaSel = [];
+            for (var i = $scope.procedimiento.categorias.length - 1; i >= 0; i--) {
+                $scope.categoriaSel.push($scope.procedimiento.categorias[i]._id);
+            }
+            if (edita) {
+                $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
+                $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
+                $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
+                $scope.modificando = true; //Para saber si estoy modificando los pasos
+                $scope.relProcedimiento = false;
+                $scope.seleccionProcedimientoActivo = true;
+                $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
+                $scope.procedimientoRelacionado = {};
+            }
+            else {
+                $scope.sortPasosAsc();
+                $scope.modificando = false;
+                $scope.calculaRating();
+                $scope.btnComentar = true;
+                $scope.frmComentar = false;
+                $scope.frmCorreo = false;
+                $scope.rateUser = 0;
+            }
+        } else {
+            AppAlert.add('danger', 'Error al intentar acceder al procedimiento')
+           $location.path('procedimientos/');
         }
-        if (edita) {
-            $scope.rutaUpload='/procedimientos/upload?procedimientoId='+ $scope.procedimiento._id;
-            $scope.versionEdita = $scope.modificaVersion('+',3,$scope.procedimiento.versionActual);
-            $scope.versionAgruegaQuita = $scope.modificaVersion('+',2,$scope.procedimiento.versionActual);
-            $scope.modificando = true; //Para saber si estoy modificando los pasos
-            $scope.relProcedimiento = false;
-            $scope.seleccionProcedimientoActivo = true;
-            $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
-            $scope.procedimientoRelacionado = {};
-        }
-        else {
-            $scope.sortPasosAsc();
-            $scope.modificando = false;
-            $scope.calculaRating();
-            $scope.btnComentar = true;
-            $scope.frmComentar = false;
-            $scope.frmCorreo = false;
-            $scope.rateUser = 0;
-        }
+
     };
     /**
      *funciones luego que se selecciona un procedimiento en la busqueda

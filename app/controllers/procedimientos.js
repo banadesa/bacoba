@@ -35,6 +35,12 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     var tamañoMaximo = 400; //tamaño maximo de las imagenes a mostrar
     var nuevoProc = {}; //nuevo procedimiento donde se pondran los pasos y subpasos
     var proc = req.procedimiento;
+    var categoriasP = []; // categorias a las que el usuario tiene acceso
+    if (req.user.categorias) {
+        categoriasP = req.user.categorias;
+    } else {
+        categoriasP = ['nada'];
+    }
     nuevoProc._id = proc._id;
     nuevoProc.nombre = proc.nombre;
     nuevoProc.updated = proc.updated;
@@ -71,7 +77,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             if (proc.pasos[i].actual) {
                 if (proc.pasos[i].procedimiento) {
                     if (veces >= 0) {
-                        Procedimiento.load(proc.pasos[i].procedimiento._id, function(err, procedimiento) {
+                        Procedimiento.load(proc.pasos[i].procedimiento._id, categoriasP, function(err, procedimiento) {
                             if (err) return console.log(err);
                             if (!procedimiento) return console.log('Error al cargar el procedimiento ');
                             veces--;
@@ -535,9 +541,13 @@ exports.enviarCorreo = function(req, res) {
  * Find procedimiento by id
  */
 exports.procedimiento = function(req, res, next, id) {
-    Procedimiento.load(id, function(err, procedimiento) {
+    var categoriasP = [];
+    if (req.user.categorias) {
+        categoriasP = req.user.categorias;
+    } else categoriasP = ['nada'];
+    Procedimiento.load(id, categoriasP, function(err, procedimiento) {
         if (err) return next(err);
-        if (!procedimiento) return next(new Error('Error al cargar el procedimiento ' + id));
+        if (!procedimiento) return next();
         req.procedimiento = procedimiento;
         next();
 
@@ -625,7 +635,11 @@ exports.destroy = function(req, res) {
  * Show an procedimiento
  */
 exports.show = function(req, res) {
-    res.jsonp(req.procedimiento);
+    if (!req.procedimiento) {
+        res.redirect('/');
+    } else {
+        res.jsonp(req.procedimiento);
+    }
 };
 
 /**
@@ -642,8 +656,8 @@ exports.all = function(req, res) {
         nombreConsulta = new RegExp('','gi');
         campos = {};
     }
-
-    Procedimiento.find({nombre: nombreConsulta},campos).sort('-created').populate('categorias', 'name')
+    Procedimiento.find({nombre: nombreConsulta, categorias: {$in: req.user.categorias}},campos)
+    .sort('-created').populate('categorias', 'name')
     .populate('comentarios.user', 'name')
     .populate('user', 'name username')
     .populate('pasos.procedimiento','pasos')
@@ -745,8 +759,6 @@ exports.upload = function (req, res) {
 
 exports.updateComentario = function (req, res, next) {
     var id = req.param('procedimientoId'); // id del procedimiento
-    console.log('id');
-    console.log(id);
     var comentario = req.body;
     Procedimiento.findOne({_id: id}, function(err, procedimiento){
         if (err) { return next(err); }

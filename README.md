@@ -28,7 +28,7 @@ Los cambios son los siguienes
     <li><del>Un paso pueda ser otro procedimiento</del></li>
     <li><del>Se pueda exportar un procedimiento a PDF<del></li>
     <li><del>Se pueda compartir un procedimiento por correo</del></li>
-    <li>Los usuarios solo pueden ver los procedimientos de sus categorias</li>
+    <li><del>Los usuarios solo pueden ver los procedimientos de sus categorias</del></li>
     <li>Se puede navegar por categorias</li>
     <li>En la pagina principal se muestren los ultimos procedimientos visitos</li>
     <li>En la pagina principal se muestren los procedimientos mas vistos en la categoria del usuario</li>

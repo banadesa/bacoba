@@ -25,7 +25,33 @@ module.exports = function(passport) {
         User.findOne({
             _id: id
         }, '-salt -hashed_password', function(err, user) {
-            done(err, user);
+                /**
+             *Busca las categorias hijo del usuario
+             *@param {array} categoriasP arreglo de categorias
+             *@param {function} cb callback
+             */
+            var buscaCategoriaHijos = function(categoriasP, i, cb) {
+                if (i < categoriasP.length) {
+                     Categoria.find({padre:categoriasP[i]}, {_id:1})
+                     .exec(function(err, categorias) {
+                        if (err) return console.log(err);
+                        for (var j = categorias.length - 1; j >= 0; j--) {
+                            categoriasP.push(categorias[j]._id);
+                        }
+                        buscaCategoriaHijos(categoriasP, i+1, cb);
+                    })
+                }
+                else {
+                    cb();
+                }
+            };
+            if (user.categorias) {
+                buscaCategoriaHijos(user.categorias, 0, function() {
+                    done(err, user);
+                });
+            } else {
+                done(err, user);
+            }
         });
     });
 
@@ -51,35 +77,7 @@ module.exports = function(passport) {
                         message: 'Contraseña incorrecta'
                     });
                 }
-                var categoriasTodas = [];
-                    /**
-                     *Busca las categorias hijo del usuario
-                     *@param {array} categoriasP arreglo de categorias
-                     *@param {function} cb callback
-                     */
-                    var buscaCategoriaHijos = function(categoriasP, i, cb) {
-                        if (i < categoriasP.length) {
-                             categoriasTodas.push(categoriasP[i]);
-                             Categoria.find({padre:categoriasP[i]}, {_id:1})
-                             .exec(function(err, categorias) {
-                                if (err) return console.log(err);
-                                    for (var j = categorias.length - 1; j >= 0; j--) {
-                                        categoriasP.push(categorias[j]._id);
-                                    }
-                                    buscaCategoriaHijos(categoriasP, i+1, cb);
-                            })
-                         }
-                        else cb();
-                    }
-                    buscaCategoriaHijos(user.categorias, 0, function() {
-                        user.categoriasTodas = [];
-                        user.categoriasTodas = user.categoriasTodas.concat(categoriasTodas);
-                        console.log('user');
-                        console.log(user);
-                        console.log('categoriasTodas');
-                        console.log(categoriasTodas);
-                        return done(null, user);
-                    });
+                    return done(null, user);
             });
         }
     ));

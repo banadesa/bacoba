@@ -88,24 +88,9 @@ exports.me = function(req, res) {
     res.jsonp(req.user || null);
 };
 
-/**
- * Find user by id
- */
-exports.user = function(req, res, next, id) {
-    User.findOne({
-            _id: id
-        })
-        .exec(function(err, user) {
-            if (err) return next(err);
-            if (!user) return next(new Error('Failed to load User ' + id));
-            console.log(req.profile);
-            req.profile = user;
-            next();
-        });
-};
 
 /**
- * Show an categoria
+ * Show an user
  */
 exports.show = function(req, res) {
     res.jsonp(req.usuario);
@@ -133,7 +118,6 @@ exports.all = function(req, res) {
 exports.update = function(req, res) {
     var user = req.usuario;
     var message = '';
-    console.log(req.body);
     user = _.extend(user, req.body);
     user.save(function(err) {
         if (err) {

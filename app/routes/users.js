@@ -7,7 +7,7 @@ var authorization = require('./middlewares/authorization');
 
 module.exports = function(app, passport) {
 
-    app.get('/signin', users.signin);
+    app.get('/signin', authorization.requiresNoLogin, users.signin);
     app.get('/signup', users.signup);
     app.get('/signout', users.signout);
     app.get('/users/me', users.me);

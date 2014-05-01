@@ -657,7 +657,7 @@ exports.all = function(req, res) {
         campos = {};
     }
     Procedimiento.find({nombre: nombreConsulta, categorias: {$in: req.user.categorias}},campos)
-    .sort('-created').populate('categorias', 'name')
+    .sort('visitas').populate('categorias', 'name')
     .populate('comentarios.user', 'name')
     .populate('user', 'name username')
     .populate('pasos.procedimiento','pasos')

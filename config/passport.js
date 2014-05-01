@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
     LinkedinStrategy = require('passport-linkedin').Strategy,
     User = mongoose.model('User'),
     Categoria = mongoose.model('Categoria'),
+    _ = require('lodash'),
     config = require('./config');
 
 
@@ -31,12 +32,25 @@ module.exports = function(passport) {
              *@param {function} cb callback
              */
             var buscaCategoriaHijos = function(categoriasP, i, cb) {
+                var existe = 0;
                 if (i < categoriasP.length) {
                      Categoria.find({padre:categoriasP[i]}, {_id:1})
                      .exec(function(err, categorias) {
                         if (err) return console.log(err);
                         for (var j = categorias.length - 1; j >= 0; j--) {
-                            categoriasP.push(categorias[j]._id);
+                            // for (var y = categoriasP.length - 1; y >= 0; y--) {
+                            //     if (categoriasP[y].toString() === categorias[j]._id.toString()) {
+                            //         console.log('encontre uno igual');
+                            //     } else {
+                            //         console.log('son diferentes', categoriasP[y], categorias[j]._id);
+                            //     }
+                            // }
+                            existe = _.findIndex(categoriasP, function(cat) {
+                                return cat.toString() === categorias[j]._id.toString();
+                            });
+                            if ( existe === -1 ) {
+                                categoriasP.push(categorias[j]._id);
+                            }
                         }
                         buscaCategoriaHijos(categoriasP, i+1, cb);
                     })
@@ -47,6 +61,7 @@ module.exports = function(passport) {
             };
             if (user.categorias) {
                 buscaCategoriaHijos(user.categorias, 0, function() {
+                    console.log(user);
                     done(err, user);
                 });
             } else {

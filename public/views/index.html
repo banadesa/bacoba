@@ -1,3 +1,9 @@
-<section data-ng-controller="IndexController">
-	<h1>En Construccion... Pininos</h1>
+<section data-ng-controller="IndexController" data-ng-init="find()">
+    <ul class="cbp-rfgrid">
+        <li data-ng-repeat="procedimiento in procedimientos">
+            <a data-ng-href="#!/procedimientos/{{procedimiento._id}}"></a>
+            <div><h3>{{procedimiento.nombre}}</h3><div>
+            {{procedimiento.descripcion}}
+        </li>
+    </ul>
 </section>

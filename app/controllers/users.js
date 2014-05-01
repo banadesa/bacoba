@@ -19,7 +19,7 @@ exports.authCallback = function(req, res) {
  */
 exports.signin = function(req, res) {
     res.render('users/signin', {
-        title: 'Signin',
+        title: 'Iniciar Sesion',
         message: req.flash('error')
     });
 };

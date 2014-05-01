@@ -12,6 +12,17 @@ exports.requiresLogin = function(req, res, next) {
 };
 
 /**
+ * Generic require login routing middleware
+ */
+exports.requiresNoLogin = function(req, res, next) {
+    if (req.isAuthenticated()) {
+        res.redirect('/');
+    } else {
+      next();
+    }
+};
+
+/**
  * middle de seguridad que determina si el usuario es administrador
  */
 exports.esAdministrador = function(req, res, next) {

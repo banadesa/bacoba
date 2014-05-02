@@ -525,7 +525,8 @@ exports.enviarCorreo = function(req, res) {
         };
 
         // send mail with defined transport object
-        smtpTransport.sendMail(mailOptions, function(error, response){
+        setTimeout(function() {
+            smtpTransport.sendMail(mailOptions, function(error, response){
             if(error){
                 console.log(error);
                 res.send(error);
@@ -537,7 +538,7 @@ exports.enviarCorreo = function(req, res) {
             // if you don't want to use this transport object anymore, uncomment following line
             //smtpTransport.close(); // shut down the connection pool, no more messages
         });
-    }, true);
+    }, true)},2000);
     // setup e-mail data with unicode symbols
 };
 

@@ -168,7 +168,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         var crearPdf = '/procedimientos/' + $scope.procedimiento._id + '/crearPdf';
         $http.post(crearPdf, {externo: true})
         .success(function(data) {
-            $window.open(data.url);
+            $timeout(function() {
+                $window.open(data.url);
+            }, 2);
         })
         .error(function(data) {
             console.log('hubo un error ' + data);

@@ -135,20 +135,22 @@ footer p {
   color: #333333;
 }
 
-.caja {
-  border: 10px;
-  width: 70px;
-  height: 100px;
-  display: inline;
+.elemento-rb {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.elemento-lb {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
 }
 
 .cbp-rfgrid {
-    margin: 35px 0 0 0;
-    padding: 0;
+    padding: 5px;
     list-style: none;
     position: relative;
-    border: 10px;
-    border-color: red;
     width: 100%;
 }
 
@@ -156,45 +158,20 @@ footer p {
     position: relative;
     float: left;
     overflow: hidden;
-    background-color: #f2f2f2;
+    background-color: #f8f8f8;
     width: 20%; /* Fallback */
     width: -webkit-calc(100% / 5);
     height: 200px;
     width: calc(100% / 5);
-    margin: 5px;
-    padding: 10px;
     cursor: pointer;
+    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #bfbfbf;
+    border-top: 1px solid #bfbfbf;
+    border-bottom: 1px solid #bfbfbf;
 }
 
-/* Flexbox is used for centering the heading */
-.cbp-rfgrid li a div {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    background: rgba(71,163,218,0.2);
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: flex;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-}
-
-.rating-lb {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-
-.cbp-rfgrid li:hover {
-    background-color: #e5e5e5;
+.cbp-rfgrid li:last-child {
+    border-right: 1px solid #bfbfbf;
 }
 
 .cbp-rfgrid li div h3 {
@@ -205,6 +182,63 @@ footer p {
     letter-spacing: 2px;
     padding: 0 10px;
 }
+
+.clavo {
+  display: block;
+}
+.cbp-rfgrid-tit {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition-property:height;
+    -webkit-transition-duration: 0.3s;
+    transition-property:height;
+    transition-duration: 0.3s;
+}
+
+.cbp-rfgrid-des {
+  width: 100%;
+  position: absolute;
+  display: block;
+  -webkit-transition-property:height;
+  -webkit-transition-duration: 0.3s;
+  transition-property:height;
+  transition-duration: 0.3s;
+  height: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+
+.cbp-rfgrid-des h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(66, 63, 63);
+  text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+}
+
+.cbp-rfgrid-des span {
+  display: block;
+  text-align: left;
+  margin: 5px;
+  color: rgb(107, 106, 106);
+  text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+}
+
+
+
+.clavo:hover .cbp-rfgrid-des {
+    height: 100%;
+}
+
+.clavo:hover .cbp-rfgrid-tit {
+    height: 0;
+    overflow: hidden;
+}
+
+
 
 /* Example for media query: change number of items per row */
 

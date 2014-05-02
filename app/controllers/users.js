@@ -46,7 +46,7 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-    res.redirect('/')
+    res.redirect('/');
 };
 
 /**
@@ -76,7 +76,8 @@ exports.create = function(req, res) {
         res.send({
             message: message,
             success: true,
-            id: user._id
+            id: user._id,
+            usuario: user.username
         });
     });
 };

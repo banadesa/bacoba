@@ -4,13 +4,13 @@
 var categorias = require('../controllers/categorias');
 var authorization = require('./middlewares/authorization');
 
-// Categorias authorization helpers
-var hasAuthorization = function(req, res, next) {
-	if (req.categoria.user.id !== req.user.id) {
-		return res.send(401, 'User is not authorized');
-	}
-    next();
-};
+// // Categorias authorization helpers
+// var hasAuthorization = function(req, res, next) {
+// 	if (req.categoria.user.id !== req.user.id) {
+// 		return res.send(401, 'User is not authorized');
+// 	}
+//     next();
+// };
 
 module.exports = function(app) {
 

@@ -27,6 +27,8 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     var rootPath = path.normalize(__dirname + '/../..');
     var fechaActualizacion;
     var nombrePdf; // nombre del documento Pdf, sin ruta
+    var pdfPath; // ruta de la carpeta del pdf
+    var procPath; // ruta de la carpeta del procedimiento
     var docPath; // ruta donde esta el documento
     var url; // url del pdf
     var imgActual; //ruta completa de la imagen que se mostrara;
@@ -321,7 +323,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             doc.moveDown(1);
             //Si es una imagen busca que las dimensiones de la misma y determina si es necesario un salto de pagina
             if (procPdf.pasos[iPdf].imagen) {
-                imgActual = rootPath + procPdf.pasos[iPdf].rutaImg + '/imagenes/' + procPdf.pasos[iPdf].imagen;
+                imgActual = procPath + procPdf.pasos[iPdf].rutaImg + '/imagenes/' + procPdf.pasos[iPdf].imagen;
                 imgWidth = undefined;
                 imgHeight = undefined;
                 sizeOf(imgActual, function (err, dimensions) {
@@ -390,8 +392,10 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         return text;
     }
     nombrePdf = proc.nombre.replace(/ /g,'_') + '_' + proc.versionActual + '_' + stringGen(5) + '.pdf';
-    rootPath = rootPath + '/public/pdfs/';
-    docPath = rootPath + nombrePdf;
+    rootPath = rootPath + '/public/';
+    procPath = rootPath + '/contenido/';
+    pdfPath = rootPath + '/pdfs/';
+    docPath = pdfPath + nombrePdf;
     url = '/pdfs/' + nombrePdf;
     doc.pipe(fs.createWriteStream(docPath));
     //Inserta la Pagina Inicia
@@ -657,7 +661,7 @@ exports.all = function(req, res) {
         campos = {};
     }
     Procedimiento.find({nombre: nombreConsulta, categorias: {$in: req.user.categorias}},campos)
-    .sort('visitas').populate('categorias', 'name')
+    .sort({'visitas': -1}).populate('categorias', 'name')
     .populate('comentarios.user', 'name')
     .populate('user', 'name username')
     .populate('pasos.procedimiento','pasos')

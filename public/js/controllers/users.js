@@ -33,8 +33,9 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
                 $scope.clave = '';
                 $scope.administracion = false;
                 $scope.seguridad = false;
-                $location.path('/');
-                AppAlert.add('success','¡Se creo el usuario exitosamente!');
+                $location.path('/users');
+                console.log(data);
+                AppAlert.add('success','¡Se creo el usuario ' + data.usuario + ' exitosamente!');
             }
         })
         .error(function(data) {
@@ -61,6 +62,7 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
                 for (var i in $scope.usuarios) {
                     if ($scope.usuarios[i] === usuario) {
                         $scope.usuarios.splice(i, 1);
+                        AppAlert.add('success','¡Se elimino el usuario ' + usuario.username + ' exitosamente!');
                     }
                 }
             }
@@ -89,7 +91,7 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         })
         .error(function(data) {
              AppAlert.add('danger','Error al actualizar el usuario ya que ' + data);
-        })
+        });
     };
 
     $scope.find = function() {

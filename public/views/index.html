@@ -1,9 +1,19 @@
 <section data-ng-controller="IndexController" data-ng-init="find()">
+<h2>Mas Vistos</h2>
     <ul class="cbp-rfgrid">
-        <li data-ng-repeat="procedimiento in procedimientos">
-            <a data-ng-href="#!/procedimientos/{{procedimiento._id}}"></a>
-            <div><h3>{{procedimiento.nombre}}</h3><div>
-            {{procedimiento.descripcion}}
+        <li data-ng-repeat="procedimiento in procedimientos" ng-click="irProcedimiento(procedimiento._id);">
+            <div>
+                <h3>{{procedimiento.nombre}}</h3>
+                <div>
+                    {{procedimiento.descripcion}}
+                </div>
+            </div>
+            <div class="input-sm text-center rating-lb">
+                <span>
+                    <rating value="procedimiento.rate" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null">
+                    </rating>({{procedimiento.totalVotos}})
+                </span>
+            </div>
         </li>
     </ul>
 </section>

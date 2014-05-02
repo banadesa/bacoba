@@ -61,7 +61,6 @@ module.exports = function(passport) {
             };
             if (user.categorias) {
                 buscaCategoriaHijos(user.categorias, 0, function() {
-                    console.log(user);
                     done(err, user);
                 });
             } else {

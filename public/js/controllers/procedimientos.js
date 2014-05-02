@@ -74,7 +74,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             cont++;
         }
         if ($scope.fileVideo) {
-            console.log($scope.fileVideo.name);
             files[cont] = $scope.fileVideo;
         }
 
@@ -296,7 +295,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.rateUser = 0;
             }
         } else {
-            AppAlert.add('danger', 'Error al intentar acceder al procedimiento')
+            AppAlert.add('danger', 'Error al intentar acceder al procedimiento');
            $location.path('procedimientos/');
         }
 
@@ -324,8 +323,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             ($scope.procedimiento.rating.cinco * 5) +
             ($scope.procedimiento.rating.cuatro * 4)) /
             ($scope.totalVotos));
-        console.log('$scope.totalVotos', '$scope.rate');
-        console.log($scope.totalVotos, $scope.rate);
     };
 
     /**
@@ -668,7 +665,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.irElemento = function(elemento) {
         if (elemento !== 'top') {
-            console.log(elemento);
             $('html, body').animate({
                 scrollTop: $(elemento).offset().top
             });

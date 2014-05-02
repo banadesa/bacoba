@@ -96,6 +96,7 @@ footer p {
 
 .nav-lateral {
   display: none;
+  z-index: -1;
 }
 @media (min-width: 768px) {
   .nav-lateral {
@@ -109,6 +110,7 @@ footer p {
     overflow-x:hidden;
     padding-top: 50px;
     background-color: #f5f6f7;
+    z-index: -1;
   }
 
   .nav-lateral li{
@@ -130,7 +132,7 @@ footer p {
 }
 
 .text-orange {
-  color: #ffae19;
+  color: #333333;
 }
 
 .caja {
@@ -145,6 +147,8 @@ footer p {
     padding: 0;
     list-style: none;
     position: relative;
+    border: 10px;
+    border-color: red;
     width: 100%;
 }
 
@@ -152,23 +156,14 @@ footer p {
     position: relative;
     float: left;
     overflow: hidden;
-    background-color: grey;
-    width: 25%; /* Fallback */
-    width: -webkit-calc(100% / 4);
-    height: 300px;
-    width: calc(100% / 4);
-    margin: 10px;
-}
-
-.cbp-rfgrid li a,
-.cbp-rfgrid li a img {
-    display: block;
-    width: 100%;
+    background-color: #f2f2f2;
+    width: 20%; /* Fallback */
+    width: -webkit-calc(100% / 5);
+    height: 200px;
+    width: calc(100% / 5);
+    margin: 5px;
+    padding: 10px;
     cursor: pointer;
-}
-
-.cbp-rfgrid li a img {
-    max-width: 100%;
 }
 
 /* Flexbox is used for centering the heading */
@@ -191,13 +186,20 @@ footer p {
     opacity: 0;
 }
 
-.cbp-rfgrid li a:hover div {
-    opacity: 1;
+.rating-lb {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
-.cbp-rfgrid li a div h3 {
+
+.cbp-rfgrid li:hover {
+    background-color: #e5e5e5;
+}
+
+.cbp-rfgrid li div h3 {
     width: 100%;
-    color: #fff;
+    color: #808080;
     text-transform: uppercase;
     font-size: 1.4em;
     letter-spacing: 2px;
@@ -251,3 +253,4 @@ footer p {
         width: 100%;
     }
 }
+

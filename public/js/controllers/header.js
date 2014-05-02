@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', '$http', '$location', 'Global', 'AppAlert',
- function ($scope, $http, $location, Global, AppAlert) {
+angular.module('mean.system').controller('HeaderController', ['$scope', '$http', '$location', 'Global',
+ function ($scope, $http, $location, Global) {
     $scope.global = Global;
 
     $scope.menu = [{
@@ -19,7 +19,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$http',
 
     $scope.cerrarAlerta = function(index) {
         $scope.alerts.splice(index, 1);
-    }
+    };
 
     /**
      *Busca procedimientos por el nombre

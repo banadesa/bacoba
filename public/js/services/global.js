@@ -15,7 +15,7 @@ angular.module('mean.system').factory('Global', [
     function($rootScope) {
         var alertService;
         $rootScope.alerts = [];
-        return alertService = {
+        alertService = {
           add: function(type, msg) {
             return $rootScope.alerts.push({
               type: type,
@@ -36,5 +36,6 @@ angular.module('mean.system').factory('Global', [
             $rootScope.alerts = [];
           }
         };
+      return alertService;
       }
 ]);

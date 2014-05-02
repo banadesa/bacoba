@@ -13,7 +13,7 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
         });
         categoria.$save(function(response) {
             $location.path('categorias/');
-            AppAlert.add('success', '¡La categoria ' + response.name + ' fue creada exitosamente!')
+            AppAlert.add('success', '¡La categoria ' + response.name + ' fue creada exitosamente!');
         });
 
         this.name = '';
@@ -55,7 +55,7 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
         categoria.updated.push(new Date().getTime());
 
         categoria.$update(function(response) {
-            AppAlert.add('success', '¡La categoria ' + response.name + ' fue actualizada exitosamente!')
+            AppAlert.add('success', '¡La categoria ' + response.name + ' fue actualizada exitosamente!');
             $location.path('categorias/');
 
         });

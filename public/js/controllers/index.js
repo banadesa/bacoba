@@ -1,17 +1,56 @@
 'use strict';
 
 angular.module('mean.system').controller('IndexController', ['$scope', '$location',
- 'Global', 'Procedimientos',
- function ($scope, $location, Global, Procedimientos) {
+ '$http', 'Global', 'Procedimientos',
+ function ($scope, $location, $http, Global, Procedimientos) {
     $scope.global = Global;
     $scope.find = function() {
-        Procedimientos.query(function(procedimientos) {
-            $scope.procedimientos = procedimientos;
-            for (var i = $scope.procedimientos.length - 1; i >= 0; i--) {
-                $scope.procedimientos[i] = $scope.calculaRating($scope.procedimientos[i]);
+        //busca los procedimientos con mas visitas
+        $http.get('procedimientos/', {
+            params: {
+                sort: 'visitas',
+                tipoSort: -1,
+                limite: 4
+            }
+        }).then(function(res){
+            console.log(res);
+            $scope.procedimientosVisitas = res.data;
+            for (var i = $scope.procedimientosVisitas.length - 1; i >= 0; i--) {
+                $scope.procedimientosVisitas[i] = $scope.calculaRating($scope.procedimientosVisitas[i]);
+            }
+        });
+
+        //busca los ultimos procedimientos creados
+        $http.get('procedimientos/', {
+            params: {
+                sort: 'created',
+                tipoSort: -1,
+                limite: 4
+            }
+        }).then(function(res){
+            console.log(res);
+            $scope.procedimientosUltimosCreados = res.data;
+            for (var i = $scope.procedimientosUltimosCreados.length - 1; i >= 0; i--) {
+                $scope.procedimientosUltimosCreados[i] = $scope.calculaRating($scope.procedimientosUltimosCreados[i]);
+            }
+        });
+
+        //Vistos Recientemente
+        $http.get('procedimientos/', {
+            params: {
+                campoQ: '_id',
+                valorQ: $scope.global.user.ultimosProcedimientos,
+                limite: 4
+            }
+        }).then(function(res){
+            console.log(res);
+            $scope.procedimientosUltimosCreados = res.data;
+            for (var i = $scope.procedimientosUltimosCreados.length - 1; i >= 0; i--) {
+                $scope.procedimientosUltimosCreados[i] = $scope.calculaRating($scope.procedimientosUltimosCreados[i]);
             }
         });
     };
+
     /**
      *va al procedimiento
      *@param {string} id del procedimiento al que se quiere ir

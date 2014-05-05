@@ -6,6 +6,7 @@
 
 var mongoose = require('mongoose'),
     Procedimiento = mongoose.model('Procedimiento'),
+    User = mongoose.model('User'),
     _ = require('lodash'),
     fs = require('fs'),
     path = require('path'),
@@ -560,6 +561,63 @@ exports.procedimiento = function(req, res, next, id) {
 };
 
 /**
+ * aumenta el numero de visitas
+ */
+exports.visitas = function(req, res) {
+    console.log('llegue a las visitas');
+    var existe; //determina si existe en el array el procedimiento o no
+    //Asigno las categorias que el usuario tiene acceso
+    var categoriasP = [];
+    if (req.user.categorias) {
+        categoriasP = req.user.categorias;
+    } else categoriasP = ['nada'];
+    var id = req.params.procedimientoId; //id del procedimiento
+    //actualizo el procedimiento para sumarle +1 a la visita
+    Procedimiento.findOne({
+        _id: id,
+        categorias: {$in: categoriasP}
+    },function(err, procedimiento){
+        if (err) { return err;}
+        if (procedimiento) {
+            procedimiento.visitas += 1;
+            procedimiento.save(function(err) {
+                if (err) { res.send({success:false, err: err}); }
+                //Busco el usuario para agregarle el procedimiento visto
+                User.findOne({
+                    _id: req.user._id
+                }, function(err, user) {
+                     if (err) { res.send({success:false, err: err}); }
+                     //Busco si encontro un usuario con ese id
+                     if (user) {
+                        //Busco si el usuario ha visto procedimientos antes
+                        if (user.ultimosProcedimientos.length > 0) {
+                            //se guardan los ultimos 10 procedimientos vistos
+                            // si tiene mas saco el ultimo
+                            existe = _.findIndex(user.ultimosProcedimientos, function(cat) {
+                                            return cat.toString() === id.toString();
+                                        });
+                            if (existe === -1) {
+                                if (user.ultimosProcedimientos.length > 9) {
+                                    user.ultimosProcedimientos.pop();
+                                }
+                                user.ultimosProcedimientos.unshift(id);
+                            }
+                        } else {
+                            user.ultimosProcedimientos.unshift(id);
+                        }
+                        user.save(function(err) {
+                            if (err) { res.send({success:false, err: err}); }
+                            res.send({success:true});
+                        });
+                     }
+                });
+            });
+        }
+    });
+};
+
+
+/**
  * Create a procedimiento
  */
 exports.create = function(req, res) {
@@ -651,18 +709,54 @@ exports.show = function(req, res) {
  * List of procedimientos
  */
 exports.all = function(req, res) {
-    var nombreConsulta;
-    var campos;
+    console.log(req.query);
+    var sort = '{}'; //campo para hacer el sort, en caso de vacio por fecha de creacion
+    var limite = 20; //cuantos procedimientos devolvera
+    var query; //El query por el que se filtrara
+    //busca si envio parametro para sort
+    if (req.query.sort) {
+        //si existe empieza a armar el string que se convertira en objeto tipo json
+        sort = '{"' + req.query.sort + '" :';
+        //determina si envio el tipo de sort y completa el string
+        if (req.query.tipoSort) {
+            sort = sort + ' ' + req.query.tipoSort + '}';
+        } else {
+            sort = sort + ' 1 }';
+        }
+    }
+    //convierte el string a json
+    sort = JSON.parse(sort);
+
+    //determina si envio limite de envio
+    if (req.query.limite) {
+        limite= req.query.limite;
+    }
+    //Query inicial donde se filtran las categorias que el usuario tiene asignado
+    query = '{ categorias: {$in: ' + categoriasP + '}'
+
     if (req.query.nombre) {
         nombreConsulta = new RegExp(req.query.nombre,'gi');
+        query = query + ', nombre: ' + nombreConsulta;
         campos = {nombre: 1, _id: 1, descripcion: 1};
     }
     else {
-        nombreConsulta = new RegExp('','gi');
+        // nombreConsulta = new RegExp('','gi');
         campos = {};
     }
-    Procedimiento.find({nombre: nombreConsulta, categorias: {$in: req.user.categorias}},campos)
-    .sort({'visitas': -1}).populate('categorias', 'name')
+
+    //determina si se envio un query
+    if (req.query.campoQ && req.query.valorQ) {
+    }
+    var nombreConsulta;
+    var campos;
+    var categoriasP = [];
+    if (req.user.categorias) {
+        categoriasP = req.user.categorias;
+    } else categoriasP = ['nada'];
+
+    Procedimiento.find({nombre: nombreConsulta, categorias: {$in: categoriasP}},campos)
+    .sort(sort).populate('categorias', 'name')
+    .limit(limite)
     .populate('comentarios.user', 'name')
     .populate('user', 'name username')
     .populate('pasos.procedimiento','pasos')

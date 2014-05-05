@@ -5,10 +5,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$http',
     $scope.global = Global;
 
     $scope.menu = [{
-        'title': 'procedimientos',
-        'link': 'procedimientos'
-    }, {
-        'title': 'categorias',
+        'title': 'Categorias',
         'link': 'categorias'
     }, {
         'title': 'Usuarios',

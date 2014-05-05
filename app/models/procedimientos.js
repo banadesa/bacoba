@@ -155,7 +155,7 @@ var ProcedimientoSchema = new Schema({
  */
 ProcedimientoSchema.path('nombre').validate(function(nombre) {
     return nombre.length;
-}, 'Name cannot be blank');
+}, 'El nombre no puede estar vacio');
 
 /**
  * Statics carga la info de un procedimiento
@@ -170,12 +170,6 @@ ProcedimientoSchema.statics.load = function(id, categoriasP, cb) {
     },
     function(err, procedimiento){
         if (err) { return err;}
-        if (procedimiento) {
-            procedimiento.visitas += 1;
-            procedimiento.save(function(err) {
-                if (err) { return err;}
-            });
-        }
     })
     .populate('categorias', 'name')
     .populate('comentarios.user', 'name')

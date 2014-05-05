@@ -300,8 +300,19 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             AppAlert.add('danger', 'Error al intentar acceder al procedimiento');
            $location.path('procedimientos/');
         }
-
     };
+
+    /**
+     * aumenta el numero de veces que un procedimiento a sido visitado
+     */
+    $scope.visitas = function() {
+        $http.post(/procedimientos/ +  $routeParams.procedimientoId + '/visitas')
+        .success(function(data){
+            if (!data.success) {
+                console.log(data.err);
+            }
+        });
+    }
     /**
      *funciones luego que se selecciona un procedimiento en la busqueda
      *@param {object} $item objeto que contiene la respuesta del typeahead

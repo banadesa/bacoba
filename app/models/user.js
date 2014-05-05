@@ -35,6 +35,10 @@ var UserSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Categoria'
     }],
+    ultimosProcedimientos: [{
+        type: Schema.ObjectId,
+        ref: 'Procedimiento'
+    }],
     administracion : {
         type: Boolean,
         default: false

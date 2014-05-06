@@ -5,7 +5,9 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
  function ($scope, $location, $http, Global, Usuarios) {
     $scope.global = Global;
     $scope.find = function() {
-        var limite = 4
+        var limite = 4;
+        $scope.noVistos = false;
+        $scope.busqueda = false;
         //busca los procedimientos con mas visitas
         $http.get('procedimientos/', {
             params: {
@@ -48,9 +50,60 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
                 for (var i = $scope.procedimientosUltimosVistos.length - 1; i >= 0; i--) {
                     $scope.procedimientosUltimosVistos[i] = $scope.calculaRating($scope.procedimientosUltimosVistos[i]);
                 }
+                if ($scope.procedimientosUltimosVistos.length === 0) {
+                    $scope.noVistos = true;
+                }
+                console.log('novistos');
+                console.log($scope.noVistos);
+                console.log('busqueda');
+                console.log($scope.busqueda);
             });
         });
+
+        $http.get('categorias/',{
+            params: {
+                campoQ: '_id',
+                valorQ: $scope.global.user.categorias,
+                sort: 'name'
+            }
+        }).then(function(res){
+            $scope.categoriasUsuario = res.data
+        })
     };
+
+    /**
+     * Muestra los procedimientos segun la categoria
+     *@param {string} id id de la categoria a mostrar
+     *@param {string} nombre nombre de la categoria a mostrar
+     */
+     $scope.mostrarProcs = function(id, nombre) {
+        var params = {};
+        if (id !== 'todos') {
+            params = {
+                limite: 100,
+                sort: 'visitas',
+                tipoSort: '-1',
+                campoQ: 'categorias',
+                valorQ: id
+            }
+        } else {
+            params = {
+                limite: 100,
+                sort: 'created',
+                tipoSort: '-1'
+            }
+        }
+        $http.get('/procedimientos', {
+            params: params
+        }).then(function(res){
+            $scope.procedimientosCategoria = res.data;
+            for (var i = $scope.procedimientosCategoria.length - 1; i >= 0; i--) {
+                $scope.procedimientosCategoria[i] = $scope.calculaRating($scope.procedimientosCategoria[i]);
+            }
+            $scope.busqueda = true;
+            $scope.nombreCategoria = nombre;
+        })
+     };
 
     /**
      *va al procedimiento

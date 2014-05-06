@@ -7,19 +7,6 @@ angular.module('mean').config(['$routeProvider',
         when('/', {
             templateUrl: 'views/index.html'
         }).
-        when('/procedimientos', {
-            controller: 'ProcedimientosController',
-            templateUrl: 'views/procedimientos/list.html',
-            resolve: {
-                proc: function(Procedimientos) {
-                    return Procedimientos.query(function() {
-                    })
-                        .$promise.then(function(value){
-                            return value;
-                        });
-                }
-            }
-        }).
         when('/procedimientos/create', {
             controller: 'ProcedimientosController',
             templateUrl: 'views/procedimientos/create.html',
@@ -101,6 +88,9 @@ angular.module('mean').config(['$routeProvider',
         when('/users/create', {
             templateUrl: 'views/users/create.html'
         }).
+        when('/administracion', {
+            templateUrl: 'views/administracion.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
@@ -108,9 +98,19 @@ angular.module('mean').config(['$routeProvider',
 ]);
 angular.module('mean').run(['Global', '$rootScope',
     function(Global, $rootScope) {
-      $rootScope.$on('$routeChangeStart', function() {
+      $rootScope.$on('$routeChangeStart', function(event,currRoute, prevRoute) {
+        console.log('event');
+        console.log('currRoute');
+        console.log(currRoute);
+        console.log('prevRoute');
+        console.log(prevRoute);
         if(!Global.authenticated){
           window.location = '/signin';
+        }
+        if (currRoute.$$route.originalPath === '/administracion') {
+            if (!Global.user.administracion || !Global.user.seguridad){
+                window.location = '/';
+            }
         }
       });
 }]);

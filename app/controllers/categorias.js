@@ -89,7 +89,71 @@ exports.show = function(req, res) {
  * List of categorias
  */
 exports.all = function(req, res) {
-    Categoria.find().sort('-padre').populate('padre', 'name').populate('user', 'name username').exec(function(err, categorias) {
+    var sort = '{}'; //campo para hacer el sort, en caso de vacio por fecha de creacion
+    var limite = 20; //cuantos datos devolvera
+    var query; //El query por el que se filtrara
+    var campos = {}; //campos que se mostraran
+
+    //busca si envio parametro para sort
+    if (req.query.sort) {
+        //si existe empieza a armar el string que se convertira en objeto tipo json
+        sort = '{"' + req.query.sort + '" :';
+        //determina si envio el tipo de sort y completa el string
+        if (req.query.tipoSort) {
+            sort = sort + ' ' + req.query.tipoSort + '}';
+        } else {
+            sort = sort + ' 1 }';
+        }
+    }
+
+    //convierte el string a json
+    sort = JSON.parse(sort);
+
+    //determina si envio limite de envio
+    if (req.query.limite) {
+        limite= req.query.limite;
+    }
+
+//Query inicial donde se filtran las categorias que el usuario tiene asignado
+    query = '{';
+
+    //determina si se envio un query
+    if (req.query.campoQ && req.query.valorQ) {
+        //si quisieran mandar un 1 = 1 que no agregue los campos
+        if (req.query.campoQ.toString() !== req.query.valorQ.toString()) {
+            if (req.query.valorQ instanceof Array) {
+                query = query + '"' + req.query.campoQ + '" : {"$in": [';
+                for (var i = 0; i < req.query.valorQ.length; i++) {
+                    if (typeof req.query.valorQ[i] === 'string') {
+                        query = query + '"' + req.query.valorQ[i] + '", ';
+                    } else {
+                        query = query + ', ' + req.query.valorQ[i];
+                    }
+                }
+                query = query.substring(0,query.length-2);
+                query = query + ']}';
+
+            } else {
+                if (typeof req.query.valorQ === 'string') {
+                    query = query + '"' + req.query.campoQ + '" : "' + req.query.valorQ + '"';
+                } else {
+                    query = query + '"' + req.query.campoQ + '" : ' + req.query.valorQ;
+                }
+            }
+        }
+    }
+
+    query = query + '}';
+    console.log('query cat');
+    console.log(query);
+    query = JSON.parse(query);
+    console.log('querypost cat ');
+    console.log(query);
+    Categoria.find(query,campos)
+    .sort(sort)
+    .populate('padre', 'name')
+    .populate('user', 'name username')
+    .exec(function(err, categorias) {
         if (err) {
             res.render('error', {
                 status: 500

@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
     // Setting up the users api
     app.get('/users', authorization.requiresLogin, authorization.esAdministrador, users.all);
     app.post('/users', authorization.requiresLogin, authorization.esAdministrador, users.create);
-    app.get('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.show);
+    app.get('/users/:userId', authorization.requiresLogin, users.show);
     app.put('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.update);
     app.del('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.destroy);
 

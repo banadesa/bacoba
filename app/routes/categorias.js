@@ -14,7 +14,7 @@ var authorization = require('./middlewares/authorization');
 
 module.exports = function(app) {
 
-    app.get('/categorias', authorization.requiresLogin, authorization.esAdministrador, categorias.all);
+    app.get('/categorias', authorization.requiresLogin, categorias.all);
 	app.post('/categorias', authorization.requiresLogin, authorization.esAdministrador, categorias.create);
 	app.get('/categorias/:categoriaId', authorization.requiresLogin, authorization.esAdministrador, categorias.show);
 	app.put('/categorias/:categoriaId', authorization.requiresLogin, authorization.esAdministrador, categorias.update);

@@ -9,6 +9,10 @@
     width:100%
 }
 
+.contenedor-pasos {
+    width:100%;
+}
+
 footer {
     position:fixed;
     left:0px;
@@ -107,38 +111,6 @@ footer p {
   display: none;
 }
 
-@media (min-width: 768px) {
-  .nav-lateral {
-    display: inherit;
-    left: 0;
-    top: 0;
-    bottom:0;
-    width: 10%;
-    position: fixed;
-    overflow-y:scroll;
-    overflow-x:hidden;
-    padding-top: 50px;
-    background-color: #f5f6f7;
-  }
-
-  .nav-lateral li{
-    padding: 2px;
-    color: black;
-    line-height: 24px;
-    border-top: 1px solid #ebebed;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .nav-lateral li:hover{
-    background-color: #cbd0d5;
-  }
-  .contenedor-pasos {
-    margin-left: 11%;
-    width:90%;
-  }
-}
-
 .text-orange {
   color: #333333;
 }
@@ -167,10 +139,10 @@ footer p {
     float: left;
     overflow: hidden;
     background-color: #f8f8f8;
-    width: 20%; /* Fallback */
-    width: -webkit-calc(100% / 5);
-    height: 200px;
-    width: calc(100% / 5);
+    width: 25%; /* Fallback */
+    width: -webkit-calc(100% / 4);
+    height: 150px;
+    width: calc(100% / 4);
     cursor: pointer;
     border-right: 1px solid #e5e5e5;
     border-left: 1px solid #bfbfbf;
@@ -235,8 +207,6 @@ footer p {
   text-shadow: rgb(224, 224, 224) 1px 1px 0px;
 }
 
-
-
 .clavo:hover .cbp-rfgrid-des {
     height: 100%;
 }
@@ -246,7 +216,97 @@ footer p {
     overflow: hidden;
 }
 
+@media (min-width: 1300px) {
+  .nav-lateral {
+    display: inherit;
+    left: 0;
+    top: 0;
+    bottom:0;
+    width: 10%;
+    position: fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    padding-top: 50px;
+    background-color: #f5f6f7;
+  }
 
+  .nav-lateral li{
+    padding: 2px;
+    color: black;
+    line-height: 24px;
+    border-top: 1px solid #ebebed;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .nav-lateral li:hover{
+    background-color: #cbd0d5;
+  }
+
+  .nav-lateral-grande {
+    width: 15%;
+  }
+
+  .nav-lateral-grande li {
+    padding: 8px;
+  }
+
+  .contenedor-pasos {
+    margin-left: 11%;
+    width:90%;
+  }
+
+  .contenedor-procs {
+    margin-left: 11%;
+    width:90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-lateral {
+    display: inherit;
+    left: 0;
+    top: 0;
+    bottom:0;
+    width: 10%;
+    position: fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    padding-top: 50px;
+    background-color: #f5f6f7;
+  }
+
+  .nav-lateral li{
+    padding: 2px;
+    color: black;
+    line-height: 24px;
+    border-top: 1px solid #ebebed;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .nav-lateral li:hover{
+    background-color: #cbd0d5;
+  }
+
+  .nav-lateral-grande {
+    width: 15%;
+  }
+
+  .nav-lateral-grande li {
+    padding: 8px;
+  }
+
+  .contenedor-pasos {
+    margin-left: 11%;
+    width:90%;
+  }
+
+  .contenedor-procs {
+    margin-left: 16%;
+    width:90%;
+  }
+}
 
 /* Example for media query: change number of items per row */
 

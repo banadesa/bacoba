@@ -1,5 +1,16 @@
 <section data-ng-controller="IndexController" data-ng-init="find()">
-    <div class="row">
+    <div class=" nav-lateral nav-lateral-grande">
+        <ul class="list-unstyled">
+            <li>
+                <div ng-click="mostrarProcs('todos','Todos')">Todos</div>
+            </li>
+            <li ng-repeat="cats in categoriasUsuario">
+                <div ng-click="mostrarProcs(cats._id,cats.name)">{{cats.name}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="contenedor-procs">
+    <div class="row" ng-hide="busqueda||noVistos">
         <h2>Vistos Recientemente</h2>
         <ul class="cbp-rfgrid">
             <li data-ng-repeat="procedimiento in procedimientosUltimosVistos" ng-click="irProcedimiento(procedimiento._id);">
@@ -25,7 +36,7 @@
             </li>
         </ul>
     </div>
-    <div class="row">
+    <div class="row" ng-hide="busqueda">
         <h2>Mas Vistos</h2>
         <ul class="cbp-rfgrid">
             <li data-ng-repeat="procedimiento in procedimientosVisitas" ng-click="irProcedimiento(procedimiento._id);">
@@ -51,7 +62,7 @@
             </li>
         </ul>
     </div>
-    <div class="row">
+    <div class="row" ng-hide="busqueda">
         <h2>Nuevos</h2>
         <ul class="cbp-rfgrid">
             <li data-ng-repeat="procedimiento in procedimientosUltimosCreados" ng-click="irProcedimiento(procedimiento._id);">
@@ -76,5 +87,32 @@
              </div>
             </li>
         </ul>
+    </div>
+    <div class="row" ng-show="busqueda">
+        <h2>{{nombreCategoria}}</h2>
+        <ul class="cbp-rfgrid">
+            <li data-ng-repeat="procedimiento in procedimientosCategoria" ng-click="irProcedimiento(procedimiento._id);">
+            <div class="clavo">
+            <div class="cbp-rfgrid-tit">
+                <div>
+                    <h3>{{procedimiento.nombre}}</h3>
+                </div>
+                <div class="input-sm text-center elemento-lb">
+                    <span>
+                        <rating value="procedimiento.rate" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null">
+                        </rating>({{procedimiento.totalVotos}})
+                    </span>
+                </div>
+                <div class="input-sm text-center elemento-rb"> <span class=" glyphicon glyphicon-eye-open"></span>({{procedimiento.visitas}})
+                </div>
+            </div>
+             <div class="cbp-rfgrid-des">
+             <h4>{{procedimiento.nombre}}</h4>
+             <span>{{procedimiento.descripcion | truncate:150}}</span>
+             </div>
+             </div>
+            </li>
+        </ul>
+    </div>
     </div>
 </section>

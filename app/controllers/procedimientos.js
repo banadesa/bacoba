@@ -709,10 +709,10 @@ exports.all = function(req, res) {
     // console.log('req.query');
     // console.log(req.query);
     var sort = '{}'; //campo para hacer el sort, en caso de vacio por fecha de creacion
-    var limite = 20; //cuantos procedimientos devolvera
+    var limite = 20; //cuantos datos devolvera
     var query; //El query por el que se filtrara
     var nombreConsulta;
-    var campos;
+    var campos = {};
     var categoriasP = [];
     //busca si envio parametro para sort
     if (req.query.sort) {
@@ -748,7 +748,7 @@ exports.all = function(req, res) {
 
     if (req.query.nombre) {
         nombreConsulta = new RegExp(req.query.nombre,'gi');
-        query = query + ', nombre: ' + nombreConsulta;
+        query = query + ', "nombre": "' + nombreConsulta + '"';
         campos = {nombre: 1, _id: 1, descripcion: 1};
     }
     else {
@@ -758,6 +758,7 @@ exports.all = function(req, res) {
 
     //determina si se envio un query
     if (req.query.campoQ && req.query.valorQ) {
+        //si quisieran mandar un 1 = 1 que no agregue los campos
         if (req.query.campoQ.toString() !== req.query.valorQ.toString()) {
             if (req.query.valorQ instanceof Array) {
                 query = query + ', "' + req.query.campoQ + '" : {"$in": [';
@@ -773,19 +774,21 @@ exports.all = function(req, res) {
 
             } else {
                 if (typeof req.query.valorQ === 'string') {
-                    query = query + ', ' + req.query.campoQ + ': "' + req.query.valorQ + '"';
+                    query = query + ', "' + req.query.campoQ + '" : "' + req.query.valorQ + '"';
                 } else {
-                    query = query + ', ' + req.query.campoQ + ': ' + req.query.valorQ;
+                    query = query + ', "' + req.query.campoQ + '" : ' + req.query.valorQ;
                 }
             }
         }
     }
 
     query = query + '}';
-    // console.log('query');
-    // console.log(query);
+    console.log('query');
+    console.log(query);
     query = JSON.parse(query);
-
+    query.nombre = nombreConsulta
+    console.log('querypost ');
+    console.log(query);
     Procedimiento.find(query,campos)
     .sort(sort).populate('categorias', 'name')
     .limit(limite)

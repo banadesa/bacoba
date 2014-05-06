@@ -31,8 +31,8 @@ Los cambios son los siguienes
     <li><del>Los usuarios solo pueden ver los procedimientos de sus categorias</del></li>
     <li><del>Se pueda hacer una busqueda del procedimiento segun el nombre o la descripcion<del></li>
     <li><del>En la pagina principal se muestren los procedimientos mas vistos en la categoria del usuario</del></li>
+    <li><del>En la pagina principal se muestren los ultimos procedimientos visitos</del></li>
     <li>Se puede navegar por categorias</li>
-    <li>En la pagina principal se muestren los ultimos procedimientos visitos</li>
     <li>Se pueda crear un procedimiento a partir de otro</li>
     <li>Se puedan agregar archivos adjuntos al procedimiento</li>
 </ul>

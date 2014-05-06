@@ -312,7 +312,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 console.log(data.err);
             }
         });
-    }
+    };
     /**
      *funciones luego que se selecciona un procedimiento en la busqueda
      *@param {object} $item objeto que contiene la respuesta del typeahead

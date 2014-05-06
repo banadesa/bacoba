@@ -539,7 +539,7 @@ exports.enviarCorreo = function(req, res) {
             // if you don't want to use this transport object anymore, uncomment following line
             //smtpTransport.close(); // shut down the connection pool, no more messages
         });
-    }, true)},2000);
+    }, true);},2000);
     // setup e-mail data with unicode symbols
 };
 
@@ -589,23 +589,20 @@ exports.visitas = function(req, res) {
                      if (err) { res.send({success:false, err: err}); }
                      //Busco si encontro un usuario con ese id
                      if (user) {
-                        //Busco si el usuario ha visto procedimientos antes
-                        if (user.ultimosProcedimientos.length > 0) {
-                            //se guardan los ultimos 10 procedimientos vistos
-                            // si tiene mas saco el ultimo
-                            existe = _.findIndex(user.ultimosProcedimientos, function(cat) {
-                                            return cat.toString() === id.toString();
-                                        });
-                            if (existe === -1) {
-                                if (user.ultimosProcedimientos.length > 9) {
-                                    user.ultimosProcedimientos.pop();
-                                }
-                                user.ultimosProcedimientos.unshift(id);
+                        //se guardan los ultimos 10 procedimientos vistos
+                        // si tiene mas saco el ultimo
+                        existe = _.findIndex(user.ultimosProcedimientos, function(cat) {
+                                        return cat.toString() === id.toString();
+                                    });
+                        if (existe === -1) {
+                            if (user.ultimosProcedimientos.length > 9) {
+                                user.ultimosProcedimientos.pop();
                             }
                         } else {
-                            user.ultimosProcedimientos.unshift(id);
+                            user.ultimosProcedimientos.splice(existe,1);
                         }
-                        user.save(function(err) {
+                        user.ultimosProcedimientos.unshift(id);
+                        user.save(function(err,user) {
                             if (err) { res.send({success:false, err: err}); }
                             res.send({success:true});
                         });
@@ -709,10 +706,14 @@ exports.show = function(req, res) {
  * List of procedimientos
  */
 exports.all = function(req, res) {
-    console.log(req.query);
+    // console.log('req.query');
+    // console.log(req.query);
     var sort = '{}'; //campo para hacer el sort, en caso de vacio por fecha de creacion
     var limite = 20; //cuantos procedimientos devolvera
     var query; //El query por el que se filtrara
+    var nombreConsulta;
+    var campos;
+    var categoriasP = [];
     //busca si envio parametro para sort
     if (req.query.sort) {
         //si existe empieza a armar el string que se convertira en objeto tipo json
@@ -731,8 +732,19 @@ exports.all = function(req, res) {
     if (req.query.limite) {
         limite= req.query.limite;
     }
+
+
+    if (req.user.categorias) {
+        categoriasP = req.user.categorias;
+    } else categoriasP = ['nada'];
+
     //Query inicial donde se filtran las categorias que el usuario tiene asignado
-    query = '{ categorias: {$in: ' + categoriasP + '}'
+    query = '{ "categorias": {"$in": [';
+    for (var j = categoriasP.length - 1; j >= 0; j--) {
+        query = query + '"' + categoriasP[j] + '", ';
+    }
+    query = query.substring(0,query.length-2);
+    query = query + ']}';
 
     if (req.query.nombre) {
         nombreConsulta = new RegExp(req.query.nombre,'gi');
@@ -740,21 +752,41 @@ exports.all = function(req, res) {
         campos = {nombre: 1, _id: 1, descripcion: 1};
     }
     else {
-        // nombreConsulta = new RegExp('','gi');
+        nombreConsulta = new RegExp('','gi');
         campos = {};
     }
 
     //determina si se envio un query
     if (req.query.campoQ && req.query.valorQ) {
-    }
-    var nombreConsulta;
-    var campos;
-    var categoriasP = [];
-    if (req.user.categorias) {
-        categoriasP = req.user.categorias;
-    } else categoriasP = ['nada'];
+        if (req.query.campoQ.toString() !== req.query.valorQ.toString()) {
+            if (req.query.valorQ instanceof Array) {
+                query = query + ', "' + req.query.campoQ + '" : {"$in": [';
+                for (var i = 0; i < req.query.valorQ.length; i++) {
+                    if (typeof req.query.valorQ[i] === 'string') {
+                        query = query + '"' + req.query.valorQ[i] + '", ';
+                    } else {
+                        query = query + ', ' + req.query.valorQ[i];
+                    }
+                }
+                query = query.substring(0,query.length-2);
+                query = query + ']}';
 
-    Procedimiento.find({nombre: nombreConsulta, categorias: {$in: categoriasP}},campos)
+            } else {
+                if (typeof req.query.valorQ === 'string') {
+                    query = query + ', ' + req.query.campoQ + ': "' + req.query.valorQ + '"';
+                } else {
+                    query = query + ', ' + req.query.campoQ + ': ' + req.query.valorQ;
+                }
+            }
+        }
+    }
+
+    query = query + '}';
+    // console.log('query');
+    // console.log(query);
+    query = JSON.parse(query);
+
+    Procedimiento.find(query,campos)
     .sort(sort).populate('categorias', 'name')
     .limit(limite)
     .populate('comentarios.user', 'name')

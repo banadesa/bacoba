@@ -4,14 +4,6 @@
 var procedimientos = require('../controllers/procedimientos');
 var authorization = require('./middlewares/authorization');
 
-// Procedimientos authorization helpers
-var hasAuthorization = function(req, res, next) {
-	if (req.procedimiento.user.id !== req.user.id) {
-		return res.send(401, 'User is not authorized');
-	}
-    next();
-};
-
 module.exports = function(app) {
 
     app.get('/procedimientos', authorization.requiresLogin, procedimientos.all);

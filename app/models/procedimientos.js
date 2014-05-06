@@ -168,7 +168,7 @@ ProcedimientoSchema.statics.load = function(id, categoriasP, cb) {
         _id: id,
         categorias: {$in: categoriasP}
     },
-    function(err, procedimiento){
+    function(err){
         if (err) { return err;}
     })
     .populate('categorias', 'name')

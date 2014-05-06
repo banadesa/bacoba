@@ -1,19 +1,19 @@
 'use strict';
 
 angular.module('mean.system').controller('IndexController', ['$scope', '$location',
- '$http', 'Global', 'Procedimientos',
- function ($scope, $location, $http, Global, Procedimientos) {
+ '$http', 'Global', 'Usuarios',
+ function ($scope, $location, $http, Global, Usuarios) {
     $scope.global = Global;
     $scope.find = function() {
+        var limite = 4
         //busca los procedimientos con mas visitas
         $http.get('procedimientos/', {
             params: {
                 sort: 'visitas',
                 tipoSort: -1,
-                limite: 4
+                limite: limite
             }
         }).then(function(res){
-            console.log(res);
             $scope.procedimientosVisitas = res.data;
             for (var i = $scope.procedimientosVisitas.length - 1; i >= 0; i--) {
                 $scope.procedimientosVisitas[i] = $scope.calculaRating($scope.procedimientosVisitas[i]);
@@ -25,29 +25,30 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
             params: {
                 sort: 'created',
                 tipoSort: -1,
-                limite: 4
+                limite: limite
             }
         }).then(function(res){
-            console.log(res);
             $scope.procedimientosUltimosCreados = res.data;
             for (var i = $scope.procedimientosUltimosCreados.length - 1; i >= 0; i--) {
                 $scope.procedimientosUltimosCreados[i] = $scope.calculaRating($scope.procedimientosUltimosCreados[i]);
             }
         });
-
         //Vistos Recientemente
-        $http.get('procedimientos/', {
-            params: {
-                campoQ: '_id',
-                valorQ: $scope.global.user.ultimosProcedimientos,
-                limite: 4
-            }
-        }).then(function(res){
-            console.log(res);
-            $scope.procedimientosUltimosCreados = res.data;
-            for (var i = $scope.procedimientosUltimosCreados.length - 1; i >= 0; i--) {
-                $scope.procedimientosUltimosCreados[i] = $scope.calculaRating($scope.procedimientosUltimosCreados[i]);
-            }
+        Usuarios.get({
+            userId: $scope.global.user._id
+        }, function(usuario) {
+            $http.get('procedimientos/', {
+                params: {
+                    campoQ: '_id',
+                    valorQ: usuario.ultimosProcedimientos.splice(0,limite),
+                    limite: limite
+                }
+            }).then(function(res){
+                $scope.procedimientosUltimosVistos = res.data;
+                for (var i = $scope.procedimientosUltimosVistos.length - 1; i >= 0; i--) {
+                    $scope.procedimientosUltimosVistos[i] = $scope.calculaRating($scope.procedimientosUltimosVistos[i]);
+                }
+            });
         });
     };
 

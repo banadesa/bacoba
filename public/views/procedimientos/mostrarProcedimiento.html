@@ -1,10 +1,8 @@
 <div ng-show="modificando" data-ng-click="irProcedimiento()" style="cursor:pointer" tooltip="Has click para ver el procedimiento" tooltip-placement="bottom" class="text-center">
-    <h1>{{procedimiento.nombre}}
-    </h1>
+    <h1>{{procedimiento.nombre}}</h1>
 </div>
 <div ng-hide="modificando" class="text-center">
-    <h1>{{procedimiento.nombre}}
-    </h1>
+    <h1>{{procedimiento.nombre}}</h1>
     <div class="btn-lg">
         <rating value="rate" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null">
         </rating>({{totalVotos}})
@@ -25,12 +23,15 @@
         <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>
     </li>
 </ul>
-<div data-ng-show="global.user._id == procedimiento.user._id">
+<div>
     <a tooltip="Descargar Procedimiento" class="btn" data-ng-click="crearPdf();">
         <i class="glyphicon glyphicon-download"></i>
     </a>
     <a tooltip="Enviar Procedimiento" class="btn" ng-click="muestraFormaCorreo()">
         <i class="glyphicon glyphicon-envelope"></i>
+    </a>
+    <a class="btn" tooltip="Agregar Adjuntos" data-ng-click="adjuntarArchivos()" ng-show="global.user.administracion">
+        <i class="glyphicon glyphicon-paperclip"></i>
     </a>
     <a tooltip="Editar Procedimiento" class="btn" href="/#!/procedimientos/{{procedimiento._id}}/edit" ng-show="global.user.administracion">
         <i class="glyphicon glyphicon-edit"></i>

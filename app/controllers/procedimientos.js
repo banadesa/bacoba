@@ -635,19 +635,33 @@ exports.create = function(req, res) {
             var imagenesPath = rootPath + '/imagenes';
             var imagenesThumbsPath = rootPath + '/imagenes/thumbs';
             var videosPath = rootPath + '/videos';
+            var adjuntosPath = rootPath + '/adjuntos';
             fs.mkdir(rootPath, function(e){
-                console.log(e);
-            });
-            fs.mkdir(imagenesPath, function(e){
-                fs.mkdir(imagenesThumbsPath, function(e){
+                if (e) {
                     console.log(e);
-                });
-                console.log(e);
-            });
-            fs.mkdir(videosPath, function(e){
-                console.log(e);
-            });
+                };
+                fs.mkdir(imagenesPath, function(e){
+                    fs.mkdir(imagenesThumbsPath, function(e){
+                        if (e) {
+                            console.log(e);
+                        };
+                    });
+                    if (e) {
+                        console.log(e);
+                    };
 
+                });
+                fs.mkdir(videosPath, function(e){
+                    if (e) {
+                        console.log(e);
+                    };
+                });
+                fs.mkdir(adjuntosPath, function(e){
+                    if (e) {
+                        console.log(e);
+                    };
+                });
+            });
             res.jsonp(procedimiento);
         }
     });
@@ -783,12 +797,8 @@ exports.all = function(req, res) {
     }
 
     query = query + '}';
-    console.log('query');
-    console.log(query);
     query = JSON.parse(query);
     query.nombre = nombreConsulta
-    console.log('querypost ');
-    console.log(query);
     Procedimiento.find(query,campos)
     .sort(sort).populate('categorias', 'name')
     .limit(limite)

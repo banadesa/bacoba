@@ -679,7 +679,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     $scope.irElemento = function(elemento) {
         if (elemento !== 'top') {
             $('html, body').animate({
-                scrollTop: $(elemento).offset().top
+                scrollTop: $(elemento).offset().top - 60
             });
         } else {
             $('html, body').animate({ scrollTop: 0 });
@@ -784,8 +784,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
 
     /**
      *Muestra la forma para enviar el procedimiento por correo
+     *
      */
-    $scope. muestraFormaCorreo = function() {
+    $scope.muestraFormaCorreo = function() {
         $scope.nombreDestinatario = '';
         $scope.correoDestinatario = '';
         $scope.comentarioDestinatario = '';
@@ -794,6 +795,14 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $timeout(function() {$scope.focusElement('nombreDes');},100);
         }
     };
+
+    /**
+     *Adjunta archivos al procedimiento y los guarda en el servidor
+     */
+    $scope.adjuntarArchivos  = function() {
+
+    }
+
 }]);
 
 

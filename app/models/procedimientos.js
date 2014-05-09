@@ -113,6 +113,10 @@ var ProcedimientoSchema = new Schema({
             trim: true
         }
     }],
+    adjuntos:[{
+        type: String,
+        trim: true
+    }],
     rating: {
         uno: {
             type: Number,

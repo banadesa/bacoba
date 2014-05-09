@@ -6,6 +6,7 @@
 
 var mongoose = require('mongoose'),
     Categoria = mongoose.model('Categoria'),
+    Procedimiento = mongoose.model('Procedimiento'),
     _ = require('lodash');
 
 
@@ -144,22 +145,30 @@ exports.all = function(req, res) {
     }
 
     query = query + '}';
-    console.log('query cat');
-    console.log(query);
     query = JSON.parse(query);
-    console.log('querypost cat ');
-    console.log(query);
     Categoria.find(query,campos)
     .sort(sort)
     .populate('padre', 'name')
     .populate('user', 'name username')
-    .exec(function(err, categorias) {
+    .exec(function(err, cates) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            res.jsonp(categorias);
+            var r = 0;
+            var cuentaProcs = function() {
+                 Procedimiento.count({categorias: cates[r]._id}, function(err,c) {
+                    if (r < cates.length-1) {
+                        cates[r]._doc.cantProcs = c;
+                        r++;
+                        cuentaProcs();
+                    } else {
+                        res.jsonp(cates);
+                    }
+                });
+            }
+            cuentaProcs();
         }
     });
 };

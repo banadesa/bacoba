@@ -9,10 +9,6 @@
     width:100%
 }
 
-.contenedor-pasos {
-    width:100%;
-}
-
 footer {
     position:fixed;
     left:0px;
@@ -356,3 +352,7 @@ footer p {
     }
 }
 
+body { padding-top: 70px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}

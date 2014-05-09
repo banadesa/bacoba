@@ -1,11 +1,13 @@
 <section data-ng-controller="IndexController" data-ng-init="find()">
+
     <div class=" nav-lateral nav-lateral-grande">
+        <h3>Categorias</h3>
         <ul class="list-unstyled">
             <li>
                 <div ng-click="mostrarProcs('todos','Todos')">Todos</div>
             </li>
-            <li ng-repeat="cats in categoriasUsuario">
-                <div ng-click="mostrarProcs(cats._id,cats.name)">{{cats.name}}</div>
+            <li ng-repeat="cats in categoriasUsuario | filter:filtroCategoria">
+                <div ng-click="mostrarProcs(cats._id,cats.name)">{{cats.name}} ({{cats.cantProcs}})</div>
             </li>
         </ul>
     </div>

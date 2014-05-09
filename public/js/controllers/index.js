@@ -67,8 +67,13 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
                 sort: 'name'
             }
         }).then(function(res){
+            console.log(res.data);
             $scope.categoriasUsuario = res.data
         })
+    };
+
+    $scope.filtroCategoria = function (categoria) {
+        return categoria.cantProcs > 0;
     };
 
     /**

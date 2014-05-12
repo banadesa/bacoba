@@ -159,8 +159,8 @@ exports.all = function(req, res) {
             var r = 0;
             var cuentaProcs = function() {
                  Procedimiento.count({categorias: cates[r]._id}, function(err,c) {
+                    cates[r]._doc.cantProcs = c;
                     if (r < cates.length-1) {
-                        cates[r]._doc.cantProcs = c;
                         r++;
                         cuentaProcs();
                     } else {

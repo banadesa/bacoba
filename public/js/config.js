@@ -99,11 +99,6 @@ angular.module('mean').config(['$routeProvider',
 angular.module('mean').run(['Global', '$rootScope',
     function(Global, $rootScope) {
       $rootScope.$on('$routeChangeStart', function(event,currRoute, prevRoute) {
-        console.log('event');
-        console.log('currRoute');
-        console.log(currRoute);
-        console.log('prevRoute');
-        console.log(prevRoute);
         if(!Global.authenticated){
           window.location = '/signin';
         }

@@ -4,9 +4,24 @@
     margin-left:0
 }
 
+.nav-lateral-actual {
+    background-color: #198c19;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 .contenedor-pasos {
     margin-top:70px;
     width:100%
+}
+
+.contenedor-procs {
+    width:100%;
+}
+
+.contenedor-procs h2{
+    color: #198c19;
+    text-shadow: 0px -1px 0px rgba(204, 229, 204, 0.5)
 }
 
 footer {
@@ -184,23 +199,22 @@ footer p {
   height: 0;
   bottom: 0;
   overflow: hidden;
-  background-color: #f2f2f2;
+  background-color: #198c19;
+  color: #fff;
 }
 
 .cbp-rfgrid-des h4 {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
-  color: rgb(66, 63, 63);
-  text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+  text-shadow: 0px -1px 0px rgba(0,0,0,.5);
 }
 
 .cbp-rfgrid-des span {
   display: block;
   text-align: left;
   margin: 5px;
-  color: rgb(107, 106, 106);
-  text-shadow: rgb(224, 224, 224) 1px 1px 0px;
+  text-shadow: 0px -1px 0px rgba(0,0,0,.5);
 }
 
 .clavo:hover .cbp-rfgrid-des {
@@ -228,7 +242,6 @@ footer p {
 
   .nav-lateral li{
     padding: 2px;
-    color: black;
     line-height: 24px;
     border-top: 1px solid #ebebed;
     font-size: 14px;
@@ -237,10 +250,16 @@ footer p {
 
   .nav-lateral li:hover{
     background-color: #cbd0d5;
+    color: black;
+    font-weight:normal;
   }
 
   .nav-lateral-grande {
     width: 15%;
+  }
+
+  .nav-lateral-grande li {
+    padding: 8px;
   }
 
   .nav-lateral-grande li {
@@ -274,7 +293,6 @@ footer p {
 
   .nav-lateral li{
     padding: 2px;
-    color: black;
     line-height: 24px;
     border-top: 1px solid #ebebed;
     font-size: 14px;
@@ -283,6 +301,8 @@ footer p {
 
   .nav-lateral li:hover{
     background-color: #cbd0d5;
+    color: black;
+    font-weight:normal;
   }
 
   .nav-lateral-grande {

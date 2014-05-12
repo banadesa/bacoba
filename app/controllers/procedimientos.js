@@ -9,6 +9,7 @@ var mongoose = require('mongoose'),
     User = mongoose.model('User'),
     _ = require('lodash'),
     fs = require('fs'),
+    fse = require('fs-extra'),
     path = require('path'),
     pdfDoc = require('pdfkit'),
     nodemailer = require('nodemailer');
@@ -564,7 +565,6 @@ exports.procedimiento = function(req, res, next, id) {
  * aumenta el numero de visitas
  */
 exports.visitas = function(req, res) {
-    console.log('llegue a las visitas');
     var existe; //determina si existe en el array el procedimiento o no
     //Asigno las categorias que el usuario tiene acceso
     var categoriasP = [];
@@ -618,53 +618,102 @@ exports.visitas = function(req, res) {
  * Create a procedimiento
  */
 exports.create = function(req, res) {
-    var procedimiento = new Procedimiento(req.body);
-    procedimiento.user = req.user;
-
-    procedimiento.save(function(err) {
-        if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                procedimiento: procedimiento
-            });
-        } else {
-            //Crea el directorio del procedimiento,
-            //imagenes y videos del mismo
-            var rootPath = path.normalize(__dirname + '/../..');
-            rootPath = rootPath + '/public/contenido/' + procedimiento._id;
-            var imagenesPath = rootPath + '/imagenes';
-            var imagenesThumbsPath = rootPath + '/imagenes/thumbs';
-            var videosPath = rootPath + '/videos';
-            var adjuntosPath = rootPath + '/adjuntos';
-            fs.mkdir(rootPath, function(e){
+    /**
+     *Crea las carpetas al crear un procedimiento
+     *@param {string} id id del procedimiento a crear
+     *@param {string} idDup id del procedimiento que se esta duplicando
+     *@param {function} cb callback a ejecturar
+     */
+    var crearCarpetas = function(id, idDup, cb) {
+        var rootPath = path.normalize(__dirname + '/../..');
+        var rootPathDup = rootPath + '/public/contenido/' + idDup;
+        rootPath = rootPath + '/public/contenido/' + id;
+        var imagenesPath = rootPath + '/imagenes';
+        var imagenesThumbsPath = rootPath + '/imagenes/thumbs';
+        var videosPath = rootPath + '/videos';
+        var adjuntosPath = rootPath + '/adjuntos';
+        fs.mkdir(rootPath, function(e){
+            if (e) {
+                console.log(e);
+            };
+            fs.mkdir(imagenesPath, function(e){
                 if (e) {
                     console.log(e);
                 };
-                fs.mkdir(imagenesPath, function(e){
-                    fs.mkdir(imagenesThumbsPath, function(e){
+                fs.mkdir(imagenesThumbsPath, function(e){
+                    if (e) {
+                        console.log(e);
+                    };
+                    fs.mkdir(videosPath, function(e){
                         if (e) {
                             console.log(e);
                         };
+                        fs.mkdir(adjuntosPath, function(e){
+                            if (e) {
+                                console.log(e);
+                            };
+                            if (idDup) {
+                                console.log(id, idDup);
+                                fse.copy(rootPathDup + '/imagenes/',
+                                    imagenesPath,
+                                    function(err){
+                                        if (err) return console.error(err);
+                                });
+                                fse.copy(rootPathDup + '/videos/',
+                                    videosPath,
+                                    function(err){
+                                        if (err) return console.error(err);
+                                });
+                                fse.copy(rootPathDup + '/adjuntos/',
+                                    adjuntosPath,
+                                    function(err){
+                                        if (err) return console.error(err);
+                                });
+                                cb();
+                            };
+                        });
                     });
-                    if (e) {
-                        console.log(e);
-                    };
-
-                });
-                fs.mkdir(videosPath, function(e){
-                    if (e) {
-                        console.log(e);
-                    };
-                });
-                fs.mkdir(adjuntosPath, function(e){
-                    if (e) {
-                        console.log(e);
-                    };
                 });
             });
-            res.jsonp(procedimiento);
-        }
-    });
+        });
+    }
+
+    if (req.body.params.id) {
+        var id = req.body.params.id
+        Procedimiento.findOne({_id: id}, function(err, procedimiento) {
+            if (err) { return next(err); }
+            delete procedimiento._doc._id;
+            var nuevoProcedimiento = new Procedimiento(procedimiento._doc);
+            nuevoProcedimiento.save(function(err,proc) {
+                if (err) {
+                    return res.send('users/signup', {
+                        errors: err.errors,
+                        procedimiento: proc
+                    });
+                } else {
+                    console.log(proc._id)
+                    crearCarpetas(proc._id, id, function(){
+                        res.send({id: proc._id})
+                    })
+                }
+            });
+        });
+    } else {
+        var procedimiento = new Procedimiento(req.body);
+        procedimiento.user = req.user;
+        procedimiento.save(function(err) {
+            if (err) {
+                return res.send('users/signup', {
+                    errors: err.errors,
+                    procedimiento: procedimiento
+                });
+            } else {
+                crearCarpetas(procedimiento._id, null, function() {
+                    res.jsonp(procedimiento);
+                })
+            }
+        });
+    }
 };
 
 /**
@@ -822,7 +871,9 @@ exports.all = function(req, res) {
 exports.upload = function (req, res) {
     var im = require('imagemagick');
     var procedimientoId = req.param('procedimientoId');
-    var newVideoName, newImagenName;
+    var newVideoName, newImagenName, newAdjuntoName;
+    console.log('hola estoy aqui');
+    console.log(req.files);
     if (req.files){
         if (req.files.length === 0)
             res.send({ msg: 'No hay nada que subir' });
@@ -889,9 +940,36 @@ exports.upload = function (req, res) {
                 }
             }
 
+            /*Guarda el archivo Adjunto*/
+            if (req.files.adjunto){
+                if (req.files.adjunto.size !== 0) {
+                    var adjunto = req.files.adjunto;
+                    var adjuntoName = adjunto.name;
+                    newAdjuntoName = Math.round(new Date().getTime() / 1000) + adjuntoName;
+                    var newPathAdjunto = rootPath + '/adjuntos/' + newAdjuntoName;
+                    fs.readFile(adjunto.path, function (err, data) {
+                        /// If there's an error
+                        if(!adjuntoName){
+                            console.log('There was an error');
+                            res.send('no existe el nombre del adjunto');
+                        } else {
+                            /// write file to uploads/fullsize folder
+                            fs.writeFile(newPathAdjunto, data, function (err) {
+                                res.send('no se pudo cargar el adjunto');
+                                console.log(err);
+                            });
+                        }
+                        console.log(err);
+                    });
+                } else {
+                    newAdjuntoName = '';
+                }
+            }
+
             var responseObj = {
                 videoUrl: newVideoName,
-                imagenUrl: newImagenName
+                imagenUrl: newImagenName,
+                adjuntoUrl: newAdjuntoName
             };
             res.send(JSON.stringify(responseObj));
         }
@@ -929,5 +1007,7 @@ exports.updateComentario = function (req, res, next) {
       });
     });
 };
+
+
 
 

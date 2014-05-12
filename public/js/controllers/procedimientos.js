@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 angular.module('mean.procedimientos').
 controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location',
@@ -75,12 +75,20 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         }
         if ($scope.fileVideo) {
             files[cont] = $scope.fileVideo;
+            cont++;
         }
 
+        if ($scope.fileAdjunto) {
+            files[cont] = $scope.fileAdjunto;
+            cont++;
+        }
+
+        console.log(files);
         var uploadUrl = '/procedimientos/upload?procedimientoId=' + $scope.procedimiento._id;
         if ($scope.procedimientoRelacionado.nombre) {
             $scope.descripcionPaso = $scope.procedimientoRelacionado.nombre;
             $scope.videoPaso='';
+            $scope.adjuntoPaso='';
             $scope.imagenPaso='';
             $scope.procedimientoPaso = $scope.procedimientoRelacionado._id;
         } else {
@@ -96,6 +104,10 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 /*Asigna el video guardado en el servidor*/
                 if (data.videoUrl) {
                     $scope.videoPaso = data.videoUrl;
+                }
+
+                if (data.adjuntoUrl) {
+                    $scope.adjuntoPaso = data.adjuntoUrl;
                 }
 
                 if ($scope.edicionPaso) {
@@ -119,6 +131,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.procedimiento.pasos[$scope.indexPaso].descripcion = $scope.descripcionPaso;
             $scope.procedimiento.pasos[$scope.indexPaso].imagen = $scope.imagenPaso;
             $scope.procedimiento.pasos[$scope.indexPaso].video = $scope.videoPaso;
+            $scope.procedimiento.pasos[$scope.indexPaso].adjunto = $scope.adjuntoPaso;
             $scope.procedimiento.pasos[$scope.indexPaso].procedimiento = $scope.procedimientoPaso;
         } else {
             $scope.procedimiento.pasos[$scope.indexPaso].actual = false;
@@ -127,6 +140,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 'descripcion': this.descripcionPaso,
                 'imagen': this.imagenPaso,
                 'video': this.videoPaso,
+                'adjunto': this.adjuntoPaso,
                 'version': this.versionEdita,
                 'procedimiento': $scope.procedimientoPaso,
                 'actual': true,
@@ -211,6 +225,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             'descripcion': $scope.descripcionPaso,
             'imagen': $scope.imagenPaso,
             'video': $scope.videoPaso,
+            'adjunto': $scope.adjuntoPaso,
             'procedimiento': $scope.procedimientoPaso,
             'version': $scope.versionAgruegaQuita,
             'actual': true,
@@ -492,6 +507,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                             'descripcion': $scope.procedimiento.pasos[i].descripcion,
                             'imagen': $scope.procedimiento.pasos[i].imagen,
                             'video': $scope.procedimiento.pasos[i].video,
+                            'adjunto': $scope.procedimiento.pasos[i].adjunto,
                             'version': $scope.versionAgruegaQuita,
                             'actual': true,
                             'eliminado': false
@@ -512,6 +528,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                             'descripcion': $scope.procedimiento.pasos[i].descripcion,
                             'imagen': $scope.procedimiento.pasos[i].imagen,
                             'video': $scope.procedimiento.pasos[i].video,
+                            'adjunto': $scope.procedimiento.pasos[i].adjunto,
                             'version': $scope.versionAgruegaQuita,
                             'actual': true,
                             'eliminado': false
@@ -560,6 +577,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.relacionarProcedimiento(false);
             $scope.imagenPaso = $scope.procedimiento.pasos[id].imagen;
             $scope.videoPasoFake = $scope.procedimiento.pasos[id].video.substring(10,$scope.procedimiento.pasos[id].video.length);
+            $scope.adjuntoPasoFake = $scope.procedimiento.pasos[id].adjunto.substring(10,$scope.procedimiento.pasos[id].adjunto.length);
         }
     };
 
@@ -574,6 +592,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.descripcionPaso = '';
         $scope.imagenPaso = '';
         $scope.videoPaso = '';
+        $scope.adjuntoPaso = '';
         $scope.procedimientoRelacionado = {};
         $scope.seleccionProcedimientoActivo = true;
         $scope.relacionarProcedimiento(false);
@@ -607,6 +626,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.fileImagen = '';
         $scope.fileVideo = '';
         $scope.videoPasoFake = '';
+        $scope.adjuntoPasoFake = '';
         $scope.imagenPaso = '';
         $scope.descripcionPaso = null;
         $scope.numeroPaso = $scope.ultimoPaso();
@@ -797,12 +817,19 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     };
 
     /**
-     *Adjunta archivos al procedimiento y los guarda en el servidor
+     *Crear un nuevo procedimiento duplicando otro
+     *@param {string} id id del procedimiento a duplicar
      */
-    $scope.adjuntarArchivos  = function() {
-
-    }
-
+    $scope.duplicarProcedimiento  = function(id) {
+            $http.post('procedimientos/', {
+                params: {
+                    id: id
+                }
+            })
+            .then(function(res) {
+                console.log(res);
+            });
+    };
 }]);
 
 

@@ -20,6 +20,9 @@ angular.module('mean.procedimientos')
         if (files.length > 0) {
             for (var i = files.length - 1; i >= 0; i--) {
                 tipo = files[i].type.substring(0,files[i].type.indexOf('/'));
+                if (tipo ==='' || tipo !== 'image' || tipo !== 'video') {
+                    tipo = 'adjunto'
+                };
                 fd.append(tipo, files[i]);
             }
             $http.post(uploadUrl, fd, {

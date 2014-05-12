@@ -53,10 +53,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
                 if ($scope.procedimientosUltimosVistos.length === 0) {
                     $scope.noVistos = true;
                 }
-                console.log('novistos');
-                console.log($scope.noVistos);
-                console.log('busqueda');
-                console.log($scope.busqueda);
             });
         });
 
@@ -67,8 +63,13 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
                 sort: 'name'
             }
         }).then(function(res){
-            console.log(res.data);
+            var cantProcsTodos = 0;
             $scope.categoriasUsuario = res.data
+            for (var w = $scope.categoriasUsuario.length - 1; w >= 0; w--) {
+                cantProcsTodos = cantProcsTodos + $scope.categoriasUsuario[w].cantProcs;
+                $scope.categoriasUsuario[w].actual = '';
+            };
+            $scope.categoriasUsuario.unshift({_id: 'todos', name: 'Todos', cantProcs: cantProcsTodos, actual: ''});
         })
     };
 
@@ -80,9 +81,19 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
      * Muestra los procedimientos segun la categoria
      *@param {string} id id de la categoria a mostrar
      *@param {string} nombre nombre de la categoria a mostrar
+     *@param {number} indice indice de la categoria seleccionada
      */
-     $scope.mostrarProcs = function(id, nombre) {
+     $scope.mostrarProcs = function(id, nombre,indice) {
         var params = {};
+        for (var a = 0; a < $scope.categoriasUsuario.length; a++) {
+            if ($scope.categoriasUsuario[a].cantProcs === 0) {
+                indice = indice +1
+            }
+            $scope.categoriasUsuario[a].actual = '';
+            if (a === indice) {
+                $scope.categoriasUsuario[a].actual = 'nav-lateral-actual';
+            }
+        }
         if (id !== 'todos') {
             params = {
                 limite: 100,

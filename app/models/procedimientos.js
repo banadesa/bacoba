@@ -50,6 +50,11 @@ var ProcedimientoSchema = new Schema({
             default: '',
             trim: true
         },
+        adjunto: {
+            type: String,
+            default: '',
+            trim: true
+        },
         procedimiento: {
             type: Schema.ObjectId,
             ref: 'Procedimiento'

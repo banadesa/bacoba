@@ -144,12 +144,26 @@ angular.module('mean.directives', [])
     .directive('videoPaso', function() {
         return {
             template: '<input value=\"{{videoPasoFake}}\" id=\"videoPaso\"' +
-                'cols=\"30\" placeholder=\"Video\" class=\"form-control\">',
+                'cols=\"30\" placeholder=\"Video\" class=\"form-control\" >',
             restrict: 'E',
             link: function(scope) {
                 scope.$watch('fileVideo', function(value) {
                     if (value) {
                         scope.videoPasoFake = value.name;
+                    }
+                });
+            }
+        };
+    })
+    .directive('adjuntoPaso', function() {
+        return {
+            template: '<input value=\"{{adjuntoPasoFake}}\" id=\"adjuntoPaso\"' +
+                'cols=\"30\" placeholder=\"Archivo Adjunto\" class=\"form-control\" disabled>',
+            restrict: 'E',
+            link: function(scope) {
+                scope.$watch('fileAdjunto', function(value) {
+                    if (value) {
+                        scope.adjuntoPasoFake = value.name;
                     }
                 });
             }

@@ -33,6 +33,6 @@ Los cambios son los siguienes
     <li><del>En la pagina principal se muestren los procedimientos mas vistos en la categoria del usuario</del></li>
     <li><del>En la pagina principal se muestren los ultimos procedimientos visitos</del></li>
     <li><del>Se puede navegar por categorias</del></li>
+    <li><del>Se puedan agregar archivos adjuntos al procedimiento</del></li>
     <li>Se pueda crear un procedimiento a partir de otro</li>
-    <li>Se puedan agregar archivos adjuntos al procedimiento</li>
 </ul>

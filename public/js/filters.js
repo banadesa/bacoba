@@ -66,4 +66,9 @@ angular.module('mean.filters', []).
                 .replace(/<\/a>/g,' ')
                 .replace(/<\/p>/g,' ');
             };
+    })
+    .filter('norandom', function () {
+        return function (text) {
+                return text.substring(10,text.length);
+        };
     });

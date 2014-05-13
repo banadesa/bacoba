@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'ui.route', 'mean.system',
-    'mean.directives', 'mean.filters', 'mean.procedimientos', 'mean.categorias','mean.usuarios',
-    'ui.select2','textAngular']);
+angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'ui.route',
+    'mean.system','mean.directives', 'mean.filters', 'mean.procedimientos', 'mean.categorias',
+    'mean.usuarios', 'ui.select2','textAngular']);
 
 angular.module('mean.system', []);
 angular.module('mean.directive', ['mean.procedimientos']);

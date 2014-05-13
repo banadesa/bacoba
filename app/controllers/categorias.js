@@ -159,12 +159,20 @@ exports.all = function(req, res) {
             var r = 0;
             var cuentaProcs = function() {
                  Procedimiento.count({categorias: cates[r]._id}, function(err,c) {
+                    cates[r]._doc.actual = '';
                     cates[r]._doc.cantProcs = c;
                     if (r < cates.length-1) {
                         r++;
                         cuentaProcs();
                     } else {
-                        res.jsonp(cates);
+                        console.log('req.query.valorQ');
+                        console.log(req.query.valorQ);
+                        Procedimiento.find({categorias: {$in: req.query.valorQ}}).count({}, function(err,tot) {
+                            console.log('tot');
+                            console.log(tot);
+                            cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: ''});
+                            res.jsonp(cates);
+                        })
                     }
                 });
             }

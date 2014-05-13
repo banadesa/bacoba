@@ -65,11 +65,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
         }).then(function(res){
             var cantProcsTodos = 0;
             $scope.categoriasUsuario = res.data
-            for (var w = $scope.categoriasUsuario.length - 1; w >= 0; w--) {
-                cantProcsTodos = cantProcsTodos + $scope.categoriasUsuario[w].cantProcs;
-                $scope.categoriasUsuario[w].actual = '';
-            };
-            $scope.categoriasUsuario.unshift({_id: 'todos', name: 'Todos', cantProcs: cantProcsTodos, actual: ''});
         })
     };
 

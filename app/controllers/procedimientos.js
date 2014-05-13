@@ -653,7 +653,6 @@ exports.create = function(req, res) {
                                 console.log(e);
                             };
                             if (idDup) {
-                                console.log(id, idDup);
                                 fse.copy(rootPathDup + '/imagenes/',
                                     imagenesPath,
                                     function(err){
@@ -670,7 +669,8 @@ exports.create = function(req, res) {
                                         if (err) return console.error(err);
                                 });
                                 cb();
-                            };
+                            }
+                            cb();
                         });
                     });
                 });
@@ -684,6 +684,7 @@ exports.create = function(req, res) {
             if (err) { return next(err); }
             delete procedimiento._doc._id;
             delete procedimiento._doc.created;
+            procedimiento._doc.nombre = procedimiento._doc.nombre + '(Copia)';
             procedimiento._doc.comentarios = [];
             procedimiento._doc.visitas = 0;
             procedimiento._doc.versiones=[];
@@ -695,6 +696,15 @@ exports.create = function(req, res) {
             procedimiento._doc.rating.cuatro = 0;
             procedimiento._doc.rating.cinco = 0;
             procedimiento._doc.user = req.user;
+            for (var h = procedimiento._doc.pasos.length - 1; h >= 0; h--) {
+                if ( procedimiento._doc.pasos[h].actual){
+                    procedimiento._doc.pasos[h].version = '1.0.0';
+                }
+                else {
+                    procedimiento._doc.pasos.splice(h,1);
+                }
+            }
+
             var nuevoProcedimiento = new Procedimiento(procedimiento._doc);
             nuevoProcedimiento.save(function(err,proc) {
                 if (err) {
@@ -703,7 +713,6 @@ exports.create = function(req, res) {
                         procedimiento: proc
                     });
                 } else {
-                    console.log(proc._id)
                     crearCarpetas(proc._id, id, function(){
                         res.send({id: proc._id})
                     })
@@ -721,7 +730,6 @@ exports.create = function(req, res) {
                 });
             } else {
                 crearCarpetas(procedimiento._id, null, function() {
-                    console.log('bua mandar');
                     res.jsonp(procedimiento);
                 })
             }

@@ -822,14 +822,23 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *@param {string} id id del procedimiento a duplicar
      */
     $scope.duplicarProcedimiento  = function(id) {
+        var modalOptions = {
+            closeButtonText: 'Cancelar',
+            actionButtonText: 'Copiar Procedimiento',
+            headerText: '¿Crear copia del procedimiento "' + $scope.procedimiento.nombre + '"?',
+            bodyText: 'Se creara una copia del procedimiento, con los mismos pasos y categorias'
+        };
+
+        modalService.showModal({}, modalOptions).then(function (/*result*/) {
             $http.post('procedimientos/', {
                 params: {
                     id: id
                 }
             })
             .then(function(res) {
-                console.log(res);
+                $location.path('procedimientos/' + res.data.id + '/edit');
             });
+        });
     };
 }]);
 

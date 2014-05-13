@@ -678,11 +678,23 @@ exports.create = function(req, res) {
         });
     }
 
-    if (req.body.params.id) {
+    if (req.body.params) {
         var id = req.body.params.id
         Procedimiento.findOne({_id: id}, function(err, procedimiento) {
             if (err) { return next(err); }
             delete procedimiento._doc._id;
+            delete procedimiento._doc.created;
+            procedimiento._doc.comentarios = [];
+            procedimiento._doc.visitas = 0;
+            procedimiento._doc.versiones=[];
+            procedimiento._doc.updated=[];
+            procedimiento._doc.versionActual='1.0.0';
+            procedimiento._doc.rating.uno = 0;
+            procedimiento._doc.rating.dos = 0;
+            procedimiento._doc.rating.tres = 0;
+            procedimiento._doc.rating.cuatro = 0;
+            procedimiento._doc.rating.cinco = 0;
+            procedimiento._doc.user = req.user;
             var nuevoProcedimiento = new Procedimiento(procedimiento._doc);
             nuevoProcedimiento.save(function(err,proc) {
                 if (err) {
@@ -709,6 +721,7 @@ exports.create = function(req, res) {
                 });
             } else {
                 crearCarpetas(procedimiento._id, null, function() {
+                    console.log('bua mandar');
                     res.jsonp(procedimiento);
                 })
             }

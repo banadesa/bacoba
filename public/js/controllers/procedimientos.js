@@ -29,6 +29,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         }
 
         procedimiento.$save(function(response) {
+            console.log(response);
             $location.path('procedimientos/pasos/' + response._id);
         });
 

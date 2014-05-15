@@ -165,3 +165,25 @@ exports.user = function(req, res, next, id) {
         next();
     });
 };
+
+/**
+ * Cambia la clave del usuario
+ */
+exports.cambiarClave = function(req,res) {
+    var id = 0;
+    var nuevaClave = '';
+    if (req.body.id) {
+        id = req.body.id;
+    }
+    if (req.body.nuevaClave) {
+        nuevaClave = req.body.nuevaClave;
+    }
+    User.findOne({_id: id}, function(err, usuario) {
+        if (err) console.log(err);
+        usuario.hashed_password = usuario.encryptPassword(nuevaClave);
+        usuario.save(function(err){
+            if (err) console.log(err);
+            res.send({success: true});
+        });
+    });
+};

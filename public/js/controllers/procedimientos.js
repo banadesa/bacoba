@@ -1,4 +1,4 @@
-// 'use strict';
+ 'use strict';
 
 angular.module('mean.procedimientos').
 controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', '$location',
@@ -6,6 +6,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     'Procedimientos','Categorias','cargarArchivo', 'modalService', 'proc',
     function ($scope, $rootScope, $routeParams, $location, $anchorScroll, $timeout, $http,
         $window, $q, Global, AppAlert, Procedimientos, Categorias, cargarArchivo, modalService, proc) {
+
     $scope.global = Global;
 
     /**

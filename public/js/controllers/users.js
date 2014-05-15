@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.usuarios').controller('UsersController', ['$scope', '$routeParams', '$location', '$http',
- 'Global', 'AppAlert', 'Categorias', 'Usuarios', 'modalService',
- function ($scope, $routeParams, $location, $http, Global, AppAlert, Categorias, Usuarios, modalService) {
+ '$window', 'Global', 'AppAlert', 'Categorias', 'Usuarios', 'modalService',
+ function ($scope, $routeParams, $location, $http, $window, Global, AppAlert, Categorias, Usuarios, modalService) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -22,8 +22,6 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         }
         $http.post('/users',user)
         .success(function(data) {
-            console.log(data);
-            console.log(data.message);
             if (data.message) {
                 AppAlert.add('danger',data.message);
             } else {
@@ -34,7 +32,6 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
                 $scope.administracion = false;
                 $scope.seguridad = false;
                 $location.path('/users');
-                console.log(data);
                 AppAlert.add('success','¡Se creo el usuario ' + data.usuario + ' exitosamente!');
             }
         })
@@ -95,8 +92,6 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
     };
 
     $scope.find = function() {
-        console.log('alerts');
-        console.log($scope.alerts);
         Usuarios.query(function(usuarios) {
             $scope.usuarios = usuarios;
         });
@@ -114,12 +109,34 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         });
     };
 
-    /**
+    /*
      *Busca todas las cateogrias y las mete a un arreglo
      */
     $scope.popularCategorias = function(query) {
         Categorias.query(query, function (categorias) {
             $scope.categorias = categorias;
         });
+    };
+
+    /*
+     *va a la pagina anterior
+     */
+    $scope.irAtras = function() {
+        $window.history.back();
+    };
+
+    /*
+     *
+     */
+    $scope.cambiarClave = function() {
+        if ($scope.clave !== $scope.confirmacion) {
+            AppAlert.add('danger','La contraseña no coincide con la confirmacion');
+        } else {
+            var url = 'users/' + $routeParams.userId + '/cambiarclave';
+            $http.post(url, {id: $routeParams.userId, nuevaClave : $scope.clave})
+            .then(function() {
+                $window.history.back();
+            });
+        }
     };
 }]);

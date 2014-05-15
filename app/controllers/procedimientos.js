@@ -602,7 +602,7 @@ exports.visitas = function(req, res) {
                             user.ultimosProcedimientos.splice(existe,1);
                         }
                         user.ultimosProcedimientos.unshift(id);
-                        user.save(function(err,user) {
+                        user.save(function(err) {
                             if (err) { res.send({success:false, err: err}); }
                             res.send({success:true});
                         });
@@ -635,23 +635,23 @@ exports.create = function(req, res) {
         fs.mkdir(rootPath, function(e){
             if (e) {
                 console.log(e);
-            };
+            }
             fs.mkdir(imagenesPath, function(e){
                 if (e) {
                     console.log(e);
-                };
+                }
                 fs.mkdir(imagenesThumbsPath, function(e){
                     if (e) {
                         console.log(e);
-                    };
+                    }
                     fs.mkdir(videosPath, function(e){
                         if (e) {
                             console.log(e);
-                        };
+                        }
                         fs.mkdir(adjuntosPath, function(e){
                             if (e) {
                                 console.log(e);
-                            };
+                            }
                             if (idDup) {
                                 fse.copy(rootPathDup + '/imagenes/',
                                     imagenesPath,
@@ -676,12 +676,12 @@ exports.create = function(req, res) {
                 });
             });
         });
-    }
+    };
 
     if (req.body.params) {
-        var id = req.body.params.id
+        var id = req.body.params.id;
         Procedimiento.findOne({_id: id}, function(err, procedimiento) {
-            if (err) { return next(err); }
+            if (err) { return console.log(err); }
             delete procedimiento._doc._id;
             delete procedimiento._doc.created;
             procedimiento._doc.nombre = procedimiento._doc.nombre + '(Copia)';
@@ -714,8 +714,8 @@ exports.create = function(req, res) {
                     });
                 } else {
                     crearCarpetas(proc._id, id, function(){
-                        res.send({id: proc._id})
-                    })
+                        res.send({id: proc._id});
+                    });
                 }
             });
         });
@@ -731,7 +731,7 @@ exports.create = function(req, res) {
             } else {
                 crearCarpetas(procedimiento._id, null, function() {
                     res.jsonp(procedimiento);
-                })
+                });
             }
         });
     }
@@ -868,7 +868,7 @@ exports.all = function(req, res) {
 
     query = query + '}';
     query = JSON.parse(query);
-    query.nombre = nombreConsulta
+    query.nombre = nombreConsulta;
     Procedimiento.find(query,campos)
     .sort(sort).populate('categorias', 'name')
     .limit(limite)

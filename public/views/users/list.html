@@ -1,4 +1,5 @@
 <section data-ng-controller="UsersController" data-ng-init="find()">
+    <h2> Usuarios</h2>
     <table class="table table-striped table-hover table-bordered">
         <tr>
             <th class="text-center col-sm-2" >Nombre</th>
@@ -33,6 +34,9 @@
                 </a>
                 <a tooltip="Eliminar Usuario" class="btn" data-ng-click="remove(usuario);">
                     <i class="glyphicon glyphicon-trash"></i>
+                </a>
+                <a tooltip="Cambiar Contraseña" class="btn" href="/#!/users/{{usuario._id}}/cambiarclave">
+                    <i class="glyphicon glyphicon-briefcase"></i>
                 </a>
             </td>
         </tr>

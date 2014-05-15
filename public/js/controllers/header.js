@@ -1,16 +1,8 @@
 'use strict';
 
 angular.module('mean.system').controller('HeaderController', ['$scope', '$http', '$location', 'Global',
- function ($scope, $http, $location, Global) {
+    function ($scope, $http, $location, Global) {
     $scope.global = Global;
-
-    $scope.menu = [{
-        'title': 'Categorias',
-        'link': 'categorias'
-    }, {
-        'title': 'Usuarios',
-        'link': 'users/'
-    }];
 
     $scope.isCollapsed = false;
 

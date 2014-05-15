@@ -165,17 +165,13 @@ exports.all = function(req, res) {
                         r++;
                         cuentaProcs();
                     } else {
-                        console.log('req.query.valorQ');
-                        console.log(req.query.valorQ);
                         Procedimiento.find({categorias: {$in: req.query.valorQ}}).count({}, function(err,tot) {
-                            console.log('tot');
-                            console.log(tot);
                             cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: ''});
                             res.jsonp(cates);
-                        })
+                        });
                     }
                 });
-            }
+            };
             cuentaProcs();
         }
     });

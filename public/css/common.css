@@ -1,3 +1,7 @@
+h2 {
+  color: #198c19;
+  text-shadow: 0px -1px 0px rgba(204, 229, 204, 0.5);
+}
 
 .navbar .nav>li>a.brand {
     padding-left:20px;

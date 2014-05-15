@@ -85,6 +85,9 @@ angular.module('mean').config(['$routeProvider',
         when('/users/:userId', {
             templateUrl: 'views/users/view.html'
         }).
+        when('/users/:userId/cambiarclave', {
+            templateUrl: 'views/users/cambiarClave.html'
+        }).
         when('/users/create', {
             templateUrl: 'views/users/create.html'
         }).
@@ -98,13 +101,39 @@ angular.module('mean').config(['$routeProvider',
 ]);
 angular.module('mean').run(['Global', '$rootScope',
     function(Global, $rootScope) {
-      $rootScope.$on('$routeChangeStart', function(event,currRoute, prevRoute) {
+      $rootScope.$on('$routeChangeStart', function(event,currRoute) {
         if(!Global.authenticated){
           window.location = '/signin';
         }
         if (currRoute.$$route.originalPath === '/administracion') {
-            if (!Global.user.administracion || !Global.user.seguridad){
+            if (!Global.user.administracion && !Global.user.seguridad) {
                 window.location = '/';
+            }
+        }
+
+        if (currRoute.$$route.originalPath === '/users') {
+            if (!Global.user.seguridad) {
+                window.location = '/';
+            }
+        }
+
+        if (currRoute.$$route.originalPath === '/categorias') {
+            if (!Global.user.administracion) {
+                window.location = '/';
+            }
+        }
+
+        if (currRoute.$$route.originalPath === '/procedimientos/create') {
+            if (!Global.user.administracion) {
+                window.location = '/';
+            }
+        }
+
+        if (currRoute.$$route.originalPath === '/users/:userId/cambiarclave') {
+            if (!Global.user.seguridad) {
+                if (Global.user._id !== currRoute.params.userId) {
+                    window.location = '/';
+                }
             }
         }
       });

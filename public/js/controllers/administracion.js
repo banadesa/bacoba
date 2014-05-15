@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', '$http', '$location', 'Global',
+angular.module('mean.administracion').controller('AdministracionController', ['$scope', '$http', '$location', 'Global',
  function ($scope, $http, $location, Global) {
     $scope.global = Global;
     if ($scope.global.authenticated) {
@@ -25,5 +25,5 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$http',
      */
     $scope.ir = function(link) {
         $location.path(link);
-    }
+    };
 }]);

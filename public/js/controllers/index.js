@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', '$location',
+angular.module('mean.index').controller('IndexController', ['$scope', '$location',
  '$http', 'Global', 'Usuarios',
  function ($scope, $location, $http, Global, Usuarios) {
     $scope.global = Global;
@@ -63,9 +63,8 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
                 sort: 'name'
             }
         }).then(function(res){
-            var cantProcsTodos = 0;
-            $scope.categoriasUsuario = res.data
-        })
+            $scope.categoriasUsuario = res.data;
+        });
     };
 
     $scope.filtroCategoria = function (categoria) {
@@ -82,7 +81,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
         var params = {};
         for (var a = 0; a < $scope.categoriasUsuario.length; a++) {
             if ($scope.categoriasUsuario[a].cantProcs === 0) {
-                indice = indice +1
+                indice = indice +1;
             }
             $scope.categoriasUsuario[a].actual = '';
             if (a === indice) {
@@ -96,13 +95,13 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
                 tipoSort: '-1',
                 campoQ: 'categorias',
                 valorQ: id
-            }
+            };
         } else {
             params = {
                 limite: 100,
                 sort: 'created',
                 tipoSort: '-1'
-            }
+            };
         }
         $http.get('/procedimientos', {
             params: params
@@ -113,7 +112,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$locatio
             }
             $scope.busqueda = true;
             $scope.nombreCategoria = nombre;
-        })
+        });
      };
 
     /**

@@ -1,0 +1,1187 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.12
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json c:\banarep2\Desarrollo\Web\bacoba\package.json
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'c:\\banarep2\\Desarrollo\\Web\\bacoba',
+7 verbose install   [ 'express',
+7 verbose install     'jade',
+7 verbose install     'mongoose',
+7 verbose install     'connect-mongo',
+7 verbose install     'connect-flash',
+7 verbose install     'crypto',
+7 verbose install     'passport',
+7 verbose install     'passport-local',
+7 verbose install     'passport-facebook',
+7 verbose install     'passport-twitter',
+7 verbose install     'passport-github',
+7 verbose install     'passport-google-oauth',
+7 verbose install     'passport-linkedin',
+7 verbose install     'lodash',
+7 verbose install     'view-helpers',
+7 verbose install     'mean-logger',
+7 verbose install     'bower',
+7 verbose install     'grunt',
+7 verbose install     'grunt-cli',
+7 verbose install     'grunt-env',
+7 verbose install     'forever',
+7 verbose install     'karma-script-launcher',
+7 verbose install     'karma-chrome-launcher',
+7 verbose install     'karma-firefox-launcher',
+7 verbose install     'karma-html2js-preprocessor',
+7 verbose install     'karma-jasmine',
+7 verbose install     'karma-requirejs',
+7 verbose install     'should',
+7 verbose install     'grunt-concurrent',
+7 verbose install     'grunt-karma',
+7 verbose install     'karma-coffee-preprocessor',
+7 verbose install     'supertest',
+7 verbose install     'karma-phantomjs-launcher',
+7 verbose install     'grunt-mocha-test',
+7 verbose install     'grunt-contrib-jshint',
+7 verbose install     'grunt-nodemon',
+7 verbose install     'grunt-contrib-watch',
+7 verbose install     'karma-coverage',
+7 verbose install     'karma',
+7 verbose install     'underscore',
+7 verbose install     'imagemagick',
+7 verbose install     'pdfkit',
+7 verbose install     'image-size',
+7 verbose install     'nodemailer',
+7 verbose install     'fs-extra' ] ]
+8 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\package.json
+9 info preinstall bacoba@0.0.1
+10 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\bower\package.json
+11 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-flash\package.json
+12 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-mongo\package.json
+13 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\crypto\package.json
+14 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\express\package.json
+15 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\forever\package.json
+16 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\fs-extra\package.json
+17 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt\package.json
+18 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-cli\package.json
+19 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+20 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-jshint\package.json
+21 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-watch\package.json
+22 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-env\package.json
+23 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-karma\package.json
+24 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-mocha-test\package.json
+25 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-nodemon\package.json
+26 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\image-size\package.json
+27 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagemagick\package.json
+28 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagesize\package.json
+29 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\jade\package.json
+30 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma\package.json
+31 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-chrome-launcher\package.json
+32 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coffee-preprocessor\package.json
+33 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coverage\package.json
+34 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-firefox-launcher\package.json
+35 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-html2js-preprocessor\package.json
+36 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-jasmine\package.json
+37 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-phantomjs-launcher\package.json
+38 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-requirejs\package.json
+39 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-script-launcher\package.json
+40 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\lodash\package.json
+41 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\mean-logger\package.json
+42 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\mongoose\package.json
+43 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\nodemailer\package.json
+44 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport\package.json
+45 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-facebook\package.json
+46 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-github\package.json
+47 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-google-oauth\package.json
+48 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-linkedin\package.json
+49 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-local\package.json
+50 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-twitter\package.json
+51 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit\package.json
+52 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\should\package.json
+53 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\supertest\package.json
+54 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\underscore\package.json
+55 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\view-helpers\package.json
+56 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\package.json
+57 verbose readDependencies using package.json deps
+58 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\bower\package.json
+59 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-flash\package.json
+60 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-mongo\package.json
+61 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\crypto\package.json
+62 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\express\package.json
+63 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\forever\package.json
+64 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\fs-extra\package.json
+65 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt\package.json
+66 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-cli\package.json
+67 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+68 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-jshint\package.json
+69 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-watch\package.json
+70 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-env\package.json
+71 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-karma\package.json
+72 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-mocha-test\package.json
+73 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-nodemon\package.json
+74 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\image-size\package.json
+75 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagemagick\package.json
+76 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagesize\package.json
+77 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\jade\package.json
+78 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma\package.json
+79 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-chrome-launcher\package.json
+80 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coffee-preprocessor\package.json
+81 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coverage\package.json
+82 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-firefox-launcher\package.json
+83 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-html2js-preprocessor\package.json
+84 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-jasmine\package.json
+85 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-phantomjs-launcher\package.json
+86 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-requirejs\package.json
+87 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-script-launcher\package.json
+88 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\lodash\package.json
+89 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\mean-logger\package.json
+90 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\mongoose\package.json
+91 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\nodemailer\package.json
+92 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport\package.json
+93 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-facebook\package.json
+94 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-github\package.json
+95 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-google-oauth\package.json
+96 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-linkedin\package.json
+97 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-local\package.json
+98 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-twitter\package.json
+99 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit\package.json
+100 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\should\package.json
+101 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\supertest\package.json
+102 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\underscore\package.json
+103 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\view-helpers\package.json
+104 verbose already installed skipping mongoose@~3.8.3 c:\banarep2\Desarrollo\Web\bacoba
+105 verbose already installed skipping connect-mongo@~0.4.0 c:\banarep2\Desarrollo\Web\bacoba
+106 verbose already installed skipping connect-flash@~0.1.1 c:\banarep2\Desarrollo\Web\bacoba
+107 verbose already installed skipping crypto@0.0.3 c:\banarep2\Desarrollo\Web\bacoba
+108 verbose already installed skipping passport@~0.1.18 c:\banarep2\Desarrollo\Web\bacoba
+109 verbose already installed skipping passport-local@~0.1.6 c:\banarep2\Desarrollo\Web\bacoba
+110 verbose already installed skipping passport-facebook@~1.0.2 c:\banarep2\Desarrollo\Web\bacoba
+111 verbose already installed skipping passport-twitter@~1.0.2 c:\banarep2\Desarrollo\Web\bacoba
+112 verbose already installed skipping passport-github@~0.1.5 c:\banarep2\Desarrollo\Web\bacoba
+113 verbose already installed skipping passport-google-oauth@~0.1.5 c:\banarep2\Desarrollo\Web\bacoba
+114 verbose already installed skipping passport-linkedin@~0.1.3 c:\banarep2\Desarrollo\Web\bacoba
+115 verbose already installed skipping lodash@~2.4.1 c:\banarep2\Desarrollo\Web\bacoba
+116 verbose already installed skipping view-helpers@~0.1.4 c:\banarep2\Desarrollo\Web\bacoba
+117 verbose already installed skipping mean-logger@0.0.1 c:\banarep2\Desarrollo\Web\bacoba
+118 verbose already installed skipping bower@~1.2.8 c:\banarep2\Desarrollo\Web\bacoba
+119 verbose already installed skipping grunt@~0.4.2 c:\banarep2\Desarrollo\Web\bacoba
+120 verbose already installed skipping grunt-cli@~0.1.11 c:\banarep2\Desarrollo\Web\bacoba
+121 verbose already installed skipping grunt-env@~0.4.1 c:\banarep2\Desarrollo\Web\bacoba
+122 verbose already installed skipping forever@~0.10.11 c:\banarep2\Desarrollo\Web\bacoba
+123 verbose already installed skipping karma-script-launcher@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+124 verbose already installed skipping karma-chrome-launcher@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+125 verbose already installed skipping karma-firefox-launcher@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+126 verbose already installed skipping karma-html2js-preprocessor@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+127 verbose already installed skipping karma-jasmine@~0.1.3 c:\banarep2\Desarrollo\Web\bacoba
+128 verbose already installed skipping karma-requirejs@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+129 verbose already installed skipping should@2.1.1 c:\banarep2\Desarrollo\Web\bacoba
+130 verbose cache add [ 'grunt-concurrent@latest', null ]
+131 verbose cache add name=undefined spec="grunt-concurrent@latest" args=["grunt-concurrent@latest",null]
+132 verbose parsed url { protocol: null,
+132 verbose parsed url   slashes: null,
+132 verbose parsed url   auth: null,
+132 verbose parsed url   host: null,
+132 verbose parsed url   port: null,
+132 verbose parsed url   hostname: null,
+132 verbose parsed url   hash: null,
+132 verbose parsed url   search: null,
+132 verbose parsed url   query: null,
+132 verbose parsed url   pathname: 'grunt-concurrent@latest',
+132 verbose parsed url   path: 'grunt-concurrent@latest',
+132 verbose parsed url   href: 'grunt-concurrent@latest' }
+133 verbose cache add name="grunt-concurrent" spec="latest" args=["grunt-concurrent","latest"]
+134 verbose parsed url { protocol: null,
+134 verbose parsed url   slashes: null,
+134 verbose parsed url   auth: null,
+134 verbose parsed url   host: null,
+134 verbose parsed url   port: null,
+134 verbose parsed url   hostname: null,
+134 verbose parsed url   hash: null,
+134 verbose parsed url   search: null,
+134 verbose parsed url   query: null,
+134 verbose parsed url   pathname: 'latest',
+134 verbose parsed url   path: 'latest',
+134 verbose parsed url   href: 'latest' }
+135 verbose addNamed [ 'grunt-concurrent', 'latest' ]
+136 verbose addNamed [ null, null ]
+137 verbose already installed skipping grunt-karma@~0.6.2 c:\banarep2\Desarrollo\Web\bacoba
+138 verbose already installed skipping karma-coffee-preprocessor@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+139 verbose already installed skipping supertest@0.8.2 c:\banarep2\Desarrollo\Web\bacoba
+140 verbose already installed skipping karma-phantomjs-launcher@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+141 verbose cache add [ 'grunt-mocha-test@latest', null ]
+142 verbose cache add name=undefined spec="grunt-mocha-test@latest" args=["grunt-mocha-test@latest",null]
+143 verbose parsed url { protocol: null,
+143 verbose parsed url   slashes: null,
+143 verbose parsed url   auth: null,
+143 verbose parsed url   host: null,
+143 verbose parsed url   port: null,
+143 verbose parsed url   hostname: null,
+143 verbose parsed url   hash: null,
+143 verbose parsed url   search: null,
+143 verbose parsed url   query: null,
+143 verbose parsed url   pathname: 'grunt-mocha-test@latest',
+143 verbose parsed url   path: 'grunt-mocha-test@latest',
+143 verbose parsed url   href: 'grunt-mocha-test@latest' }
+144 verbose cache add name="grunt-mocha-test" spec="latest" args=["grunt-mocha-test","latest"]
+145 verbose parsed url { protocol: null,
+145 verbose parsed url   slashes: null,
+145 verbose parsed url   auth: null,
+145 verbose parsed url   host: null,
+145 verbose parsed url   port: null,
+145 verbose parsed url   hostname: null,
+145 verbose parsed url   hash: null,
+145 verbose parsed url   search: null,
+145 verbose parsed url   query: null,
+145 verbose parsed url   pathname: 'latest',
+145 verbose parsed url   path: 'latest',
+145 verbose parsed url   href: 'latest' }
+146 verbose addNamed [ 'grunt-mocha-test', 'latest' ]
+147 verbose addNamed [ null, null ]
+148 verbose cache add [ 'grunt-contrib-jshint@latest', null ]
+149 verbose cache add name=undefined spec="grunt-contrib-jshint@latest" args=["grunt-contrib-jshint@latest",null]
+150 verbose parsed url { protocol: null,
+150 verbose parsed url   slashes: null,
+150 verbose parsed url   auth: null,
+150 verbose parsed url   host: null,
+150 verbose parsed url   port: null,
+150 verbose parsed url   hostname: null,
+150 verbose parsed url   hash: null,
+150 verbose parsed url   search: null,
+150 verbose parsed url   query: null,
+150 verbose parsed url   pathname: 'grunt-contrib-jshint@latest',
+150 verbose parsed url   path: 'grunt-contrib-jshint@latest',
+150 verbose parsed url   href: 'grunt-contrib-jshint@latest' }
+151 verbose cache add name="grunt-contrib-jshint" spec="latest" args=["grunt-contrib-jshint","latest"]
+152 verbose parsed url { protocol: null,
+152 verbose parsed url   slashes: null,
+152 verbose parsed url   auth: null,
+152 verbose parsed url   host: null,
+152 verbose parsed url   port: null,
+152 verbose parsed url   hostname: null,
+152 verbose parsed url   hash: null,
+152 verbose parsed url   search: null,
+152 verbose parsed url   query: null,
+152 verbose parsed url   pathname: 'latest',
+152 verbose parsed url   path: 'latest',
+152 verbose parsed url   href: 'latest' }
+153 verbose addNamed [ 'grunt-contrib-jshint', 'latest' ]
+154 verbose addNamed [ null, null ]
+155 verbose already installed skipping grunt-nodemon@0.1.2 c:\banarep2\Desarrollo\Web\bacoba
+156 verbose cache add [ 'grunt-contrib-watch@latest', null ]
+157 verbose cache add name=undefined spec="grunt-contrib-watch@latest" args=["grunt-contrib-watch@latest",null]
+158 verbose parsed url { protocol: null,
+158 verbose parsed url   slashes: null,
+158 verbose parsed url   auth: null,
+158 verbose parsed url   host: null,
+158 verbose parsed url   port: null,
+158 verbose parsed url   hostname: null,
+158 verbose parsed url   hash: null,
+158 verbose parsed url   search: null,
+158 verbose parsed url   query: null,
+158 verbose parsed url   pathname: 'grunt-contrib-watch@latest',
+158 verbose parsed url   path: 'grunt-contrib-watch@latest',
+158 verbose parsed url   href: 'grunt-contrib-watch@latest' }
+159 verbose cache add name="grunt-contrib-watch" spec="latest" args=["grunt-contrib-watch","latest"]
+160 verbose parsed url { protocol: null,
+160 verbose parsed url   slashes: null,
+160 verbose parsed url   auth: null,
+160 verbose parsed url   host: null,
+160 verbose parsed url   port: null,
+160 verbose parsed url   hostname: null,
+160 verbose parsed url   hash: null,
+160 verbose parsed url   search: null,
+160 verbose parsed url   query: null,
+160 verbose parsed url   pathname: 'latest',
+160 verbose parsed url   path: 'latest',
+160 verbose parsed url   href: 'latest' }
+161 verbose addNamed [ 'grunt-contrib-watch', 'latest' ]
+162 verbose addNamed [ null, null ]
+163 verbose already installed skipping karma-coverage@~0.1.0 c:\banarep2\Desarrollo\Web\bacoba
+164 verbose already installed skipping karma@~0.10.4 c:\banarep2\Desarrollo\Web\bacoba
+165 verbose cache add [ 'underscore@latest', null ]
+166 verbose cache add name=undefined spec="underscore@latest" args=["underscore@latest",null]
+167 verbose parsed url { protocol: null,
+167 verbose parsed url   slashes: null,
+167 verbose parsed url   auth: null,
+167 verbose parsed url   host: null,
+167 verbose parsed url   port: null,
+167 verbose parsed url   hostname: null,
+167 verbose parsed url   hash: null,
+167 verbose parsed url   search: null,
+167 verbose parsed url   query: null,
+167 verbose parsed url   pathname: 'underscore@latest',
+167 verbose parsed url   path: 'underscore@latest',
+167 verbose parsed url   href: 'underscore@latest' }
+168 verbose cache add name="underscore" spec="latest" args=["underscore","latest"]
+169 verbose parsed url { protocol: null,
+169 verbose parsed url   slashes: null,
+169 verbose parsed url   auth: null,
+169 verbose parsed url   host: null,
+169 verbose parsed url   port: null,
+169 verbose parsed url   hostname: null,
+169 verbose parsed url   hash: null,
+169 verbose parsed url   search: null,
+169 verbose parsed url   query: null,
+169 verbose parsed url   pathname: 'latest',
+169 verbose parsed url   path: 'latest',
+169 verbose parsed url   href: 'latest' }
+170 verbose addNamed [ 'underscore', 'latest' ]
+171 verbose addNamed [ null, null ]
+172 verbose already installed skipping imagemagick@~0.1.3 c:\banarep2\Desarrollo\Web\bacoba
+173 verbose cache add [ 'pdfkit@~0.6.0', null ]
+174 verbose cache add name=undefined spec="pdfkit@~0.6.0" args=["pdfkit@~0.6.0",null]
+175 verbose parsed url { protocol: null,
+175 verbose parsed url   slashes: null,
+175 verbose parsed url   auth: null,
+175 verbose parsed url   host: null,
+175 verbose parsed url   port: null,
+175 verbose parsed url   hostname: null,
+175 verbose parsed url   hash: null,
+175 verbose parsed url   search: null,
+175 verbose parsed url   query: null,
+175 verbose parsed url   pathname: 'pdfkit@~0.6.0',
+175 verbose parsed url   path: 'pdfkit@~0.6.0',
+175 verbose parsed url   href: 'pdfkit@~0.6.0' }
+176 verbose cache add name="pdfkit" spec="~0.6.0" args=["pdfkit","~0.6.0"]
+177 verbose parsed url { protocol: null,
+177 verbose parsed url   slashes: null,
+177 verbose parsed url   auth: null,
+177 verbose parsed url   host: null,
+177 verbose parsed url   port: null,
+177 verbose parsed url   hostname: null,
+177 verbose parsed url   hash: null,
+177 verbose parsed url   search: null,
+177 verbose parsed url   query: null,
+177 verbose parsed url   pathname: '~0.6.0',
+177 verbose parsed url   path: '~0.6.0',
+177 verbose parsed url   href: '~0.6.0' }
+178 verbose addNamed [ 'pdfkit', '~0.6.0' ]
+179 verbose addNamed [ null, '>=0.6.0- <0.7.0-' ]
+180 verbose already installed skipping image-size@~0.2.3 c:\banarep2\Desarrollo\Web\bacoba
+181 verbose already installed skipping nodemailer@~0.6.3 c:\banarep2\Desarrollo\Web\bacoba
+182 verbose already installed skipping express@~3.4.7 c:\banarep2\Desarrollo\Web\bacoba
+183 verbose already installed skipping fs-extra@~0.8.1 c:\banarep2\Desarrollo\Web\bacoba
+184 verbose already installed skipping jade@~1.0.2 c:\banarep2\Desarrollo\Web\bacoba
+185 silly lockFile 50a8c415-grunt-concurrent-latest grunt-concurrent@latest
+186 verbose lock grunt-concurrent@latest C:\Users\jperdomo\AppData\Roaming\npm-cache\50a8c415-grunt-concurrent-latest.lock
+187 silly lockFile 29185e6c-grunt-mocha-test-latest grunt-mocha-test@latest
+188 verbose lock grunt-mocha-test@latest C:\Users\jperdomo\AppData\Roaming\npm-cache\29185e6c-grunt-mocha-test-latest.lock
+189 silly lockFile 90f02d8a-pdfkit-0-6-0 pdfkit@~0.6.0
+190 verbose lock pdfkit@~0.6.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\90f02d8a-pdfkit-0-6-0.lock
+191 silly lockFile 23ae4c0c-grunt-contrib-jshint-latest grunt-contrib-jshint@latest
+192 verbose lock grunt-contrib-jshint@latest C:\Users\jperdomo\AppData\Roaming\npm-cache\23ae4c0c-grunt-contrib-jshint-latest.lock
+193 silly lockFile 546e1155-underscore-latest underscore@latest
+194 verbose lock underscore@latest C:\Users\jperdomo\AppData\Roaming\npm-cache\546e1155-underscore-latest.lock
+195 silly lockFile 72016001-grunt-contrib-watch-latest grunt-contrib-watch@latest
+196 verbose lock grunt-contrib-watch@latest C:\Users\jperdomo\AppData\Roaming\npm-cache\72016001-grunt-contrib-watch-latest.lock
+197 info addNameTag [ 'underscore', 'latest' ]
+198 info addNameTag [ 'grunt-contrib-jshint', 'latest' ]
+199 info addNameTag [ 'grunt-concurrent', 'latest' ]
+200 info addNameTag [ 'grunt-contrib-watch', 'latest' ]
+201 info addNameTag [ 'grunt-mocha-test', 'latest' ]
+202 silly addNameRange { name: 'pdfkit', range: '>=0.6.0- <0.7.0-', hasData: false }
+203 verbose url raw underscore
+204 verbose url resolving [ 'https://registry.npmjs.org/', './underscore' ]
+205 verbose url resolved https://registry.npmjs.org/underscore
+206 info trying registry request attempt 1 at 15:37:53
+207 verbose etag "9IMJ6JG0TOJ2YP5XTJJF6RAPF"
+208 http GET https://registry.npmjs.org/underscore
+209 verbose url raw grunt-concurrent
+210 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-concurrent' ]
+211 verbose url resolved https://registry.npmjs.org/grunt-concurrent
+212 info trying registry request attempt 1 at 15:37:54
+213 verbose etag "1K809B3SYPKV671B00QDOL22A"
+214 http GET https://registry.npmjs.org/grunt-concurrent
+215 verbose url raw grunt-contrib-watch
+216 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-watch' ]
+217 verbose url resolved https://registry.npmjs.org/grunt-contrib-watch
+218 info trying registry request attempt 1 at 15:37:54
+219 verbose etag "7V8OKK9WKY2MN7XO231IK9S17"
+220 http GET https://registry.npmjs.org/grunt-contrib-watch
+221 verbose url raw grunt-contrib-jshint
+222 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-jshint' ]
+223 verbose url resolved https://registry.npmjs.org/grunt-contrib-jshint
+224 info trying registry request attempt 1 at 15:37:54
+225 verbose etag "3RF87QJK7S09OP2HUL6TG054A"
+226 http GET https://registry.npmjs.org/grunt-contrib-jshint
+227 verbose url raw pdfkit
+228 verbose url resolving [ 'https://registry.npmjs.org/', './pdfkit' ]
+229 verbose url resolved https://registry.npmjs.org/pdfkit
+230 info trying registry request attempt 1 at 15:37:54
+231 verbose etag "9CS5VW4ABGLJTH387NTE8L0BP"
+232 http GET https://registry.npmjs.org/pdfkit
+233 verbose url raw grunt-mocha-test
+234 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-mocha-test' ]
+235 verbose url resolved https://registry.npmjs.org/grunt-mocha-test
+236 info trying registry request attempt 1 at 15:37:54
+237 verbose etag "4Y8HFVHAY7NZYAJ6YDE5D80U8"
+238 http GET https://registry.npmjs.org/grunt-mocha-test
+239 http 200 https://registry.npmjs.org/underscore
+240 silly registry.get cb [ 200,
+240 silly registry.get   { date: 'Fri, 16 May 2014 21:37:48 GMT',
+240 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+240 silly registry.get     etag: '"5IUU3UR9GYSDLQOR9MIRVPY4T"',
+240 silly registry.get     'content-type': 'application/json',
+240 silly registry.get     'accept-ranges': 'bytes',
+240 silly registry.get     via: '1.1 varnish',
+240 silly registry.get     'cache-control': 'max-age=1',
+240 silly registry.get     'content-length': '30365',
+240 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-iad2132-IAD',
+240 silly registry.get     'x-cache': 'MISS, MISS',
+240 silly registry.get     'x-cache-hits': '0, 0',
+240 silly registry.get     'x-timer': 'S1400276268.351451159,VS0,VS0,VE15,VE16',
+240 silly registry.get     vary: 'Accept',
+240 silly registry.get     'keep-alive': 'timeout=10, max=50',
+240 silly registry.get     connection: 'Keep-Alive' } ]
+241 verbose addNamed [ 'underscore', '1.6.0' ]
+242 verbose addNamed [ '1.6.0', '1.6.0' ]
+243 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+244 verbose lock underscore@1.6.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\96960ed1-underscore-1-6-0.lock
+245 http 304 https://registry.npmjs.org/grunt-concurrent
+246 silly registry.get cb [ 304,
+246 silly registry.get   { date: 'Fri, 16 May 2014 21:37:48 GMT',
+246 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B)',
+246 silly registry.get     etag: '"1K809B3SYPKV671B00QDOL22A"',
+246 silly registry.get     'accept-ranges': 'bytes',
+246 silly registry.get     via: '1.1 varnish',
+246 silly registry.get     'cache-control': 'max-age=1',
+246 silly registry.get     'x-served-by': 'cache-v37-ASH, cache-iad2129-IAD',
+246 silly registry.get     'x-cache': 'MISS, MISS',
+246 silly registry.get     'x-cache-hits': '0, 0',
+246 silly registry.get     'x-timer': 'S1400276268.536798000,VS0,VS1,VE70,VE70',
+246 silly registry.get     'content-length': '0',
+246 silly registry.get     'keep-alive': 'timeout=10, max=50',
+246 silly registry.get     connection: 'Keep-Alive' } ]
+247 verbose etag grunt-concurrent from cache
+248 verbose addNamed [ 'grunt-concurrent', '0.5.0' ]
+249 verbose addNamed [ '0.5.0', '0.5.0' ]
+250 silly lockFile 32992192-grunt-concurrent-0-5-0 grunt-concurrent@0.5.0
+251 verbose lock grunt-concurrent@0.5.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\32992192-grunt-concurrent-0-5-0.lock
+252 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package\package.json
+253 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\underscore\1.6.0\package\package.json
+254 http 200 https://registry.npmjs.org/grunt-contrib-jshint
+255 silly registry.get cb [ 200,
+255 silly registry.get   { date: 'Fri, 16 May 2014 21:37:48 GMT',
+255 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+255 silly registry.get     etag: '"8MEEYJ2P5Z6BKEOM2V66SQEZ9"',
+255 silly registry.get     'content-type': 'application/json',
+255 silly registry.get     'accept-ranges': 'bytes',
+255 silly registry.get     via: '1.1 varnish',
+255 silly registry.get     'cache-control': 'max-age=1',
+255 silly registry.get     'content-length': '51356',
+255 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-iad2125-IAD',
+255 silly registry.get     'x-cache': 'MISS, MISS',
+255 silly registry.get     'x-cache-hits': '0, 0',
+255 silly registry.get     'x-timer': 'S1400276268.464561462,VS0,VS1,VE21,VE22',
+255 silly registry.get     vary: 'Accept',
+255 silly registry.get     'keep-alive': 'timeout=10, max=50',
+255 silly registry.get     connection: 'Keep-Alive' } ]
+256 http 200 https://registry.npmjs.org/pdfkit
+257 silly registry.get cb [ 200,
+257 silly registry.get   { date: 'Fri, 16 May 2014 21:37:48 GMT',
+257 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+257 silly registry.get     etag: '"71D0Y9Z5NTARPHWHGX1YVFDSA"',
+257 silly registry.get     'content-type': 'application/json',
+257 silly registry.get     'accept-ranges': 'bytes',
+257 silly registry.get     via: '1.1 varnish',
+257 silly registry.get     'cache-control': 'max-age=1',
+257 silly registry.get     'content-length': '39223',
+257 silly registry.get     'x-served-by': 'cache-v36-ASH, cache-iad2123-IAD',
+257 silly registry.get     'x-cache': 'MISS, MISS',
+257 silly registry.get     'x-cache-hits': '0, 0',
+257 silly registry.get     'x-timer': 'S1400276268.357567549,VS0,VS2,VE94,VE94',
+257 silly registry.get     vary: 'Accept',
+257 silly registry.get     'keep-alive': 'timeout=10, max=50',
+257 silly registry.get     connection: 'Keep-Alive' } ]
+258 silly lockFile 32992192-grunt-concurrent-0-5-0 grunt-concurrent@0.5.0
+259 silly lockFile 32992192-grunt-concurrent-0-5-0 grunt-concurrent@0.5.0
+260 silly lockFile 50a8c415-grunt-concurrent-latest grunt-concurrent@latest
+261 silly lockFile 50a8c415-grunt-concurrent-latest grunt-concurrent@latest
+262 http 200 https://registry.npmjs.org/grunt-contrib-watch
+263 silly registry.get cb [ 200,
+263 silly registry.get   { date: 'Fri, 16 May 2014 21:37:48 GMT',
+263 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+263 silly registry.get     etag: '"1MU3O2M73VY3IR3QZ64W5CNZ9"',
+263 silly registry.get     'content-type': 'application/json',
+263 silly registry.get     'accept-ranges': 'bytes',
+263 silly registry.get     via: '1.1 varnish',
+263 silly registry.get     'cache-control': 'max-age=1',
+263 silly registry.get     'content-length': '59290',
+263 silly registry.get     'x-served-by': 'cache-v44-ASH, cache-iad2132-IAD',
+263 silly registry.get     'x-cache': 'MISS, MISS',
+263 silly registry.get     'x-cache-hits': '0, 0',
+263 silly registry.get     'x-timer': 'S1400276268.346497536,VS0,VS0,VE116,VE118',
+263 silly registry.get     vary: 'Accept',
+263 silly registry.get     'keep-alive': 'timeout=10, max=50',
+263 silly registry.get     connection: 'Keep-Alive' } ]
+264 verbose addNamed [ 'grunt-contrib-jshint', '0.10.0' ]
+265 verbose addNamed [ '0.10.0', '0.10.0' ]
+266 silly lockFile af8d4102-grunt-contrib-jshint-0-10-0 grunt-contrib-jshint@0.10.0
+267 verbose lock grunt-contrib-jshint@0.10.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\af8d4102-grunt-contrib-jshint-0-10-0.lock
+268 silly addNameRange number 2 { name: 'pdfkit', range: '>=0.6.0- <0.7.0-', hasData: true }
+269 silly addNameRange versions [ 'pdfkit',
+269 silly addNameRange   [ '0.1.0',
+269 silly addNameRange     '0.1.1',
+269 silly addNameRange     '0.1.2',
+269 silly addNameRange     '0.1.3',
+269 silly addNameRange     '0.1.4',
+269 silly addNameRange     '0.1.5',
+269 silly addNameRange     '0.1.6',
+269 silly addNameRange     '0.1.7',
+269 silly addNameRange     '0.1.8',
+269 silly addNameRange     '0.1.9',
+269 silly addNameRange     '0.2.0',
+269 silly addNameRange     '0.2.1',
+269 silly addNameRange     '0.2.2',
+269 silly addNameRange     '0.2.3',
+269 silly addNameRange     '0.2.4',
+269 silly addNameRange     '0.2.5',
+269 silly addNameRange     '0.2.6',
+269 silly addNameRange     '0.2.7',
+269 silly addNameRange     '0.2.8',
+269 silly addNameRange     '0.3.0',
+269 silly addNameRange     '0.4.0',
+269 silly addNameRange     '0.4.2',
+269 silly addNameRange     '0.4.3',
+269 silly addNameRange     '0.5.0',
+269 silly addNameRange     '0.5.2',
+269 silly addNameRange     '0.5.3',
+269 silly addNameRange     '0.6.0',
+269 silly addNameRange     '0.6.1',
+269 silly addNameRange     '0.6.2' ] ]
+270 verbose addNamed [ 'pdfkit', '0.6.2' ]
+271 verbose addNamed [ '0.6.2', '0.6.2' ]
+272 silly lockFile 23836ed8-pdfkit-0-6-2 pdfkit@0.6.2
+273 verbose lock pdfkit@0.6.2 C:\Users\jperdomo\AppData\Roaming\npm-cache\23836ed8-pdfkit-0-6-2.lock
+274 verbose addNamed [ 'grunt-contrib-watch', '0.6.1' ]
+275 verbose addNamed [ '0.6.1', '0.6.1' ]
+276 silly lockFile 08049756-grunt-contrib-watch-0-6-1 grunt-contrib-watch@0.6.1
+277 verbose lock grunt-contrib-watch@0.6.1 C:\Users\jperdomo\AppData\Roaming\npm-cache\08049756-grunt-contrib-watch-0-6-1.lock
+278 silly lockFile e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+279 verbose lock https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz.lock
+280 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+281 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+282 http 200 https://registry.npmjs.org/grunt-mocha-test
+283 silly registry.get cb [ 200,
+283 silly registry.get   { date: 'Fri, 16 May 2014 21:37:48 GMT',
+283 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+283 silly registry.get     etag: '"AG7KF290QDY4KUVDHWR6841NN"',
+283 silly registry.get     'content-type': 'application/json',
+283 silly registry.get     'accept-ranges': 'bytes',
+283 silly registry.get     via: '1.1 varnish',
+283 silly registry.get     'cache-control': 'max-age=1',
+283 silly registry.get     'content-length': '55972',
+283 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-iad2132-IAD',
+283 silly registry.get     'x-cache': 'MISS, MISS',
+283 silly registry.get     'x-cache-hits': '0, 0',
+283 silly registry.get     'x-timer': 'S1400276268.647041082,VS0,VS0,VE16,VE17',
+283 silly registry.get     vary: 'Accept',
+283 silly registry.get     'keep-alive': 'timeout=10, max=49',
+283 silly registry.get     connection: 'Keep-Alive' } ]
+284 silly lockFile 546e1155-underscore-latest underscore@latest
+285 silly lockFile 546e1155-underscore-latest underscore@latest
+286 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-watch\0.6.1\package\package.json
+287 verbose addRemoteTarball [ 'https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz',
+287 verbose addRemoteTarball   'b678d38ce4662d2c44c83aa7c9e03f0250fabc40' ]
+288 info already installed underscore@1.6.0
+289 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-jshint\0.10.0\package\package.json
+290 info retry fetch attempt 1 at 15:37:56
+291 verbose fetch to= C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\tmp.tgz
+292 verbose addNamed [ 'grunt-mocha-test', '0.10.2' ]
+293 verbose addNamed [ '0.10.2', '0.10.2' ]
+294 silly lockFile dbd491ee-grunt-mocha-test-0-10-2 grunt-mocha-test@0.10.2
+295 verbose lock grunt-mocha-test@0.10.2 C:\Users\jperdomo\AppData\Roaming\npm-cache\dbd491ee-grunt-mocha-test-0-10-2.lock
+296 http GET https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+297 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-mocha-test\0.10.2\package\package.json
+298 silly lockFile af8d4102-grunt-contrib-jshint-0-10-0 grunt-contrib-jshint@0.10.0
+299 silly lockFile af8d4102-grunt-contrib-jshint-0-10-0 grunt-contrib-jshint@0.10.0
+300 silly lockFile 23ae4c0c-grunt-contrib-jshint-latest grunt-contrib-jshint@latest
+301 silly lockFile 23ae4c0c-grunt-contrib-jshint-latest grunt-contrib-jshint@latest
+302 info already installed grunt-contrib-jshint@0.10.0
+303 silly lockFile dbd491ee-grunt-mocha-test-0-10-2 grunt-mocha-test@0.10.2
+304 silly lockFile dbd491ee-grunt-mocha-test-0-10-2 grunt-mocha-test@0.10.2
+305 silly lockFile 29185e6c-grunt-mocha-test-latest grunt-mocha-test@latest
+306 silly lockFile 29185e6c-grunt-mocha-test-latest grunt-mocha-test@latest
+307 info already installed grunt-mocha-test@0.10.2
+308 silly lockFile 08049756-grunt-contrib-watch-0-6-1 grunt-contrib-watch@0.6.1
+309 silly lockFile 08049756-grunt-contrib-watch-0-6-1 grunt-contrib-watch@0.6.1
+310 silly lockFile 72016001-grunt-contrib-watch-latest grunt-contrib-watch@latest
+311 silly lockFile 72016001-grunt-contrib-watch-latest grunt-contrib-watch@latest
+312 info already installed grunt-contrib-watch@0.6.1
+313 http 200 https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+314 verbose tar unpack C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\tmp.tgz
+315 silly lockFile 26e0468d-75988-0-8351349267177284-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+316 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package C:\Users\jperdomo\AppData\Roaming\npm-cache\26e0468d-75988-0-8351349267177284-package.lock
+317 silly lockFile 36551092-75988-0-8351349267177284-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\tmp.tgz
+318 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\tmp.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\36551092-75988-0-8351349267177284-tmp-tgz.lock
+319 silly gunzTarPerm modes [ '755', '644' ]
+320 silly gunzTarPerm extractEntry package.json
+321 silly gunzTarPerm extractEntry .npmignore
+322 silly gunzTarPerm extractEntry README.md
+323 silly gunzTarPerm extractEntry LICENSE
+324 silly gunzTarPerm extractEntry Makefile
+325 silly gunzTarPerm extractEntry build/pdfkit.js
+326 silly gunzTarPerm extractEntry build/pdfkit.js.map
+327 silly gunzTarPerm extractEntry index.html
+328 silly gunzTarPerm extractEntry js/data.js
+329 silly gunzTarPerm extractEntry js/path.js
+330 silly gunzTarPerm extractEntry js/font.js
+331 silly gunzTarPerm extractEntry js/gradient.js
+332 silly gunzTarPerm extractEntry js/page.js
+333 silly gunzTarPerm extractEntry js/document.js
+334 silly gunzTarPerm extractEntry js/line_wrapper.js
+335 silly gunzTarPerm extractEntry js/object.js
+336 silly gunzTarPerm extractEntry js/reference.js
+337 silly gunzTarPerm extractEntry js/image.js
+338 silly gunzTarPerm extractEntry js/mixins/annotations.js
+339 silly gunzTarPerm extractEntry js/mixins/color.js
+340 silly gunzTarPerm extractEntry js/mixins/fonts.js
+341 silly gunzTarPerm extractEntry js/mixins/images.js
+342 silly gunzTarPerm extractEntry js/mixins/text.js
+343 silly gunzTarPerm extractEntry js/mixins/vector.js
+344 silly gunzTarPerm extractEntry js/image/jpeg.js
+345 silly gunzTarPerm extractEntry js/image/png.js
+346 silly gunzTarPerm extractEntry js/font/afm.js
+347 silly gunzTarPerm extractEntry js/font/dfont.js
+348 silly gunzTarPerm extractEntry js/font/directory.js
+349 silly gunzTarPerm extractEntry js/font/subset.js
+350 silly gunzTarPerm extractEntry js/font/table.js
+351 silly gunzTarPerm extractEntry js/font/ttf.js
+352 silly gunzTarPerm extractEntry js/font/utils.js
+353 silly gunzTarPerm extractEntry js/font/data/Helvetica.afm
+354 silly gunzTarPerm extractEntry js/font/data/Courier-Bold.afm
+355 silly gunzTarPerm extractEntry js/font/data/Courier-Oblique.afm
+356 silly gunzTarPerm extractEntry js/font/data/Courier.afm
+357 silly gunzTarPerm extractEntry js/font/data/Helvetica-Bold.afm
+358 silly gunzTarPerm extractEntry js/font/data/Helvetica-BoldOblique.afm
+359 silly gunzTarPerm extractEntry js/font/data/Helvetica-Oblique.afm
+360 silly gunzTarPerm extractEntry js/font/data/Courier-BoldOblique.afm
+361 silly gunzTarPerm extractEntry js/font/data/MustRead.html
+362 silly gunzTarPerm extractEntry js/font/data/Symbol.afm
+363 silly gunzTarPerm extractEntry js/font/data/Times-Bold.afm
+364 silly gunzTarPerm extractEntry js/font/data/Times-BoldItalic.afm
+365 silly gunzTarPerm extractEntry js/font/data/Times-Italic.afm
+366 silly gunzTarPerm extractEntry js/font/data/Times-Roman.afm
+367 silly gunzTarPerm extractEntry js/font/data/ZapfDingbats.afm
+368 silly gunzTarPerm extractEntry js/font/tables/cmap.js
+369 silly gunzTarPerm extractEntry js/font/tables/glyf.js
+370 silly gunzTarPerm extractEntry js/font/tables/head.js
+371 silly gunzTarPerm extractEntry js/font/tables/hhea.js
+372 silly gunzTarPerm extractEntry js/font/tables/hmtx.js
+373 silly gunzTarPerm extractEntry js/font/tables/loca.js
+374 silly gunzTarPerm extractEntry js/font/tables/maxp.js
+375 silly gunzTarPerm extractEntry js/font/tables/name.js
+376 silly gunzTarPerm extractEntry js/font/tables/os2.js
+377 silly gunzTarPerm extractEntry js/font/tables/post.js
+378 verbose read json C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package\package.json
+379 silly lockFile 26e0468d-75988-0-8351349267177284-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+380 silly lockFile 26e0468d-75988-0-8351349267177284-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+381 silly lockFile 36551092-75988-0-8351349267177284-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\tmp.tgz
+382 silly lockFile 36551092-75988-0-8351349267177284-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\tmp.tgz
+383 verbose from cache C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package\package.json
+384 verbose tar pack [ 'C:\\Users\\jperdomo\\AppData\\Roaming\\npm-cache\\pdfkit\\0.6.2\\package.tgz',
+384 verbose tar pack   'C:\\Users\\jperdomo\\AppData\\Local\\Temp\\npm-292\\1400276275988-0.8351349267177284\\package' ]
+385 verbose tarball C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+386 verbose folder C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+387 silly lockFile 26e0468d-75988-0-8351349267177284-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+388 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package C:\Users\jperdomo\AppData\Roaming\npm-cache\26e0468d-75988-0-8351349267177284-package.lock
+389 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+390 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz.lock
+391 silly lockFile 26e0468d-75988-0-8351349267177284-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+392 silly lockFile 26e0468d-75988-0-8351349267177284-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-292\1400276275988-0.8351349267177284\package
+393 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+394 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+395 silly lockFile a7230d91-g-npm-cache-pdfkit-0-6-2-package C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package
+396 verbose lock C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package C:\Users\jperdomo\AppData\Roaming\npm-cache\a7230d91-g-npm-cache-pdfkit-0-6-2-package.lock
+397 silly lockFile a7230d91-g-npm-cache-pdfkit-0-6-2-package C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package
+398 silly lockFile a7230d91-g-npm-cache-pdfkit-0-6-2-package C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package
+399 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+400 silly lockFile 6ba758bf-g-npm-cache-pdfkit-0-6-2-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package
+401 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package C:\Users\jperdomo\AppData\Roaming\npm-cache\6ba758bf-g-npm-cache-pdfkit-0-6-2-package.lock
+402 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+403 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz.lock
+404 silly gunzTarPerm modes [ '755', '644' ]
+405 silly gunzTarPerm extractEntry package.json
+406 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+407 silly gunzTarPerm extractEntry .npmignore
+408 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+409 silly gunzTarPerm extractEntry README.md
+410 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+411 silly gunzTarPerm extractEntry LICENSE
+412 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+413 silly gunzTarPerm extractEntry build/pdfkit.js
+414 silly gunzTarPerm modified mode [ 'build/pdfkit.js', 438, 420 ]
+415 silly gunzTarPerm extractEntry build/pdfkit.js.map
+416 silly gunzTarPerm modified mode [ 'build/pdfkit.js.map', 438, 420 ]
+417 silly gunzTarPerm extractEntry index.html
+418 silly gunzTarPerm modified mode [ 'index.html', 438, 420 ]
+419 silly gunzTarPerm extractEntry js/data.js
+420 silly gunzTarPerm modified mode [ 'js/data.js', 438, 420 ]
+421 silly gunzTarPerm extractEntry js/path.js
+422 silly gunzTarPerm modified mode [ 'js/path.js', 438, 420 ]
+423 silly gunzTarPerm extractEntry js/font.js
+424 silly gunzTarPerm modified mode [ 'js/font.js', 438, 420 ]
+425 silly gunzTarPerm extractEntry js/gradient.js
+426 silly gunzTarPerm modified mode [ 'js/gradient.js', 438, 420 ]
+427 silly gunzTarPerm extractEntry js/page.js
+428 silly gunzTarPerm modified mode [ 'js/page.js', 438, 420 ]
+429 silly gunzTarPerm extractEntry js/document.js
+430 silly gunzTarPerm modified mode [ 'js/document.js', 438, 420 ]
+431 silly gunzTarPerm extractEntry js/line_wrapper.js
+432 silly gunzTarPerm modified mode [ 'js/line_wrapper.js', 438, 420 ]
+433 silly gunzTarPerm extractEntry js/object.js
+434 silly gunzTarPerm modified mode [ 'js/object.js', 438, 420 ]
+435 silly gunzTarPerm extractEntry js/reference.js
+436 silly gunzTarPerm modified mode [ 'js/reference.js', 438, 420 ]
+437 silly gunzTarPerm extractEntry js/image.js
+438 silly gunzTarPerm modified mode [ 'js/image.js', 438, 420 ]
+439 silly gunzTarPerm extractEntry js/mixins/annotations.js
+440 silly gunzTarPerm modified mode [ 'js/mixins/annotations.js', 438, 420 ]
+441 silly gunzTarPerm extractEntry js/mixins/color.js
+442 silly gunzTarPerm modified mode [ 'js/mixins/color.js', 438, 420 ]
+443 silly gunzTarPerm extractEntry js/mixins/fonts.js
+444 silly gunzTarPerm modified mode [ 'js/mixins/fonts.js', 438, 420 ]
+445 silly gunzTarPerm extractEntry js/mixins/images.js
+446 silly gunzTarPerm modified mode [ 'js/mixins/images.js', 438, 420 ]
+447 silly gunzTarPerm extractEntry js/mixins/text.js
+448 silly gunzTarPerm modified mode [ 'js/mixins/text.js', 438, 420 ]
+449 silly gunzTarPerm extractEntry js/mixins/vector.js
+450 silly gunzTarPerm modified mode [ 'js/mixins/vector.js', 438, 420 ]
+451 silly gunzTarPerm extractEntry js/image/jpeg.js
+452 silly gunzTarPerm modified mode [ 'js/image/jpeg.js', 438, 420 ]
+453 silly gunzTarPerm extractEntry js/image/png.js
+454 silly gunzTarPerm modified mode [ 'js/image/png.js', 438, 420 ]
+455 silly gunzTarPerm extractEntry js/font/afm.js
+456 silly gunzTarPerm modified mode [ 'js/font/afm.js', 438, 420 ]
+457 silly gunzTarPerm extractEntry js/font/dfont.js
+458 silly gunzTarPerm modified mode [ 'js/font/dfont.js', 438, 420 ]
+459 silly gunzTarPerm extractEntry js/font/directory.js
+460 silly gunzTarPerm modified mode [ 'js/font/directory.js', 438, 420 ]
+461 silly gunzTarPerm extractEntry js/font/subset.js
+462 silly gunzTarPerm modified mode [ 'js/font/subset.js', 438, 420 ]
+463 silly gunzTarPerm extractEntry js/font/table.js
+464 silly gunzTarPerm modified mode [ 'js/font/table.js', 438, 420 ]
+465 silly gunzTarPerm extractEntry js/font/ttf.js
+466 silly gunzTarPerm modified mode [ 'js/font/ttf.js', 438, 420 ]
+467 silly gunzTarPerm extractEntry js/font/utils.js
+468 silly gunzTarPerm modified mode [ 'js/font/utils.js', 438, 420 ]
+469 silly gunzTarPerm extractEntry js/font/data/Helvetica.afm
+470 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica.afm', 438, 420 ]
+471 silly gunzTarPerm extractEntry js/font/data/Courier-Bold.afm
+472 silly gunzTarPerm modified mode [ 'js/font/data/Courier-Bold.afm', 438, 420 ]
+473 silly gunzTarPerm extractEntry js/font/data/Courier-Oblique.afm
+474 silly gunzTarPerm modified mode [ 'js/font/data/Courier-Oblique.afm', 438, 420 ]
+475 silly gunzTarPerm extractEntry js/font/data/Courier.afm
+476 silly gunzTarPerm modified mode [ 'js/font/data/Courier.afm', 438, 420 ]
+477 silly gunzTarPerm extractEntry js/font/data/Helvetica-Bold.afm
+478 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica-Bold.afm', 438, 420 ]
+479 silly gunzTarPerm extractEntry js/font/data/Helvetica-BoldOblique.afm
+480 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica-BoldOblique.afm', 438, 420 ]
+481 silly gunzTarPerm extractEntry js/font/data/Helvetica-Oblique.afm
+482 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica-Oblique.afm', 438, 420 ]
+483 silly gunzTarPerm extractEntry js/font/data/Courier-BoldOblique.afm
+484 silly gunzTarPerm modified mode [ 'js/font/data/Courier-BoldOblique.afm', 438, 420 ]
+485 silly gunzTarPerm extractEntry js/font/data/MustRead.html
+486 silly gunzTarPerm modified mode [ 'js/font/data/MustRead.html', 438, 420 ]
+487 silly gunzTarPerm extractEntry js/font/data/Symbol.afm
+488 silly gunzTarPerm modified mode [ 'js/font/data/Symbol.afm', 438, 420 ]
+489 silly gunzTarPerm extractEntry js/font/data/Times-Bold.afm
+490 silly gunzTarPerm modified mode [ 'js/font/data/Times-Bold.afm', 438, 420 ]
+491 silly gunzTarPerm extractEntry js/font/data/Times-BoldItalic.afm
+492 silly gunzTarPerm modified mode [ 'js/font/data/Times-BoldItalic.afm', 438, 420 ]
+493 silly gunzTarPerm extractEntry js/font/data/Times-Italic.afm
+494 silly gunzTarPerm modified mode [ 'js/font/data/Times-Italic.afm', 438, 420 ]
+495 silly gunzTarPerm extractEntry js/font/data/Times-Roman.afm
+496 silly gunzTarPerm modified mode [ 'js/font/data/Times-Roman.afm', 438, 420 ]
+497 silly gunzTarPerm extractEntry js/font/data/ZapfDingbats.afm
+498 silly gunzTarPerm modified mode [ 'js/font/data/ZapfDingbats.afm', 438, 420 ]
+499 silly gunzTarPerm extractEntry js/font/tables/cmap.js
+500 silly gunzTarPerm modified mode [ 'js/font/tables/cmap.js', 438, 420 ]
+501 silly gunzTarPerm extractEntry js/font/tables/glyf.js
+502 silly gunzTarPerm modified mode [ 'js/font/tables/glyf.js', 438, 420 ]
+503 silly gunzTarPerm extractEntry js/font/tables/head.js
+504 silly gunzTarPerm modified mode [ 'js/font/tables/head.js', 438, 420 ]
+505 silly gunzTarPerm extractEntry js/font/tables/hhea.js
+506 silly gunzTarPerm modified mode [ 'js/font/tables/hhea.js', 438, 420 ]
+507 silly gunzTarPerm extractEntry js/font/tables/hmtx.js
+508 silly gunzTarPerm modified mode [ 'js/font/tables/hmtx.js', 438, 420 ]
+509 silly gunzTarPerm extractEntry js/font/tables/loca.js
+510 silly gunzTarPerm modified mode [ 'js/font/tables/loca.js', 438, 420 ]
+511 silly gunzTarPerm extractEntry js/font/tables/maxp.js
+512 silly gunzTarPerm modified mode [ 'js/font/tables/maxp.js', 438, 420 ]
+513 silly gunzTarPerm extractEntry js/font/tables/name.js
+514 silly gunzTarPerm modified mode [ 'js/font/tables/name.js', 438, 420 ]
+515 silly gunzTarPerm extractEntry js/font/tables/os2.js
+516 silly gunzTarPerm modified mode [ 'js/font/tables/os2.js', 438, 420 ]
+517 silly gunzTarPerm extractEntry js/font/tables/post.js
+518 silly gunzTarPerm modified mode [ 'js/font/tables/post.js', 438, 420 ]
+519 silly gunzTarPerm extractEntry Makefile
+520 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+521 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package\package.json
+522 silly lockFile 6ba758bf-g-npm-cache-pdfkit-0-6-2-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package
+523 silly lockFile 6ba758bf-g-npm-cache-pdfkit-0-6-2-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package
+524 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+525 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+526 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package\package.json
+527 verbose chmod C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz 644
+528 silly chown skipping for windows C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+529 silly lockFile e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+530 silly lockFile e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+531 silly lockFile 23836ed8-pdfkit-0-6-2 pdfkit@0.6.2
+532 silly lockFile 23836ed8-pdfkit-0-6-2 pdfkit@0.6.2
+533 silly lockFile 90f02d8a-pdfkit-0-6-0 pdfkit@~0.6.0
+534 silly lockFile 90f02d8a-pdfkit-0-6-0 pdfkit@~0.6.0
+535 silly resolved [ { name: 'grunt-concurrent',
+535 silly resolved     version: '0.5.0',
+535 silly resolved     description: 'Run grunt tasks concurrently',
+535 silly resolved     keywords:
+535 silly resolved      [ 'gruntplugin',
+535 silly resolved        'concurrent',
+535 silly resolved        'parallel',
+535 silly resolved        'simultaneous',
+535 silly resolved        'optimize',
+535 silly resolved        'speed' ],
+535 silly resolved     author:
+535 silly resolved      { name: 'Sindre Sorhus',
+535 silly resolved        email: 'sindresorhus@gmail.com',
+535 silly resolved        url: 'http://sindresorhus.com' },
+535 silly resolved     repository: { type: 'git', url: 'sindresorhus/grunt-concurrent' },
+535 silly resolved     scripts: { test: 'npm install nodemon -g && grunt' },
+535 silly resolved     dependencies: { async: '~0.2.9', 'pad-stdio': '^0.1.0' },
+535 silly resolved     devDependencies:
+535 silly resolved      { grunt: '~0.4.1',
+535 silly resolved        'grunt-contrib-clean': '~0.5.0',
+535 silly resolved        'grunt-simple-mocha': '~0.4.0',
+535 silly resolved        'grunt-contrib-watch': '~0.5.3',
+535 silly resolved        'grunt-nodemon': '^0.2.0' },
+535 silly resolved     peerDependencies: { grunt: '~0.4.0' },
+535 silly resolved     engines: { node: '>=0.10.0' },
+535 silly resolved     licenses: { type: 'MIT' },
+535 silly resolved     readme: '# grunt-concurrent [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-concurrent.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-concurrent) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)\n\n> Run grunt tasks concurrently\n\nRunning slow tasks like Coffee and Sass concurrently can potentially improve your build time significantly. This task is also useful if you need to run multiple blocking tasks like `nodemon` and `watch` at once, as seen in the example config.\n\n![screenshot](screenshot.png)\n\nThis task is similar to grunt-parallel, but more focused by leaving out support for shell scripts which results in a leaner config. It also has a smaller dependency size and pads the output of concurrent tasks, as seen above.\n\n\n## Getting Started\n\nIf you haven\'t used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you\'re familiar with that process, install this plugin with this command:\n\n```sh\nnpm install grunt-concurrent --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-concurrent\');\n```\n\n*Tip: the [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) module makes it easier to load multiple grunt tasks.*\n\n\n[grunt]: http://gruntjs.com\n[Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started\n\n\n## Documentation\n\nSee the [Gruntfile](Gruntfile.js) in this repo for a full example.\n\nJust specify the tasks you want to run concurrently as an array in a target of this task as shown below.\n\n\n### Example config\n\nThis will first run the Coffee and Sass tasks at the same time, then the JSHint and Mocha tasks at the same time.\n\n```javascript\ngrunt.initConfig({\n\tconcurrent: {\n\t\ttarget1: [\'coffee\', \'sass\'],\n\t\ttarget2: [\'jshint\', \'mocha\']\n\t}\n});\n\ngrunt.loadNpmTasks(\'grunt-concurrent\');\ngrunt.registerTask(\'default\', [\'concurrent:target1\', \'concurrent:target2\']);\n```\n\n\n## Options\n\n### limit\n\nType: `Number`  \nDefault: Number of CPU cores (`require(\'os\').cpus().length`) with a minimum of 2\n\nLimit of how many tasks that are run concurrently.\n\n### logConcurrentOutput\n\nType: `Boolean`  \nDefault: `false`\n\nYou can optionally log the output of your concurrent tasks by specifying the `logConcurrentOutput` option. Here is an example config which runs [grunt-nodemon](https://github.com/ChrisWren/grunt-nodemon) to launch and monitor a node server and [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) to watch for asset changes all in one terminal tab:\n\n```javascript\ngrunt.initConfig({\n\tconcurrent: {\n\t\ttarget: {\n\t\t\ttasks: [\'nodemon\', \'watch\'],\n\t\t\toptions: {\n\t\t\t\tlogConcurrentOutput: true\n\t\t\t}\n\t\t}\n\t}\n});\n\ngrunt.loadNpmTasks(\'grunt-concurrent\');\ngrunt.registerTask(\'default\', [\'concurrent:target\']);\n```\n\n*Note the output will be messy when combining certain tasks. This option is best used with tasks that don\'t exit like watch and nodemon to monitor the output of long-running concurrent tasks.*\n\n\n## License\n\nMIT © [Sindre Sorhus](http://sindresorhus.com)\n',
+535 silly resolved     readmeFilename: 'readme.md',
+535 silly resolved     _id: 'grunt-concurrent@0.5.0',
+535 silly resolved     _from: 'grunt-concurrent@latest' },
+535 silly resolved   { name: 'pdfkit',
+535 silly resolved     description: 'A PDF generation library for Node.js',
+535 silly resolved     keywords:
+535 silly resolved      [ 'pdf',
+535 silly resolved        'pdf writer',
+535 silly resolved        'pdf generator',
+535 silly resolved        'graphics',
+535 silly resolved        'document',
+535 silly resolved        'vector' ],
+535 silly resolved     version: '0.6.2',
+535 silly resolved     homepage: 'http://pdfkit.org/',
+535 silly resolved     author:
+535 silly resolved      { name: 'Devon Govett',
+535 silly resolved        email: 'devongovett@gmail.com',
+535 silly resolved        url: 'http://badassjs.com/' },
+535 silly resolved     repository:
+535 silly resolved      { type: 'git',
+535 silly resolved        url: 'https://github.com/devongovett/pdfkit.git' },
+535 silly resolved     bugs: { url: 'http://github.com/devongovett/pdfkit/issues' },
+535 silly resolved     devDependencies:
+535 silly resolved      { 'coffee-script': '>=1.0.1',
+535 silly resolved        codemirror: '~3.20.0',
+535 silly resolved        markdown: '~0.5.0',
+535 silly resolved        jade: '~1.1.5',
+535 silly resolved        coffeeify: '^0.6.0',
+535 silly resolved        browserify: '^3.39.0',
+535 silly resolved        brfs: '~1.0.1',
+535 silly resolved        exorcist: '^0.1.5',
+535 silly resolved        brace: '^0.2.1',
+535 silly resolved        'blob-stream': '^0.1.2' },
+535 silly resolved     dependencies: { 'png-js': '>=0.1.0', linebreak: '~0.1.0' },
+535 silly resolved     scripts: { prepublish: 'make js', postpublish: 'make clean' },
+535 silly resolved     main: 'js/document',
+535 silly resolved     browserify: { transform: [Object] },
+535 silly resolved     engine: [ 'node >= v0.10.0' ],
+535 silly resolved     readme: '# PDFKit\n\nA JavaScript PDF generation library for Node and the browser.\n\n## Description\n\nPDFKit is a PDF document generation library for Node and the browser that makes creating complex, multi-page, printable documents easy. \nIt\'s written in CoffeeScript, but you can choose to use the API in plain \'ol JavaScript if you like. The API embraces \nchainability, and includes both low level functions as well as abstractions for higher level functionality. The PDFKit API \nis designed to be simple, so generating complex documents is often as simple as a few function calls.\n\nCheck out some of the [documentation and examples](http://pdfkit.org/docs/getting_started.html) to see for yourself!\nYou can also read the guide as a [self-generated PDF](http://pdfkit.org/docs/guide.pdf) with example output displayed inline.\nIf you\'d like to see how it was generated, check out the README in the [docs](https://github.com/devongovett/pdfkit/tree/master/docs)\nfolder.\n\nYou can also try out an interactive in-browser demo of PDFKit [here](http://pdfkit.org/demo/browser.html).\n\n## Installation\n\nInstallation uses the [npm](http://npmjs.org/) package manager.  Just type the following command after installing npm.\n\n    npm install pdfkit\n\n## Features\n\n* Vector graphics\n  * HTML5 canvas-like API\n  * Path operations\n  * SVG path parser for easy path creation\n  * Transformations\n  * Linear and radial gradients\n* Text\n  * Line wrapping\n  * Text alignments\n  * Bulleted lists\n* Font embedding\n  * Supports TrueType (.ttf), TrueType Collections (.ttc), and Datafork TrueType (.dfont) fonts\n  * Font subsetting\n* Image embedding\n  * Supports JPEG and PNG files (including indexed PNGs, and PNGs with transparency)\n* Annotations\n  * Links\n  * Notes\n  * Highlights\n  * Underlines\n  * etc.\n  \n## Coming soon!\n\n* Patterns fills\n* Outlines\n* PDF Security\n* Higher level APIs for creating tables and laying out content\n* More performance optimizations\n* Even more awesomeness, perhaps written by you! Please fork this repository and send me pull requests.\n    \n## Example\n\n```coffeescript\nPDFDocument = require \'pdfkit\'\n\n# Create a document\ndoc = new PDFDocument\n\n# Pipe it\'s output somewhere, like to a file or HTTP response\n# See below for browser usage\ndoc.pipe fs.createWriteStream(\'output.pdf\')\n\n# Embed a font, set the font size, and render some text\ndoc.font(\'fonts/PalatinoBold.ttf\')\n   .fontSize(25)\n   .text(\'Some text with an embedded font!\', 100, 100)\n\n# Add another page\ndoc.addPage()\n   .fontSize(25)\n   .text(\'Here is some vector graphics...\', 100, 100)\n\n# Draw a triangle\ndoc.save()\n   .moveTo(100, 150)\n   .lineTo(100, 250)\n   .lineTo(200, 250)\n   .fill("#FF3300")\n\n# Apply some transforms and render an SVG path with the \'even-odd\' fill rule\ndoc.scale(0.6)\n   .translate(470, -380)\n   .path(\'M 250,75 L 323,301 131,161 369,161 177,301 z\')\n   .fill(\'red\', \'even-odd\')\n   .restore()\n\n# Add some text with annotations\ndoc.addPage()\n   .fillColor("blue")\n   .text(\'Here is a link!\', 100, 100)\n   .underline(100, 100, 160, 27, color: "#0000FF")\n   .link(100, 100, 160, 27, \'http://google.com/\')\n\n# Finalize PDF file\ndoc.end()\n```\n \n[The PDF output from this example](http://pdfkit.org/demo/out.pdf) (with a few additions) shows the power of PDFKit — producing \ncomplex documents with a very small amount of code.  For more, see the `demo` folder and the \n[PDFKit programming guide](http://pdfkit.org/docs/getting_started.html).\n\n## Browser Usage\n\nThere are two ways to use PDFKit in the browser.  The first is to use [Browserify](http://browserify.org/),\nwhich is a Node module packager for the browser with the familiar `require` syntax.  The second is to use\na prebuilt version of PDFKit, which you can [download from Github](https://github.com/devongovett/pdfkit/releases).\n\nIn addition to PDFKit, you\'ll need somewhere to stream the output to.  HTML5 has a \n[Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) object which can be used to store binary data, and\nget URLs to this data in order to display PDF output inside an iframe, or upload to a server, etc.  In order to \nget a Blob from the output of PDFKit, you can use the [blob-stream](https://github.com/devongovett/blob-stream)\nmodule.\n\nThe following example uses Browserify to load `PDFKit` and `blob-stream`, but if you\'re not using Browserify, \nyou can load them in whatever way you\'d like (e.g. script tags).\n\n```coffeescript\n# require dependencies\nPDFDocument = require \'pdfkit\'\nblobStream  = require \'blob-stream\'\n\n# create a document the same way as above\ndoc = new PDFDocument\n\n# pipe the document to a blob\nstream = doc.pipe(blobStream())\n\n# add your content to the document here, as usual\n\n# get a blob when you\'re done\ndoc.end()\nstream.on \'finish\', ->\n  # get a blob you can do whatever you like with\n  blob = stream.toBlob(\'application/pdf\')\n\n  # or get a blob URL for display in the browser\n  url = stream.toBlobURL(\'application/pdf\')\n  iframe.src = url\n```\n\nYou can see an interactive in-browser demo of PDFKit [here](http://pdfkit.org/demo/browser.html).\n\nNote that in order to Browserify a project using PDFKit, you need to install the `brfs` module with npm, \nwhich is used to load built-in font data into the package. It is listed as a `devDependency` in \nPDFKit\'s `package.json`, so it isn\'t installed by default for Node users. \nIf you forget to install it, Browserify will print an error message.\n\n## Documentation\n\nFor complete API documentation and more examples, see the [PDFKit website](http://pdfkit.org/).\n\n## License\n\nPDFKit is available under the MIT license.',
+535 silly resolved     readmeFilename: 'README.md',
+535 silly resolved     _id: 'pdfkit@0.6.2',
+535 silly resolved     dist: { shasum: '6958841dc7cf026a8b2f10c7cf94df989b2f1fce' },
+535 silly resolved     _from: 'pdfkit@~0.6.0',
+535 silly resolved     _resolved: 'https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz' } ]
+536 info install grunt-concurrent@0.5.0 into c:\banarep2\Desarrollo\Web\bacoba
+537 info install pdfkit@0.6.2 into c:\banarep2\Desarrollo\Web\bacoba
+538 info installOne grunt-concurrent@0.5.0
+539 info installOne pdfkit@0.6.2
+540 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package\package.json
+541 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent unbuild
+542 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+543 info preuninstall grunt-concurrent@0.4.3
+544 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package\package.json
+545 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit unbuild
+546 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit\package.json
+547 info preuninstall pdfkit@0.5.0
+548 info uninstall grunt-concurrent@0.4.3
+549 info uninstall pdfkit@0.5.0
+550 verbose true,c:\banarep2\Desarrollo\Web\bacoba\node_modules,c:\banarep2\Desarrollo\Web\bacoba\node_modules unbuild grunt-concurrent@0.4.3
+551 info postuninstall grunt-concurrent@0.4.3
+552 verbose true,c:\banarep2\Desarrollo\Web\bacoba\node_modules,c:\banarep2\Desarrollo\Web\bacoba\node_modules unbuild pdfkit@0.5.0
+553 info postuninstall pdfkit@0.5.0
+554 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package.tgz
+555 silly lockFile e49660fa-ba-node-modules-grunt-concurrent tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent
+556 verbose lock tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent C:\Users\jperdomo\AppData\Roaming\npm-cache\e49660fa-ba-node-modules-grunt-concurrent.lock
+557 silly lockFile 86ceb636-unt-concurrent-0-5-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package.tgz
+558 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\86ceb636-unt-concurrent-0-5-0-package-tgz.lock
+559 silly gunzTarPerm modes [ '755', '644' ]
+560 silly gunzTarPerm extractEntry package.json
+561 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+562 silly gunzTarPerm extractEntry .gitattributes
+563 silly gunzTarPerm modified mode [ '.gitattributes', 438, 420 ]
+564 silly gunzTarPerm extractEntry readme.md
+565 silly gunzTarPerm modified mode [ 'readme.md', 438, 420 ]
+566 silly gunzTarPerm extractEntry tasks/concurrent.js
+567 silly gunzTarPerm modified mode [ 'tasks/concurrent.js', 438, 420 ]
+568 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+569 silly lockFile 8e86457e-o-Web-bacoba-node-modules-pdfkit tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit
+570 verbose lock tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit C:\Users\jperdomo\AppData\Roaming\npm-cache\8e86457e-o-Web-bacoba-node-modules-pdfkit.lock
+571 silly lockFile fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz
+572 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\pdfkit\0.6.2\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\fa77c8d9-m-cache-pdfkit-0-6-2-package-tgz.lock
+573 silly gunzTarPerm modes [ '755', '644' ]
+574 silly gunzTarPerm extractEntry package.json
+575 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+576 silly gunzTarPerm extractEntry .npmignore
+577 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+578 silly gunzTarPerm extractEntry README.md
+579 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+580 silly gunzTarPerm extractEntry LICENSE
+581 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+582 silly gunzTarPerm extractEntry build/pdfkit.js
+583 silly gunzTarPerm modified mode [ 'build/pdfkit.js', 438, 420 ]
+584 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+585 silly gunzTarPerm extractEntry build/pdfkit.js.map
+586 silly gunzTarPerm modified mode [ 'build/pdfkit.js.map', 438, 420 ]
+587 silly lockFile e49660fa-ba-node-modules-grunt-concurrent tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent
+588 silly lockFile e49660fa-ba-node-modules-grunt-concurrent tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent
+589 silly lockFile 86ceb636-unt-concurrent-0-5-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package.tgz
+590 silly lockFile 86ceb636-unt-concurrent-0-5-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-concurrent\0.5.0\package.tgz
+591 info preinstall grunt-concurrent@0.5.0
+592 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+593 verbose readDependencies using package.json deps
+594 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+595 verbose readDependencies using package.json deps
+596 verbose cache add [ 'async@~0.2.9', null ]
+597 verbose cache add name=undefined spec="async@~0.2.9" args=["async@~0.2.9",null]
+598 verbose parsed url { protocol: null,
+598 verbose parsed url   slashes: null,
+598 verbose parsed url   auth: null,
+598 verbose parsed url   host: null,
+598 verbose parsed url   port: null,
+598 verbose parsed url   hostname: null,
+598 verbose parsed url   hash: null,
+598 verbose parsed url   search: null,
+598 verbose parsed url   query: null,
+598 verbose parsed url   pathname: 'async@~0.2.9',
+598 verbose parsed url   path: 'async@~0.2.9',
+598 verbose parsed url   href: 'async@~0.2.9' }
+599 verbose cache add name="async" spec="~0.2.9" args=["async","~0.2.9"]
+600 verbose parsed url { protocol: null,
+600 verbose parsed url   slashes: null,
+600 verbose parsed url   auth: null,
+600 verbose parsed url   host: null,
+600 verbose parsed url   port: null,
+600 verbose parsed url   hostname: null,
+600 verbose parsed url   hash: null,
+600 verbose parsed url   search: null,
+600 verbose parsed url   query: null,
+600 verbose parsed url   pathname: '~0.2.9',
+600 verbose parsed url   path: '~0.2.9',
+600 verbose parsed url   href: '~0.2.9' }
+601 verbose addNamed [ 'async', '~0.2.9' ]
+602 verbose addNamed [ null, '>=0.2.9- <0.3.0-' ]
+603 silly lockFile 5d51c871-async-0-2-9 async@~0.2.9
+604 verbose lock async@~0.2.9 C:\Users\jperdomo\AppData\Roaming\npm-cache\5d51c871-async-0-2-9.lock
+605 verbose cache add [ 'pad-stdio@^0.1.0', null ]
+606 verbose cache add name=undefined spec="pad-stdio@^0.1.0" args=["pad-stdio@^0.1.0",null]
+607 verbose parsed url { protocol: null,
+607 verbose parsed url   slashes: null,
+607 verbose parsed url   auth: null,
+607 verbose parsed url   host: null,
+607 verbose parsed url   port: null,
+607 verbose parsed url   hostname: null,
+607 verbose parsed url   hash: null,
+607 verbose parsed url   search: null,
+607 verbose parsed url   query: null,
+607 verbose parsed url   pathname: 'pad-stdio@^0.1.0',
+607 verbose parsed url   path: 'pad-stdio@^0.1.0',
+607 verbose parsed url   href: 'pad-stdio@^0.1.0' }
+608 verbose cache add name="pad-stdio" spec="^0.1.0" args=["pad-stdio","^0.1.0"]
+609 verbose parsed url { protocol: null,
+609 verbose parsed url   slashes: null,
+609 verbose parsed url   auth: null,
+609 verbose parsed url   host: null,
+609 verbose parsed url   port: null,
+609 verbose parsed url   hostname: null,
+609 verbose parsed url   hash: null,
+609 verbose parsed url   search: null,
+609 verbose parsed url   query: null,
+609 verbose parsed url   pathname: '^0.1.0',
+609 verbose parsed url   path: '^0.1.0',
+609 verbose parsed url   href: '^0.1.0' }
+610 verbose addNamed [ 'pad-stdio', '^0.1.0' ]
+611 verbose addNamed [ null, null ]
+612 silly lockFile b33f4fd4-pad-stdio-0-1-0 pad-stdio@^0.1.0
+613 verbose lock pad-stdio@^0.1.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\b33f4fd4-pad-stdio-0-1-0.lock
+614 silly addNameRange { name: 'async', range: '>=0.2.9- <0.3.0-', hasData: false }
+615 info addNameTag [ 'pad-stdio', '^0.1.0' ]
+616 silly gunzTarPerm extractEntry index.html
+617 silly gunzTarPerm modified mode [ 'index.html', 438, 420 ]
+618 silly gunzTarPerm extractEntry js/data.js
+619 silly gunzTarPerm modified mode [ 'js/data.js', 438, 420 ]
+620 silly gunzTarPerm extractEntry js/path.js
+621 silly gunzTarPerm modified mode [ 'js/path.js', 438, 420 ]
+622 verbose url raw async
+623 verbose url resolving [ 'https://registry.npmjs.org/', './async' ]
+624 verbose url resolved https://registry.npmjs.org/async
+625 info trying registry request attempt 1 at 15:38:01
+626 verbose etag "A6KYCEXEN8R9P8Q4B86XI14ST"
+627 http GET https://registry.npmjs.org/async
+628 silly gunzTarPerm extractEntry js/font.js
+629 silly gunzTarPerm modified mode [ 'js/font.js', 438, 420 ]
+630 silly gunzTarPerm extractEntry js/gradient.js
+631 silly gunzTarPerm modified mode [ 'js/gradient.js', 438, 420 ]
+632 silly gunzTarPerm extractEntry js/page.js
+633 silly gunzTarPerm modified mode [ 'js/page.js', 438, 420 ]
+634 silly gunzTarPerm extractEntry js/document.js
+635 silly gunzTarPerm modified mode [ 'js/document.js', 438, 420 ]
+636 silly gunzTarPerm extractEntry js/line_wrapper.js
+637 silly gunzTarPerm modified mode [ 'js/line_wrapper.js', 438, 420 ]
+638 silly gunzTarPerm extractEntry js/object.js
+639 silly gunzTarPerm modified mode [ 'js/object.js', 438, 420 ]
+640 silly gunzTarPerm extractEntry js/reference.js
+641 silly gunzTarPerm modified mode [ 'js/reference.js', 438, 420 ]
+642 verbose url raw pad-stdio
+643 verbose url resolving [ 'https://registry.npmjs.org/', './pad-stdio' ]
+644 verbose url resolved https://registry.npmjs.org/pad-stdio
+645 info trying registry request attempt 1 at 15:38:01
+646 verbose etag "8VS3EBU6V8BC7YV819F1JV5GO"
+647 http GET https://registry.npmjs.org/pad-stdio
+648 silly gunzTarPerm extractEntry js/image.js
+649 silly gunzTarPerm modified mode [ 'js/image.js', 438, 420 ]
+650 silly gunzTarPerm extractEntry js/mixins/annotations.js
+651 silly gunzTarPerm modified mode [ 'js/mixins/annotations.js', 438, 420 ]
+652 silly gunzTarPerm extractEntry js/mixins/color.js
+653 silly gunzTarPerm modified mode [ 'js/mixins/color.js', 438, 420 ]
+654 silly gunzTarPerm extractEntry js/mixins/fonts.js
+655 silly gunzTarPerm modified mode [ 'js/mixins/fonts.js', 438, 420 ]
+656 silly gunzTarPerm extractEntry js/mixins/images.js
+657 silly gunzTarPerm modified mode [ 'js/mixins/images.js', 438, 420 ]
+658 silly gunzTarPerm extractEntry js/mixins/text.js
+659 silly gunzTarPerm modified mode [ 'js/mixins/text.js', 438, 420 ]
+660 silly gunzTarPerm extractEntry js/mixins/vector.js
+661 silly gunzTarPerm modified mode [ 'js/mixins/vector.js', 438, 420 ]
+662 silly gunzTarPerm extractEntry js/image/jpeg.js
+663 silly gunzTarPerm modified mode [ 'js/image/jpeg.js', 438, 420 ]
+664 silly gunzTarPerm extractEntry js/image/png.js
+665 silly gunzTarPerm modified mode [ 'js/image/png.js', 438, 420 ]
+666 silly gunzTarPerm extractEntry js/font/afm.js
+667 silly gunzTarPerm modified mode [ 'js/font/afm.js', 438, 420 ]
+668 silly gunzTarPerm extractEntry js/font/dfont.js
+669 silly gunzTarPerm modified mode [ 'js/font/dfont.js', 438, 420 ]
+670 silly gunzTarPerm extractEntry js/font/directory.js
+671 silly gunzTarPerm modified mode [ 'js/font/directory.js', 438, 420 ]
+672 silly gunzTarPerm extractEntry js/font/subset.js
+673 silly gunzTarPerm modified mode [ 'js/font/subset.js', 438, 420 ]
+674 silly gunzTarPerm extractEntry js/font/table.js
+675 silly gunzTarPerm modified mode [ 'js/font/table.js', 438, 420 ]
+676 silly gunzTarPerm extractEntry js/font/ttf.js
+677 silly gunzTarPerm modified mode [ 'js/font/ttf.js', 438, 420 ]
+678 silly gunzTarPerm extractEntry js/font/utils.js
+679 silly gunzTarPerm modified mode [ 'js/font/utils.js', 438, 420 ]
+680 silly gunzTarPerm extractEntry js/font/data/Helvetica.afm
+681 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica.afm', 438, 420 ]
+682 silly gunzTarPerm extractEntry js/font/data/Courier-Bold.afm
+683 silly gunzTarPerm modified mode [ 'js/font/data/Courier-Bold.afm', 438, 420 ]
+684 silly gunzTarPerm extractEntry js/font/data/Courier-Oblique.afm
+685 silly gunzTarPerm modified mode [ 'js/font/data/Courier-Oblique.afm', 438, 420 ]
+686 silly gunzTarPerm extractEntry js/font/data/Courier.afm
+687 silly gunzTarPerm modified mode [ 'js/font/data/Courier.afm', 438, 420 ]
+688 silly gunzTarPerm extractEntry js/font/data/Helvetica-Bold.afm
+689 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica-Bold.afm', 438, 420 ]
+690 silly gunzTarPerm extractEntry js/font/data/Helvetica-BoldOblique.afm
+691 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica-BoldOblique.afm', 438, 420 ]
+692 silly gunzTarPerm extractEntry js/font/data/Helvetica-Oblique.afm
+693 silly gunzTarPerm modified mode [ 'js/font/data/Helvetica-Oblique.afm', 438, 420 ]
+694 silly gunzTarPerm extractEntry js/font/data/Courier-BoldOblique.afm
+695 silly gunzTarPerm modified mode [ 'js/font/data/Courier-BoldOblique.afm', 438, 420 ]
+696 silly gunzTarPerm extractEntry js/font/data/MustRead.html
+697 silly gunzTarPerm modified mode [ 'js/font/data/MustRead.html', 438, 420 ]
+698 silly gunzTarPerm extractEntry js/font/data/Symbol.afm
+699 silly gunzTarPerm modified mode [ 'js/font/data/Symbol.afm', 438, 420 ]
+700 silly gunzTarPerm extractEntry js/font/data/Times-Bold.afm
+701 silly gunzTarPerm modified mode [ 'js/font/data/Times-Bold.afm', 438, 420 ]
+702 silly gunzTarPerm extractEntry js/font/data/Times-BoldItalic.afm
+703 silly gunzTarPerm modified mode [ 'js/font/data/Times-BoldItalic.afm', 438, 420 ]
+704 silly gunzTarPerm extractEntry js/font/data/Times-Italic.afm
+705 silly gunzTarPerm modified mode [ 'js/font/data/Times-Italic.afm', 438, 420 ]
+706 silly gunzTarPerm extractEntry js/font/data/Times-Roman.afm
+707 silly gunzTarPerm modified mode [ 'js/font/data/Times-Roman.afm', 438, 420 ]
+708 silly gunzTarPerm extractEntry js/font/data/ZapfDingbats.afm
+709 silly gunzTarPerm modified mode [ 'js/font/data/ZapfDingbats.afm', 438, 420 ]
+710 silly gunzTarPerm extractEntry js/font/tables/cmap.js
+711 silly gunzTarPerm modified mode [ 'js/font/tables/cmap.js', 438, 420 ]
+712 silly gunzTarPerm extractEntry js/font/tables/glyf.js
+713 silly gunzTarPerm modified mode [ 'js/font/tables/glyf.js', 438, 420 ]
+714 silly gunzTarPerm extractEntry js/font/tables/head.js
+715 silly gunzTarPerm modified mode [ 'js/font/tables/head.js', 438, 420 ]
+716 silly gunzTarPerm extractEntry js/font/tables/hhea.js
+717 silly gunzTarPerm modified mode [ 'js/font/tables/hhea.js', 438, 420 ]
+718 silly gunzTarPerm extractEntry js/font/tables/hmtx.js
+719 silly gunzTarPerm modified mode [ 'js/font/tables/hmtx.js', 438, 420 ]
+720 silly gunzTarPerm extractEntry js/font/tables/loca.js
+721 silly gunzTarPerm modified mode [ 'js/font/tables/loca.js', 438, 420 ]
+722 silly gunzTarPerm extractEntry js/font/tables/maxp.js
+723 silly gunzTarPerm modified mode [ 'js/font/tables/maxp.js', 438, 420 ]
+724 silly gunzTarPerm extractEntry js/font/tables/name.js
+725 silly gunzTarPerm modified mode [ 'js/font/tables/name.js', 438, 420 ]
+726 silly gunzTarPerm extractEntry js/font/tables/os2.js
+727 silly gunzTarPerm modified mode [ 'js/font/tables/os2.js', 438, 420 ]
+728 silly gunzTarPerm extractEntry js/font/tables/post.js
+729 silly gunzTarPerm modified mode [ 'js/font/tables/post.js', 438, 420 ]
+730 silly gunzTarPerm extractEntry Makefile
+731 silly gunzTarPerm modified mode [ 'Makefile', 438, 420 ]
+732 http 200 https://registry.npmjs.org/pad-stdio
+733 silly registry.get cb [ 200,
+733 silly registry.get   { date: 'Fri, 16 May 2014 21:37:55 GMT',
+733 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+733 silly registry.get     etag: '"A4ZXUFZ4E55GUZCBYEV4E8KK6"',
+733 silly registry.get     'content-type': 'application/json',
+733 silly registry.get     'accept-ranges': 'bytes',
+733 silly registry.get     via: '1.1 varnish',
+733 silly registry.get     'cache-control': 'max-age=1',
+733 silly registry.get     'content-length': '3990',
+733 silly registry.get     'x-served-by': 'cache-v43-ASH, cache-iad2122-IAD',
+733 silly registry.get     'x-cache': 'MISS, MISS',
+733 silly registry.get     'x-cache-hits': '0, 0',
+733 silly registry.get     'x-timer': 'S1400276274.965653896,VS0,VS3,VE99,VE100',
+733 silly registry.get     vary: 'Accept',
+733 silly registry.get     'keep-alive': 'timeout=10, max=50',
+733 silly registry.get     connection: 'Keep-Alive' } ]
+734 silly lockFile b33f4fd4-pad-stdio-0-1-0 pad-stdio@^0.1.0
+735 silly lockFile b33f4fd4-pad-stdio-0-1-0 pad-stdio@^0.1.0
+736 verbose about to build c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent
+737 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent unbuild
+738 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+739 info preuninstall grunt-concurrent@0.5.0
+740 info uninstall grunt-concurrent@0.5.0
+741 verbose true,c:\banarep2\Desarrollo\Web\bacoba\node_modules,c:\banarep2\Desarrollo\Web\bacoba\node_modules unbuild grunt-concurrent@0.5.0
+742 info postuninstall grunt-concurrent@0.5.0
+743 error Error: No compatible version found: pad-stdio@'^0.1.0'
+743 error Valid install targets:
+743 error ["0.1.0","0.1.1"]
+743 error     at installTargetsError (C:\Program Files\nodejs\node_modules\npm\lib\cache.js:719:10)
+743 error     at C:\Program Files\nodejs\node_modules\npm\lib\cache.js:641:10
+743 error     at saved (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:138:7)
+743 error     at Object.oncomplete (fs.js:107:15)
+744 error If you need help, you may report this log at:
+744 error     <http://github.com/isaacs/npm/issues>
+744 error or email it to:
+744 error     <npm-@googlegroups.com>
+745 error System Windows_NT 6.1.7601
+746 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+747 error cwd c:\banarep2\Desarrollo\Web\bacoba
+748 error node -v v0.10.12
+749 error npm -v 1.2.32
+750 verbose exit [ 1, true ]

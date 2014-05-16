@@ -184,9 +184,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         var crearPdf = '/procedimientos/' + $scope.procedimiento._id + '/crearPdf';
         $http.post(crearPdf, {externo: true})
         .success(function(data) {
-            $timeout(function() {
-                $window.open(data.url);
-            }, 2);
+            $window.open(data.url);
         })
         .error(function(data) {
             console.log('hubo un error ' + data);
@@ -630,7 +628,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         $scope.videoPasoFake = '';
         $scope.adjuntoPasoFake = '';
         $scope.imagenPaso = '';
-        $scope.descripcionPaso = null;
+        $scope.descripcionPaso = '';
         $scope.numeroPaso = $scope.ultimoPaso();
         $scope.seleccionProcedimientoActivo = true;
         $scope.procedimientoRelacionado = {};
@@ -797,9 +795,13 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         texto = texto.replace(/&#218;/g,'Ú');
         texto = texto.replace(/&#191;/g,'¿');
         texto = texto.replace(/&#161;/g,'¡');
+        texto = texto.replace(/&#8220;/g,'“');
+        texto = texto.replace(/&#8221;/g,'”');
         texto = texto.replace(/&#34;/g,'"');
         texto = texto.replace(/&#10;/g,' ');
         texto = texto.replace(/&#160;/g,' ');
+        texto = texto.replace(/&gt;/g,'>');
+        texto = texto.replace(/&lt;/g,'<');
         texto = texto.replace(/ class="[^"]+"/g,'');
         return texto;
     };

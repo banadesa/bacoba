@@ -66,65 +66,129 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
      *@return {object} objeto modificado
      */
     var llenarProc = function(proc, i, padreProc, iPadre, pasoPadre, nuevoProc , veces, callback) {
-            nuevoProc.pasos.push(proc.pasos[i]);
-            nuevoProc.pasos[nuevoProc.pasos.length -1 ].rutaImg = proc._id;
-            for (var j = pasoPadre.length - 1; j >= 0; j--) {
-                if (nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal) {
-                    nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = pasoPadre[j] + '.' + nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal;
-                } else {
-                    nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = pasoPadre[j] + '.' + nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPaso;
+            var actual = false;
+            if (proc.pasos[i]) {
+                actual = proc.pasos[i].actual
+                nuevoProc.pasos.push(proc.pasos[i]);
+
+                //Asigno el id del procedimiento por si este es distinto al procedimiento original
+                nuevoProc.pasos[nuevoProc.pasos.length -1 ].rutaImg = proc._id;
+                //Asigno el paso que aparece en pantalla recorriendo todos los padres ej 1.1.1.2
+                for (var j = pasoPadre.length - 1; j >= 0; j--) {
+                    if (nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal) {
+                        nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = pasoPadre[j] + '.' + nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal;
+                    } else {
+                        nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = pasoPadre[j] + '.' + nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPaso;
+                    }
                 }
+                //Si no tiene un pasoReal porque no tiene padres se le asigna en base al numero de paso
+                if (!nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal) {
+                    nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPaso;
+                }
+                //Hago una division del numero de paso real por cada . para poder ordernarlo despues
+                //separo el numero real en un array
+                var aArray = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal.toString().split('.');
+                //creo el nuevo elemento de numeroPasoDivido en el objeto
+                nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido = 0;
+                var divisor = 1;
+                    for (var t = 0; t < aArray.length; t++) {
+                        nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido +
+                            (aArray[t] * divisor);
+                        divisor = divisor / 100;
+                    };
             }
-            if (!nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal) {
-                nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoReal = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPaso;
-            }
-            if (proc.pasos[i].actual) {
+
+            //Inserto el procedimiento a nuevo proc
+            //si es un paso actual si aparecera en el pdf por lo que se continua, esto cambiara cuando se
+            //puedan mostrar las versiones.
+            if (actual) {
+                //si el paso es otro procedimiento se cargan los procedimientos de este
                 if (proc.pasos[i].procedimiento) {
+                    //Que tantos niveles se debe indagar en los subpasos se controla en la variable de veces
+                    //en cada nivel si resta el numero de veces, al llegar a cero no seguira bajando niveles
                     if (veces >= 0) {
+                        //Busco el procedimiento del paso en la base de datos
                         Procedimiento.load(proc.pasos[i].procedimiento._id, categoriasP, function(err, procedimiento) {
+                            //si hay error lo muestro en consola
                             if (err) return console.log(err);
-                            if (!procedimiento) return console.log('Error al cargar el procedimiento ');
+                            //si el procedimiento esta vacio lo muestro en consola
+                            if (!procedimiento) return console.log('Error al cargar el procedimiento ' +
+                                proc.pasos[i].procedimiento.nombre);
+                            //ya que baje de nivel resto uno al numero de veces
                             veces--;
+                            //inserto el numero de paso del procedimiento como el paso del padre
                             pasoPadre.push(proc.pasos[i].numeroPaso);
-                            i++;
+                            //inserto el procedimiento como el procedimiento padre
                             padreProc.push(proc);
-                            iPadre.push(i);
+
+                            //el padre sera el siguiente paso al que me quede
+                            iPadre.push(i+1);
+                            //aumento el i
+
+                            //si no es el ultimo paso del procedimiento
                             if (i <= proc.pasos.length -1) {
-                                llenarProc(procedimiento, 0, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
-                            } else {
+                                //llamo al llenar proc con
+                                llenarProc(procedimiento, //proc: procedimiento devuelto en la consulta de la BD
+                                    0, // i
+                                    padreProc,
+                                    iPadre,
+                                    pasoPadre,
+                                    nuevoProc,
+                                    veces,
+                                    callback);
+                            } else { //si es el utlimo paso
+                                //si tiene un padre
                                 if (padreProc.length > 0) {
+                                    //
                                     pasoPadre.pop();
-                                    llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
-                                            iPadre, pasoPadre, nuevoProc, veces, callback);
-                                } else {
+                                    llenarProc(padreProc.pop(),  // proc el utlimo procedimiento padre
+                                        iPadre.pop(), //i el i por donde nos habiamos quedado
+                                        padreProc, //el resto del padre
+                                        iPadre,
+                                        pasoPadre,
+                                        nuevoProc,
+                                        veces,
+                                        callback);
+                                } else { //si no tiene un padre y es el utlimo paso llamo el callback(salida)
                                     callback();
                                 }
                             }
-                        });
+                        }); //termino de hacer la busqueda en la BD
                     }
+                //si no el paso no es un procedimiento
                 } else {
+                    //aumento el i
                     i++;
+                    //si no es el ultimo paso
                     if (i <= proc.pasos.length -1) {
                         llenarProc(proc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
-                    } else {
+                    } else { //si es el utlimo paso
+                        //si tiene un padre
                         if (padreProc.length > 0) {
                             pasoPadre.pop();
-                            llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
-                                    iPadre, pasoPadre, nuevoProc, veces, callback);
-                        } else {
+                            llenarProc(padreProc.pop(),  //proc saco el procedimiento padre
+                                iPadre.pop(), //i
+                                padreProc,
+                                iPadre,
+                                pasoPadre,
+                                nuevoProc,
+                                veces,
+                                callback);
+                        } else {//si todavia tiene padre
                             callback();
                         }
                     }
                 }
-            } else {
-                i++;
+            } else { //si no es un paso actual salto al siguiente en caso que no sea el ultimo
+                i++; //aumento el i
+                //si no es el ultimo paso
                 if (i <= proc.pasos.length -1) {
                     llenarProc(proc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
-                } else {
+                } else { //si es el ultimo paso reviso que no tenga un padre
                     if (padreProc.length > 0) {
                         llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
                                 iPadre, pasoPadre, nuevoProc, veces, callback);
-                    } else {
+                    } else { //si es el utimo paso y no tiene padres llamo el callback(salida)
                         callback();
                     }
                 }
@@ -337,7 +401,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         } else {
                             factor = tamañoMaximo/imgWidth;
                         }
-                        if (tamañoMaximo + doc.y > 730) {
+                        if (factor*imgHeight + doc.y > 800) {
                             doc.addPage();
                         }
                         doc.image(imgActual,
@@ -346,7 +410,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         });
                     }
                     else {
-                        if (imgHeight + doc.y > 730) {
+                        if (imgHeight + doc.y > 800) {
                             doc.addPage();
                         }
                         doc.image(imgActual);
@@ -370,11 +434,13 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     function final(iFinal, procFinal) {
         if (iFinal + 1 > procFinal.pasos.length -1) {
             doc.end();
+            setTimeout(function(){
+            console.log('supuestamente termine');
             if (externo) {
                 res.send({url: url});
             } else {
                 next (docPath);
-            }
+            }}, 2000);
         } else {
             pasoAPdf(iFinal + 1, procFinal);
         }
@@ -454,7 +520,6 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     });
 
     doc.addPage();
-
     if (proc.pasos) {
         if (proc.pasos.length > 0) {
             llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
@@ -464,16 +529,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                     if (n !== 0) {
                         return n;
                     }
-                    if (a.numeroPasoReal.toString() === b.numeroPasoReal.toString()) {
-                        n = 0;
-                    }
-                    if (a.numeroPasoReal.toString() > b.numeroPasoReal.toString()) {
-                        n = 1;
-                    }
-
-                    if (a.numeroPasoReal.toString() < b.numeroPasoReal.toString()) {
-                        n = -1;
-                    }
+                    n = a.numeroPasoDivido - b.numeroPasoDivido;
                     if (n !== 0) {
                         return n;
                     }
@@ -491,7 +547,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
 exports.enviarCorreo = function(req, res) {
     // create reusable transport method (opens pool of SMTP connections)
     var destinatario = {};
-    var comentario = '';
+    var comentario = ''
     destinatario = req.body.destinatario;
     // destinatario.correo = 'jperdomo@banadesa.hn';
     // destinatario.nombre = 'Jose Eduardo Perdomo';
@@ -500,12 +556,12 @@ exports.enviarCorreo = function(req, res) {
     }
     var proc = req.procedimiento;
     var smtpTransport = nodemailer.createTransport('SMTP',{
-        host: '129.200.10.10',
+        host: "129.200.10.10",
         secureConnection: false, // use SSL
         port: 25, // port for secure SMTP
         auth: {
-            user: 'git@banadesa.hn',
-            pass: 'tecno2013'
+            user: "git@banadesa.hn",
+            pass: "tecno2013"
         }
     });
     crearPdf(req,res, function(rutaArchivo) {
@@ -517,7 +573,7 @@ exports.enviarCorreo = function(req, res) {
                 proc.nombre + ' ' + comentario.replace('<p>', '').replace('</p>','\n') + ' \n*****favor no responder este correo*****', // plaintext body
             html: '<p>Distinguido ' + destinatario.nombre + ',</p>' + '<b>' + req.user.name + '</b> le ha enviado el manual <b>' +
                '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
-               '<p><small>*****favor no responder este correo*****</small></p>',
+               '<p><small>***favor no responder este correo</small></p>***',
             attachments: [
                 {
                     fileName: proc.nombre + '.pdf',
@@ -525,10 +581,10 @@ exports.enviarCorreo = function(req, res) {
                 }
             ]
         };
-
+        console.log('mailOptions.attachments');
+        console.log(mailOptions.attachments);
         // send mail with defined transport object
-        setTimeout(function() {
-            smtpTransport.sendMail(mailOptions, function(error, response){
+        smtpTransport.sendMail(mailOptions, function(error, response){
             if(error){
                 console.log(error);
                 res.send(error);
@@ -540,9 +596,10 @@ exports.enviarCorreo = function(req, res) {
             // if you don't want to use this transport object anymore, uncomment following line
             //smtpTransport.close(); // shut down the connection pool, no more messages
         });
-    }, true);},2000);
+    });
     // setup e-mail data with unicode symbols
 };
+
 
 /**
  * Find procedimiento by id

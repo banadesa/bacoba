@@ -5,14 +5,18 @@
     <div class=" nav-lateral">
         <ul class="list-unstyled">
             <li ng-click="irElemento('top')"> Inicio</li>
-            <li ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" id="sidebar{{paso}}">
-                <div ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}</div>
+            <li class="lista-paso" ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" id="sidebar{{paso}}">
+                <div ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}
+                    <a ng-href="#!/procedimientos/pasos/{{procedimiento._id}}/{{paso.numeroPaso}}">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                </div>
             </li>
             <li ng-click="irElemento('#comentarios')"> Comentarios</li>
         </ul>
     </div>
     <div class="contenedor-pasos">
-        <mostrar_pasos numpaso='0' procid="{{procedimiento._id}}" ></mostrar_pasos>
+        <mostrar_pasos numpaso='0' procid="{{procedimiento._id}}" autoscroll></mostrar_pasos>
         <mostrar_comentarios></mostrar_comentarios>
     </div>
 </section>

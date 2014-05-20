@@ -45,16 +45,6 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/mostrarPasos.html',
             controller : function($scope, $compile, $http, Procedimientos){
                 /**
-                 *Se va al elemento deseado segun el id
-                 *@param {string} elemento al que se desea ir
-                 */
-                $scope.irElemento = function(elemento) {
-                    //var pasoId = '#paso' + elemento;
-                    $('html, body').animate({
-                        scrollTop: $(elemento).offset().top
-                    });
-                };
-                /**
                  *Muestra un procedimiento dentro de un paso
                  *@param {string} _id _id del procedimiento que se cargara
                  *@param {number} paso numero de paso al que pertence el procedimiento

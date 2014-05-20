@@ -1,6 +1,12 @@
 <div ng-repeat="paso in pasosd | filter:{actual: true}">
     <div class="row">
-    <h3 class="label-success col-lg-11" id="paso{{numpaso}}{{paso.numeroPaso}}">Paso N°{{numpaso}}{{paso.numeroPaso}}</h3>
+        <h3 class="label-success col-lg-11 lista-paso" id="paso{{numpaso}}{{paso.numeroPaso}}">Paso N°{{numpaso}}{{paso.numeroPaso}}
+            <div>
+                <a href="/#!/procedimientos/pasos/{{procid}}/{{paso.numeroPaso}}">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </div>
+        </h3>
     </div>
     <p>
         <span ng-bind-html="paso.descripcion"></span>&nbsp<span class="btn btn-sm btn-info" ng-click="mostrarProcedimiento(paso.procedimiento._id, paso.numeroPaso,$index)" ng-show="paso.procedimiento"> <span class="glyphicon glyphicon-eye-open"></span> {{btnMostrarProc[$index].btnMsj}}</span>

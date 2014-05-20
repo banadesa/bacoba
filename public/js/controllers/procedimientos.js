@@ -85,7 +85,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             cont++;
         }
 
-        console.log(files);
         var uploadUrl = '/procedimientos/upload?procedimientoId=' + $scope.procedimiento._id;
         if ($scope.procedimientoRelacionado.nombre) {
             $scope.descripcionPaso = $scope.procedimientoRelacionado.nombre;
@@ -201,6 +200,8 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         .success(function(data) {
             if (data.success) {
                 AppAlert.add('success','El correo se ha enviado Exitosamente!');
+            } else {
+                AppAlert.add('danger','El correo no ha sido enviado!');
             }
         })
         .error(function(data) {
@@ -301,6 +302,19 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.seleccionProcedimientoActivo = true;
                 $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
                 $scope.procedimientoRelacionado = {};
+                if ($routeParams.numeroPaso) {
+                    for (var k = 0; k < $scope.procedimiento.pasos.length; k++) {
+                        if ($scope.procedimiento.pasos[k].actual) {
+                            if ($scope.procedimiento.pasos[k].numeroPaso.toString() === $routeParams.numeroPaso) {
+                                $scope.enviarDatosEditarPaso(k);
+                                break;
+                            }
+                        }
+                    }
+                    if (k >= $scope.procedimiento.pasos.length) {
+                        $location.path('/procedimientos/pasos/' + $scope.procedimiento._id);
+                    }
+                }
             }
             else {
                 $scope.sortPasosAsc();
@@ -310,6 +324,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                 $scope.frmComentar = false;
                 $scope.frmCorreo = false;
                 $scope.rateUser = 0;
+                $anchorScroll();
             }
         } else {
             AppAlert.add('danger', 'Error al intentar acceder al procedimiento');
@@ -562,7 +577,9 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.enviarDatosEditarPaso = function(id) {
         $scope.indexPaso = id;
+        $scope.descripcionPaso = ''
         $scope.descripcionPaso = $scope.procedimiento.pasos[id].descripcion;
+        console.log($scope.descripcionPaso);
         $scope.numeroPaso = $scope.procedimiento.pasos[id].numeroPaso;
         $scope.edicionPaso = true;
         if ($scope.procedimiento.pasos[id].procedimiento) {
@@ -619,20 +636,25 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *Reinicia la forma,limpia todos los models, y pone el poco en descripcionPaso
      */
     $scope.reiniciarForma  = function() {
-        document.getElementById('formaPaso').reset();
-        $scope.formaPaso.$setPristine();
-        $scope.edicionPaso = false;
-        $scope.indexPaso = -1;
-        $scope.fileImagen = '';
-        $scope.fileVideo = '';
-        $scope.videoPasoFake = '';
-        $scope.adjuntoPasoFake = '';
-        $scope.imagenPaso = '';
-        $scope.descripcionPaso = '';
-        $scope.numeroPaso = $scope.ultimoPaso();
-        $scope.seleccionProcedimientoActivo = true;
-        $scope.procedimientoRelacionado = {};
-        $scope.relProcedimiento = false;
+        if ($routeParams.numeroPaso) {
+            window.location ='/#!/procedimientos/' + $scope.procedimiento._id + '#' +$routeParams.numeroPaso;
+        } else {
+            document.getElementById('formaPaso').reset();
+            $scope.formaPaso.$setPristine();
+            $scope.edicionPaso = false;
+            $scope.indexPaso = -1;
+            $scope.fileImagen = '';
+            $scope.fileVideo = '';
+            $scope.videoPasoFake = '';
+            $scope.adjuntoPasoFake = '';
+            $scope.imagenPaso = '';
+            $scope.descripcionPaso = '';
+            $scope.numeroPaso = $scope.ultimoPaso();
+            $scope.seleccionProcedimientoActivo = true;
+            $scope.procedimientoRelacionado = {};
+            $scope.relProcedimiento = false;
+            $scope.btnDesRelProcedimiento = 'Relacionar Procedimiento';
+        }
     };
 
     /**
@@ -689,7 +711,18 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *Redirige a la pagina que muestra el procedimiento y los pasos
      */
     $scope.irProcedimiento = function() {
+        console.log('hola');
         $location.path('procedimientos/' + $scope.procedimiento._id );
+    };
+
+    /**
+     *Redirige a la pagina enviada por parametro
+     *@param {string} pagina
+     */
+    $scope.ir = function(pagina) {
+        console.log('pagina')
+        console.log(pagina)
+        //$location.path(pagina);
     };
 
     /**

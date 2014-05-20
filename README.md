@@ -7,9 +7,6 @@ Los cambios son los siguienes
                         }" se agrego la linea
         <pre>scope.displayElements.text[0].focus();</pre>
     </li>
-    <li>Despues de la linea 554 "scope.displayElements.text.on('mouseup', _mouseup);" se agrego la linea
-        <pre>scope.displayElements.text[0].focus();</pre>
-    </li>
 </ol>
 
 <h3>Pendientes para version 1.0.0</h3>

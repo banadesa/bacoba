@@ -58,6 +58,20 @@ angular.module('mean').config(['$routeProvider',
                 }
             }
         }).
+        when('/procedimientos/pasos/:procedimientoId/:numeroPaso', {
+            controller: 'ProcedimientosController',
+            templateUrl: 'views/procedimientos/pasos.html',
+            resolve: {
+                proc: function($route, Procedimientos) {
+                    return Procedimientos.get({
+                        procedimientoId: $route.current.params.procedimientoId
+                    })
+                    .$promise.then(function(value){
+                        return value;
+                    });
+                }
+            }
+        }).
         when('/categorias', {
             templateUrl: 'views/categorias/list.html'
         }).
@@ -105,34 +119,36 @@ angular.module('mean').run(['Global', '$rootScope',
         if(!Global.authenticated){
           window.location = '/signin';
         }
-        if (currRoute.$$route.originalPath === '/administracion') {
-            if (!Global.user.administracion && !Global.user.seguridad) {
-                window.location = '/';
-            }
-        }
-
-        if (currRoute.$$route.originalPath === '/users') {
-            if (!Global.user.seguridad) {
-                window.location = '/';
-            }
-        }
-
-        if (currRoute.$$route.originalPath === '/categorias') {
-            if (!Global.user.administracion) {
-                window.location = '/';
-            }
-        }
-
-        if (currRoute.$$route.originalPath === '/procedimientos/create') {
-            if (!Global.user.administracion) {
-                window.location = '/';
-            }
-        }
-
-        if (currRoute.$$route.originalPath === '/users/:userId/cambiarclave') {
-            if (!Global.user.seguridad) {
-                if (Global.user._id !== currRoute.params.userId) {
+        if (currRoute.$$route) {
+            if (currRoute.$$route.originalPath === '/administracion') {
+                if (!Global.user.administracion && !Global.user.seguridad) {
                     window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/users') {
+                if (!Global.user.seguridad) {
+                    window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/categorias') {
+                if (!Global.user.administracion) {
+                    window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/procedimientos/create') {
+                if (!Global.user.administracion) {
+                    window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/users/:userId/cambiarclave') {
+                if (!Global.user.seguridad) {
+                    if (Global.user._id !== currRoute.params.userId) {
+                        window.location = '/';
+                    }
                 }
             }
         }

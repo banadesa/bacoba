@@ -435,6 +435,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         if (iFinal + 1 > procFinal.pasos.length -1) {
             doc.end();
             setTimeout(function(){
+            console.log('supuestamente termine');
             if (externo) {
                 res.send({url: url});
             } else {
@@ -572,14 +573,19 @@ exports.enviarCorreo = function(req, res) {
             ]
         };
         server.send(message, function(error, message) {
-            var success = true;
-            if (error) {
-                if (error['code'] !== 4) {
-                    success = false
-                    console.log(error);
+            if(error){
+                console.log('error');
+                console.log(error["smtp"]);
+                console.log('typeof error');
+                console.log(typeof error);
+                if (error === '{ [Error: timedout while connecting to smtp server] code: 4, smtp: undefined }') {
+                    console.log('hola no hay timeout es menitra');
                 }
+                res.send({success: false, error: error});
+            }else{
+                console.log('Message sent: ' + message);
+                res.send({success: true});
             }
-            res.send({success: success});
         });
     });
 };

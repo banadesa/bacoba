@@ -41,7 +41,8 @@
                 <div class="input-group">
                     <adjunto_paso></adjunto_paso>
                     <span class="input-group-btn">
-                            <button class="btn btn-default btn btn-file" type="button">
+                            <div ng-show="adjuntoPasoFake" class="btn btn-default" ng-click="adjuntoPaso='';adjuntoPasoFake=''">X</div>
+                            <button ng-show="!adjuntoPasoFake" class="btn btn-default btn btn-file" type="button">
                                 <input type="file" file-input="fileAdjunto" accept="*" name="adjunto">
                                 Buscar
                             </button>
@@ -53,7 +54,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-primary" ng-disabled="formaPaso.$pristine">
+            <input type="submit" class="btn btn-primary" ng-disabled="formaPaso.$pristine" value="Guardar">
             <div class="btn btn-default" ng-click="reiniciarForma()">Cancelar</div>
         </div>
     </div>

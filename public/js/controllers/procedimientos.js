@@ -637,7 +637,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.reiniciarForma  = function() {
         if ($routeParams.numeroPaso) {
-            window.location ='/#!/procedimientos/' + $scope.procedimiento._id + '#' +$routeParams.numeroPaso;
+            window.location ='/#!/procedimientos/' + $scope.procedimiento._id + '?numeroPaso=paso' +$routeParams.numeroPaso;
         } else {
             document.getElementById('formaPaso').reset();
             $scope.formaPaso.$setPristine();
@@ -711,7 +711,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      *Redirige a la pagina que muestra el procedimiento y los pasos
      */
     $scope.irProcedimiento = function() {
-        console.log('hola');
         $location.path('procedimientos/' + $scope.procedimiento._id );
     };
 

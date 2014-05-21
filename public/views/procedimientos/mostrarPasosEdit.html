@@ -9,6 +9,11 @@
 		<td> {{paso.descripcion | notags | truncate:100 }} </td>
 		<td class=" text-center">
 			<ul class="list-inline">
+				<li>
+				<a tooltip="Ver procedimiento" ng-href="/#!/procedimientos/{{procedimiento._id}}?numeroPaso=paso{{paso.numeroPaso}}">
+				<i class="glyphicon glyphicon-eye-open btn-link"></i>
+				</a>
+				</li>
 				<li tooltip="Mover paso hacia abajo" ng-click="cambiarOrdenPasos($index,'sube')" class="glyphicon glyphicon-arrow-up btn-link" ng-hide="ultimoOPrimerPaso('u',$index)"></li>
 				<li class="glyphicon" ng-show="ultimoOPrimerPaso('u',$index)"></li>
 				<li tooltip="Mover paso hacia arriba" ng-click="cambiarOrdenPasos($index,'baja')" class="glyphicon glyphicon-arrow-down btn-link" ng-hide="ultimoOPrimerPaso('p',paso.numeroPaso)"></li>

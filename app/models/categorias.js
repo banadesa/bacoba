@@ -51,7 +51,9 @@ CategoriaSchema.path('name').validate(function(name) {
 CategoriaSchema.statics.load = function(id, cb) {
     this.findOne({
         _id: id
-    }).populate('padre', 'name').populate('user', 'name username').exec(cb);
+    })
+    //.populate('padre', 'name')
+    .populate('user', 'name username').exec(cb);
 };
 
 mongoose.model('Categoria', CategoriaSchema);

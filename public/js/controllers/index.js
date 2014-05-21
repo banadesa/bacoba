@@ -60,7 +60,8 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             params: {
                 campoQ: '_id',
                 valorQ: $scope.global.user.categorias,
-                sort: 'name'
+                sort: 'name',
+                nav: true
             }
         }).then(function(res){
             $scope.categoriasUsuario = res.data;

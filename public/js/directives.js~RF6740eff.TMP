@@ -37,22 +37,24 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/mostrarComentarios.html'
         };
     })
-    .directive('focusAlAnchor', ['$anchorScroll', '$timeout', '$routeParams', '$location',
-        function($anchorScroll, $timeout, $routeParams, $location) {
+    .directive('focusAlAnchor', ['$anchorScroll', '$timeout', '$routeParams',
+        function($anchorScroll, $timeout, $routeParams) {
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
                 if (scope.$last){
-                    if ($routeParams.numeroPaso) {
-                        $timeout(function () {
-                            // $location.hash($routeParams.numeroPaso);
-                            // $anchorScroll();
-                            // window.scrollTo(window.pageXOffset, window.pageYOffset - 60);
-                            $('html, body').animate({
-                                scrollTop: $('#' + $routeParams.numeroPaso).offset().top - 60
-                            },0);
-                        });
-                    }
+                    $timeout(function () {
+                        $anchorScroll();
+                        setTimeout(function(){
+                            window.scrollTo(window.pageXOffset, window.pageYOffset - 60);
+                        },300);
+                        // var ir;
+                        // ir ='#paso' + $routeParams.numeroPaso;
+                        // console.log(ir);
+                        // $('html, body').animate({
+                        //     scrollTop: $(ir).offset().top - 60
+                        // },0);
+                    });
                 }
             }
         }
@@ -123,9 +125,6 @@ angular.module('mean.directives', [])
                             }
                             else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
                         });
-                        for (var i = 0; i < $scope.pasosd.length; i++) {
-                            $scope.pasosd[i].imgFull = false
-                        };
                     });
                 };
             },
@@ -259,7 +258,7 @@ angular.module('mean.directives', [])
                         canvas.attr({ width: width, height: height });
                         canvas[0].getContext('2d').drawImage(this,0,0,width,height);
                     };
-                    img.src='/contenido/'+ scope.procid + '/imagenes/' + value;
+                    img.src='/contenido/'+ scope.procid + '/imagenes/thumbs/' + value;
                 }
             }
         };

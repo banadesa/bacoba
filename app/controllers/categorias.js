@@ -94,7 +94,6 @@ exports.all = function(req, res) {
     var limite = 20; //cuantos datos devolvera
     var query; //El query por el que se filtrara
     var campos = {}; //campos que se mostraran
-
     //busca si envio parametro para sort
     if (req.query.sort) {
         //si existe empieza a armar el string que se convertira en objeto tipo json
@@ -165,10 +164,14 @@ exports.all = function(req, res) {
                         r++;
                         cuentaProcs();
                     } else {
-                        Procedimiento.find({categorias: {$in: req.query.valorQ}}).count({}, function(err,tot) {
-                            cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: ''});
+                        if (req.query.nav) {
+                            Procedimiento.find({categorias: {$in: req.query.valorQ}}).count({}, function(err,tot) {
+                                cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: ''});
+                                res.jsonp(cates);
+                            })
+                        } else {
                             res.jsonp(cates);
-                        });
+                        }
                     }
                 });
             };

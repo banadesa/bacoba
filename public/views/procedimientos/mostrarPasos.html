@@ -1,4 +1,4 @@
-<div ng-repeat="paso in pasosd | filter:{actual: true}">
+<div ng-repeat="paso in pasosd | filter:{actual: true}" focus-al-anchor>
     <div class="row">
         <h3 class="label-success col-lg-11 lista-paso" id="paso{{numpaso}}{{paso.numeroPaso}}">Paso N°{{numpaso}}{{paso.numeroPaso}}
             <div>
@@ -13,6 +13,7 @@
         <div ng-show="btnMostrarProc[$index].verDiv" id="{{subpaso}}{{paso.numeroPaso}}"></div>
         <a ng-href="/contenido/{{procid}}/adjuntos/{{paso.adjunto}}" ng-show="paso.adjunto" class="glyphicon glyphicon-paperclip"> {{paso.adjunto | norandom}}</a>
     </p>
-    <ba-imagen value={{paso.imagen}} ng-show="paso.imagen"></ba-imagen>
+    <div style="height:150px;width:300px;cursor:pointer;" ng-show="paso.imagen&&!paso.imgFull" ng-click="paso.imgFull=!paso.imgFull"><img alt="{{paso.imagen}}" ng-src="/contenido/{{procid}}/imagenes/thumbs/{{paso.imagen}}"></div>
+    <div style="cursor:pointer;" ng-show="paso.imagen&&paso.imgFull" ng-click="paso.imgFull=!paso.imgFull"><img alt="{{paso.imagen}}" ng-src="/contenido/{{procid}}/imagenes/{{paso.imagen}}"></div>
 </div>
 

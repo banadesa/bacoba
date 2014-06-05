@@ -31,8 +31,8 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
                 $scope.clave = '';
                 $scope.administracion = false;
                 $scope.seguridad = false;
-                $location.path('/users');
                 AppAlert.add('success','¡Se creo el usuario ' + data.usuario + ' exitosamente!');
+                $scope.irAtras();
             }
         })
         .error(function(data) {
@@ -80,7 +80,7 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         $http({method:'PUT', url:'users/'+ usuario._id, data: usuario})
         .success(function(data) {
             if (data.success) {
-                $location.path('users/');
+                $scope.irAtras();
                 AppAlert.add('success','¡Se actualizo el usuario ' + data.usuario.username + ' exitosamente! ' + data.message);
             } else {
                 AppAlert.add('danger','Error al actualizar el usuario ' + data.usuario.username + ' ya que ' + data.message);
@@ -92,8 +92,18 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
     };
 
     $scope.find = function() {
+        $scope.busqueda = {};
         Usuarios.query(function(usuarios) {
             $scope.usuarios = usuarios;
+            if ($routeParams.nombre) {
+                $scope.busqueda.name = $routeParams.nombre;
+            }
+            if ($routeParams.usuario) {
+                $scope.busqueda.username = $routeParams.usuario;
+            }
+            if ($routeParams.correo) {
+                $scope.busqueda.email = $routeParams.correo;
+            }
         });
     };
 
@@ -118,11 +128,43 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
         });
     };
 
-    /*
+    /**
+     * Agrega un parametro a la Url
+     */
+     $scope.AgregarParametroUrl = function(parametro, nombre) {
+        if (nombre !=='') {
+            $location.search(parametro, nombre);
+        } else {
+            $location.search(parametro, null);
+        }
+     };
+
+     /*
      *va a la pagina anterior
      */
     $scope.irAtras = function() {
         $window.history.back();
+    };
+
+
+    /**
+     *Redirige a la pagina que muestra el procedimiento y los pasos
+     @param {string} url pagina a la que se ira
+     */
+    $scope.ir = function(url) {
+        $location.path(url);
+    };
+
+    /**
+    *
+    */
+    $scope.limpiarBusqueda = function() {
+        $scope.busqueda.name='';
+        $scope.busqueda.username='';
+        $scope.busqueda.email='';
+        $location.search('nombre',null);
+        $location.search('descripcion',null);
+        $location.search('padre',null);
     };
 
     /*
@@ -135,8 +177,9 @@ angular.module('mean.usuarios').controller('UsersController', ['$scope', '$route
             var url = 'users/' + $routeParams.userId + '/cambiarclave';
             $http.post(url, {id: $routeParams.userId, nuevaClave : $scope.clave})
             .then(function() {
-                $window.history.back();
+                $scope.irAtras();
             });
         }
     };
+
 }]);

@@ -70,7 +70,7 @@
     "grunt-contrib-watch": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-nodemon": "0.1.2",
-    "grunt-concurrent": "latest",
+    "grunt-concurrent": "~0.4.3",
     "grunt-mocha-test": "latest",
     "karma-script-launcher": "~0.1.0",
     "karma-chrome-launcher": "~0.1.0",

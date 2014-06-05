@@ -68,7 +68,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     var llenarProc = function(proc, i, padreProc, iPadre, pasoPadre, nuevoProc , veces, callback) {
             var actual = false;
             if (proc.pasos[i]) {
-                actual = proc.pasos[i].actual
+                actual = proc.pasos[i].actual;
                 nuevoProc.pasos.push(proc.pasos[i]);
 
                 //Asigno el id del procedimiento por si este es distinto al procedimiento original
@@ -95,7 +95,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido +
                             (aArray[t] * divisor);
                         divisor = divisor / 100;
-                    };
+                    }
             }
 
             //Inserto el procedimiento a nuevo proc
@@ -545,15 +545,15 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
  */
 exports.enviarCorreo = function(req, res) {
     var destinatario = {};
-    var comentario = ''
+    var comentario = '';
     destinatario = req.body.destinatario;
     if (destinatario.comentario) {
          comentario = 'con el siguiente comentario: <p>'+ destinatario.comentario + '</p>';
     }
     var proc = req.procedimiento;
     var server  = email.server.connect({
-           user:    "git@banadesa.hn",
-           host:    "129.200.10.10",
+           user:    'git@banadesa.hn',
+           host:    '129.200.10.10',
            port: 25
     });
     crearPdf(req,res, function(rutaArchivo) {
@@ -566,16 +566,16 @@ exports.enviarCorreo = function(req, res) {
             attachment:
             [
                {data:'<p>Distinguido ' + destinatario.nombre + ',</p>' + '<b>' + req.user.name + '</b> le ha enviado el manual <b>' +
-               '<a href="http://localhost:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
+               '<a href="http://10.172.20.30:3000/#!/procedimientos/' + proc.id +'">' + proc.nombre + '</a></b> ' + comentario +
                '<p><small>***favor no responder este correo</small></p>***', alternative:true},
-               {path:rutaArchivo, type:"application/pdf", name:proc.nombre + '.pdf'}
+               {path:rutaArchivo, type:'application/pdf', name:proc.nombre + '.pdf'}
             ]
         };
-        server.send(message, function(error, message) {
+        server.send(message, function(error) {
             var success = true;
             if (error) {
-                if (error['code'] !== 4) {
-                    success = false
+                if (error.code !== 4) {
+                    success = false;
                     console.log(error);
                 }
             }

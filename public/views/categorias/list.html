@@ -14,16 +14,16 @@
         </tr>
         <tr>
             <th class="text-center col-sm-2" >
-                <input type="text" placeholder="Buscar por Nombre" ng-model= "busqueda.name">
+                <input class="form-control" type="text" placeholder="Buscar por Nombre" ng-model= "busqueda.name" ng-change="AgregarParametroUrl('nombre', busqueda.name)">
             </th>
             <th class="text-center col-sm-5">
-                <input type="text" placeholder="Buscar por Descripcion" ng-model= "busqueda.description">
+                <input class="form-control" type="text" placeholder="Buscar por Descripcion" ng-model= "busqueda.description" ng-change="AgregarParametroUrl('descripcion', busqueda.description)">
             </th>
             <th class="text-center col-sm-2">
-                <input type="text" placeholder="Buscar por Padre" ng-model= "busqueda.padre.name">
+                <input class="form-control" type="text" placeholder="Buscar por Padre" ng-model= "busqueda.padre" ng-change="AgregarParametroUrl('padre', busqueda.padre)">
             </th>
             <th class="text-center col-sm-2">
-                <button tooltip="Limpiar Busqueda" class="btn btn-primary btn-sm" ng-click="busqueda.name='';busqueda.description='';busqueda.padre.name='';">
+                <button tooltip="Limpiar Busqueda" class="btn btn-primary btn-sm" ng-click="limpiarBusqueda();">
                     <span>
                         <i class="glyphicon glyphicon-remove-circle"></i>
                     </span>
@@ -31,12 +31,12 @@
                 </button>
             </th>
         </tr>
-        <tr ng-repeat="categoria in categorias | filter:busqueda" class="my-repeat-animation">
+        <tr ng-repeat="categoria in categorias | filter:{name: busqueda.name, description: busqueda.description, padre.name: busqueda.padre}" class="animacion-ngrepeat">
             <td class="col-sm-2">{{categoria.name}}</td>
             <td class="col-sm-5">{{categoria.description}}</td>
             <td class="col-sm-2">{{categoria.padre.name}}</td>
             <td class="text-center col-sm-1">
-                <a tooltip="Editar Categoria" class="btn" href="/#!/categorias/{{categoria._id}}/edit">
+                <a tooltip="Editar Categoria" class="btn" ng-click="ir('categorias/' + categoria._id + '/edit')">
                     <i class="glyphicon glyphicon-edit"></i>
                 </a>
                 <a tooltip="Eliminar Categoria" class="btn" data-ng-click="remove(categoria);">

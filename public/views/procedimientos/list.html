@@ -1,7 +1,7 @@
 <section data-ng-init="find()">
 
 	<ul class="procedimientos unstyled">
-		<li data-ng-repeat="procedimiento in procedimientos">
+		<li data-ng-repeat="procedimiento in procedimientos" class="animacion-ngrepeat">
 			<span>{{procedimiento.created | date:'medium'}}</span> /
 			<span>{{procedimiento.user.name}}</span>
 			<h2><a data-ng-href="#!/procedimientos/{{procedimiento._id}}">{{procedimiento.nombre}}</a></h2>

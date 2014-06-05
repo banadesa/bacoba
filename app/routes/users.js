@@ -26,12 +26,12 @@ module.exports = function(app, passport) {
     app.get('/users/me', users.me);
 
     // Setting up the users api
-    app.get('/users', authorization.requiresLogin, authorization.esAdministrador, users.all);
-    app.post('/users', authorization.requiresLogin, authorization.esAdministrador, users.create);
+    app.get('/users', authorization.requiresLogin, authorization.esSeguridad, users.all);
+    app.post('/users', authorization.requiresLogin, authorization.esSeguridad, users.create);
     app.get('/users/:userId', authorization.requiresLogin, users.show);
-    app.put('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.update);
+    app.put('/users/:userId', authorization.requiresLogin, authorization.esSeguridad, users.update);
     app.post('/users/:userId/cambiarclave', authorization.requiresLogin, mismoUsuario, users.cambiarClave);
-    app.del('/users/:userId', authorization.requiresLogin, authorization.esAdministrador, users.destroy);
+    app.del('/users/:userId', authorization.requiresLogin, authorization.esSeguridad, users.destroy);
 
     // Setting up the userId param
     app.param('userId', users.user);

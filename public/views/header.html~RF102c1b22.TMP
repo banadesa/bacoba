@@ -8,16 +8,16 @@
         </button>
         <a class="navbar-brand" href="/">Bacoba</a>
     </div>
-        <div class="col-sm-6 col-md-4 pull-left">
-            <form class="navbar-form" role="search" data-ng-show="global.authenticated">
-            <div class="input-group">
-                <input type="text" ng-model="procedimientoRelacionado.nombre" placeholder="Escriba el nombre del procedimiento" typeahead="nombre as proc.nombre for proc in buscaProcedimientos($viewValue) | limitTo:5" typeahead-loading="loadingProcedimientos" class="form-control" typeahead-on-select='seleccionarProcedimiento($item)' typeahead-template-url="views/procedimientos/seleccionProcedimientos.html"  id='procedimientoRelacionado'>
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        <form class="navbar-form" role="search" data-ng-show="global.authenticated">
+            <div  class="col-sm-4 col-md-4 col-xs-6">
+                <div class="input-group">
+                    <input type="text" ng-model="procedimientoRelacionado.nombre" placeholder="Escriba el nombre del procedimiento" typeahead="nombre as proc.nombre for proc in buscaProcedimientos($viewValue) | limitTo:5" typeahead-loading="loadingProcedimientos" class="form-control" typeahead-on-select='seleccionarProcedimiento($item)' typeahead-template-url="views/procedimientos/seleccionProcedimientos.html"  id='procedimientoRelacionado'>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
                 </div>
             </div>
-            </form>
-        </div>
+        </form>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right" data-ng-show="global.authenticated">
             <li class="dropdown">

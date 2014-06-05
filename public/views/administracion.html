@@ -1,7 +1,7 @@
 <div data-ng-controller="AdministracionController">
     <h2>Administracion</h2>
     <ul class="cbp-rfgrid">
-        <li ng-repeat="admin in adminMenus" ng-click="ir(admin.link)">
+        <li ng-repeat="admin in adminMenus | filter : {ver: true}" ng-click="ir(admin.link)" class="animacion-ngrepeat">
             <div class="clavo">
                 <div class="cbp-rfgrid-tit">
                     <div>

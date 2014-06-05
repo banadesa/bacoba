@@ -8,6 +8,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
         var limite = 4;
         $scope.noVistos = false;
         $scope.busqueda = false;
+        $scope.filtro = {};
         //Busca las categorias del usuario
         $http.get('categorias/',{
             params: {
@@ -18,8 +19,12 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             }
         }).then(function(res){
             $scope.categoriasUsuario = res.data;
+
+            if ($routeParams.filtro) {
+                $scope.filtro.nombre = $routeParams.filtro;
+            }
             if ($routeParams.categoria) {
-                $scope.mostrarProcs($routeParams.categoria)
+                $scope.mostrarProcs($routeParams.categoria);
             } else {
             //busca los procedimientos con mas visitas
                 $http.get('procedimientos/', {
@@ -76,15 +81,6 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
         return categoria.cantProcs > 0;
     };
 
-    /**
-     * Redirecciona hacia la cateogoria seleccionada
-     @param {string} nombre nombre de la categoria
-     */
-     $scope.irCategoriaProcs = function(nombre) {
-        console.log('/#!/?categoria=' + nombre);
-        $location.search('categoria', nombre);
-        // window.location = '/#!/?categoria=' + nombre;
-     }
 
     /**
      * Muestra los procedimientos segun la categoria
@@ -100,8 +96,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             id = '';
             indice = 0;
             for (var e = 0; e < $scope.categoriasUsuario.length; e++) {
-                if ($scope.categoriasUsuario[e].cantProcs === 0) {
-                } else {
+                if ($scope.categoriasUsuario[e].cantProcs !== 0) {
                     if ($scope.categoriasUsuario[e].name === nombre) {
                         id = $scope.categoriasUsuario[e]._id;
                         break;
@@ -109,10 +104,12 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                     indice++;
                 }
             }
+        } else {
+            $scope.filtro.nombre = '';
+            $location.search('categoria', nombre);
         }
         if (!id) {
-                console.log('bu entre');
-                $location.path('/#!/')
+                $location.path('/#!/');
         } else {
             var params = {};
             for (var a = 0; a < $scope.categoriasUsuario.length; a++) {
@@ -181,4 +178,11 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             }
         return procedimiento;
     };
+
+    /**
+     * Agrega un parametro a la Url
+     */
+     $scope.AgregarParametroUrl = function(parametro, nombre) {
+        $location.search(parametro, nombre);
+     };
 }]);

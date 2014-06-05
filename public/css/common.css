@@ -113,9 +113,9 @@ footer p {
   z-index: 7000;
 }
 
-.my-repeat-animation.ng-enter,
-.my-repeat-animation.ng-leave,
-.my-repeat-animation.ng-move {
+.animacion-ngrepeat.ng-enter,
+.animacion-ngrepeat.ng-leave,
+.animacion-ngrepeat.ng-move {
   -webkit-transition: 0.3s linear all;
   -moz-transition: 0.3s linear all;
   -o-transition: 0.3s linear all;
@@ -123,28 +123,28 @@ footer p {
   position:relative;
 }
 
-.my-repeat-animation.ng-enter {
+.animacion-ngrepeat.ng-enter {
   left:-10px;
   opacity:0;
 }
-.my-repeat-animation.ng-enter.ng-enter-active {
+.animacion-ngrepeat.ng-enter.ng-enter-active {
   left:0;
   opacity:1;
 }
 
-.my-repeat-animation.ng-leave {
+.animacion-ngrepeat.ng-leave {
   left:0;
   opacity:1;
 }
-.my-repeat-animation.ng-leave.ng-leave-active {
+.animacion-ngrepeat.ng-leave.ng-leave-active {
   left:-10px;
   opacity:0;
 }
 
-.my-repeat-animation.ng-move {
+.animacion-ngrepeat.ng-move {
   opacity:0.5;
 }
-.my-repeat-animation.ng-move.ng-move-active {
+.animacion-ngrepeat.ng-move.ng-move-active {
   opacity:1;
 }
 

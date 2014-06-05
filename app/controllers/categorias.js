@@ -168,7 +168,7 @@ exports.all = function(req, res) {
                             Procedimiento.find({categorias: {$in: req.query.valorQ}}).count({}, function(err,tot) {
                                 cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: ''});
                                 res.jsonp(cates);
-                            })
+                            });
                         } else {
                             res.jsonp(cates);
                         }

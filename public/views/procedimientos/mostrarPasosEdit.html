@@ -4,7 +4,7 @@
 		<th class="text-center">Descripcion</th>
 		<th class="col-sm-2 text-center">Acciones</th>
 	</tr>
-	<tr ng-repeat="paso in procedimiento.pasos | filter:{actual: true}">
+	<tr ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" class="animacion-ngrepeat">
 		<td> <div class="text-center">{{paso.numeroPaso}}</div></td>
 		<td> {{paso.descripcion | notags | truncate:100 }} </td>
 		<td class=" text-center">

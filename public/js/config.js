@@ -5,7 +5,8 @@ angular.module('mean').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/', {
-            templateUrl: 'views/index.html'
+            templateUrl: 'views/index.html',
+            reloadOnSearch: false
         }).
         when('/procedimientos/create', {
             controller: 'ProcedimientosController',
@@ -73,7 +74,8 @@ angular.module('mean').config(['$routeProvider',
             }
         }).
         when('/categorias', {
-            templateUrl: 'views/categorias/list.html'
+            templateUrl: 'views/categorias/list.html',
+            reloadOnSearch: false
         }).
         when('/categorias/create', {
             templateUrl: 'views/categorias/create.html'
@@ -88,7 +90,8 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/users/create.html'
         }).
         when('/users', {
-            templateUrl: 'views/users/list.html'
+            templateUrl: 'views/users/list.html',
+            reloadOnSearch: false
         }).
         when('/users/create', {
             templateUrl: 'views/users/create.html'
@@ -132,13 +135,43 @@ angular.module('mean').run(['Global', '$rootScope',
                 }
             }
 
+            if (currRoute.$$route.originalPath === '/users/:userId/edit') {
+                if (!Global.user.seguridad) {
+                    window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/users/create') {
+                if (!Global.user.seguridad) {
+                    window.location = '/';
+                }
+            }
+
             if (currRoute.$$route.originalPath === '/categorias') {
                 if (!Global.user.administracion) {
                     window.location = '/';
                 }
             }
 
+            if (currRoute.$$route.originalPath === '/categorias/:categoriaId/edit') {
+                if (!Global.user.administracion) {
+                    window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/categorias/create') {
+                if (!Global.user.administracion) {
+                    window.location = '/';
+                }
+            }
+
             if (currRoute.$$route.originalPath === '/procedimientos/create') {
+                if (!Global.user.administracion) {
+                    window.location = '/';
+                }
+            }
+
+            if (currRoute.$$route.originalPath === '/procedimientos/pasos/:procedimientoId') {
                 if (!Global.user.administracion) {
                     window.location = '/';
                 }

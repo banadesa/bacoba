@@ -4,7 +4,7 @@
 </div>
 
 <ul class="list-unstyled">
-    <li class="row" style="padding:20px" ng-repeat="comentario in procedimiento.comentarios">
+    <li class="row" style="padding:20px" ng-repeat="comentario in procedimiento.comentarios" class="animacion-ngrepeat">
             <div><b>{{comentario.user.name || global.user.name}}: </b></div>
             <rating class="text-warning" value="comentario.rating" readonly="true" >
             </rating>

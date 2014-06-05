@@ -5,9 +5,9 @@
     <div class=" nav-lateral">
         <ul class="list-unstyled">
             <li ng-click="irElemento('top')"> Inicio</li>
-            <li class="lista-paso" ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" id="sidebar{{paso}}">
+            <li class="lista-paso" ng-repeat="paso in procedimiento.pasos | filter:{actual: true}" id="sidebar{{paso}}" class="animacion-ngrepeat">
                 <div ng-click="irElemento('#paso' + paso.numeroPaso)">Paso No.{{paso.numeroPaso}}
-                    <a ng-href="#!/procedimientos/pasos/{{procedimiento._id}}/{{paso.numeroPaso}}">
+                    <a ng-href="#!/procedimientos/pasos/{{procedimiento._id}}/{{paso.numeroPaso}}" ng-show="global.user.administracion">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </a>
                 </div>

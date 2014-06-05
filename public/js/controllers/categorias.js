@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.categorias').controller('CategoriasController', ['$scope', '$routeParams', '$location',
- 'Global', 'AppAlert', 'Categorias', 'modalService',
-  function ($scope, $routeParams, $location, Global, AppAlert, Categorias, modalService) {
+ '$window', 'Global', 'AppAlert', 'Categorias', 'modalService',
+  function ($scope, $routeParams, $location, $window, Global, AppAlert, Categorias, modalService) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -12,8 +12,8 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
             padre: this.categoria.padre
         });
         categoria.$save(function(response) {
-            $location.path('categorias/');
             AppAlert.add('success', '¡La categoria ' + response.name + ' fue creada exitosamente!');
+            $window.history.back();
         });
 
         this.name = '';
@@ -56,14 +56,30 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
 
         categoria.$update(function(response) {
             AppAlert.add('success', '¡La categoria ' + response.name + ' fue actualizada exitosamente!');
-            $location.path('categorias/');
+            $window.history.back();
 
         });
     };
 
     $scope.find = function() {
+        $scope.busqueda = {};
         Categorias.query(function(categorias) {
             $scope.categorias = categorias;
+            for (var i = 0; i < $scope.categorias.length; i++) {
+                if (!$scope.categorias[i].padre) {
+                    $scope.categorias[i].padre = {};
+                    $scope.categorias[i].padre.name = '';
+                }
+            }
+            if ($routeParams.nombre) {
+                $scope.busqueda.name = $routeParams.nombre;
+            }
+            if ($routeParams.descripcion) {
+                $scope.busqueda.description = $routeParams.descripcion;
+            }
+            if ($routeParams.padre) {
+                $scope.busqueda.padre.name = $routeParams.padre;
+            }
         });
     };
 
@@ -82,5 +98,44 @@ angular.module('mean.categorias').controller('CategoriasController', ['$scope', 
         Categorias.query(query, function (categorias) {
             $scope.categorias = categorias;
         });
+    };
+
+    /**
+     * Agrega un parametro a la Url
+     */
+     $scope.AgregarParametroUrl = function(parametro, nombre) {
+        if (nombre !=='') {
+            $location.search(parametro, nombre);
+        } else {
+            $location.search(parametro, null);
+        }
+     };
+
+     /*
+     *va a la pagina anterior
+     */
+    $scope.irAtras = function() {
+        $window.history.back();
+    };
+
+
+    /**
+     *Redirige a la pagina que muestra el procedimiento y los pasos
+     @param {string} url pagina a la que se ira
+     */
+    $scope.ir = function(url) {
+        $location.path(url);
+    };
+
+    /**
+    *
+    */
+    $scope.limpiarBusqueda = function() {
+        $scope.busqueda.name='';
+        $scope.busqueda.username='';
+        $scope.busqueda.email='';
+        $location.search('nombre',null);
+        $location.search('correo',null);
+        $location.search('email',null);
     };
 }]);

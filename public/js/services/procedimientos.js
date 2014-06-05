@@ -26,7 +26,7 @@ angular.module('mean.procedimientos')
                     tipo = 'adjunto';
                 } else if (tipo !== 'image' && tipo !== 'video') {
                     tipo = 'adjunto';
-                };
+                }
                 fd.append(tipo, files[i]);
             }
             $http.post(uploadUrl, fd, {

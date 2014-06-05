@@ -1,7 +1,7 @@
-<div ng-repeat="paso in pasosd | filter:{actual: true}" focus-al-anchor>
+<div ng-repeat="paso in pasosd | filter:{actual: true}" focus-al-anchor class="animacion-ngrepeat">
     <div class="row">
         <h3 class="label-success col-lg-11 lista-paso" id="paso{{numpaso}}{{paso.numeroPaso}}">Paso N°{{numpaso}}{{paso.numeroPaso}}
-            <div>
+            <div ng-show="global.user.administracion">
                 <a href="/#!/procedimientos/pasos/{{procid}}/{{paso.numeroPaso}}">
                     <i class="glyphicon glyphicon-pencil"></i>
                 </a>

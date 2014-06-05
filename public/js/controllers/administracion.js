@@ -7,15 +7,18 @@ angular.module('mean.administracion').controller('AdministracionController', ['$
         $scope.adminMenus = [{
             'title': 'Categorias',
             'link': 'categorias',
-            'descripcion': 'Administracion de categorias, para crear editar o borrar'
+            'descripcion': 'Administracion de categorias, para crear editar o borrar',
+            'ver': $scope.global.user.administracion
         }, {
             'title': 'Usuarios',
             'link': 'users',
-            'descripcion': 'Administracion de usuarios, para crear editar o borrar'
+            'descripcion': 'Administracion de usuarios, para crear editar o borrar',
+            'ver': $scope.global.user.seguridad
         }, {
             'title': 'Crear Procedimiento',
             'link': 'procedimientos/create',
-            'descripcion': 'Crear un nuevo procedimiento'
+            'descripcion': 'Crear un nuevo procedimiento',
+            'ver': $scope.global.user.administracion
         }];
     }
 

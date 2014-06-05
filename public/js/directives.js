@@ -37,11 +37,11 @@ angular.module('mean.directives', [])
             templateUrl: 'views/procedimientos/mostrarComentarios.html'
         };
     })
-    .directive('focusAlAnchor', ['$anchorScroll', '$timeout', '$routeParams', '$location',
-        function($anchorScroll, $timeout, $routeParams, $location) {
+    .directive('focusAlAnchor', ['$anchorScroll', '$timeout', '$routeParams',
+        function($anchorScroll, $timeout, $routeParams) {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
+            link: function(scope) {
                 if (scope.$last){
                     if ($routeParams.numeroPaso) {
                         $timeout(function () {
@@ -55,7 +55,7 @@ angular.module('mean.directives', [])
                     }
                 }
             }
-        }
+        };
     }])
     .directive('mostrarPasos', ['$filter', function() {
         return {
@@ -63,7 +63,8 @@ angular.module('mean.directives', [])
             priority: 451,
             scope: {numpaso: '@', procid: '@'},
             templateUrl: 'views/procedimientos/mostrarPasos.html',
-            controller : function($scope, $compile, $http, Procedimientos){
+            controller : function($scope, $compile, $http, Global, Procedimientos){
+                $scope.global = Global;
                 /**
                  *Muestra un procedimiento dentro de un paso
                  *@param {string} _id _id del procedimiento que se cargara
@@ -124,8 +125,8 @@ angular.module('mean.directives', [])
                             else $scope.btnMostrarProc.push({procedimientoId: null, btnMsj: '', visible: false});
                         });
                         for (var i = 0; i < $scope.pasosd.length; i++) {
-                            $scope.pasosd[i].imgFull = false
-                        };
+                            $scope.pasosd[i].imgFull = false;
+                        }
                     });
                 };
             },

@@ -315,6 +315,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
                         $location.path('/procedimientos/pasos/' + $scope.procedimiento._id);
                     }
                 }
+                $('html, body').animate({ scrollTop: 0 },0);
             }
             else {
                 $scope.sortPasosAsc();
@@ -577,7 +578,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.enviarDatosEditarPaso = function(id) {
         $scope.indexPaso = id;
-        $scope.descripcionPaso = ''
         $scope.descripcionPaso = $scope.procedimiento.pasos[id].descripcion;
         console.log($scope.descripcionPaso);
         $scope.numeroPaso = $scope.procedimiento.pasos[id].numeroPaso;
@@ -637,7 +637,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.reiniciarForma  = function() {
         if ($routeParams.numeroPaso) {
-            window.location ='/#!/procedimientos/' + $scope.procedimiento._id + '?numeroPaso=paso' +$routeParams.numeroPaso;
+            $location.url('/procedimientos/' + $scope.procedimiento._id + '?numeroPaso=paso' +$routeParams.numeroPaso);
         } else {
             document.getElementById('formaPaso').reset();
             $scope.formaPaso.$setPristine();
@@ -712,16 +712,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
      */
     $scope.irProcedimiento = function() {
         $location.path('procedimientos/' + $scope.procedimiento._id );
-    };
-
-    /**
-     *Redirige a la pagina enviada por parametro
-     *@param {string} pagina
-     */
-    $scope.ir = function(pagina) {
-        console.log('pagina')
-        console.log(pagina)
-        //$location.path(pagina);
     };
 
     /**

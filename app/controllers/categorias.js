@@ -158,15 +158,21 @@ exports.all = function(req, res) {
             var r = 0;
             var cuentaProcs = function() {
                  Procedimiento.count({categorias: cates[r]._id}, function(err,c) {
-                    cates[r]._doc.actual = '';
+                    var categoriasUsuario =  [];
+                    cates[r]._doc.actual = 'nav-lateral-no-actual';
                     cates[r]._doc.cantProcs = c;
                     if (r < cates.length-1) {
                         r++;
                         cuentaProcs();
                     } else {
                         if (req.query.nav) {
-                            Procedimiento.find({categorias: {$in: req.query.valorQ}}).count({}, function(err,tot) {
-                                cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: ''});
+                            if( Object.prototype.toString.call( req.query.valorQ ) === '[object Array]' ) {
+                                categoriasUsuario = req.query.valorQ;
+                            } else {
+                                categoriasUsuario.push(req.query.valorQ);
+                            }
+                            Procedimiento.find({categorias: {$in: categoriasUsuario}}).count({}, function(err,tot) {
+                                cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: 'nav-lateral-no-actual'});
                                 res.jsonp(cates);
                             });
                         } else {

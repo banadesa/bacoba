@@ -1,0 +1,433 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'grunt-contrib-uglify',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.12
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json c:\banarep2\Desarrollo\Web\bacoba\package.json
+6 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\bower\package.json
+7 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-flash\package.json
+8 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-mongo\package.json
+9 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\crypto\package.json
+10 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\emailjs\package.json
+11 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\express\package.json
+12 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\forever\package.json
+13 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\fs-extra\package.json
+14 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt\package.json
+15 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-cli\package.json
+16 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
+17 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-cssmin\package.json
+18 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-jshint\package.json
+19 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-watch\package.json
+20 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-env\package.json
+21 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-karma\package.json
+22 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-mocha-test\package.json
+23 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-nodemon\package.json
+24 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\image-size\package.json
+25 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagemagick\package.json
+26 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagesize\package.json
+27 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\jade\package.json
+28 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma\package.json
+29 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-chrome-launcher\package.json
+30 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coffee-preprocessor\package.json
+31 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coverage\package.json
+32 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-firefox-launcher\package.json
+33 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-html2js-preprocessor\package.json
+34 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-jasmine\package.json
+35 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-phantomjs-launcher\package.json
+36 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-requirejs\package.json
+37 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-script-launcher\package.json
+38 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\lodash\package.json
+39 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\mean-logger\package.json
+40 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\mongoose\package.json
+41 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\nodemailer\package.json
+42 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport\package.json
+43 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-facebook\package.json
+44 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-github\package.json
+45 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-google-oauth\package.json
+46 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-linkedin\package.json
+47 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-local\package.json
+48 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-twitter\package.json
+49 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit\package.json
+50 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\should\package.json
+51 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\supertest\package.json
+52 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\underscore\package.json
+53 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\view-helpers\package.json
+54 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\package.json
+55 verbose readDependencies using package.json deps
+56 verbose cache add [ 'grunt-contrib-uglify', null ]
+57 verbose cache add name=undefined spec="grunt-contrib-uglify" args=["grunt-contrib-uglify",null]
+58 verbose parsed url { protocol: null,
+58 verbose parsed url   slashes: null,
+58 verbose parsed url   auth: null,
+58 verbose parsed url   host: null,
+58 verbose parsed url   port: null,
+58 verbose parsed url   hostname: null,
+58 verbose parsed url   hash: null,
+58 verbose parsed url   search: null,
+58 verbose parsed url   query: null,
+58 verbose parsed url   pathname: 'grunt-contrib-uglify',
+58 verbose parsed url   path: 'grunt-contrib-uglify',
+58 verbose parsed url   href: 'grunt-contrib-uglify' }
+59 silly lockFile 9dabf0fb-grunt-contrib-uglify grunt-contrib-uglify
+60 verbose lock grunt-contrib-uglify C:\Users\jperdomo\AppData\Roaming\npm-cache\9dabf0fb-grunt-contrib-uglify.lock
+61 silly lockFile 9dabf0fb-grunt-contrib-uglify grunt-contrib-uglify
+62 silly lockFile 9dabf0fb-grunt-contrib-uglify grunt-contrib-uglify
+63 verbose addNamed [ 'grunt-contrib-uglify', '' ]
+64 verbose addNamed [ null, '' ]
+65 silly lockFile 1f4692e4-grunt-contrib-uglify grunt-contrib-uglify@
+66 verbose lock grunt-contrib-uglify@ C:\Users\jperdomo\AppData\Roaming\npm-cache\1f4692e4-grunt-contrib-uglify.lock
+67 silly addNameRange { name: 'grunt-contrib-uglify', range: '', hasData: false }
+68 verbose url raw grunt-contrib-uglify
+69 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-uglify' ]
+70 verbose url resolved https://registry.npmjs.org/grunt-contrib-uglify
+71 info trying registry request attempt 1 at 15:21:17
+72 http GET https://registry.npmjs.org/grunt-contrib-uglify
+73 http 200 https://registry.npmjs.org/grunt-contrib-uglify
+74 silly registry.get cb [ 200,
+74 silly registry.get   { date: 'Fri, 06 Jun 2014 21:21:03 GMT',
+74 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+74 silly registry.get     etag: '"3OY5UWLJT33K0O7DZD8MR2B0N"',
+74 silly registry.get     'content-type': 'application/json',
+74 silly registry.get     'accept-ranges': 'bytes',
+74 silly registry.get     via: '1.1 varnish',
+74 silly registry.get     'cache-control': 'max-age=1',
+74 silly registry.get     'content-length': '44312',
+74 silly registry.get     'x-served-by': 'cache-sv61-SJC3, cache-jfk1024-JFK',
+74 silly registry.get     'x-cache': 'MISS, MISS',
+74 silly registry.get     'x-cache-hits': '0, 0',
+74 silly registry.get     'x-timer': 'S1402089663.564680,VS0,VE163',
+74 silly registry.get     vary: 'Accept',
+74 silly registry.get     'keep-alive': 'timeout=10, max=50',
+74 silly registry.get     connection: 'Keep-Alive' } ]
+75 silly addNameRange number 2 { name: 'grunt-contrib-uglify', range: '', hasData: true }
+76 silly addNameRange versions [ 'grunt-contrib-uglify',
+76 silly addNameRange   [ '0.1.0',
+76 silly addNameRange     '0.1.1',
+76 silly addNameRange     '0.1.2',
+76 silly addNameRange     '0.2.0',
+76 silly addNameRange     '0.2.1',
+76 silly addNameRange     '0.2.2',
+76 silly addNameRange     '0.2.3',
+76 silly addNameRange     '0.2.4',
+76 silly addNameRange     '0.2.5',
+76 silly addNameRange     '0.2.6',
+76 silly addNameRange     '0.2.7',
+76 silly addNameRange     '0.3.0',
+76 silly addNameRange     '0.3.1',
+76 silly addNameRange     '0.1.1-rc5',
+76 silly addNameRange     '0.1.1-rc6',
+76 silly addNameRange     '0.3.2',
+76 silly addNameRange     '0.3.3',
+76 silly addNameRange     '0.4.0' ] ]
+77 verbose addNamed [ 'grunt-contrib-uglify', '0.4.0' ]
+78 verbose addNamed [ '0.4.0', '0.4.0' ]
+79 silly lockFile a0aad41b-grunt-contrib-uglify-0-4-0 grunt-contrib-uglify@0.4.0
+80 verbose lock grunt-contrib-uglify@0.4.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\a0aad41b-grunt-contrib-uglify-0-4-0.lock
+81 silly lockFile 7576fdea-y-grunt-contrib-uglify-0-4-0-tgz https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
+82 verbose lock https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\7576fdea-y-grunt-contrib-uglify-0-4-0-tgz.lock
+83 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz',
+83 verbose addRemoteTarball   '6a4df3e85ccf4bbae484b0328cc71c9f102e80be' ]
+84 info retry fetch attempt 1 at 15:21:18
+85 verbose fetch to= C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
+86 http GET https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
+87 http 200 https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
+88 verbose tar unpack C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
+89 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+90 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package C:\Users\jperdomo\AppData\Roaming\npm-cache\c837eec0-8365-0-29994770395569503-package.lock
+91 silly lockFile c22bb444-8365-0-29994770395569503-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
+92 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\c22bb444-8365-0-29994770395569503-tmp-tgz.lock
+93 silly gunzTarPerm modes [ '755', '644' ]
+94 silly gunzTarPerm extractEntry package.json
+95 silly gunzTarPerm extractEntry README.md
+96 silly gunzTarPerm extractEntry LICENSE-MIT
+97 silly gunzTarPerm extractEntry tasks/uglify.js
+98 silly gunzTarPerm extractEntry tasks/lib/uglify.js
+99 verbose read json C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package\package.json
+100 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+101 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+102 silly lockFile c22bb444-8365-0-29994770395569503-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
+103 silly lockFile c22bb444-8365-0-29994770395569503-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
+104 verbose from cache C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package\package.json
+105 verbose tar pack [ 'C:\\Users\\jperdomo\\AppData\\Roaming\\npm-cache\\grunt-contrib-uglify\\0.4.0\\package.tgz',
+105 verbose tar pack   'C:\\Users\\jperdomo\\AppData\\Local\\Temp\\npm-10828\\1402089678365-0.29994770395569503\\package' ]
+106 verbose tarball C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+107 verbose folder C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+108 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+109 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package C:\Users\jperdomo\AppData\Roaming\npm-cache\c837eec0-8365-0-29994770395569503-package.lock
+110 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+111 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\d7a9d3e2-contrib-uglify-0-4-0-package-tgz.lock
+112 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+113 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
+114 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+115 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+116 silly lockFile d639470e-unt-contrib-uglify-0-4-0-package C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
+117 verbose lock C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package C:\Users\jperdomo\AppData\Roaming\npm-cache\d639470e-unt-contrib-uglify-0-4-0-package.lock
+118 silly lockFile d639470e-unt-contrib-uglify-0-4-0-package C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
+119 silly lockFile d639470e-unt-contrib-uglify-0-4-0-package C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
+120 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+121 silly lockFile ee9f29dd-unt-contrib-uglify-0-4-0-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
+122 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package C:\Users\jperdomo\AppData\Roaming\npm-cache\ee9f29dd-unt-contrib-uglify-0-4-0-package.lock
+123 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+124 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\d7a9d3e2-contrib-uglify-0-4-0-package-tgz.lock
+125 silly gunzTarPerm modes [ '755', '644' ]
+126 silly gunzTarPerm extractEntry package.json
+127 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+128 silly gunzTarPerm extractEntry README.md
+129 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+130 silly gunzTarPerm extractEntry LICENSE-MIT
+131 silly gunzTarPerm modified mode [ 'LICENSE-MIT', 438, 420 ]
+132 silly gunzTarPerm extractEntry tasks/uglify.js
+133 silly gunzTarPerm modified mode [ 'tasks/uglify.js', 438, 420 ]
+134 silly gunzTarPerm extractEntry tasks/lib/uglify.js
+135 silly gunzTarPerm modified mode [ 'tasks/lib/uglify.js', 438, 420 ]
+136 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package\package.json
+137 silly lockFile ee9f29dd-unt-contrib-uglify-0-4-0-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
+138 silly lockFile ee9f29dd-unt-contrib-uglify-0-4-0-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
+139 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+140 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+141 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package\package.json
+142 verbose chmod C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz 644
+143 silly chown skipping for windows C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+144 silly lockFile 7576fdea-y-grunt-contrib-uglify-0-4-0-tgz https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
+145 silly lockFile 7576fdea-y-grunt-contrib-uglify-0-4-0-tgz https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
+146 silly lockFile a0aad41b-grunt-contrib-uglify-0-4-0 grunt-contrib-uglify@0.4.0
+147 silly lockFile a0aad41b-grunt-contrib-uglify-0-4-0 grunt-contrib-uglify@0.4.0
+148 silly lockFile 1f4692e4-grunt-contrib-uglify grunt-contrib-uglify@
+149 silly lockFile 1f4692e4-grunt-contrib-uglify grunt-contrib-uglify@
+150 silly resolved [ { name: 'grunt-contrib-uglify',
+150 silly resolved     description: 'Minify files with UglifyJS.',
+150 silly resolved     version: '0.4.0',
+150 silly resolved     homepage: 'https://github.com/gruntjs/grunt-contrib-uglify',
+150 silly resolved     author: { name: 'Grunt Team', url: 'http://gruntjs.com/' },
+150 silly resolved     repository:
+150 silly resolved      { type: 'git',
+150 silly resolved        url: 'git://github.com/gruntjs/grunt-contrib-uglify.git' },
+150 silly resolved     bugs: { url: 'https://github.com/gruntjs/grunt-contrib-uglify/issues' },
+150 silly resolved     licenses: [ [Object] ],
+150 silly resolved     engines: { node: '>=0.10.0' },
+150 silly resolved     scripts: { test: 'grunt test' },
+150 silly resolved     dependencies: { 'uglify-js': '^2.4.0', chalk: '^0.4.0', maxmin: '^0.1.0' },
+150 silly resolved     devDependencies:
+150 silly resolved      { 'grunt-contrib-jshint': '^0.8.0',
+150 silly resolved        'grunt-contrib-nodeunit': '^0.3.2',
+150 silly resolved        'grunt-contrib-clean': '^0.5.0',
+150 silly resolved        'grunt-contrib-internal': '^0.4.2',
+150 silly resolved        grunt: '^0.4.2' },
+150 silly resolved     peerDependencies: { grunt: '^0.4.0' },
+150 silly resolved     keywords: [ 'gruntplugin' ],
+150 silly resolved     files: [ 'tasks', 'LICENSE-MIT' ],
+150 silly resolved     readme: '# grunt-contrib-uglify v0.4.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-uglify.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-uglify)\n\n> Minify files with UglifyJS.\n\n\n\n## Getting Started\nThis plugin requires Grunt `^0.4.0`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-contrib-uglify --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-contrib-uglify\');\n```\n\n\n\n\n## Uglify task\n_Run this task with the `grunt uglify` command._\n\nTask targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.\n\n### Migrating from 2.x to 3.x\n\nVersion `3.x` introduced changes to configuring source maps. Accordingly, if you don\'t use the source map options you should be able to upgrade seamlessly. If you do use source maps, see below.\n\n#### Removed options\n\n`sourceMapRoot` - The location of your sources is now calculated for you when `sourceMap` is set to `true`  \n`sourceMapPrefix` - No longer necessary for the above reason  \n`sourceMappingURL` - Once again, this is calculated automatically\n\n#### Changed options\n\n`sourceMap` - Only accepts a `Boolean` value. Generates a map with a default name for you  \n\n#### New options\n\n`sourceMapName` - Accepts a string or function to change the location or name of your map\n`sourceMapIncludeSources` - Embed the content of your source files directly into the map\n\n### Options\n\nThis task primarily delegates to [UglifyJS2][], so please consider the [UglifyJS documentation][] as required reading for advanced configuration.\n\n[UglifyJS2]: https://github.com/mishoo/UglifyJS2\n[UglifyJS documentation]: http://lisperator.net/uglifyjs/\n\n#### mangle\nType: `Boolean` `Object`  \nDefault: `{}`\n\nTurn on or off mangling with default options. If an `Object` is specified, it is passed directly to `ast.mangle_names()` *and* `ast.compute_char_frequency()` (mimicking command line behavior).\n\n#### compress\nType: `Boolean` `Object`  \nDefault: `{}`\n\nTurn on or off source compression with default options. If an `Object` is specified, it is passed as options to `UglifyJS.Compressor()`.\n\n#### beautify\nType: `Boolean` `Object`  \nDefault: `false`\n\nTurns on beautification of the generated source code. An `Object` will be merged and passed with the options sent to `UglifyJS.OutputStream()`\n\n#### report\nChoices: `\'min\'`, `\'gzip\'`  \nDefault: `\'min\'`\n\nEither report only minification result or report minification and gzip results.\nThis is useful to see exactly how well clean-css is performing but using `\'gzip\'` will make the task take 5-10x longer to complete. [Example output](https://github.com/sindresorhus/maxmin#readme).\n\n#### sourceMap\nType: `Boolean`  \nDefault: `false`\n\nIf `true`, a source map file will be generated in the same directory as the `dest` file. By default it will have the same basename as the `dest` file, but with a `.map` extension.\n\n#### sourceMapName\nType: `String`  `Function`  \nDefault: `undefined`\n\nTo customize the name or location of the generated source map, pass a string to indicate where to write the source map to. If a function is provided, the uglify destination is passed as the argument and the return value will be used as the file name.\n\n#### sourceMapIn\nType: `String`  `Function`  \nDefault: `undefined`\n\nThe location of an input source map from an earlier compilation, e.g. from CoffeeScript. If a function is provided, the\nuglify source is passed as the argument and the return value will be used as the sourceMap name. This only makes sense\nwhen there\'s one source file.\n\n#### sourceMapIncludeSources\nType: `Boolean`\nDefault: `false`\n\nPass this flag if you want to include the content of source files in the source map as sourcesContent property.\n\n###### enclose\nType: `Object`  \nDefault: `undefined`\n\nWrap all of the code in a closure with a configurable arguments/parameters list.\nEach key-value pair in the `enclose` object is effectively an argument-parameter pair.\n\n#### wrap\nType: `String`  \nDefault: `undefined`\n\nWrap all of the code in a closure, an easy way to make sure nothing is leaking.\nFor variables that need to be public `exports` and `global` variables are made available.\nThe value of wrap is the global variable exports will be available as.\n\n#### exportAll\nType: `Boolean`  \nDefault: `false`\n\nWhen using `wrap` this will make all global functions and variables available via the export variable.\n\n#### preserveComments\nType: `Boolean` `String` `Function`  \nDefault: `undefined`  \nOptions: `false` `\'all\'` `\'some\'`\n\nTurn on preservation of comments.\n\n- `false` will strip all comments\n- `\'all\'` will preserve all comments in code blocks that have not been squashed or dropped\n- `\'some\'` will preserve all comments that start with a bang (`!`) or include a closure compiler style directive (`@preserve` `@license` `@cc_on`)\n- `Function` specify your own comment preservation function. You will be passed the current node and the current comment and are expected to return either `true` or `false`\n\n#### banner\nType: `String`  \nDefault: empty string\n\nThis string will be prepended to the minified output.  Template strings (e.g. `<%= config.value %>` will be expanded automatically.\n\n#### footer\nType: `String`  \nDefault: empty string\n\nThis string will be appended to the minified output.  Template strings (e.g. `<%= config.value %>` will be expanded automatically.\n\n### Usage examples\n\n#### Basic compression\n\nThis configuration will compress and mangle the input files using the default options.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input1.js\', \'src/input2.js\']\n      }\n    }\n  }\n});\n```\n\n#### No mangling\n\nSpecify `mangle: false` to prevent changes to your variable and function names.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      mangle: false\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Reserved identifiers\n\nYou can specify identifiers to leave untouched with an `except` array in the `mangle` options.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      mangle: {\n        except: [\'jQuery\', \'Backbone\']\n      }\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Source maps\n\nGenerate a source map by setting the `sourceMap` option to `true`. The generated\nsource map will be in the same directory as the destination file. Its name will be the\nbasename of the destination file with a `.map` extension. Override these\ndefaults with the `sourceMapName` attribute.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      options: {\n        sourceMap: true,\n        sourceMapName: \'path/to/sourcemap.map\'\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Advanced source maps\n\nSet the `sourceMapIncludeSources` option to `true` to embed your sources directly into the map. To include\na source map from a previous compilation pass it as the value of the `sourceMapIn` option.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      options: {\n        sourceMap: true,\n        sourceMapIncludeSources: true,\n        sourceMapIn: \'example/coffeescript-sourcemap.js\', // input sourcemap from a previous compilation\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\'],\n      },\n    },\n  },\n});\n```\n\nRefer to the [UglifyJS SourceMap Documentation](http://lisperator.net/uglifyjs/codegen#source-map) for more information.\n\n\n#### Discard console.* functions\n\nSpecify `drop_console: true` as part of the `compress` options to discard calls to `console.*` functions.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      compress: {\n        drop_console: true\n      }\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Beautify\n\nSpecify `beautify: true` to beautify your code for debugging/troubleshooting purposes.\nPass an object to manually configure any other output options passed directly to `UglifyJS.OutputStream()`.\n\nSee [UglifyJS Codegen documentation](http://lisperator.net/uglifyjs/codegen) for more information.\n\n_Note that manual configuration will require you to explicitly set `beautify: true` if you want traditional, beautified output._\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      options: {\n        beautify: true\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    },\n    my_advanced_target: {\n      options: {\n        beautify: {\n          width: 80,\n          beautify: true\n        }\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Banner comments\n\nIn this example, running `grunt uglify:my_target` will prepend a banner created by interpolating the `banner` template string with the config object. Here, those properties are the values imported from the `package.json` file (which are available via the `pkg` config property) plus today\'s date.\n\n_Note: you don\'t have to use an external JSON file. It\'s also valid to create the `pkg` object inline in the config. That being said, if you already have a JSON file, you might as well reference it._\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  pkg: grunt.file.readJSON(\'package.json\'),\n  uglify: {\n    options: {\n      banner: \'/*! <%= pkg.name %> - v<%= pkg.version %> - \' +\n        \'<%= grunt.template.today("yyyy-mm-dd") %> */\'\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Conditional compilation\n\nYou can also enable UglifyJS conditional compilation. This is commonly used to remove debug code blocks for production builds.\n\nSee [UglifyJS global definitions documentation](http://lisperator.net/uglifyjs/compress#global-defs) for more information.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      compress: {\n        global_defs: {\n          "DEBUG": false\n        },\n        dead_code: true\n      }\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n#### Compiling all files in a folder dynamically\n\nThis configuration will compress and mangle the files dynamically.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      files: [{\n          expand: true,\n          cwd: \'src/js\',\n          src: \'**/*.js\',\n          dest: \'dest/js\'\n      }]\n    }\n  }\n});\n```\n\n\n## Release History\n\n * 2014-02-27   v0.3.3   remove unnecessary calls to `grunt.template.process`\n * 2014-01-22   v0.3.2   fix handling of `sourceMapIncludeSources` option.\n * 2014-01-20   v0.3.1   fix relative path issue in sourcemaps\n * 2014-01-16   v0.3.0   refactor sourcemap support\n * 2013-11-09   v0.2.7   prepending banner if sourceMap option not set, addresses\n * 2013-11-08   v0.2.6   merged 45, 53, 85 (105 by way of duping 53) Added support for banners in uglified files with sourcemaps Updated docs\n * 2013-10-28   v0.2.5   Added warning for banners when using sourcemaps\n * 2013-09-02   v0.2.4   updated sourcemap format via /83\n * 2013-06-10   v0.2.3   added footer option\n * 2013-05-31   v0.2.2   Reverted /56 due to /58 until [chrome/239660](https://code.google.com/p/chromium/issues/detail?id=239660&q=sourcemappingurl&colspec=ID%20Pri%20M%20Iteration%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified) [firefox/870361](https://bugzilla.mozilla.org/show_bug.cgi?id=870361) drop\n * 2013-05-22   v0.2.1   Bumped uglify to ~2.3.5 /55 /40 Changed sourcemappingUrl syntax /56 Disabled sorting of names for consistent mangling /44 Updated docs for sourceMapRoot /47 /25\n * 2013-03-14   v0.2.0   No longer report gzip results by default. Support `report` option.\n * 2013-01-30   v0.1.2   Added better error reporting Support for dynamic names of multiple sourcemaps\n * 2013-02-15   v0.1.1   First official release for Grunt 0.4.0.\n * 2013-01-18   v0.1.1rc6   Updating grunt/gruntplugin dependencies to rc6. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.\n * 2013-01-09   v0.1.1rc5   Updating to work with grunt v0.4.0rc5. Switching back to this.files api.\n * 2012-11-28   v0.1.0   Work in progress, not yet officially released.\n\n---\n\nTask submitted by ["Cowboy" Ben Alman](http://benalman.com)\n\n*This file was generated on Sat Mar 01 2014 20:36:24.*\n',
+150 silly resolved     readmeFilename: 'README.md',
+150 silly resolved     _id: 'grunt-contrib-uglify@0.4.0',
+150 silly resolved     dist: { shasum: 'fe77fe1b30488e7e81fe853b66718a970cfaf693' },
+150 silly resolved     _from: 'grunt-contrib-uglify@',
+150 silly resolved     _resolved: 'https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz' } ]
+151 info install grunt-contrib-uglify@0.4.0 into c:\banarep2\Desarrollo\Web\bacoba
+152 info installOne grunt-contrib-uglify@0.4.0
+153 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package\package.json
+154 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify unbuild
+155 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
+156 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+157 silly lockFile 8a8ebb02-ode-modules-grunt-contrib-uglify tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
+158 verbose lock tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify C:\Users\jperdomo\AppData\Roaming\npm-cache\8a8ebb02-ode-modules-grunt-contrib-uglify.lock
+159 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+160 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\d7a9d3e2-contrib-uglify-0-4-0-package-tgz.lock
+161 silly gunzTarPerm modes [ '755', '644' ]
+162 silly gunzTarPerm extractEntry package.json
+163 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+164 silly gunzTarPerm extractEntry README.md
+165 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+166 silly gunzTarPerm extractEntry LICENSE-MIT
+167 silly gunzTarPerm modified mode [ 'LICENSE-MIT', 438, 420 ]
+168 silly gunzTarPerm extractEntry tasks/uglify.js
+169 silly gunzTarPerm modified mode [ 'tasks/uglify.js', 438, 420 ]
+170 silly gunzTarPerm extractEntry tasks/lib/uglify.js
+171 silly gunzTarPerm modified mode [ 'tasks/lib/uglify.js', 438, 420 ]
+172 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
+173 silly lockFile 8a8ebb02-ode-modules-grunt-contrib-uglify tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
+174 silly lockFile 8a8ebb02-ode-modules-grunt-contrib-uglify tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
+175 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+176 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
+177 info preinstall grunt-contrib-uglify@0.4.0
+178 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
+179 verbose readDependencies using package.json deps
+180 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
+181 verbose readDependencies using package.json deps
+182 verbose cache add [ 'uglify-js@^2.4.0', null ]
+183 verbose cache add name=undefined spec="uglify-js@^2.4.0" args=["uglify-js@^2.4.0",null]
+184 verbose parsed url { protocol: null,
+184 verbose parsed url   slashes: null,
+184 verbose parsed url   auth: null,
+184 verbose parsed url   host: null,
+184 verbose parsed url   port: null,
+184 verbose parsed url   hostname: null,
+184 verbose parsed url   hash: null,
+184 verbose parsed url   search: null,
+184 verbose parsed url   query: null,
+184 verbose parsed url   pathname: 'uglify-js@^2.4.0',
+184 verbose parsed url   path: 'uglify-js@^2.4.0',
+184 verbose parsed url   href: 'uglify-js@^2.4.0' }
+185 verbose cache add name="uglify-js" spec="^2.4.0" args=["uglify-js","^2.4.0"]
+186 verbose parsed url { protocol: null,
+186 verbose parsed url   slashes: null,
+186 verbose parsed url   auth: null,
+186 verbose parsed url   host: null,
+186 verbose parsed url   port: null,
+186 verbose parsed url   hostname: null,
+186 verbose parsed url   hash: null,
+186 verbose parsed url   search: null,
+186 verbose parsed url   query: null,
+186 verbose parsed url   pathname: '^2.4.0',
+186 verbose parsed url   path: '^2.4.0',
+186 verbose parsed url   href: '^2.4.0' }
+187 verbose addNamed [ 'uglify-js', '^2.4.0' ]
+188 verbose addNamed [ null, null ]
+189 silly lockFile 0517be62-uglify-js-2-4-0 uglify-js@^2.4.0
+190 verbose lock uglify-js@^2.4.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\0517be62-uglify-js-2-4-0.lock
+191 verbose cache add [ 'chalk@^0.4.0', null ]
+192 verbose cache add name=undefined spec="chalk@^0.4.0" args=["chalk@^0.4.0",null]
+193 verbose parsed url { protocol: null,
+193 verbose parsed url   slashes: null,
+193 verbose parsed url   auth: null,
+193 verbose parsed url   host: null,
+193 verbose parsed url   port: null,
+193 verbose parsed url   hostname: null,
+193 verbose parsed url   hash: null,
+193 verbose parsed url   search: null,
+193 verbose parsed url   query: null,
+193 verbose parsed url   pathname: 'chalk@^0.4.0',
+193 verbose parsed url   path: 'chalk@^0.4.0',
+193 verbose parsed url   href: 'chalk@^0.4.0' }
+194 verbose cache add name="chalk" spec="^0.4.0" args=["chalk","^0.4.0"]
+195 verbose parsed url { protocol: null,
+195 verbose parsed url   slashes: null,
+195 verbose parsed url   auth: null,
+195 verbose parsed url   host: null,
+195 verbose parsed url   port: null,
+195 verbose parsed url   hostname: null,
+195 verbose parsed url   hash: null,
+195 verbose parsed url   search: null,
+195 verbose parsed url   query: null,
+195 verbose parsed url   pathname: '^0.4.0',
+195 verbose parsed url   path: '^0.4.0',
+195 verbose parsed url   href: '^0.4.0' }
+196 verbose addNamed [ 'chalk', '^0.4.0' ]
+197 verbose addNamed [ null, null ]
+198 silly lockFile b2f4396d-chalk-0-4-0 chalk@^0.4.0
+199 verbose lock chalk@^0.4.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\b2f4396d-chalk-0-4-0.lock
+200 verbose cache add [ 'maxmin@^0.1.0', null ]
+201 verbose cache add name=undefined spec="maxmin@^0.1.0" args=["maxmin@^0.1.0",null]
+202 verbose parsed url { protocol: null,
+202 verbose parsed url   slashes: null,
+202 verbose parsed url   auth: null,
+202 verbose parsed url   host: null,
+202 verbose parsed url   port: null,
+202 verbose parsed url   hostname: null,
+202 verbose parsed url   hash: null,
+202 verbose parsed url   search: null,
+202 verbose parsed url   query: null,
+202 verbose parsed url   pathname: 'maxmin@^0.1.0',
+202 verbose parsed url   path: 'maxmin@^0.1.0',
+202 verbose parsed url   href: 'maxmin@^0.1.0' }
+203 verbose cache add name="maxmin" spec="^0.1.0" args=["maxmin","^0.1.0"]
+204 verbose parsed url { protocol: null,
+204 verbose parsed url   slashes: null,
+204 verbose parsed url   auth: null,
+204 verbose parsed url   host: null,
+204 verbose parsed url   port: null,
+204 verbose parsed url   hostname: null,
+204 verbose parsed url   hash: null,
+204 verbose parsed url   search: null,
+204 verbose parsed url   query: null,
+204 verbose parsed url   pathname: '^0.1.0',
+204 verbose parsed url   path: '^0.1.0',
+204 verbose parsed url   href: '^0.1.0' }
+205 verbose addNamed [ 'maxmin', '^0.1.0' ]
+206 verbose addNamed [ null, null ]
+207 silly lockFile c75f66b7-maxmin-0-1-0 maxmin@^0.1.0
+208 verbose lock maxmin@^0.1.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\c75f66b7-maxmin-0-1-0.lock
+209 info addNameTag [ 'uglify-js', '^2.4.0' ]
+210 info addNameTag [ 'maxmin', '^0.1.0' ]
+211 info addNameTag [ 'chalk', '^0.4.0' ]
+212 verbose url raw maxmin
+213 verbose url resolving [ 'https://registry.npmjs.org/', './maxmin' ]
+214 verbose url resolved https://registry.npmjs.org/maxmin
+215 info trying registry request attempt 1 at 15:21:19
+216 verbose etag "DA2ESBBYRYX7UR8YBC6J0XUNT"
+217 http GET https://registry.npmjs.org/maxmin
+218 verbose url raw chalk
+219 verbose url resolving [ 'https://registry.npmjs.org/', './chalk' ]
+220 verbose url resolved https://registry.npmjs.org/chalk
+221 info trying registry request attempt 1 at 15:21:19
+222 verbose etag "3ENK48H85739T3WO0JOEMVKNI"
+223 http GET https://registry.npmjs.org/chalk
+224 verbose url raw uglify-js
+225 verbose url resolving [ 'https://registry.npmjs.org/', './uglify-js' ]
+226 verbose url resolved https://registry.npmjs.org/uglify-js
+227 info trying registry request attempt 1 at 15:21:19
+228 verbose etag "9ET1R92NGSANPAV5UEK1EOJKD"
+229 http GET https://registry.npmjs.org/uglify-js
+230 http 304 https://registry.npmjs.org/chalk
+231 silly registry.get cb [ 304,
+231 silly registry.get   { date: 'Fri, 06 Jun 2014 21:21:05 GMT',
+231 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+231 silly registry.get     etag: '"3ENK48H85739T3WO0JOEMVKNI"',
+231 silly registry.get     'accept-ranges': 'bytes',
+231 silly registry.get     via: '1.1 varnish',
+231 silly registry.get     'cache-control': 'max-age=1',
+231 silly registry.get     'x-served-by': 'cache-sv61-SJC3, cache-jfk1030-JFK',
+231 silly registry.get     'x-cache': 'MISS, MISS',
+231 silly registry.get     'x-cache-hits': '0, 0',
+231 silly registry.get     'x-timer': 'S1402089665.567733,VS0,VE114',
+231 silly registry.get     'content-length': '0',
+231 silly registry.get     'keep-alive': 'timeout=10, max=50',
+231 silly registry.get     connection: 'Keep-Alive' } ]
+232 verbose etag chalk from cache
+233 silly lockFile b2f4396d-chalk-0-4-0 chalk@^0.4.0
+234 silly lockFile b2f4396d-chalk-0-4-0 chalk@^0.4.0
+235 verbose about to build c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
+236 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify unbuild
+237 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
+238 info preuninstall grunt-contrib-uglify@0.4.0
+239 info uninstall grunt-contrib-uglify@0.4.0
+240 verbose true,c:\banarep2\Desarrollo\Web\bacoba\node_modules,c:\banarep2\Desarrollo\Web\bacoba\node_modules unbuild grunt-contrib-uglify@0.4.0
+241 info postuninstall grunt-contrib-uglify@0.4.0
+242 http 304 https://registry.npmjs.org/maxmin
+243 silly registry.get cb [ 304,
+243 silly registry.get   { date: 'Fri, 06 Jun 2014 21:21:05 GMT',
+243 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+243 silly registry.get     etag: '"DA2ESBBYRYX7UR8YBC6J0XUNT"',
+243 silly registry.get     'accept-ranges': 'bytes',
+243 silly registry.get     via: '1.1 varnish',
+243 silly registry.get     'cache-control': 'max-age=1',
+243 silly registry.get     'x-served-by': 'cache-sv61-SJC3, cache-jfk1020-JFK',
+243 silly registry.get     'x-cache': 'MISS, MISS',
+243 silly registry.get     'x-cache-hits': '0, 0',
+243 silly registry.get     'x-timer': 'S1402089665.559708,VS0,VE156',
+243 silly registry.get     'content-length': '0',
+243 silly registry.get     'keep-alive': 'timeout=10, max=50',
+243 silly registry.get     connection: 'Keep-Alive' } ]
+244 verbose etag maxmin from cache
+245 silly lockFile c75f66b7-maxmin-0-1-0 maxmin@^0.1.0
+246 silly lockFile c75f66b7-maxmin-0-1-0 maxmin@^0.1.0
+247 error Error: No compatible version found: chalk@'^0.4.0'
+247 error Valid install targets:
+247 error ["0.1.0","0.1.1","0.2.0","0.2.1","0.3.0","0.4.0"]
+247 error     at installTargetsError (C:\Program Files\nodejs\node_modules\npm\lib\cache.js:719:10)
+247 error     at C:\Program Files\nodejs\node_modules\npm\lib\cache.js:641:10
+247 error     at saved (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:138:7)
+247 error     at Object.oncomplete (fs.js:107:15)
+248 error If you need help, you may report this log at:
+248 error     <http://github.com/isaacs/npm/issues>
+248 error or email it to:
+248 error     <npm-@googlegroups.com>
+249 error System Windows_NT 6.1.7601
+250 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "grunt-contrib-uglify" "--save-dev"
+251 error cwd c:\banarep2\Desarrollo\Web\bacoba
+252 error node -v v0.10.12
+253 error npm -v 1.2.32
+254 verbose exit [ 1, true ]

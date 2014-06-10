@@ -288,7 +288,7 @@ footer p {
     cursor: pointer;
   }
 
-  .nav-lateral li:hover{
+  .nav-lateral-no-actual:hover{
     background-color: #cbd0d5;
     color: black;
     font-weight:normal;
@@ -353,7 +353,7 @@ footer p {
     cursor: pointer;
   }
 
-  .nav-lateral li:hover{
+  .nav-lateral-no-actual:hover{
     background-color: #cbd0d5;
     color: black;
     font-weight:normal;

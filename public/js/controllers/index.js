@@ -116,7 +116,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                 if ($scope.categoriasUsuario[a].cantProcs === 0) {
                     indice = indice +1;
                 }
-                $scope.categoriasUsuario[a].actual = '';
+                $scope.categoriasUsuario[a].actual = 'nav-lateral-no-actual';
                 if (a === indice) {
                     $scope.categoriasUsuario[a].actual = 'nav-lateral-actual';
                 }

@@ -11,20 +11,24 @@ h2 {
   margin: 0px;
 }
 
-.lista-paso div{
+.lista-paso div {
   display: inline;
 }
-
-.lista-paso a {
+.lista-paso div a {
   padding-left: 10px;
-  font-size: 0px;
   color: #428bca;
   cursor: pointer;
+  display: block;
+  height: 0;
+  position: absolute;
+  overflow: hidden;
 }
 
 .lista-paso:hover div a {
+  display: inline;
+  position: relative;
+  height: 100%;
   font-size: 15px;
-  z-index: 9999;
 }
 
 
@@ -291,7 +295,6 @@ footer p {
   .nav-lateral-no-actual:hover{
     background-color: #cbd0d5;
     color: black;
-    font-weight:normal;
   }
 
   .nav-lateral-grande {
@@ -356,7 +359,6 @@ footer p {
   .nav-lateral-no-actual:hover{
     background-color: #cbd0d5;
     color: black;
-    font-weight:normal;
   }
 
   .nav-lateral-grande {

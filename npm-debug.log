@@ -1,433 +1,1177 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'install',
-1 verbose cli   'grunt-contrib-uglify',
-1 verbose cli   '--save-dev' ]
-2 info using npm@1.2.32
-3 info using node@v0.10.12
-4 verbose node symlink C:\Program Files\nodejs\\node.exe
-5 verbose read json c:\banarep2\Desarrollo\Web\bacoba\package.json
-6 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\bower\package.json
-7 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-flash\package.json
-8 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\connect-mongo\package.json
-9 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\crypto\package.json
-10 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\emailjs\package.json
-11 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\express\package.json
-12 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\forever\package.json
-13 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\fs-extra\package.json
-14 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt\package.json
-15 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-cli\package.json
-16 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-concurrent\package.json
-17 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-cssmin\package.json
-18 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-jshint\package.json
-19 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-watch\package.json
-20 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-env\package.json
-21 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-karma\package.json
-22 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-mocha-test\package.json
-23 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-nodemon\package.json
-24 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\image-size\package.json
-25 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagemagick\package.json
-26 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\imagesize\package.json
-27 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\jade\package.json
-28 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma\package.json
-29 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-chrome-launcher\package.json
-30 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coffee-preprocessor\package.json
-31 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-coverage\package.json
-32 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-firefox-launcher\package.json
-33 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-html2js-preprocessor\package.json
-34 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-jasmine\package.json
-35 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-phantomjs-launcher\package.json
-36 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-requirejs\package.json
-37 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\karma-script-launcher\package.json
-38 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\lodash\package.json
-39 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\mean-logger\package.json
-40 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\mongoose\package.json
-41 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\nodemailer\package.json
-42 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport\package.json
-43 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-facebook\package.json
-44 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-github\package.json
-45 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-google-oauth\package.json
-46 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-linkedin\package.json
-47 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-local\package.json
-48 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\passport-twitter\package.json
-49 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\pdfkit\package.json
-50 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\should\package.json
-51 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\supertest\package.json
-52 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\underscore\package.json
-53 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\view-helpers\package.json
-54 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\package.json
-55 verbose readDependencies using package.json deps
-56 verbose cache add [ 'grunt-contrib-uglify', null ]
-57 verbose cache add name=undefined spec="grunt-contrib-uglify" args=["grunt-contrib-uglify",null]
-58 verbose parsed url { protocol: null,
-58 verbose parsed url   slashes: null,
-58 verbose parsed url   auth: null,
-58 verbose parsed url   host: null,
-58 verbose parsed url   port: null,
-58 verbose parsed url   hostname: null,
-58 verbose parsed url   hash: null,
-58 verbose parsed url   search: null,
-58 verbose parsed url   query: null,
-58 verbose parsed url   pathname: 'grunt-contrib-uglify',
-58 verbose parsed url   path: 'grunt-contrib-uglify',
-58 verbose parsed url   href: 'grunt-contrib-uglify' }
-59 silly lockFile 9dabf0fb-grunt-contrib-uglify grunt-contrib-uglify
-60 verbose lock grunt-contrib-uglify C:\Users\jperdomo\AppData\Roaming\npm-cache\9dabf0fb-grunt-contrib-uglify.lock
-61 silly lockFile 9dabf0fb-grunt-contrib-uglify grunt-contrib-uglify
-62 silly lockFile 9dabf0fb-grunt-contrib-uglify grunt-contrib-uglify
-63 verbose addNamed [ 'grunt-contrib-uglify', '' ]
-64 verbose addNamed [ null, '' ]
-65 silly lockFile 1f4692e4-grunt-contrib-uglify grunt-contrib-uglify@
-66 verbose lock grunt-contrib-uglify@ C:\Users\jperdomo\AppData\Roaming\npm-cache\1f4692e4-grunt-contrib-uglify.lock
-67 silly addNameRange { name: 'grunt-contrib-uglify', range: '', hasData: false }
-68 verbose url raw grunt-contrib-uglify
-69 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-uglify' ]
-70 verbose url resolved https://registry.npmjs.org/grunt-contrib-uglify
-71 info trying registry request attempt 1 at 15:21:17
-72 http GET https://registry.npmjs.org/grunt-contrib-uglify
-73 http 200 https://registry.npmjs.org/grunt-contrib-uglify
-74 silly registry.get cb [ 200,
-74 silly registry.get   { date: 'Fri, 06 Jun 2014 21:21:03 GMT',
-74 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
-74 silly registry.get     etag: '"3OY5UWLJT33K0O7DZD8MR2B0N"',
-74 silly registry.get     'content-type': 'application/json',
-74 silly registry.get     'accept-ranges': 'bytes',
-74 silly registry.get     via: '1.1 varnish',
-74 silly registry.get     'cache-control': 'max-age=1',
-74 silly registry.get     'content-length': '44312',
-74 silly registry.get     'x-served-by': 'cache-sv61-SJC3, cache-jfk1024-JFK',
-74 silly registry.get     'x-cache': 'MISS, MISS',
-74 silly registry.get     'x-cache-hits': '0, 0',
-74 silly registry.get     'x-timer': 'S1402089663.564680,VS0,VE163',
-74 silly registry.get     vary: 'Accept',
-74 silly registry.get     'keep-alive': 'timeout=10, max=50',
-74 silly registry.get     connection: 'Keep-Alive' } ]
-75 silly addNameRange number 2 { name: 'grunt-contrib-uglify', range: '', hasData: true }
-76 silly addNameRange versions [ 'grunt-contrib-uglify',
-76 silly addNameRange   [ '0.1.0',
-76 silly addNameRange     '0.1.1',
-76 silly addNameRange     '0.1.2',
-76 silly addNameRange     '0.2.0',
-76 silly addNameRange     '0.2.1',
-76 silly addNameRange     '0.2.2',
-76 silly addNameRange     '0.2.3',
-76 silly addNameRange     '0.2.4',
-76 silly addNameRange     '0.2.5',
-76 silly addNameRange     '0.2.6',
-76 silly addNameRange     '0.2.7',
-76 silly addNameRange     '0.3.0',
-76 silly addNameRange     '0.3.1',
-76 silly addNameRange     '0.1.1-rc5',
-76 silly addNameRange     '0.1.1-rc6',
-76 silly addNameRange     '0.3.2',
-76 silly addNameRange     '0.3.3',
-76 silly addNameRange     '0.4.0' ] ]
-77 verbose addNamed [ 'grunt-contrib-uglify', '0.4.0' ]
-78 verbose addNamed [ '0.4.0', '0.4.0' ]
-79 silly lockFile a0aad41b-grunt-contrib-uglify-0-4-0 grunt-contrib-uglify@0.4.0
-80 verbose lock grunt-contrib-uglify@0.4.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\a0aad41b-grunt-contrib-uglify-0-4-0.lock
-81 silly lockFile 7576fdea-y-grunt-contrib-uglify-0-4-0-tgz https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
-82 verbose lock https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\7576fdea-y-grunt-contrib-uglify-0-4-0-tgz.lock
-83 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz',
-83 verbose addRemoteTarball   '6a4df3e85ccf4bbae484b0328cc71c9f102e80be' ]
-84 info retry fetch attempt 1 at 15:21:18
-85 verbose fetch to= C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
-86 http GET https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
-87 http 200 https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
-88 verbose tar unpack C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
-89 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-90 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package C:\Users\jperdomo\AppData\Roaming\npm-cache\c837eec0-8365-0-29994770395569503-package.lock
-91 silly lockFile c22bb444-8365-0-29994770395569503-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
-92 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\c22bb444-8365-0-29994770395569503-tmp-tgz.lock
-93 silly gunzTarPerm modes [ '755', '644' ]
-94 silly gunzTarPerm extractEntry package.json
-95 silly gunzTarPerm extractEntry README.md
-96 silly gunzTarPerm extractEntry LICENSE-MIT
-97 silly gunzTarPerm extractEntry tasks/uglify.js
-98 silly gunzTarPerm extractEntry tasks/lib/uglify.js
-99 verbose read json C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package\package.json
-100 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-101 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-102 silly lockFile c22bb444-8365-0-29994770395569503-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
-103 silly lockFile c22bb444-8365-0-29994770395569503-tmp-tgz tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\tmp.tgz
-104 verbose from cache C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package\package.json
-105 verbose tar pack [ 'C:\\Users\\jperdomo\\AppData\\Roaming\\npm-cache\\grunt-contrib-uglify\\0.4.0\\package.tgz',
-105 verbose tar pack   'C:\\Users\\jperdomo\\AppData\\Local\\Temp\\npm-10828\\1402089678365-0.29994770395569503\\package' ]
-106 verbose tarball C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-107 verbose folder C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-108 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-109 verbose lock tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package C:\Users\jperdomo\AppData\Roaming\npm-cache\c837eec0-8365-0-29994770395569503-package.lock
-110 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-111 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\d7a9d3e2-contrib-uglify-0-4-0-package-tgz.lock
-112 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-113 silly lockFile c837eec0-8365-0-29994770395569503-package tar://C:\Users\jperdomo\AppData\Local\Temp\npm-10828\1402089678365-0.29994770395569503\package
-114 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-115 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-116 silly lockFile d639470e-unt-contrib-uglify-0-4-0-package C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
-117 verbose lock C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package C:\Users\jperdomo\AppData\Roaming\npm-cache\d639470e-unt-contrib-uglify-0-4-0-package.lock
-118 silly lockFile d639470e-unt-contrib-uglify-0-4-0-package C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
-119 silly lockFile d639470e-unt-contrib-uglify-0-4-0-package C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
-120 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-121 silly lockFile ee9f29dd-unt-contrib-uglify-0-4-0-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
-122 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package C:\Users\jperdomo\AppData\Roaming\npm-cache\ee9f29dd-unt-contrib-uglify-0-4-0-package.lock
-123 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-124 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\d7a9d3e2-contrib-uglify-0-4-0-package-tgz.lock
-125 silly gunzTarPerm modes [ '755', '644' ]
-126 silly gunzTarPerm extractEntry package.json
-127 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
-128 silly gunzTarPerm extractEntry README.md
-129 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
-130 silly gunzTarPerm extractEntry LICENSE-MIT
-131 silly gunzTarPerm modified mode [ 'LICENSE-MIT', 438, 420 ]
-132 silly gunzTarPerm extractEntry tasks/uglify.js
-133 silly gunzTarPerm modified mode [ 'tasks/uglify.js', 438, 420 ]
-134 silly gunzTarPerm extractEntry tasks/lib/uglify.js
-135 silly gunzTarPerm modified mode [ 'tasks/lib/uglify.js', 438, 420 ]
-136 verbose read json C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package\package.json
-137 silly lockFile ee9f29dd-unt-contrib-uglify-0-4-0-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
-138 silly lockFile ee9f29dd-unt-contrib-uglify-0-4-0-package tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package
-139 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-140 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-141 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package\package.json
-142 verbose chmod C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz 644
-143 silly chown skipping for windows C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-144 silly lockFile 7576fdea-y-grunt-contrib-uglify-0-4-0-tgz https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
-145 silly lockFile 7576fdea-y-grunt-contrib-uglify-0-4-0-tgz https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz
-146 silly lockFile a0aad41b-grunt-contrib-uglify-0-4-0 grunt-contrib-uglify@0.4.0
-147 silly lockFile a0aad41b-grunt-contrib-uglify-0-4-0 grunt-contrib-uglify@0.4.0
-148 silly lockFile 1f4692e4-grunt-contrib-uglify grunt-contrib-uglify@
-149 silly lockFile 1f4692e4-grunt-contrib-uglify grunt-contrib-uglify@
-150 silly resolved [ { name: 'grunt-contrib-uglify',
-150 silly resolved     description: 'Minify files with UglifyJS.',
-150 silly resolved     version: '0.4.0',
-150 silly resolved     homepage: 'https://github.com/gruntjs/grunt-contrib-uglify',
-150 silly resolved     author: { name: 'Grunt Team', url: 'http://gruntjs.com/' },
-150 silly resolved     repository:
-150 silly resolved      { type: 'git',
-150 silly resolved        url: 'git://github.com/gruntjs/grunt-contrib-uglify.git' },
-150 silly resolved     bugs: { url: 'https://github.com/gruntjs/grunt-contrib-uglify/issues' },
-150 silly resolved     licenses: [ [Object] ],
-150 silly resolved     engines: { node: '>=0.10.0' },
-150 silly resolved     scripts: { test: 'grunt test' },
-150 silly resolved     dependencies: { 'uglify-js': '^2.4.0', chalk: '^0.4.0', maxmin: '^0.1.0' },
-150 silly resolved     devDependencies:
-150 silly resolved      { 'grunt-contrib-jshint': '^0.8.0',
-150 silly resolved        'grunt-contrib-nodeunit': '^0.3.2',
-150 silly resolved        'grunt-contrib-clean': '^0.5.0',
-150 silly resolved        'grunt-contrib-internal': '^0.4.2',
-150 silly resolved        grunt: '^0.4.2' },
-150 silly resolved     peerDependencies: { grunt: '^0.4.0' },
-150 silly resolved     keywords: [ 'gruntplugin' ],
-150 silly resolved     files: [ 'tasks', 'LICENSE-MIT' ],
-150 silly resolved     readme: '# grunt-contrib-uglify v0.4.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-uglify.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-uglify)\n\n> Minify files with UglifyJS.\n\n\n\n## Getting Started\nThis plugin requires Grunt `^0.4.0`\n\nIf you haven\'t used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you\'re familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-contrib-uglify --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-contrib-uglify\');\n```\n\n\n\n\n## Uglify task\n_Run this task with the `grunt uglify` command._\n\nTask targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.\n\n### Migrating from 2.x to 3.x\n\nVersion `3.x` introduced changes to configuring source maps. Accordingly, if you don\'t use the source map options you should be able to upgrade seamlessly. If you do use source maps, see below.\n\n#### Removed options\n\n`sourceMapRoot` - The location of your sources is now calculated for you when `sourceMap` is set to `true`  \n`sourceMapPrefix` - No longer necessary for the above reason  \n`sourceMappingURL` - Once again, this is calculated automatically\n\n#### Changed options\n\n`sourceMap` - Only accepts a `Boolean` value. Generates a map with a default name for you  \n\n#### New options\n\n`sourceMapName` - Accepts a string or function to change the location or name of your map\n`sourceMapIncludeSources` - Embed the content of your source files directly into the map\n\n### Options\n\nThis task primarily delegates to [UglifyJS2][], so please consider the [UglifyJS documentation][] as required reading for advanced configuration.\n\n[UglifyJS2]: https://github.com/mishoo/UglifyJS2\n[UglifyJS documentation]: http://lisperator.net/uglifyjs/\n\n#### mangle\nType: `Boolean` `Object`  \nDefault: `{}`\n\nTurn on or off mangling with default options. If an `Object` is specified, it is passed directly to `ast.mangle_names()` *and* `ast.compute_char_frequency()` (mimicking command line behavior).\n\n#### compress\nType: `Boolean` `Object`  \nDefault: `{}`\n\nTurn on or off source compression with default options. If an `Object` is specified, it is passed as options to `UglifyJS.Compressor()`.\n\n#### beautify\nType: `Boolean` `Object`  \nDefault: `false`\n\nTurns on beautification of the generated source code. An `Object` will be merged and passed with the options sent to `UglifyJS.OutputStream()`\n\n#### report\nChoices: `\'min\'`, `\'gzip\'`  \nDefault: `\'min\'`\n\nEither report only minification result or report minification and gzip results.\nThis is useful to see exactly how well clean-css is performing but using `\'gzip\'` will make the task take 5-10x longer to complete. [Example output](https://github.com/sindresorhus/maxmin#readme).\n\n#### sourceMap\nType: `Boolean`  \nDefault: `false`\n\nIf `true`, a source map file will be generated in the same directory as the `dest` file. By default it will have the same basename as the `dest` file, but with a `.map` extension.\n\n#### sourceMapName\nType: `String`  `Function`  \nDefault: `undefined`\n\nTo customize the name or location of the generated source map, pass a string to indicate where to write the source map to. If a function is provided, the uglify destination is passed as the argument and the return value will be used as the file name.\n\n#### sourceMapIn\nType: `String`  `Function`  \nDefault: `undefined`\n\nThe location of an input source map from an earlier compilation, e.g. from CoffeeScript. If a function is provided, the\nuglify source is passed as the argument and the return value will be used as the sourceMap name. This only makes sense\nwhen there\'s one source file.\n\n#### sourceMapIncludeSources\nType: `Boolean`\nDefault: `false`\n\nPass this flag if you want to include the content of source files in the source map as sourcesContent property.\n\n###### enclose\nType: `Object`  \nDefault: `undefined`\n\nWrap all of the code in a closure with a configurable arguments/parameters list.\nEach key-value pair in the `enclose` object is effectively an argument-parameter pair.\n\n#### wrap\nType: `String`  \nDefault: `undefined`\n\nWrap all of the code in a closure, an easy way to make sure nothing is leaking.\nFor variables that need to be public `exports` and `global` variables are made available.\nThe value of wrap is the global variable exports will be available as.\n\n#### exportAll\nType: `Boolean`  \nDefault: `false`\n\nWhen using `wrap` this will make all global functions and variables available via the export variable.\n\n#### preserveComments\nType: `Boolean` `String` `Function`  \nDefault: `undefined`  \nOptions: `false` `\'all\'` `\'some\'`\n\nTurn on preservation of comments.\n\n- `false` will strip all comments\n- `\'all\'` will preserve all comments in code blocks that have not been squashed or dropped\n- `\'some\'` will preserve all comments that start with a bang (`!`) or include a closure compiler style directive (`@preserve` `@license` `@cc_on`)\n- `Function` specify your own comment preservation function. You will be passed the current node and the current comment and are expected to return either `true` or `false`\n\n#### banner\nType: `String`  \nDefault: empty string\n\nThis string will be prepended to the minified output.  Template strings (e.g. `<%= config.value %>` will be expanded automatically.\n\n#### footer\nType: `String`  \nDefault: empty string\n\nThis string will be appended to the minified output.  Template strings (e.g. `<%= config.value %>` will be expanded automatically.\n\n### Usage examples\n\n#### Basic compression\n\nThis configuration will compress and mangle the input files using the default options.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input1.js\', \'src/input2.js\']\n      }\n    }\n  }\n});\n```\n\n#### No mangling\n\nSpecify `mangle: false` to prevent changes to your variable and function names.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      mangle: false\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Reserved identifiers\n\nYou can specify identifiers to leave untouched with an `except` array in the `mangle` options.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      mangle: {\n        except: [\'jQuery\', \'Backbone\']\n      }\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Source maps\n\nGenerate a source map by setting the `sourceMap` option to `true`. The generated\nsource map will be in the same directory as the destination file. Its name will be the\nbasename of the destination file with a `.map` extension. Override these\ndefaults with the `sourceMapName` attribute.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      options: {\n        sourceMap: true,\n        sourceMapName: \'path/to/sourcemap.map\'\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Advanced source maps\n\nSet the `sourceMapIncludeSources` option to `true` to embed your sources directly into the map. To include\na source map from a previous compilation pass it as the value of the `sourceMapIn` option.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      options: {\n        sourceMap: true,\n        sourceMapIncludeSources: true,\n        sourceMapIn: \'example/coffeescript-sourcemap.js\', // input sourcemap from a previous compilation\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\'],\n      },\n    },\n  },\n});\n```\n\nRefer to the [UglifyJS SourceMap Documentation](http://lisperator.net/uglifyjs/codegen#source-map) for more information.\n\n\n#### Discard console.* functions\n\nSpecify `drop_console: true` as part of the `compress` options to discard calls to `console.*` functions.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      compress: {\n        drop_console: true\n      }\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Beautify\n\nSpecify `beautify: true` to beautify your code for debugging/troubleshooting purposes.\nPass an object to manually configure any other output options passed directly to `UglifyJS.OutputStream()`.\n\nSee [UglifyJS Codegen documentation](http://lisperator.net/uglifyjs/codegen) for more information.\n\n_Note that manual configuration will require you to explicitly set `beautify: true` if you want traditional, beautified output._\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      options: {\n        beautify: true\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    },\n    my_advanced_target: {\n      options: {\n        beautify: {\n          width: 80,\n          beautify: true\n        }\n      },\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Banner comments\n\nIn this example, running `grunt uglify:my_target` will prepend a banner created by interpolating the `banner` template string with the config object. Here, those properties are the values imported from the `package.json` file (which are available via the `pkg` config property) plus today\'s date.\n\n_Note: you don\'t have to use an external JSON file. It\'s also valid to create the `pkg` object inline in the config. That being said, if you already have a JSON file, you might as well reference it._\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  pkg: grunt.file.readJSON(\'package.json\'),\n  uglify: {\n    options: {\n      banner: \'/*! <%= pkg.name %> - v<%= pkg.version %> - \' +\n        \'<%= grunt.template.today("yyyy-mm-dd") %> */\'\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n\n#### Conditional compilation\n\nYou can also enable UglifyJS conditional compilation. This is commonly used to remove debug code blocks for production builds.\n\nSee [UglifyJS global definitions documentation](http://lisperator.net/uglifyjs/compress#global-defs) for more information.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    options: {\n      compress: {\n        global_defs: {\n          "DEBUG": false\n        },\n        dead_code: true\n      }\n    },\n    my_target: {\n      files: {\n        \'dest/output.min.js\': [\'src/input.js\']\n      }\n    }\n  }\n});\n```\n#### Compiling all files in a folder dynamically\n\nThis configuration will compress and mangle the files dynamically.\n\n```js\n// Project configuration.\ngrunt.initConfig({\n  uglify: {\n    my_target: {\n      files: [{\n          expand: true,\n          cwd: \'src/js\',\n          src: \'**/*.js\',\n          dest: \'dest/js\'\n      }]\n    }\n  }\n});\n```\n\n\n## Release History\n\n * 2014-02-27   v0.3.3   remove unnecessary calls to `grunt.template.process`\n * 2014-01-22   v0.3.2   fix handling of `sourceMapIncludeSources` option.\n * 2014-01-20   v0.3.1   fix relative path issue in sourcemaps\n * 2014-01-16   v0.3.0   refactor sourcemap support\n * 2013-11-09   v0.2.7   prepending banner if sourceMap option not set, addresses\n * 2013-11-08   v0.2.6   merged 45, 53, 85 (105 by way of duping 53) Added support for banners in uglified files with sourcemaps Updated docs\n * 2013-10-28   v0.2.5   Added warning for banners when using sourcemaps\n * 2013-09-02   v0.2.4   updated sourcemap format via /83\n * 2013-06-10   v0.2.3   added footer option\n * 2013-05-31   v0.2.2   Reverted /56 due to /58 until [chrome/239660](https://code.google.com/p/chromium/issues/detail?id=239660&q=sourcemappingurl&colspec=ID%20Pri%20M%20Iteration%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified) [firefox/870361](https://bugzilla.mozilla.org/show_bug.cgi?id=870361) drop\n * 2013-05-22   v0.2.1   Bumped uglify to ~2.3.5 /55 /40 Changed sourcemappingUrl syntax /56 Disabled sorting of names for consistent mangling /44 Updated docs for sourceMapRoot /47 /25\n * 2013-03-14   v0.2.0   No longer report gzip results by default. Support `report` option.\n * 2013-01-30   v0.1.2   Added better error reporting Support for dynamic names of multiple sourcemaps\n * 2013-02-15   v0.1.1   First official release for Grunt 0.4.0.\n * 2013-01-18   v0.1.1rc6   Updating grunt/gruntplugin dependencies to rc6. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.\n * 2013-01-09   v0.1.1rc5   Updating to work with grunt v0.4.0rc5. Switching back to this.files api.\n * 2012-11-28   v0.1.0   Work in progress, not yet officially released.\n\n---\n\nTask submitted by ["Cowboy" Ben Alman](http://benalman.com)\n\n*This file was generated on Sat Mar 01 2014 20:36:24.*\n',
-150 silly resolved     readmeFilename: 'README.md',
-150 silly resolved     _id: 'grunt-contrib-uglify@0.4.0',
-150 silly resolved     dist: { shasum: 'fe77fe1b30488e7e81fe853b66718a970cfaf693' },
-150 silly resolved     _from: 'grunt-contrib-uglify@',
-150 silly resolved     _resolved: 'https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.4.0.tgz' } ]
-151 info install grunt-contrib-uglify@0.4.0 into c:\banarep2\Desarrollo\Web\bacoba
-152 info installOne grunt-contrib-uglify@0.4.0
-153 verbose from cache C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package\package.json
-154 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify unbuild
-155 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
-156 verbose tar unpack C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-157 silly lockFile 8a8ebb02-ode-modules-grunt-contrib-uglify tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
-158 verbose lock tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify C:\Users\jperdomo\AppData\Roaming\npm-cache\8a8ebb02-ode-modules-grunt-contrib-uglify.lock
-159 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-160 verbose lock tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz C:\Users\jperdomo\AppData\Roaming\npm-cache\d7a9d3e2-contrib-uglify-0-4-0-package-tgz.lock
-161 silly gunzTarPerm modes [ '755', '644' ]
-162 silly gunzTarPerm extractEntry package.json
-163 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
-164 silly gunzTarPerm extractEntry README.md
-165 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
-166 silly gunzTarPerm extractEntry LICENSE-MIT
-167 silly gunzTarPerm modified mode [ 'LICENSE-MIT', 438, 420 ]
-168 silly gunzTarPerm extractEntry tasks/uglify.js
-169 silly gunzTarPerm modified mode [ 'tasks/uglify.js', 438, 420 ]
-170 silly gunzTarPerm extractEntry tasks/lib/uglify.js
-171 silly gunzTarPerm modified mode [ 'tasks/lib/uglify.js', 438, 420 ]
-172 verbose read json c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
-173 silly lockFile 8a8ebb02-ode-modules-grunt-contrib-uglify tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
-174 silly lockFile 8a8ebb02-ode-modules-grunt-contrib-uglify tar://c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
-175 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-176 silly lockFile d7a9d3e2-contrib-uglify-0-4-0-package-tgz tar://C:\Users\jperdomo\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.4.0\package.tgz
-177 info preinstall grunt-contrib-uglify@0.4.0
-178 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
-179 verbose readDependencies using package.json deps
-180 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
-181 verbose readDependencies using package.json deps
-182 verbose cache add [ 'uglify-js@^2.4.0', null ]
-183 verbose cache add name=undefined spec="uglify-js@^2.4.0" args=["uglify-js@^2.4.0",null]
-184 verbose parsed url { protocol: null,
-184 verbose parsed url   slashes: null,
-184 verbose parsed url   auth: null,
-184 verbose parsed url   host: null,
-184 verbose parsed url   port: null,
-184 verbose parsed url   hostname: null,
-184 verbose parsed url   hash: null,
-184 verbose parsed url   search: null,
-184 verbose parsed url   query: null,
-184 verbose parsed url   pathname: 'uglify-js@^2.4.0',
-184 verbose parsed url   path: 'uglify-js@^2.4.0',
-184 verbose parsed url   href: 'uglify-js@^2.4.0' }
-185 verbose cache add name="uglify-js" spec="^2.4.0" args=["uglify-js","^2.4.0"]
-186 verbose parsed url { protocol: null,
-186 verbose parsed url   slashes: null,
-186 verbose parsed url   auth: null,
-186 verbose parsed url   host: null,
-186 verbose parsed url   port: null,
-186 verbose parsed url   hostname: null,
-186 verbose parsed url   hash: null,
-186 verbose parsed url   search: null,
-186 verbose parsed url   query: null,
-186 verbose parsed url   pathname: '^2.4.0',
-186 verbose parsed url   path: '^2.4.0',
-186 verbose parsed url   href: '^2.4.0' }
-187 verbose addNamed [ 'uglify-js', '^2.4.0' ]
-188 verbose addNamed [ null, null ]
-189 silly lockFile 0517be62-uglify-js-2-4-0 uglify-js@^2.4.0
-190 verbose lock uglify-js@^2.4.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\0517be62-uglify-js-2-4-0.lock
-191 verbose cache add [ 'chalk@^0.4.0', null ]
-192 verbose cache add name=undefined spec="chalk@^0.4.0" args=["chalk@^0.4.0",null]
-193 verbose parsed url { protocol: null,
-193 verbose parsed url   slashes: null,
-193 verbose parsed url   auth: null,
-193 verbose parsed url   host: null,
-193 verbose parsed url   port: null,
-193 verbose parsed url   hostname: null,
-193 verbose parsed url   hash: null,
-193 verbose parsed url   search: null,
-193 verbose parsed url   query: null,
-193 verbose parsed url   pathname: 'chalk@^0.4.0',
-193 verbose parsed url   path: 'chalk@^0.4.0',
-193 verbose parsed url   href: 'chalk@^0.4.0' }
-194 verbose cache add name="chalk" spec="^0.4.0" args=["chalk","^0.4.0"]
-195 verbose parsed url { protocol: null,
-195 verbose parsed url   slashes: null,
-195 verbose parsed url   auth: null,
-195 verbose parsed url   host: null,
-195 verbose parsed url   port: null,
-195 verbose parsed url   hostname: null,
-195 verbose parsed url   hash: null,
-195 verbose parsed url   search: null,
-195 verbose parsed url   query: null,
-195 verbose parsed url   pathname: '^0.4.0',
-195 verbose parsed url   path: '^0.4.0',
-195 verbose parsed url   href: '^0.4.0' }
-196 verbose addNamed [ 'chalk', '^0.4.0' ]
-197 verbose addNamed [ null, null ]
-198 silly lockFile b2f4396d-chalk-0-4-0 chalk@^0.4.0
-199 verbose lock chalk@^0.4.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\b2f4396d-chalk-0-4-0.lock
-200 verbose cache add [ 'maxmin@^0.1.0', null ]
-201 verbose cache add name=undefined spec="maxmin@^0.1.0" args=["maxmin@^0.1.0",null]
-202 verbose parsed url { protocol: null,
-202 verbose parsed url   slashes: null,
-202 verbose parsed url   auth: null,
-202 verbose parsed url   host: null,
-202 verbose parsed url   port: null,
-202 verbose parsed url   hostname: null,
-202 verbose parsed url   hash: null,
-202 verbose parsed url   search: null,
-202 verbose parsed url   query: null,
-202 verbose parsed url   pathname: 'maxmin@^0.1.0',
-202 verbose parsed url   path: 'maxmin@^0.1.0',
-202 verbose parsed url   href: 'maxmin@^0.1.0' }
-203 verbose cache add name="maxmin" spec="^0.1.0" args=["maxmin","^0.1.0"]
-204 verbose parsed url { protocol: null,
-204 verbose parsed url   slashes: null,
-204 verbose parsed url   auth: null,
-204 verbose parsed url   host: null,
-204 verbose parsed url   port: null,
-204 verbose parsed url   hostname: null,
-204 verbose parsed url   hash: null,
-204 verbose parsed url   search: null,
-204 verbose parsed url   query: null,
-204 verbose parsed url   pathname: '^0.1.0',
-204 verbose parsed url   path: '^0.1.0',
-204 verbose parsed url   href: '^0.1.0' }
-205 verbose addNamed [ 'maxmin', '^0.1.0' ]
-206 verbose addNamed [ null, null ]
-207 silly lockFile c75f66b7-maxmin-0-1-0 maxmin@^0.1.0
-208 verbose lock maxmin@^0.1.0 C:\Users\jperdomo\AppData\Roaming\npm-cache\c75f66b7-maxmin-0-1-0.lock
-209 info addNameTag [ 'uglify-js', '^2.4.0' ]
-210 info addNameTag [ 'maxmin', '^0.1.0' ]
-211 info addNameTag [ 'chalk', '^0.4.0' ]
-212 verbose url raw maxmin
-213 verbose url resolving [ 'https://registry.npmjs.org/', './maxmin' ]
-214 verbose url resolved https://registry.npmjs.org/maxmin
-215 info trying registry request attempt 1 at 15:21:19
-216 verbose etag "DA2ESBBYRYX7UR8YBC6J0XUNT"
-217 http GET https://registry.npmjs.org/maxmin
-218 verbose url raw chalk
-219 verbose url resolving [ 'https://registry.npmjs.org/', './chalk' ]
-220 verbose url resolved https://registry.npmjs.org/chalk
-221 info trying registry request attempt 1 at 15:21:19
-222 verbose etag "3ENK48H85739T3WO0JOEMVKNI"
-223 http GET https://registry.npmjs.org/chalk
-224 verbose url raw uglify-js
-225 verbose url resolving [ 'https://registry.npmjs.org/', './uglify-js' ]
-226 verbose url resolved https://registry.npmjs.org/uglify-js
-227 info trying registry request attempt 1 at 15:21:19
-228 verbose etag "9ET1R92NGSANPAV5UEK1EOJKD"
-229 http GET https://registry.npmjs.org/uglify-js
-230 http 304 https://registry.npmjs.org/chalk
-231 silly registry.get cb [ 304,
-231 silly registry.get   { date: 'Fri, 06 Jun 2014 21:21:05 GMT',
-231 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
-231 silly registry.get     etag: '"3ENK48H85739T3WO0JOEMVKNI"',
-231 silly registry.get     'accept-ranges': 'bytes',
-231 silly registry.get     via: '1.1 varnish',
-231 silly registry.get     'cache-control': 'max-age=1',
-231 silly registry.get     'x-served-by': 'cache-sv61-SJC3, cache-jfk1030-JFK',
-231 silly registry.get     'x-cache': 'MISS, MISS',
-231 silly registry.get     'x-cache-hits': '0, 0',
-231 silly registry.get     'x-timer': 'S1402089665.567733,VS0,VE114',
-231 silly registry.get     'content-length': '0',
-231 silly registry.get     'keep-alive': 'timeout=10, max=50',
-231 silly registry.get     connection: 'Keep-Alive' } ]
-232 verbose etag chalk from cache
-233 silly lockFile b2f4396d-chalk-0-4-0 chalk@^0.4.0
-234 silly lockFile b2f4396d-chalk-0-4-0 chalk@^0.4.0
-235 verbose about to build c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify
-236 info c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify unbuild
-237 verbose from cache c:\banarep2\Desarrollo\Web\bacoba\node_modules\grunt-contrib-uglify\package.json
-238 info preuninstall grunt-contrib-uglify@0.4.0
-239 info uninstall grunt-contrib-uglify@0.4.0
-240 verbose true,c:\banarep2\Desarrollo\Web\bacoba\node_modules,c:\banarep2\Desarrollo\Web\bacoba\node_modules unbuild grunt-contrib-uglify@0.4.0
-241 info postuninstall grunt-contrib-uglify@0.4.0
-242 http 304 https://registry.npmjs.org/maxmin
-243 silly registry.get cb [ 304,
-243 silly registry.get   { date: 'Fri, 06 Jun 2014 21:21:05 GMT',
-243 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
-243 silly registry.get     etag: '"DA2ESBBYRYX7UR8YBC6J0XUNT"',
-243 silly registry.get     'accept-ranges': 'bytes',
-243 silly registry.get     via: '1.1 varnish',
-243 silly registry.get     'cache-control': 'max-age=1',
-243 silly registry.get     'x-served-by': 'cache-sv61-SJC3, cache-jfk1020-JFK',
-243 silly registry.get     'x-cache': 'MISS, MISS',
-243 silly registry.get     'x-cache-hits': '0, 0',
-243 silly registry.get     'x-timer': 'S1402089665.559708,VS0,VE156',
-243 silly registry.get     'content-length': '0',
-243 silly registry.get     'keep-alive': 'timeout=10, max=50',
-243 silly registry.get     connection: 'Keep-Alive' } ]
-244 verbose etag maxmin from cache
-245 silly lockFile c75f66b7-maxmin-0-1-0 maxmin@^0.1.0
-246 silly lockFile c75f66b7-maxmin-0-1-0 maxmin@^0.1.0
-247 error Error: No compatible version found: chalk@'^0.4.0'
-247 error Valid install targets:
-247 error ["0.1.0","0.1.1","0.2.0","0.2.1","0.3.0","0.4.0"]
-247 error     at installTargetsError (C:\Program Files\nodejs\node_modules\npm\lib\cache.js:719:10)
-247 error     at C:\Program Files\nodejs\node_modules\npm\lib\cache.js:641:10
-247 error     at saved (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:138:7)
-247 error     at Object.oncomplete (fs.js:107:15)
-248 error If you need help, you may report this log at:
-248 error     <http://github.com/isaacs/npm/issues>
-248 error or email it to:
-248 error     <npm-@googlegroups.com>
-249 error System Windows_NT 6.1.7601
-250 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "grunt-contrib-uglify" "--save-dev"
-251 error cwd c:\banarep2\Desarrollo\Web\bacoba
-252 error node -v v0.10.12
-253 error npm -v 1.2.32
-254 verbose exit [ 1, true ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/home/jepz/Desarrollo/bacoba',
+6 verbose install   [ 'express',
+6 verbose install     'jade',
+6 verbose install     'mongoose',
+6 verbose install     'connect-mongo',
+6 verbose install     'connect-flash',
+6 verbose install     'crypto',
+6 verbose install     'passport',
+6 verbose install     'passport-local',
+6 verbose install     'passport-facebook',
+6 verbose install     'passport-twitter',
+6 verbose install     'passport-github',
+6 verbose install     'passport-google-oauth',
+6 verbose install     'passport-linkedin',
+6 verbose install     'lodash',
+6 verbose install     'view-helpers',
+6 verbose install     'mean-logger',
+6 verbose install     'bower',
+6 verbose install     'grunt',
+6 verbose install     'grunt-cli',
+6 verbose install     'grunt-env',
+6 verbose install     'forever',
+6 verbose install     'karma-script-launcher',
+6 verbose install     'karma-chrome-launcher',
+6 verbose install     'karma-firefox-launcher',
+6 verbose install     'karma-html2js-preprocessor',
+6 verbose install     'karma-jasmine',
+6 verbose install     'karma-requirejs',
+6 verbose install     'should',
+6 verbose install     'grunt-concurrent',
+6 verbose install     'grunt-karma',
+6 verbose install     'karma-coffee-preprocessor',
+6 verbose install     'supertest',
+6 verbose install     'karma-phantomjs-launcher',
+6 verbose install     'grunt-mocha-test',
+6 verbose install     'grunt-contrib-jshint',
+6 verbose install     'grunt-nodemon',
+6 verbose install     'grunt-contrib-watch',
+6 verbose install     'karma-coverage',
+6 verbose install     'karma',
+6 verbose install     'underscore',
+6 verbose install     'imagemagick',
+6 verbose install     'pdfkit',
+6 verbose install     'image-size',
+6 verbose install     'emailjs',
+6 verbose install     'fs-extra' ] ]
+7 info preinstall bacoba@0.0.1
+8 warn package.json crypto@0.0.3 crypto is also the name of a node core module.
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping passport-github@~0.1.5 /home/jepz/Desarrollo/bacoba
+11 verbose already installed skipping passport-google-oauth@~0.1.5 /home/jepz/Desarrollo/bacoba
+12 verbose already installed skipping passport-linkedin@~0.1.3 /home/jepz/Desarrollo/bacoba
+13 verbose already installed skipping lodash@~2.4.1 /home/jepz/Desarrollo/bacoba
+14 verbose already installed skipping view-helpers@~0.1.4 /home/jepz/Desarrollo/bacoba
+15 verbose already installed skipping bower@~1.2.8 /home/jepz/Desarrollo/bacoba
+16 verbose already installed skipping mean-logger@0.0.1 /home/jepz/Desarrollo/bacoba
+17 verbose already installed skipping grunt@~0.4.2 /home/jepz/Desarrollo/bacoba
+18 verbose already installed skipping grunt-cli@~0.1.11 /home/jepz/Desarrollo/bacoba
+19 verbose already installed skipping grunt-env@~0.4.1 /home/jepz/Desarrollo/bacoba
+20 verbose already installed skipping forever@~0.10.11 /home/jepz/Desarrollo/bacoba
+21 verbose already installed skipping karma-script-launcher@~0.1.0 /home/jepz/Desarrollo/bacoba
+22 verbose already installed skipping karma-chrome-launcher@~0.1.0 /home/jepz/Desarrollo/bacoba
+23 verbose already installed skipping karma-firefox-launcher@~0.1.0 /home/jepz/Desarrollo/bacoba
+24 verbose already installed skipping karma-html2js-preprocessor@~0.1.0 /home/jepz/Desarrollo/bacoba
+25 verbose already installed skipping karma-jasmine@~0.1.3 /home/jepz/Desarrollo/bacoba
+26 verbose already installed skipping karma-requirejs@~0.1.0 /home/jepz/Desarrollo/bacoba
+27 verbose already installed skipping should@2.1.1 /home/jepz/Desarrollo/bacoba
+28 verbose cache add [ 'grunt-concurrent@~0.4.3', null ]
+29 verbose cache add name=undefined spec="grunt-concurrent@~0.4.3" args=["grunt-concurrent@~0.4.3",null]
+30 verbose parsed url { protocol: null,
+30 verbose parsed url   slashes: null,
+30 verbose parsed url   auth: null,
+30 verbose parsed url   host: null,
+30 verbose parsed url   port: null,
+30 verbose parsed url   hostname: null,
+30 verbose parsed url   hash: null,
+30 verbose parsed url   search: null,
+30 verbose parsed url   query: null,
+30 verbose parsed url   pathname: 'grunt-concurrent@~0.4.3',
+30 verbose parsed url   path: 'grunt-concurrent@~0.4.3',
+30 verbose parsed url   href: 'grunt-concurrent@~0.4.3' }
+31 verbose cache add name="grunt-concurrent" spec="~0.4.3" args=["grunt-concurrent","~0.4.3"]
+32 verbose parsed url { protocol: null,
+32 verbose parsed url   slashes: null,
+32 verbose parsed url   auth: null,
+32 verbose parsed url   host: null,
+32 verbose parsed url   port: null,
+32 verbose parsed url   hostname: null,
+32 verbose parsed url   hash: null,
+32 verbose parsed url   search: null,
+32 verbose parsed url   query: null,
+32 verbose parsed url   pathname: '~0.4.3',
+32 verbose parsed url   path: '~0.4.3',
+32 verbose parsed url   href: '~0.4.3' }
+33 verbose addNamed [ 'grunt-concurrent', '~0.4.3' ]
+34 verbose addNamed [ null, '>=0.4.3-0 <0.5.0-0' ]
+35 verbose already installed skipping supertest@0.8.2 /home/jepz/Desarrollo/bacoba
+36 verbose already installed skipping grunt-karma@~0.6.2 /home/jepz/Desarrollo/bacoba
+37 silly lockFile d7765af8-grunt-concurrent-0-4-3 grunt-concurrent@~0.4.3
+38 verbose lock grunt-concurrent@~0.4.3 /home/jepz/.npm/d7765af8-grunt-concurrent-0-4-3.lock
+39 verbose already installed skipping karma-phantomjs-launcher@~0.1.0 /home/jepz/Desarrollo/bacoba
+40 verbose cache add [ 'grunt-mocha-test@latest', null ]
+41 verbose cache add name=undefined spec="grunt-mocha-test@latest" args=["grunt-mocha-test@latest",null]
+42 verbose parsed url { protocol: null,
+42 verbose parsed url   slashes: null,
+42 verbose parsed url   auth: null,
+42 verbose parsed url   host: null,
+42 verbose parsed url   port: null,
+42 verbose parsed url   hostname: null,
+42 verbose parsed url   hash: null,
+42 verbose parsed url   search: null,
+42 verbose parsed url   query: null,
+42 verbose parsed url   pathname: 'grunt-mocha-test@latest',
+42 verbose parsed url   path: 'grunt-mocha-test@latest',
+42 verbose parsed url   href: 'grunt-mocha-test@latest' }
+43 verbose cache add name="grunt-mocha-test" spec="latest" args=["grunt-mocha-test","latest"]
+44 verbose parsed url { protocol: null,
+44 verbose parsed url   slashes: null,
+44 verbose parsed url   auth: null,
+44 verbose parsed url   host: null,
+44 verbose parsed url   port: null,
+44 verbose parsed url   hostname: null,
+44 verbose parsed url   hash: null,
+44 verbose parsed url   search: null,
+44 verbose parsed url   query: null,
+44 verbose parsed url   pathname: 'latest',
+44 verbose parsed url   path: 'latest',
+44 verbose parsed url   href: 'latest' }
+45 verbose addNamed [ 'grunt-mocha-test', 'latest' ]
+46 verbose addNamed [ null, null ]
+47 silly lockFile 29185e6c-grunt-mocha-test-latest grunt-mocha-test@latest
+48 verbose lock grunt-mocha-test@latest /home/jepz/.npm/29185e6c-grunt-mocha-test-latest.lock
+49 verbose already installed skipping karma-coffee-preprocessor@~0.1.0 /home/jepz/Desarrollo/bacoba
+50 verbose cache add [ 'grunt-contrib-jshint@latest', null ]
+51 verbose cache add name=undefined spec="grunt-contrib-jshint@latest" args=["grunt-contrib-jshint@latest",null]
+52 verbose parsed url { protocol: null,
+52 verbose parsed url   slashes: null,
+52 verbose parsed url   auth: null,
+52 verbose parsed url   host: null,
+52 verbose parsed url   port: null,
+52 verbose parsed url   hostname: null,
+52 verbose parsed url   hash: null,
+52 verbose parsed url   search: null,
+52 verbose parsed url   query: null,
+52 verbose parsed url   pathname: 'grunt-contrib-jshint@latest',
+52 verbose parsed url   path: 'grunt-contrib-jshint@latest',
+52 verbose parsed url   href: 'grunt-contrib-jshint@latest' }
+53 verbose cache add name="grunt-contrib-jshint" spec="latest" args=["grunt-contrib-jshint","latest"]
+54 verbose parsed url { protocol: null,
+54 verbose parsed url   slashes: null,
+54 verbose parsed url   auth: null,
+54 verbose parsed url   host: null,
+54 verbose parsed url   port: null,
+54 verbose parsed url   hostname: null,
+54 verbose parsed url   hash: null,
+54 verbose parsed url   search: null,
+54 verbose parsed url   query: null,
+54 verbose parsed url   pathname: 'latest',
+54 verbose parsed url   path: 'latest',
+54 verbose parsed url   href: 'latest' }
+55 verbose addNamed [ 'grunt-contrib-jshint', 'latest' ]
+56 verbose addNamed [ null, null ]
+57 silly lockFile 23ae4c0c-grunt-contrib-jshint-latest grunt-contrib-jshint@latest
+58 verbose lock grunt-contrib-jshint@latest /home/jepz/.npm/23ae4c0c-grunt-contrib-jshint-latest.lock
+59 verbose already installed skipping grunt-nodemon@0.1.2 /home/jepz/Desarrollo/bacoba
+60 verbose cache add [ 'grunt-contrib-watch@latest', null ]
+61 verbose cache add name=undefined spec="grunt-contrib-watch@latest" args=["grunt-contrib-watch@latest",null]
+62 verbose parsed url { protocol: null,
+62 verbose parsed url   slashes: null,
+62 verbose parsed url   auth: null,
+62 verbose parsed url   host: null,
+62 verbose parsed url   port: null,
+62 verbose parsed url   hostname: null,
+62 verbose parsed url   hash: null,
+62 verbose parsed url   search: null,
+62 verbose parsed url   query: null,
+62 verbose parsed url   pathname: 'grunt-contrib-watch@latest',
+62 verbose parsed url   path: 'grunt-contrib-watch@latest',
+62 verbose parsed url   href: 'grunt-contrib-watch@latest' }
+63 verbose cache add name="grunt-contrib-watch" spec="latest" args=["grunt-contrib-watch","latest"]
+64 verbose parsed url { protocol: null,
+64 verbose parsed url   slashes: null,
+64 verbose parsed url   auth: null,
+64 verbose parsed url   host: null,
+64 verbose parsed url   port: null,
+64 verbose parsed url   hostname: null,
+64 verbose parsed url   hash: null,
+64 verbose parsed url   search: null,
+64 verbose parsed url   query: null,
+64 verbose parsed url   pathname: 'latest',
+64 verbose parsed url   path: 'latest',
+64 verbose parsed url   href: 'latest' }
+65 verbose addNamed [ 'grunt-contrib-watch', 'latest' ]
+66 verbose addNamed [ null, null ]
+67 silly lockFile 72016001-grunt-contrib-watch-latest grunt-contrib-watch@latest
+68 verbose lock grunt-contrib-watch@latest /home/jepz/.npm/72016001-grunt-contrib-watch-latest.lock
+69 verbose already installed skipping karma-coverage@~0.1.0 /home/jepz/Desarrollo/bacoba
+70 verbose already installed skipping karma@~0.10.4 /home/jepz/Desarrollo/bacoba
+71 verbose cache add [ 'underscore@latest', null ]
+72 verbose cache add name=undefined spec="underscore@latest" args=["underscore@latest",null]
+73 verbose parsed url { protocol: null,
+73 verbose parsed url   slashes: null,
+73 verbose parsed url   auth: null,
+73 verbose parsed url   host: null,
+73 verbose parsed url   port: null,
+73 verbose parsed url   hostname: null,
+73 verbose parsed url   hash: null,
+73 verbose parsed url   search: null,
+73 verbose parsed url   query: null,
+73 verbose parsed url   pathname: 'underscore@latest',
+73 verbose parsed url   path: 'underscore@latest',
+73 verbose parsed url   href: 'underscore@latest' }
+74 verbose cache add name="underscore" spec="latest" args=["underscore","latest"]
+75 verbose parsed url { protocol: null,
+75 verbose parsed url   slashes: null,
+75 verbose parsed url   auth: null,
+75 verbose parsed url   host: null,
+75 verbose parsed url   port: null,
+75 verbose parsed url   hostname: null,
+75 verbose parsed url   hash: null,
+75 verbose parsed url   search: null,
+75 verbose parsed url   query: null,
+75 verbose parsed url   pathname: 'latest',
+75 verbose parsed url   path: 'latest',
+75 verbose parsed url   href: 'latest' }
+76 verbose addNamed [ 'underscore', 'latest' ]
+77 verbose addNamed [ null, null ]
+78 silly lockFile 546e1155-underscore-latest underscore@latest
+79 verbose lock underscore@latest /home/jepz/.npm/546e1155-underscore-latest.lock
+80 verbose already installed skipping imagemagick@~0.1.3 /home/jepz/Desarrollo/bacoba
+81 verbose cache add [ 'pdfkit@~0.6.0', null ]
+82 verbose cache add name=undefined spec="pdfkit@~0.6.0" args=["pdfkit@~0.6.0",null]
+83 verbose parsed url { protocol: null,
+83 verbose parsed url   slashes: null,
+83 verbose parsed url   auth: null,
+83 verbose parsed url   host: null,
+83 verbose parsed url   port: null,
+83 verbose parsed url   hostname: null,
+83 verbose parsed url   hash: null,
+83 verbose parsed url   search: null,
+83 verbose parsed url   query: null,
+83 verbose parsed url   pathname: 'pdfkit@~0.6.0',
+83 verbose parsed url   path: 'pdfkit@~0.6.0',
+83 verbose parsed url   href: 'pdfkit@~0.6.0' }
+84 verbose cache add name="pdfkit" spec="~0.6.0" args=["pdfkit","~0.6.0"]
+85 verbose parsed url { protocol: null,
+85 verbose parsed url   slashes: null,
+85 verbose parsed url   auth: null,
+85 verbose parsed url   host: null,
+85 verbose parsed url   port: null,
+85 verbose parsed url   hostname: null,
+85 verbose parsed url   hash: null,
+85 verbose parsed url   search: null,
+85 verbose parsed url   query: null,
+85 verbose parsed url   pathname: '~0.6.0',
+85 verbose parsed url   path: '~0.6.0',
+85 verbose parsed url   href: '~0.6.0' }
+86 verbose addNamed [ 'pdfkit', '~0.6.0' ]
+87 verbose addNamed [ null, '>=0.6.0-0 <0.7.0-0' ]
+88 silly lockFile 90f02d8a-pdfkit-0-6-0 pdfkit@~0.6.0
+89 verbose lock pdfkit@~0.6.0 /home/jepz/.npm/90f02d8a-pdfkit-0-6-0.lock
+90 verbose already installed skipping image-size@~0.2.3 /home/jepz/Desarrollo/bacoba
+91 verbose cache add [ 'emailjs@~0.3.8', null ]
+92 verbose cache add name=undefined spec="emailjs@~0.3.8" args=["emailjs@~0.3.8",null]
+93 verbose parsed url { protocol: null,
+93 verbose parsed url   slashes: null,
+93 verbose parsed url   auth: null,
+93 verbose parsed url   host: null,
+93 verbose parsed url   port: null,
+93 verbose parsed url   hostname: null,
+93 verbose parsed url   hash: null,
+93 verbose parsed url   search: null,
+93 verbose parsed url   query: null,
+93 verbose parsed url   pathname: 'emailjs@~0.3.8',
+93 verbose parsed url   path: 'emailjs@~0.3.8',
+93 verbose parsed url   href: 'emailjs@~0.3.8' }
+94 verbose cache add name="emailjs" spec="~0.3.8" args=["emailjs","~0.3.8"]
+95 verbose parsed url { protocol: null,
+95 verbose parsed url   slashes: null,
+95 verbose parsed url   auth: null,
+95 verbose parsed url   host: null,
+95 verbose parsed url   port: null,
+95 verbose parsed url   hostname: null,
+95 verbose parsed url   hash: null,
+95 verbose parsed url   search: null,
+95 verbose parsed url   query: null,
+95 verbose parsed url   pathname: '~0.3.8',
+95 verbose parsed url   path: '~0.3.8',
+95 verbose parsed url   href: '~0.3.8' }
+96 verbose addNamed [ 'emailjs', '~0.3.8' ]
+97 verbose addNamed [ null, '>=0.3.8-0 <0.4.0-0' ]
+98 silly lockFile bcc4852f-emailjs-0-3-8 emailjs@~0.3.8
+99 verbose lock emailjs@~0.3.8 /home/jepz/.npm/bcc4852f-emailjs-0-3-8.lock
+100 verbose already installed skipping fs-extra@~0.8.1 /home/jepz/Desarrollo/bacoba
+101 verbose already installed skipping jade@~1.0.2 /home/jepz/Desarrollo/bacoba
+102 verbose already installed skipping express@~3.4.7 /home/jepz/Desarrollo/bacoba
+103 silly addNameRange { name: 'grunt-concurrent',
+103 silly addNameRange   range: '>=0.4.3-0 <0.5.0-0',
+103 silly addNameRange   hasData: false }
+104 info addNameTag [ 'grunt-mocha-test', 'latest' ]
+105 verbose already installed skipping connect-mongo@~0.4.0 /home/jepz/Desarrollo/bacoba
+106 verbose already installed skipping mongoose@~3.8.3 /home/jepz/Desarrollo/bacoba
+107 info addNameTag [ 'underscore', 'latest' ]
+108 silly addNameRange { name: 'pdfkit', range: '>=0.6.0-0 <0.7.0-0', hasData: false }
+109 info addNameTag [ 'grunt-contrib-jshint', 'latest' ]
+110 info addNameTag [ 'grunt-contrib-watch', 'latest' ]
+111 silly addNameRange { name: 'emailjs', range: '>=0.3.8-0 <0.4.0-0', hasData: false }
+112 verbose already installed skipping connect-flash@~0.1.1 /home/jepz/Desarrollo/bacoba
+113 verbose already installed skipping crypto@0.0.3 /home/jepz/Desarrollo/bacoba
+114 verbose already installed skipping passport@~0.1.18 /home/jepz/Desarrollo/bacoba
+115 verbose already installed skipping passport-local@~0.1.6 /home/jepz/Desarrollo/bacoba
+116 verbose already installed skipping passport-facebook@~1.0.2 /home/jepz/Desarrollo/bacoba
+117 verbose already installed skipping passport-twitter@~1.0.2 /home/jepz/Desarrollo/bacoba
+118 verbose url raw emailjs
+119 verbose url resolving [ 'https://registry.npmjs.org/', './emailjs' ]
+120 verbose url resolved https://registry.npmjs.org/emailjs
+121 info trying registry request attempt 1 at 20:32:10
+122 http GET https://registry.npmjs.org/emailjs
+123 verbose url raw grunt-mocha-test
+124 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-mocha-test' ]
+125 verbose url resolved https://registry.npmjs.org/grunt-mocha-test
+126 info trying registry request attempt 1 at 20:32:10
+127 verbose etag "B7AUWEJQHM3V8Z51YAHBMSHC6"
+128 http GET https://registry.npmjs.org/grunt-mocha-test
+129 verbose url raw underscore
+130 verbose url resolving [ 'https://registry.npmjs.org/', './underscore' ]
+131 verbose url resolved https://registry.npmjs.org/underscore
+132 info trying registry request attempt 1 at 20:32:11
+133 verbose etag "32CEV0QQBLLTZ12BK63NB2S9A"
+134 http GET https://registry.npmjs.org/underscore
+135 verbose url raw pdfkit
+136 verbose url resolving [ 'https://registry.npmjs.org/', './pdfkit' ]
+137 verbose url resolved https://registry.npmjs.org/pdfkit
+138 info trying registry request attempt 1 at 20:32:11
+139 verbose etag "DVW9QE4B1BCDKSSAGSH20HGRJ"
+140 http GET https://registry.npmjs.org/pdfkit
+141 verbose url raw grunt-contrib-jshint
+142 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-jshint' ]
+143 verbose url resolved https://registry.npmjs.org/grunt-contrib-jshint
+144 info trying registry request attempt 1 at 20:32:11
+145 verbose etag "DD9A9GKCC42C60F64J2XO2D0K"
+146 http GET https://registry.npmjs.org/grunt-contrib-jshint
+147 verbose url raw grunt-contrib-watch
+148 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-contrib-watch' ]
+149 verbose url resolved https://registry.npmjs.org/grunt-contrib-watch
+150 info trying registry request attempt 1 at 20:32:11
+151 verbose etag "LYYYUOP0VSGWKRRIQU3KR09B"
+152 http GET https://registry.npmjs.org/grunt-contrib-watch
+153 verbose url raw grunt-concurrent
+154 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-concurrent' ]
+155 verbose url resolved https://registry.npmjs.org/grunt-concurrent
+156 info trying registry request attempt 1 at 20:32:11
+157 verbose etag "3DFGI787OZZIXU68JMUUG1NPZ"
+158 http GET https://registry.npmjs.org/grunt-concurrent
+159 http 200 https://registry.npmjs.org/underscore
+160 silly registry.get cb [ 200,
+160 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:12 GMT',
+160 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+160 silly registry.get     etag: '"44B0FJYHC99APMAENMG051I7Z"',
+160 silly registry.get     'content-type': 'application/json',
+160 silly registry.get     'cache-control': 'max-age=30',
+160 silly registry.get     'content-length': '30724',
+160 silly registry.get     'accept-ranges': 'bytes',
+160 silly registry.get     via: '1.1 varnish',
+160 silly registry.get     age: '380',
+160 silly registry.get     'x-served-by': 'cache-jfk1031-JFK',
+160 silly registry.get     'x-cache': 'HIT',
+160 silly registry.get     'x-cache-hits': '1',
+160 silly registry.get     'x-timer': 'S1404700331.962595,VS0,VE81',
+160 silly registry.get     vary: 'Accept',
+160 silly registry.get     'keep-alive': 'timeout=10, max=50',
+160 silly registry.get     connection: 'Keep-Alive' } ]
+161 verbose addNamed [ 'underscore', '1.6.0' ]
+162 verbose addNamed [ '1.6.0', '1.6.0' ]
+163 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+164 verbose lock underscore@1.6.0 /home/jepz/.npm/96960ed1-underscore-1-6-0.lock
+165 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+166 silly lockFile 96960ed1-underscore-1-6-0 underscore@1.6.0
+167 silly lockFile 546e1155-underscore-latest underscore@latest
+168 silly lockFile 546e1155-underscore-latest underscore@latest
+169 info already installed underscore@1.6.0
+170 http 200 https://registry.npmjs.org/grunt-mocha-test
+171 silly registry.get cb [ 200,
+171 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:11 GMT',
+171 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+171 silly registry.get     etag: '"D3IE8BK1B7YR2T4EHJVPFEA76"',
+171 silly registry.get     'content-type': 'application/json',
+171 silly registry.get     'cache-control': 'max-age=30',
+171 silly registry.get     'content-length': '57907',
+171 silly registry.get     'accept-ranges': 'bytes',
+171 silly registry.get     via: '1.1 varnish',
+171 silly registry.get     age: '7622',
+171 silly registry.get     'x-served-by': 'cache-jfk1029-JFK',
+171 silly registry.get     'x-cache': 'HIT',
+171 silly registry.get     'x-cache-hits': '1',
+171 silly registry.get     'x-timer': 'S1404700331.835437,VS0,VE17',
+171 silly registry.get     vary: 'Accept',
+171 silly registry.get     'keep-alive': 'timeout=10, max=50',
+171 silly registry.get     connection: 'Keep-Alive' } ]
+172 verbose addNamed [ 'grunt-mocha-test', '0.11.0' ]
+173 verbose addNamed [ '0.11.0', '0.11.0' ]
+174 silly lockFile 2b2fa9a9-grunt-mocha-test-0-11-0 grunt-mocha-test@0.11.0
+175 verbose lock grunt-mocha-test@0.11.0 /home/jepz/.npm/2b2fa9a9-grunt-mocha-test-0-11-0.lock
+176 silly lockFile dc286c8e-test-grunt-mocha-test-0-11-0-tgz https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz
+177 verbose lock https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz /home/jepz/.npm/dc286c8e-test-grunt-mocha-test-0-11-0-tgz.lock
+178 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz',
+178 verbose addRemoteTarball   '75e41ba107590e4acbd29860925c012e443ca322' ]
+179 info retry fetch attempt 1 at 20:32:14
+180 verbose fetch to= /home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/tmp.tgz
+181 http GET https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz
+182 http 200 https://registry.npmjs.org/emailjs
+183 silly registry.get cb [ 200,
+183 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:11 GMT',
+183 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+183 silly registry.get     etag: '"550P0BHCSTBHU90HO6H9NUJGN"',
+183 silly registry.get     'content-type': 'application/json',
+183 silly registry.get     'cache-control': 'max-age=30',
+183 silly registry.get     'content-length': '38963',
+183 silly registry.get     'accept-ranges': 'bytes',
+183 silly registry.get     via: '1.1 varnish',
+183 silly registry.get     age: '0',
+183 silly registry.get     'x-served-by': 'cache-jfk1021-JFK',
+183 silly registry.get     'x-cache': 'MISS',
+183 silly registry.get     'x-cache-hits': '0',
+183 silly registry.get     'x-timer': 'S1404700331.839078,VS0,VE40',
+183 silly registry.get     vary: 'Accept',
+183 silly registry.get     'keep-alive': 'timeout=10, max=50',
+183 silly registry.get     connection: 'Keep-Alive' } ]
+184 silly addNameRange number 2 { name: 'emailjs', range: '>=0.3.8-0 <0.4.0-0', hasData: true }
+185 silly addNameRange versions [ 'emailjs',
+185 silly addNameRange   [ '0.1.0',
+185 silly addNameRange     '0.1.1',
+185 silly addNameRange     '0.1.2',
+185 silly addNameRange     '0.1.3',
+185 silly addNameRange     '0.1.4',
+185 silly addNameRange     '0.1.5',
+185 silly addNameRange     '0.1.6',
+185 silly addNameRange     '0.1.7',
+185 silly addNameRange     '0.1.8',
+185 silly addNameRange     '0.1.9',
+185 silly addNameRange     '0.1.10',
+185 silly addNameRange     '0.1.11',
+185 silly addNameRange     '0.1.12',
+185 silly addNameRange     '0.1.13',
+185 silly addNameRange     '0.1.14',
+185 silly addNameRange     '0.1.15',
+185 silly addNameRange     '0.1.16',
+185 silly addNameRange     '0.1.17',
+185 silly addNameRange     '0.1.18',
+185 silly addNameRange     '0.1.19',
+185 silly addNameRange     '0.2.0',
+185 silly addNameRange     '0.2.1',
+185 silly addNameRange     '0.2.2',
+185 silly addNameRange     '0.2.4',
+185 silly addNameRange     '0.2.5',
+185 silly addNameRange     '0.2.7',
+185 silly addNameRange     '0.2.8',
+185 silly addNameRange     '0.2.9',
+185 silly addNameRange     '0.3.0',
+185 silly addNameRange     '0.3.1',
+185 silly addNameRange     '0.3.2',
+185 silly addNameRange     '0.3.3',
+185 silly addNameRange     '0.3.4',
+185 silly addNameRange     '0.3.5',
+185 silly addNameRange     '0.3.6',
+185 silly addNameRange     '0.3.8',
+185 silly addNameRange     '0.3.9' ] ]
+186 verbose addNamed [ 'emailjs', '0.3.9' ]
+187 verbose addNamed [ '0.3.9', '0.3.9' ]
+188 silly lockFile e07b894f-emailjs-0-3-9 emailjs@0.3.9
+189 verbose lock emailjs@0.3.9 /home/jepz/.npm/e07b894f-emailjs-0-3-9.lock
+190 silly lockFile cd2af877-js-org-emailjs-emailjs-0-3-9-tgz https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz
+191 verbose lock https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz /home/jepz/.npm/cd2af877-js-org-emailjs-emailjs-0-3-9-tgz.lock
+192 verbose addRemoteTarball [ 'https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz',
+192 verbose addRemoteTarball   '3b59c29206a3d325d958dc0d8e93629d431580bb' ]
+193 info retry fetch attempt 1 at 20:32:14
+194 verbose fetch to= /home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/tmp.tgz
+195 http GET https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz
+196 http 200 https://registry.npmjs.org/grunt-contrib-jshint
+197 silly registry.get cb [ 200,
+197 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:11 GMT',
+197 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+197 silly registry.get     etag: '"7JLAFBKQONHIJVZEQQRWYF24Q"',
+197 silly registry.get     'content-type': 'application/json',
+197 silly registry.get     'cache-control': 'max-age=30',
+197 silly registry.get     'content-length': '51433',
+197 silly registry.get     'accept-ranges': 'bytes',
+197 silly registry.get     via: '1.1 varnish',
+197 silly registry.get     age: '566',
+197 silly registry.get     'x-served-by': 'cache-jfk1031-JFK',
+197 silly registry.get     'x-cache': 'HIT',
+197 silly registry.get     'x-cache-hits': '1',
+197 silly registry.get     'x-timer': 'S1404700331.958194,VS0,VE0',
+197 silly registry.get     vary: 'Accept',
+197 silly registry.get     'keep-alive': 'timeout=10, max=50',
+197 silly registry.get     connection: 'Keep-Alive' } ]
+198 verbose addNamed [ 'grunt-contrib-jshint', '0.10.0' ]
+199 verbose addNamed [ '0.10.0', '0.10.0' ]
+200 silly lockFile af8d4102-grunt-contrib-jshint-0-10-0 grunt-contrib-jshint@0.10.0
+201 verbose lock grunt-contrib-jshint@0.10.0 /home/jepz/.npm/af8d4102-grunt-contrib-jshint-0-10-0.lock
+202 silly lockFile af8d4102-grunt-contrib-jshint-0-10-0 grunt-contrib-jshint@0.10.0
+203 silly lockFile af8d4102-grunt-contrib-jshint-0-10-0 grunt-contrib-jshint@0.10.0
+204 silly lockFile 23ae4c0c-grunt-contrib-jshint-latest grunt-contrib-jshint@latest
+205 silly lockFile 23ae4c0c-grunt-contrib-jshint-latest grunt-contrib-jshint@latest
+206 info already installed grunt-contrib-jshint@0.10.0
+207 http 200 https://registry.npmjs.org/grunt-concurrent
+208 silly registry.get cb [ 200,
+208 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:14 GMT',
+208 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+208 silly registry.get     etag: '"1PAJDBBQ4U5ZOY69GXVYKUSTL"',
+208 silly registry.get     'content-type': 'application/json',
+208 silly registry.get     'cache-control': 'max-age=30',
+208 silly registry.get     'content-length': '16970',
+208 silly registry.get     'accept-ranges': 'bytes',
+208 silly registry.get     via: '1.1 varnish',
+208 silly registry.get     age: '5662',
+208 silly registry.get     'x-served-by': 'cache-jfk1029-JFK',
+208 silly registry.get     'x-cache': 'HIT',
+208 silly registry.get     'x-cache-hits': '1',
+208 silly registry.get     'x-timer': 'S1404700334.449071,VS0,VE14',
+208 silly registry.get     vary: 'Accept',
+208 silly registry.get     'keep-alive': 'timeout=10, max=49',
+208 silly registry.get     connection: 'Keep-Alive' } ]
+209 silly addNameRange number 2 { name: 'grunt-concurrent',
+209 silly addNameRange   range: '>=0.4.3-0 <0.5.0-0',
+209 silly addNameRange   hasData: true }
+210 silly addNameRange versions [ 'grunt-concurrent',
+210 silly addNameRange   [ '0.1.0',
+210 silly addNameRange     '0.1.1',
+210 silly addNameRange     '0.2.0',
+210 silly addNameRange     '0.3.0',
+210 silly addNameRange     '0.3.1',
+210 silly addNameRange     '0.4.0',
+210 silly addNameRange     '0.4.1',
+210 silly addNameRange     '0.4.2',
+210 silly addNameRange     '0.4.3',
+210 silly addNameRange     '0.5.0' ] ]
+211 verbose addNamed [ 'grunt-concurrent', '0.4.3' ]
+212 verbose addNamed [ '0.4.3', '0.4.3' ]
+213 silly lockFile 901a412f-grunt-concurrent-0-4-3 grunt-concurrent@0.4.3
+214 verbose lock grunt-concurrent@0.4.3 /home/jepz/.npm/901a412f-grunt-concurrent-0-4-3.lock
+215 silly lockFile f937c667-rrent-grunt-concurrent-0-4-3-tgz https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz
+216 verbose lock https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz /home/jepz/.npm/f937c667-rrent-grunt-concurrent-0-4-3-tgz.lock
+217 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz',
+217 verbose addRemoteTarball   '2453490185594c89d8399f3b1843476f6869e49d' ]
+218 info retry fetch attempt 1 at 20:32:15
+219 verbose fetch to= /home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/tmp.tgz
+220 http GET https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz
+221 http 200 https://registry.npmjs.org/pdfkit
+222 silly registry.get cb [ 200,
+222 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:12 GMT',
+222 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+222 silly registry.get     etag: '"KRECUT50YI4M5P7EZF0W0CDU"',
+222 silly registry.get     'content-type': 'application/json',
+222 silly registry.get     'cache-control': 'max-age=30',
+222 silly registry.get     'content-length': '39244',
+222 silly registry.get     'accept-ranges': 'bytes',
+222 silly registry.get     via: '1.1 varnish',
+222 silly registry.get     age: '0',
+222 silly registry.get     'x-served-by': 'cache-iad2123-IAD',
+222 silly registry.get     'x-cache': 'MISS',
+222 silly registry.get     'x-cache-hits': '0',
+222 silly registry.get     'x-timer': 'S1404700332.324596,VS0,VE375',
+222 silly registry.get     vary: 'Accept',
+222 silly registry.get     'keep-alive': 'timeout=10, max=50',
+222 silly registry.get     connection: 'Keep-Alive' } ]
+223 silly addNameRange number 2 { name: 'pdfkit', range: '>=0.6.0-0 <0.7.0-0', hasData: true }
+224 silly addNameRange versions [ 'pdfkit',
+224 silly addNameRange   [ '0.1.0',
+224 silly addNameRange     '0.1.1',
+224 silly addNameRange     '0.1.2',
+224 silly addNameRange     '0.1.3',
+224 silly addNameRange     '0.1.4',
+224 silly addNameRange     '0.1.5',
+224 silly addNameRange     '0.1.6',
+224 silly addNameRange     '0.1.7',
+224 silly addNameRange     '0.1.8',
+224 silly addNameRange     '0.1.9',
+224 silly addNameRange     '0.2.0',
+224 silly addNameRange     '0.2.1',
+224 silly addNameRange     '0.2.2',
+224 silly addNameRange     '0.2.3',
+224 silly addNameRange     '0.2.4',
+224 silly addNameRange     '0.2.5',
+224 silly addNameRange     '0.2.6',
+224 silly addNameRange     '0.2.7',
+224 silly addNameRange     '0.2.8',
+224 silly addNameRange     '0.3.0',
+224 silly addNameRange     '0.4.0',
+224 silly addNameRange     '0.4.2',
+224 silly addNameRange     '0.4.3',
+224 silly addNameRange     '0.5.0',
+224 silly addNameRange     '0.5.2',
+224 silly addNameRange     '0.5.3',
+224 silly addNameRange     '0.6.0',
+224 silly addNameRange     '0.6.1',
+224 silly addNameRange     '0.6.2' ] ]
+225 verbose addNamed [ 'pdfkit', '0.6.2' ]
+226 verbose addNamed [ '0.6.2', '0.6.2' ]
+227 silly lockFile 23836ed8-pdfkit-0-6-2 pdfkit@0.6.2
+228 verbose lock pdfkit@0.6.2 /home/jepz/.npm/23836ed8-pdfkit-0-6-2.lock
+229 silly lockFile e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+230 verbose lock https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz /home/jepz/.npm/e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz.lock
+231 verbose addRemoteTarball [ 'https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz',
+231 verbose addRemoteTarball   'b678d38ce4662d2c44c83aa7c9e03f0250fabc40' ]
+232 info retry fetch attempt 1 at 20:32:15
+233 verbose fetch to= /home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/tmp.tgz
+234 http GET https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+235 http 200 https://registry.npmjs.org/grunt-contrib-watch
+236 silly registry.get cb [ 200,
+236 silly registry.get   { date: 'Mon, 07 Jul 2014 02:32:14 GMT',
+236 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+236 silly registry.get     etag: '"AB3LK235B9PHY6MH3DB8PGHMQ"',
+236 silly registry.get     'content-type': 'application/json',
+236 silly registry.get     'cache-control': 'max-age=30',
+236 silly registry.get     'content-length': '59502',
+236 silly registry.get     'accept-ranges': 'bytes',
+236 silly registry.get     via: '1.1 varnish',
+236 silly registry.get     age: '618',
+236 silly registry.get     'x-served-by': 'cache-jfk1031-JFK',
+236 silly registry.get     'x-cache': 'HIT',
+236 silly registry.get     'x-cache-hits': '1',
+236 silly registry.get     'x-timer': 'S1404700334.311279,VS0,VE0',
+236 silly registry.get     vary: 'Accept',
+236 silly registry.get     'keep-alive': 'timeout=10, max=49',
+236 silly registry.get     connection: 'Keep-Alive' } ]
+237 verbose addNamed [ 'grunt-contrib-watch', '0.6.1' ]
+238 verbose addNamed [ '0.6.1', '0.6.1' ]
+239 silly lockFile 08049756-grunt-contrib-watch-0-6-1 grunt-contrib-watch@0.6.1
+240 verbose lock grunt-contrib-watch@0.6.1 /home/jepz/.npm/08049756-grunt-contrib-watch-0-6-1.lock
+241 silly lockFile 08049756-grunt-contrib-watch-0-6-1 grunt-contrib-watch@0.6.1
+242 silly lockFile 08049756-grunt-contrib-watch-0-6-1 grunt-contrib-watch@0.6.1
+243 silly lockFile 72016001-grunt-contrib-watch-latest grunt-contrib-watch@latest
+244 silly lockFile 72016001-grunt-contrib-watch-latest grunt-contrib-watch@latest
+245 info already installed grunt-contrib-watch@0.6.1
+246 http 200 https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz
+247 verbose tar unpack /home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/tmp.tgz
+248 silly lockFile bf09669d-34214-0-9383443125989288-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+249 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package /home/jepz/.npm/bf09669d-34214-0-9383443125989288-package.lock
+250 silly lockFile e05c0076-34214-0-9383443125989288-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/tmp.tgz
+251 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/tmp.tgz /home/jepz/.npm/e05c0076-34214-0-9383443125989288-tmp-tgz.lock
+252 silly gunzTarPerm modes [ '755', '644' ]
+253 silly gunzTarPerm extractEntry package.json
+254 silly gunzTarPerm extractEntry README.md
+255 silly gunzTarPerm extractEntry LICENSE-MIT
+256 http 200 https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz
+257 silly gunzTarPerm extractEntry tasks/mocha-test.js
+258 silly gunzTarPerm extractEntry tasks/lib/MochaWrapper.js
+259 silly lockFile bf09669d-34214-0-9383443125989288-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+260 silly lockFile bf09669d-34214-0-9383443125989288-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+261 silly lockFile e05c0076-34214-0-9383443125989288-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/tmp.tgz
+262 silly lockFile e05c0076-34214-0-9383443125989288-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/tmp.tgz
+263 verbose tar pack [ '/home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz',
+263 verbose tar pack   '/home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package' ]
+264 verbose tarball /home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+265 verbose folder /home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+266 silly lockFile bf09669d-34214-0-9383443125989288-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+267 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package /home/jepz/.npm/bf09669d-34214-0-9383443125989288-package.lock
+268 silly lockFile ee466399-nt-mocha-test-0-11-0-package-tgz tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+269 verbose lock tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz /home/jepz/.npm/ee466399-nt-mocha-test-0-11-0-package-tgz.lock
+270 silly lockFile bf09669d-34214-0-9383443125989288-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+271 silly lockFile bf09669d-34214-0-9383443125989288-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334214-0.9383443125989288/package
+272 silly lockFile ee466399-nt-mocha-test-0-11-0-package-tgz tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+273 silly lockFile ee466399-nt-mocha-test-0-11-0-package-tgz tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+274 silly lockFile 5a7370dc--grunt-mocha-test-0-11-0-package /home/jepz/.npm/grunt-mocha-test/0.11.0/package
+275 verbose lock /home/jepz/.npm/grunt-mocha-test/0.11.0/package /home/jepz/.npm/5a7370dc--grunt-mocha-test-0-11-0-package.lock
+276 silly lockFile 5a7370dc--grunt-mocha-test-0-11-0-package /home/jepz/.npm/grunt-mocha-test/0.11.0/package
+277 silly lockFile 5a7370dc--grunt-mocha-test-0-11-0-package /home/jepz/.npm/grunt-mocha-test/0.11.0/package
+278 verbose tar unpack /home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+279 silly lockFile f0b5a6a5--grunt-mocha-test-0-11-0-package tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package
+280 verbose lock tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package /home/jepz/.npm/f0b5a6a5--grunt-mocha-test-0-11-0-package.lock
+281 silly lockFile ee466399-nt-mocha-test-0-11-0-package-tgz tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+282 verbose lock tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz /home/jepz/.npm/ee466399-nt-mocha-test-0-11-0-package-tgz.lock
+283 silly gunzTarPerm modes [ '755', '644' ]
+284 silly gunzTarPerm extractEntry package.json
+285 silly gunzTarPerm extractEntry README.md
+286 silly gunzTarPerm extractEntry LICENSE-MIT
+287 silly gunzTarPerm extractEntry tasks/mocha-test.js
+288 silly gunzTarPerm extractEntry tasks/lib/MochaWrapper.js
+289 silly lockFile f0b5a6a5--grunt-mocha-test-0-11-0-package tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package
+290 silly lockFile f0b5a6a5--grunt-mocha-test-0-11-0-package tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package
+291 silly lockFile ee466399-nt-mocha-test-0-11-0-package-tgz tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+292 silly lockFile ee466399-nt-mocha-test-0-11-0-package-tgz tar:///home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz
+293 verbose chmod /home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz 644
+294 verbose chown /home/jepz/.npm/grunt-mocha-test/0.11.0/package.tgz [ 1000, 1000 ]
+295 silly lockFile dc286c8e-test-grunt-mocha-test-0-11-0-tgz https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz
+296 silly lockFile dc286c8e-test-grunt-mocha-test-0-11-0-tgz https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz
+297 silly lockFile 2b2fa9a9-grunt-mocha-test-0-11-0 grunt-mocha-test@0.11.0
+298 silly lockFile 2b2fa9a9-grunt-mocha-test-0-11-0 grunt-mocha-test@0.11.0
+299 silly lockFile 29185e6c-grunt-mocha-test-latest grunt-mocha-test@latest
+300 silly lockFile 29185e6c-grunt-mocha-test-latest grunt-mocha-test@latest
+301 verbose tar unpack /home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/tmp.tgz
+302 silly lockFile 1de52ab8-34271-0-5692554186098278-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+303 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package /home/jepz/.npm/1de52ab8-34271-0-5692554186098278-package.lock
+304 silly lockFile 67fdfdd9-34271-0-5692554186098278-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/tmp.tgz
+305 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/tmp.tgz /home/jepz/.npm/67fdfdd9-34271-0-5692554186098278-tmp-tgz.lock
+306 silly gunzTarPerm modes [ '755', '644' ]
+307 silly gunzTarPerm extractEntry package.json
+308 silly gunzTarPerm extractEntry LICENSE
+309 silly gunzTarPerm extractEntry email.js
+310 silly gunzTarPerm extractEntry Readme.md
+311 silly gunzTarPerm extractEntry smtp/address.js
+312 silly gunzTarPerm extractEntry smtp/client.js
+313 silly gunzTarPerm extractEntry smtp/error.js
+314 silly gunzTarPerm extractEntry smtp/message.js
+315 http 200 https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz
+316 verbose tar unpack /home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/tmp.tgz
+317 silly lockFile 6fafb0c4-35422-0-8672450529411435-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+318 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package /home/jepz/.npm/6fafb0c4-35422-0-8672450529411435-package.lock
+319 silly lockFile 8af50458-35422-0-8672450529411435-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/tmp.tgz
+320 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/tmp.tgz /home/jepz/.npm/8af50458-35422-0-8672450529411435-tmp-tgz.lock
+321 silly gunzTarPerm modes [ '755', '644' ]
+322 silly gunzTarPerm extractEntry smtp/response.js
+323 silly gunzTarPerm extractEntry smtp/smtp.js
+324 silly gunzTarPerm extractEntry package.json
+325 silly gunzTarPerm extractEntry .gitattributes
+326 silly gunzTarPerm extractEntry readme.md
+327 silly gunzTarPerm extractEntry tasks/concurrent.js
+328 silly gunzTarPerm extractEntry smtp/tls.js
+329 silly lockFile 6fafb0c4-35422-0-8672450529411435-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+330 silly lockFile 6fafb0c4-35422-0-8672450529411435-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+331 silly lockFile 8af50458-35422-0-8672450529411435-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/tmp.tgz
+332 silly lockFile 8af50458-35422-0-8672450529411435-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/tmp.tgz
+333 verbose tar pack [ '/home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz',
+333 verbose tar pack   '/home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package' ]
+334 verbose tarball /home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+335 verbose folder /home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+336 silly lockFile 6fafb0c4-35422-0-8672450529411435-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+337 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package /home/jepz/.npm/6fafb0c4-35422-0-8672450529411435-package.lock
+338 silly lockFile 56c302da-unt-concurrent-0-4-3-package-tgz tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+339 verbose lock tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz /home/jepz/.npm/56c302da-unt-concurrent-0-4-3-package-tgz.lock
+340 silly lockFile 6fafb0c4-35422-0-8672450529411435-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+341 silly lockFile 6fafb0c4-35422-0-8672450529411435-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335422-0.8672450529411435/package
+342 silly lockFile 56c302da-unt-concurrent-0-4-3-package-tgz tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+343 silly lockFile 56c302da-unt-concurrent-0-4-3-package-tgz tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+344 silly lockFile 09efb954-m-grunt-concurrent-0-4-3-package /home/jepz/.npm/grunt-concurrent/0.4.3/package
+345 verbose lock /home/jepz/.npm/grunt-concurrent/0.4.3/package /home/jepz/.npm/09efb954-m-grunt-concurrent-0-4-3-package.lock
+346 silly lockFile 09efb954-m-grunt-concurrent-0-4-3-package /home/jepz/.npm/grunt-concurrent/0.4.3/package
+347 silly lockFile 09efb954-m-grunt-concurrent-0-4-3-package /home/jepz/.npm/grunt-concurrent/0.4.3/package
+348 verbose tar unpack /home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+349 silly lockFile 4a41e3aa-m-grunt-concurrent-0-4-3-package tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package
+350 verbose lock tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package /home/jepz/.npm/4a41e3aa-m-grunt-concurrent-0-4-3-package.lock
+351 silly lockFile 56c302da-unt-concurrent-0-4-3-package-tgz tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+352 verbose lock tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz /home/jepz/.npm/56c302da-unt-concurrent-0-4-3-package-tgz.lock
+353 silly gunzTarPerm modes [ '755', '644' ]
+354 silly gunzTarPerm extractEntry package.json
+355 silly gunzTarPerm extractEntry .gitattributes
+356 silly gunzTarPerm extractEntry readme.md
+357 silly gunzTarPerm extractEntry tasks/concurrent.js
+358 silly lockFile 1de52ab8-34271-0-5692554186098278-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+359 silly lockFile 1de52ab8-34271-0-5692554186098278-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+360 silly lockFile 67fdfdd9-34271-0-5692554186098278-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/tmp.tgz
+361 silly lockFile 67fdfdd9-34271-0-5692554186098278-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/tmp.tgz
+362 verbose tar pack [ '/home/jepz/.npm/emailjs/0.3.9/package.tgz',
+362 verbose tar pack   '/home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package' ]
+363 verbose tarball /home/jepz/.npm/emailjs/0.3.9/package.tgz
+364 verbose folder /home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+365 silly lockFile 1de52ab8-34271-0-5692554186098278-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+366 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package /home/jepz/.npm/1de52ab8-34271-0-5692554186098278-package.lock
+367 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+368 verbose lock tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz /home/jepz/.npm/bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz.lock
+369 silly lockFile 4a41e3aa-m-grunt-concurrent-0-4-3-package tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package
+370 silly lockFile 4a41e3aa-m-grunt-concurrent-0-4-3-package tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package
+371 silly lockFile 56c302da-unt-concurrent-0-4-3-package-tgz tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+372 silly lockFile 56c302da-unt-concurrent-0-4-3-package-tgz tar:///home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz
+373 verbose chmod /home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz 644
+374 verbose chown /home/jepz/.npm/grunt-concurrent/0.4.3/package.tgz [ 1000, 1000 ]
+375 silly lockFile f937c667-rrent-grunt-concurrent-0-4-3-tgz https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz
+376 silly lockFile f937c667-rrent-grunt-concurrent-0-4-3-tgz https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz
+377 silly lockFile 901a412f-grunt-concurrent-0-4-3 grunt-concurrent@0.4.3
+378 silly lockFile 901a412f-grunt-concurrent-0-4-3 grunt-concurrent@0.4.3
+379 silly lockFile d7765af8-grunt-concurrent-0-4-3 grunt-concurrent@~0.4.3
+380 silly lockFile d7765af8-grunt-concurrent-0-4-3 grunt-concurrent@~0.4.3
+381 silly lockFile 1de52ab8-34271-0-5692554186098278-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+382 silly lockFile 1de52ab8-34271-0-5692554186098278-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700334271-0.5692554186098278/package
+383 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+384 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+385 silly lockFile 663852c9-e-jepz-npm-emailjs-0-3-9-package /home/jepz/.npm/emailjs/0.3.9/package
+386 verbose lock /home/jepz/.npm/emailjs/0.3.9/package /home/jepz/.npm/663852c9-e-jepz-npm-emailjs-0-3-9-package.lock
+387 silly lockFile 663852c9-e-jepz-npm-emailjs-0-3-9-package /home/jepz/.npm/emailjs/0.3.9/package
+388 silly lockFile 663852c9-e-jepz-npm-emailjs-0-3-9-package /home/jepz/.npm/emailjs/0.3.9/package
+389 verbose tar unpack /home/jepz/.npm/emailjs/0.3.9/package.tgz
+390 silly lockFile 15ee3d34-e-jepz-npm-emailjs-0-3-9-package tar:///home/jepz/.npm/emailjs/0.3.9/package
+391 verbose lock tar:///home/jepz/.npm/emailjs/0.3.9/package /home/jepz/.npm/15ee3d34-e-jepz-npm-emailjs-0-3-9-package.lock
+392 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+393 verbose lock tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz /home/jepz/.npm/bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz.lock
+394 silly gunzTarPerm modes [ '755', '644' ]
+395 silly gunzTarPerm extractEntry package.json
+396 silly gunzTarPerm extractEntry LICENSE
+397 silly gunzTarPerm extractEntry email.js
+398 silly gunzTarPerm extractEntry Readme.md
+399 silly gunzTarPerm extractEntry smtp/address.js
+400 silly gunzTarPerm extractEntry smtp/client.js
+401 silly gunzTarPerm extractEntry smtp/error.js
+402 silly gunzTarPerm extractEntry smtp/message.js
+403 silly gunzTarPerm extractEntry smtp/response.js
+404 silly gunzTarPerm extractEntry smtp/smtp.js
+405 silly gunzTarPerm extractEntry smtp/tls.js
+406 silly lockFile 15ee3d34-e-jepz-npm-emailjs-0-3-9-package tar:///home/jepz/.npm/emailjs/0.3.9/package
+407 silly lockFile 15ee3d34-e-jepz-npm-emailjs-0-3-9-package tar:///home/jepz/.npm/emailjs/0.3.9/package
+408 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+409 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+410 verbose chmod /home/jepz/.npm/emailjs/0.3.9/package.tgz 644
+411 verbose chown /home/jepz/.npm/emailjs/0.3.9/package.tgz [ 1000, 1000 ]
+412 silly lockFile cd2af877-js-org-emailjs-emailjs-0-3-9-tgz https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz
+413 silly lockFile cd2af877-js-org-emailjs-emailjs-0-3-9-tgz https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz
+414 silly lockFile e07b894f-emailjs-0-3-9 emailjs@0.3.9
+415 silly lockFile e07b894f-emailjs-0-3-9 emailjs@0.3.9
+416 silly lockFile bcc4852f-emailjs-0-3-8 emailjs@~0.3.8
+417 silly lockFile bcc4852f-emailjs-0-3-8 emailjs@~0.3.8
+418 http 200 https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+419 verbose tar unpack /home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/tmp.tgz
+420 silly lockFile 5d6369c0-35537-0-5956314818467945-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+421 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package /home/jepz/.npm/5d6369c0-35537-0-5956314818467945-package.lock
+422 silly lockFile 46fbb695-35537-0-5956314818467945-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/tmp.tgz
+423 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/tmp.tgz /home/jepz/.npm/46fbb695-35537-0-5956314818467945-tmp-tgz.lock
+424 silly gunzTarPerm modes [ '755', '644' ]
+425 silly gunzTarPerm extractEntry package.json
+426 silly gunzTarPerm extractEntry .npmignore
+427 silly gunzTarPerm extractEntry README.md
+428 silly gunzTarPerm extractEntry LICENSE
+429 silly gunzTarPerm extractEntry Makefile
+430 silly gunzTarPerm extractEntry build/pdfkit.js
+431 silly gunzTarPerm extractEntry build/pdfkit.js.map
+432 silly gunzTarPerm extractEntry index.html
+433 silly gunzTarPerm extractEntry js/data.js
+434 silly gunzTarPerm extractEntry js/path.js
+435 silly gunzTarPerm extractEntry js/font.js
+436 silly gunzTarPerm extractEntry js/gradient.js
+437 silly gunzTarPerm extractEntry js/page.js
+438 silly gunzTarPerm extractEntry js/document.js
+439 silly gunzTarPerm extractEntry js/line_wrapper.js
+440 silly gunzTarPerm extractEntry js/object.js
+441 silly gunzTarPerm extractEntry js/reference.js
+442 silly gunzTarPerm extractEntry js/image.js
+443 silly gunzTarPerm extractEntry js/mixins/annotations.js
+444 silly gunzTarPerm extractEntry js/mixins/color.js
+445 silly gunzTarPerm extractEntry js/mixins/fonts.js
+446 silly gunzTarPerm extractEntry js/mixins/images.js
+447 silly gunzTarPerm extractEntry js/mixins/text.js
+448 silly gunzTarPerm extractEntry js/mixins/vector.js
+449 silly gunzTarPerm extractEntry js/image/jpeg.js
+450 silly gunzTarPerm extractEntry js/image/png.js
+451 silly gunzTarPerm extractEntry js/font/afm.js
+452 silly gunzTarPerm extractEntry js/font/dfont.js
+453 silly gunzTarPerm extractEntry js/font/directory.js
+454 silly gunzTarPerm extractEntry js/font/subset.js
+455 silly gunzTarPerm extractEntry js/font/table.js
+456 silly gunzTarPerm extractEntry js/font/ttf.js
+457 silly gunzTarPerm extractEntry js/font/utils.js
+458 silly gunzTarPerm extractEntry js/font/data/Helvetica.afm
+459 silly gunzTarPerm extractEntry js/font/data/Courier-Bold.afm
+460 silly gunzTarPerm extractEntry js/font/data/Courier-Oblique.afm
+461 silly gunzTarPerm extractEntry js/font/data/Courier.afm
+462 silly gunzTarPerm extractEntry js/font/data/Helvetica-Bold.afm
+463 silly gunzTarPerm extractEntry js/font/data/Helvetica-BoldOblique.afm
+464 silly gunzTarPerm extractEntry js/font/data/Helvetica-Oblique.afm
+465 silly gunzTarPerm extractEntry js/font/data/Courier-BoldOblique.afm
+466 silly gunzTarPerm extractEntry js/font/data/MustRead.html
+467 silly gunzTarPerm extractEntry js/font/data/Symbol.afm
+468 silly gunzTarPerm extractEntry js/font/data/Times-Bold.afm
+469 silly gunzTarPerm extractEntry js/font/data/Times-BoldItalic.afm
+470 silly gunzTarPerm extractEntry js/font/data/Times-Italic.afm
+471 silly gunzTarPerm extractEntry js/font/data/Times-Roman.afm
+472 silly gunzTarPerm extractEntry js/font/data/ZapfDingbats.afm
+473 silly gunzTarPerm extractEntry js/font/tables/cmap.js
+474 silly gunzTarPerm extractEntry js/font/tables/glyf.js
+475 silly gunzTarPerm extractEntry js/font/tables/head.js
+476 silly gunzTarPerm extractEntry js/font/tables/hhea.js
+477 silly gunzTarPerm extractEntry js/font/tables/hmtx.js
+478 silly gunzTarPerm extractEntry js/font/tables/loca.js
+479 silly gunzTarPerm extractEntry js/font/tables/maxp.js
+480 silly gunzTarPerm extractEntry js/font/tables/name.js
+481 silly gunzTarPerm extractEntry js/font/tables/os2.js
+482 silly gunzTarPerm extractEntry js/font/tables/post.js
+483 silly lockFile 5d6369c0-35537-0-5956314818467945-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+484 silly lockFile 5d6369c0-35537-0-5956314818467945-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+485 silly lockFile 46fbb695-35537-0-5956314818467945-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/tmp.tgz
+486 silly lockFile 46fbb695-35537-0-5956314818467945-tmp-tgz tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/tmp.tgz
+487 verbose tar pack [ '/home/jepz/.npm/pdfkit/0.6.2/package.tgz',
+487 verbose tar pack   '/home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package' ]
+488 verbose tarball /home/jepz/.npm/pdfkit/0.6.2/package.tgz
+489 verbose folder /home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+490 silly lockFile 5d6369c0-35537-0-5956314818467945-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+491 verbose lock tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package /home/jepz/.npm/5d6369c0-35537-0-5956314818467945-package.lock
+492 silly lockFile 53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz
+493 verbose lock tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz /home/jepz/.npm/53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz.lock
+494 silly lockFile 5d6369c0-35537-0-5956314818467945-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+495 silly lockFile 5d6369c0-35537-0-5956314818467945-package tar:///home/jepz/tmp/npm-11087-vtvYrH1k/1404700335537-0.5956314818467945/package
+496 silly lockFile 53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz
+497 silly lockFile 53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz
+498 silly lockFile 8ee7ed9a-me-jepz-npm-pdfkit-0-6-2-package /home/jepz/.npm/pdfkit/0.6.2/package
+499 verbose lock /home/jepz/.npm/pdfkit/0.6.2/package /home/jepz/.npm/8ee7ed9a-me-jepz-npm-pdfkit-0-6-2-package.lock
+500 silly lockFile 8ee7ed9a-me-jepz-npm-pdfkit-0-6-2-package /home/jepz/.npm/pdfkit/0.6.2/package
+501 silly lockFile 8ee7ed9a-me-jepz-npm-pdfkit-0-6-2-package /home/jepz/.npm/pdfkit/0.6.2/package
+502 verbose tar unpack /home/jepz/.npm/pdfkit/0.6.2/package.tgz
+503 silly lockFile fddc4aed-me-jepz-npm-pdfkit-0-6-2-package tar:///home/jepz/.npm/pdfkit/0.6.2/package
+504 verbose lock tar:///home/jepz/.npm/pdfkit/0.6.2/package /home/jepz/.npm/fddc4aed-me-jepz-npm-pdfkit-0-6-2-package.lock
+505 silly lockFile 53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz
+506 verbose lock tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz /home/jepz/.npm/53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz.lock
+507 silly gunzTarPerm modes [ '755', '644' ]
+508 silly gunzTarPerm extractEntry package.json
+509 silly gunzTarPerm extractEntry .npmignore
+510 silly gunzTarPerm extractEntry README.md
+511 silly gunzTarPerm extractEntry LICENSE
+512 silly gunzTarPerm extractEntry Makefile
+513 silly gunzTarPerm extractEntry build/pdfkit.js
+514 silly gunzTarPerm extractEntry build/pdfkit.js.map
+515 silly gunzTarPerm extractEntry index.html
+516 silly gunzTarPerm extractEntry js/data.js
+517 silly gunzTarPerm extractEntry js/path.js
+518 silly gunzTarPerm extractEntry js/font.js
+519 silly gunzTarPerm extractEntry js/gradient.js
+520 silly gunzTarPerm extractEntry js/page.js
+521 silly gunzTarPerm extractEntry js/document.js
+522 silly gunzTarPerm extractEntry js/line_wrapper.js
+523 silly gunzTarPerm extractEntry js/object.js
+524 silly gunzTarPerm extractEntry js/reference.js
+525 silly gunzTarPerm extractEntry js/image.js
+526 silly gunzTarPerm extractEntry js/mixins/annotations.js
+527 silly gunzTarPerm extractEntry js/mixins/color.js
+528 silly gunzTarPerm extractEntry js/mixins/fonts.js
+529 silly gunzTarPerm extractEntry js/mixins/images.js
+530 silly gunzTarPerm extractEntry js/mixins/text.js
+531 silly gunzTarPerm extractEntry js/mixins/vector.js
+532 silly gunzTarPerm extractEntry js/image/jpeg.js
+533 silly gunzTarPerm extractEntry js/image/png.js
+534 silly gunzTarPerm extractEntry js/font/afm.js
+535 silly gunzTarPerm extractEntry js/font/dfont.js
+536 silly gunzTarPerm extractEntry js/font/directory.js
+537 silly gunzTarPerm extractEntry js/font/subset.js
+538 silly gunzTarPerm extractEntry js/font/table.js
+539 silly gunzTarPerm extractEntry js/font/ttf.js
+540 silly gunzTarPerm extractEntry js/font/utils.js
+541 silly gunzTarPerm extractEntry js/font/data/Helvetica.afm
+542 silly gunzTarPerm extractEntry js/font/data/Courier-Bold.afm
+543 silly gunzTarPerm extractEntry js/font/data/Courier-Oblique.afm
+544 silly gunzTarPerm extractEntry js/font/data/Courier.afm
+545 silly gunzTarPerm extractEntry js/font/data/Helvetica-Bold.afm
+546 silly gunzTarPerm extractEntry js/font/data/Helvetica-BoldOblique.afm
+547 silly gunzTarPerm extractEntry js/font/data/Helvetica-Oblique.afm
+548 silly gunzTarPerm extractEntry js/font/data/Courier-BoldOblique.afm
+549 silly gunzTarPerm extractEntry js/font/data/MustRead.html
+550 silly gunzTarPerm extractEntry js/font/data/Symbol.afm
+551 silly gunzTarPerm extractEntry js/font/data/Times-Bold.afm
+552 silly gunzTarPerm extractEntry js/font/data/Times-BoldItalic.afm
+553 silly gunzTarPerm extractEntry js/font/data/Times-Italic.afm
+554 silly gunzTarPerm extractEntry js/font/data/Times-Roman.afm
+555 silly gunzTarPerm extractEntry js/font/data/ZapfDingbats.afm
+556 silly gunzTarPerm extractEntry js/font/tables/cmap.js
+557 silly gunzTarPerm extractEntry js/font/tables/glyf.js
+558 silly gunzTarPerm extractEntry js/font/tables/head.js
+559 silly gunzTarPerm extractEntry js/font/tables/hhea.js
+560 silly gunzTarPerm extractEntry js/font/tables/hmtx.js
+561 silly gunzTarPerm extractEntry js/font/tables/loca.js
+562 silly gunzTarPerm extractEntry js/font/tables/maxp.js
+563 silly gunzTarPerm extractEntry js/font/tables/name.js
+564 silly gunzTarPerm extractEntry js/font/tables/os2.js
+565 silly gunzTarPerm extractEntry js/font/tables/post.js
+566 silly lockFile fddc4aed-me-jepz-npm-pdfkit-0-6-2-package tar:///home/jepz/.npm/pdfkit/0.6.2/package
+567 silly lockFile fddc4aed-me-jepz-npm-pdfkit-0-6-2-package tar:///home/jepz/.npm/pdfkit/0.6.2/package
+568 silly lockFile 53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz
+569 silly lockFile 53a0b34b-epz-npm-pdfkit-0-6-2-package-tgz tar:///home/jepz/.npm/pdfkit/0.6.2/package.tgz
+570 verbose chmod /home/jepz/.npm/pdfkit/0.6.2/package.tgz 644
+571 verbose chown /home/jepz/.npm/pdfkit/0.6.2/package.tgz [ 1000, 1000 ]
+572 silly lockFile e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+573 silly lockFile e8119233-pmjs-org-pdfkit-pdfkit-0-6-2-tgz https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz
+574 silly lockFile 23836ed8-pdfkit-0-6-2 pdfkit@0.6.2
+575 silly lockFile 23836ed8-pdfkit-0-6-2 pdfkit@0.6.2
+576 silly lockFile 90f02d8a-pdfkit-0-6-0 pdfkit@~0.6.0
+577 silly lockFile 90f02d8a-pdfkit-0-6-0 pdfkit@~0.6.0
+578 silly resolved [ { name: 'grunt-mocha-test',
+578 silly resolved     description: 'A grunt task for running server side mocha tests',
+578 silly resolved     version: '0.11.0',
+578 silly resolved     homepage: 'https://github.com/pghalliday/grunt-mocha-test',
+578 silly resolved     author:
+578 silly resolved      { name: 'Peter Halliday',
+578 silly resolved        email: 'pghalliday@gmail.com',
+578 silly resolved        url: 'http://stuffpetedoes.blogspot.nl/' },
+578 silly resolved     repository:
+578 silly resolved      { type: 'git',
+578 silly resolved        url: 'git://github.com/pghalliday/grunt-mocha-test.git' },
+578 silly resolved     bugs: { url: 'https://github.com/pghalliday/grunt-mocha-test/issues' },
+578 silly resolved     licenses: [ [Object] ],
+578 silly resolved     main: 'grunt.js',
+578 silly resolved     engines: { node: '>= 0.10.4' },
+578 silly resolved     scripts: { test: 'grunt', ci: 'grunt ci' },
+578 silly resolved     config: { 'travis-cov': [Object] },
+578 silly resolved     dependencies: { mocha: '~1.20.0', hooker: '~0.2.3', 'fs-extra': '~0.9.1' },
+578 silly resolved     devDependencies:
+578 silly resolved      { 'grunt-cli': '~0.1.13',
+578 silly resolved        grunt: '~0.4.4',
+578 silly resolved        chai: '~1.9.0',
+578 silly resolved        'grunt-contrib-jshint': '~0.10.0',
+578 silly resolved        'grunt-blanket': '~0.0.8',
+578 silly resolved        'grunt-contrib-copy': '~0.5.0',
+578 silly resolved        'grunt-contrib-clean': '~0.5.0',
+578 silly resolved        'travis-cov': '~0.2.5',
+578 silly resolved        'coffee-script': '~1.7.1',
+578 silly resolved        'mocha-lcov-reporter': '0.0.1',
+578 silly resolved        'grunt-coveralls': '~0.3.0',
+578 silly resolved        'cover-child-process': '~0.1.5',
+578 silly resolved        'grunt-env': '~0.4.1' },
+578 silly resolved     keywords: [ 'gruntplugin', 'mocha', 'test' ],
+578 silly resolved     readme: '# grunt-mocha-test\n\n[![Build Status](https://travis-ci.org/pghalliday/grunt-mocha-test.png)](https://travis-ci.org/pghalliday/grunt-mocha-test)\n[![Coverage Status](https://coveralls.io/repos/pghalliday/grunt-mocha-test/badge.png?branch=master)](https://coveralls.io/r/pghalliday/grunt-mocha-test?branch=master)\n[![Dependency Status](https://david-dm.org/pghalliday/grunt-mocha-test.png?theme=shields.io)](https://david-dm.org/pghalliday/grunt-mocha-test)\n[![devDependency Status](https://david-dm.org/pghalliday/grunt-mocha-test/dev-status.png?theme=shields.io)](https://david-dm.org/pghalliday/grunt-mocha-test#info=devDependencies)\n\nA grunt task for running server side mocha tests\n\n## Usage\n\nInstall next to your project\'s Gruntfile.js with: \n\n```\nnpm install grunt-mocha-test --save-dev\n```\n\nNote that due to some dependencies using newer features of `npm` it is necessary to update `npm` if still using the default version that ships with node 0.8. This can be done as follows:\n\n```\nnpm update npm -g \n```\n\nOn some systems it may be necessary to run this with `sudo`\n\n### Running tests\n\nHere is a simple example gruntfile if you just want to run tests\n\n```javascript\nmodule.exports = function(grunt) {\n\n  // Add the grunt-mocha-test tasks.\n  grunt.loadNpmTasks(\'grunt-mocha-test\');\n\n  grunt.initConfig({\n    // Configure a mochaTest task\n    mochaTest: {\n      test: {\n        options: {\n          reporter: \'spec\'\n        },\n        src: [\'test/**/*.js\']\n      }\n    }\n  });\n\n  grunt.registerTask(\'default\', \'mochaTest\');\n\n};\n```\n\nThe following mocha options are supported\n\n- grep\n- ui\n- reporter\n- timeout\n- invert\n- ignoreLeaks\n- growl\n- globals\n- bail\n- require\n- colors (specify as "colors: true")\n- slow\n\n### Specifying compilers\n\nThe Mocha `--compilers` option is almost identical to the `--require` option but with additional functionality for use with the Mocha `--watch` mode. As the `--watch` mode is not relevant for this plugin there is no need to implement a separate `compilers` option and actually the `require` option should be used instead.\n\nThe following example shows the use of the CoffeeScript compiler.\n\n```\nnpm install coffee-script\n```\n\n```javascript\nmochaTest: {\n  test: {\n    options: {\n      reporter: \'spec\',\n      require: \'coffee-script/register\'\n    },\n    src: [\'test/**/*.coffee\']\n  }\n}\n```\n\nIn order to make this more user friendly, the `require` option can take either a single file/function or an array of files/functions in case you have other globals you wish to require.\n\neg.\n\n```javascript\nmochaTest: {\n  test: {\n    options: {\n      reporter: \'spec\',\n      require: [\n        \'coffee-script/register\',\n        \'./globals.js\',\n        function(){ testVar1=require(\'./stuff\'); },\n        function(){ testVar2=\'other-stuff\'; }\n      ]\n    },\n    src: [\'test/**/*.coffee\']\n  }\n}\n```\n\nNB. File references for the `require` option can only be used with Javascript files, ie. it is not possible to specify a `./globals.coffee` in the above example.\n\n### Specifying a Mocha module\n\nIf you would like to use a different version of Mocha than the one packaged with this plugin, you can specify the module with the `mocha` option:\n\n```javascript\nmochaTest: {\n  test: {\n    options: {\n      mocha: require(\'mocha\')\n    },\n    src: [\'test/**/*.coffee\']\n  }\n}\n```\n\n### Generating coverage reports\n\nHere is an example gruntfile that registers 2 test tasks, 1 to run the tests and 1 to generate a coverage report using `blanket.js` to instrument the javascript on the fly.\n\n```\nnpm install blanket\n```\n\n```javascript\nmodule.exports = function(grunt) {\n\n  grunt.loadNpmTasks(\'grunt-mocha-test\');\n\n  grunt.initConfig({\n    mochaTest: {\n      test: {\n        options: {\n          reporter: \'spec\',\n          // Require blanket wrapper here to instrument other required\n          // files on the fly. \n          //\n          // NB. We cannot require blanket directly as it\n          // detects that we are not running mocha cli and loads differently.\n          //\n          // NNB. As mocha is \'clever\' enough to only run the tests once for\n          // each file the following coverage task does not actually run any\n          // tests which is why the coverage instrumentation has to be done here\n          require: \'coverage/blanket\'\n        },\n        src: [\'test/**/*.js\']\n      },\n      coverage: {\n        options: {\n          reporter: \'html-cov\',\n          // use the quiet flag to suppress the mocha console output\n          quiet: true,\n          // specify a destination file to capture the mocha\n          // output (the quiet option does not suppress this)\n          captureFile: \'coverage.html\'\n        },\n        src: [\'test/**/*.js\']\n      }\n    }\n  });\n\n  grunt.registerTask(\'default\', \'mochaTest\');\n};\n```\n\nAs noted above it is necessary to wrap the blanket require when calling mocha programatically so `coverage/blanket.js` should look something like this.\n\n```javascript\nvar path = require(\'path\');\nvar srcDir = path.join(__dirname, \'..\', \'src\');\n\nrequire(\'blanket\')({\n  // Only files that match the pattern will be instrumented\n  pattern: srcDir\n});\n```\n\nThis will preprocess all `.js` files in the `src` directory. Note that `Blanket` just uses pattern matching so this rework of the paths prevents files in `node_modules` being instrumented too. Also bear in mind using `Blanket` to instrument files on the fly only works if the file is not already in the require cache (this is an odd case but if you can\'t figure out why a file is not instrumented and the `pattern` looks ok then this may be the cause).\n\n### Failing tests if a coverage threshold is not reached\n\nBuilding on the previous example, if you wish to have your tests fail if it falls below a certain coverage threshold then I advise using the `travis-cov` reporter\n\n```\nnpm install travis-cov\n```\n\n```javascript\nmodule.exports = function(grunt) {\n\n  grunt.loadNpmTasks(\'grunt-mocha-test\');\n\n  grunt.initConfig({\n    mochaTest: {\n      test: {\n        options: {\n          reporter: \'spec\',\n          require: \'coverage/blanket\'\n        },\n        src: [\'test/**/*.js\']\n      },\n      \'html-cov\': {\n        options: {\n          reporter: \'html-cov\',\n          quiet: true,\n          captureFile: \'coverage.html\'\n        },\n        src: [\'test/**/*.js\']\n      },\n      // The travis-cov reporter will fail the tests if the\n      // coverage falls below the threshold configured in package.json\n      \'travis-cov\': {\n        options: {\n          reporter: \'travis-cov\'\n        },\n        src: [\'test/**/*.js\']\n      }\n    }\n  });\n\n  grunt.registerTask(\'default\', \'mochaTest\');\n};\n```\n\nDon\'t forget to update `package.json` with options for `travis-cov`, for example:\n\n```javascript\n  ...\n\n  "config": {\n    "travis-cov": {\n      // Yes, I like to set the coverage threshold to 100% ;)\n      "threshold": 100\n    }\n  },\n\n  ...\n```\n\n### Instrumenting source files with coverage data before running tests\n\n\nIn most cases it may be more useful to instrument files before running tests. This has the added advantage of creating intermediate files that will match the line numbers reported in exception reports. Here is one possible `Gruntfile.js` that uses the `grunt-blanket` plug in.\n\n```\nnpm install grunt-contrib-clean\nnpm install grunt-contrib-copy\nnpm install grunt-blanket\nnpm install travis-cov\n```\n\n```javascript\nmodule.exports = function(grunt) {\n\n  grunt.loadNpmTasks(\'grunt-mocha-test\');\n  grunt.loadNpmTasks(\'grunt-contrib-clean\');\n  grunt.loadNpmTasks(\'grunt-contrib-copy\');\n  grunt.loadNpmTasks(\'grunt-blanket\');\n\n  grunt.initConfig({\n    clean: {\n      coverage: {\n        src: [\'coverage/\']\n      }\n    },\n    copy: {\n      coverage: {\n        src: [\'test/**\'],\n        dest: \'coverage/\'\n      }\n    },\n    blanket: {\n      coverage: {\n        src: [\'src/\'],\n        dest: \'coverage/src/\'\n      }\n    },\n    mochaTest: {\n      test: {\n        options: {\n          reporter: \'spec\',\n        },\n        src: [\'/coverage/test/**/*.js\']\n      },\n      coverage: {\n        options: {\n          reporter: \'html-cov\',\n          quiet: true,\n          captureFile: \'coverage.html\'\n        },\n        src: [\'/coverage/test/**/*.js\']\n      },\n      \'travis-cov\': {\n        options: {\n          reporter: \'travis-cov\'\n        },\n        src: [\'/coverage/test/**/*.js\']\n      }\n    }\n  });\n\n  grunt.registerTask(\'default\', [\'clean\', \'blanket\', \'copy\', \'mochaTest\']);\n};\n```\n\nThis will delete any previously instrumented files, copy the `test` files to a `coverage` folder and instrument the `src` javascript files to the `coverage` folder. Lastly it runs tests from the `coverage` folder. It\'s more complicated but often easier to work with.\n\n### Running in permanent environments (like watch)\n\nIf you run `grunt-mocha-test` with `grunt-contrib-watch` using the `spawn: false` option, you will notice that the tests only run on the first change. Subsequent changes will result in an empty report with a `0 passing` message.\n\nThis happens because `mocha` loads your tests using `require` resulting in them being added to the require cache. Thus once they have been loaded in a process the subsequent calls to `require` hit the cache without executing the code again. To prevent this from happening, use the `clearRequireCache` option (default value is `false`).\n\nHere is an example that also demonstrates how to only run changed tests:\n\n```javascript\nmodule.exports = function(grunt) {\n\n  grunt.loadNpmTasks(\'grunt-mocha-test\');\n  grunt.loadNpmTasks(\'grunt-contrib-watch\');\n\n  grunt.initConfig({\n    mochaTest: {\n      test: {\n        options: {\n          reporter: \'spec\',\n          clearRequireCache: true\n        },\n        src: [\'test/**/*.js\']\n      },\n    },\n\n    watch: {\n      js: {\n        options: {\n          spawn: false,\n        },\n        files: \'**/*.js\',\n        tasks: [\'default\']\n      }\n    }\n  });\n\n  // On watch events, if the changed file is a test file then configure mochaTest to only\n  // run the tests from that file. Otherwise run all the tests\n  var defaultTestSrc = grunt.config(\'mochaTest.test.src\');\n  grunt.event.on(\'watch\', function(action, filepath) {\n    grunt.config(\'mochaTest.test.src\', defaultTestSrc);\n    if (filepath.match(\'test/\')) {\n      grunt.config(\'mochaTest.test.src\', filepath);\n    }\n  });\n\n  grunt.registerTask(\'default\', \'mochaTest\');\n};\n```\n\n### Using node flags\n\nThere are some flags that Mocha supports that are actually Node flags, eg.\n\n- --debug\n- --harmony-generators\n\nIt is currently not possible to set these at runtime when using Mocha as a library and as such cannot be supported by `grunt-mocha-test` without a major refactor (and severe impact on performance as it would involve spawning processes).\n\nThe recommended way of using these flags would be to pass them to node when starting the grunt process. The simplest way to do this would be to leverage the [`scripts`](https://www.npmjs.org/doc/misc/npm-scripts.html) functionality of NPM and `package.json`.\n\n```\n  ...\n  },\n  "scripts": {\n    "test": "node --debug --harmony-generators ./node_modules/.bin/grunt test"\n  }\n  ...\n```\n\nThe tests would then be run using\n\n```\nnpm test\n```\n\nNote that this assumes that `grunt-cli` has been installed locally and not globally\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using: \n\n```\nnpm test\n```\n\n## License\nCopyright &copy; 2014 Peter Halliday  \nLicensed under the MIT license.\n\n[![Donate Bitcoins](https://coinbase.com/assets/buttons/donation_large-6ec72b1a9eec516944e50a22aca7db35.png)](https://coinbase.com/checkouts/9d121c0321590556b32241bbe7960362)\n',
+578 silly resolved     readmeFilename: 'README.md',
+578 silly resolved     _id: 'grunt-mocha-test@0.11.0',
+578 silly resolved     dist: { shasum: 'e77477f1c89ab1dd6011e34f948ede8862fafbfb' },
+578 silly resolved     _from: 'grunt-mocha-test@latest',
+578 silly resolved     _resolved: 'https://registry.npmjs.org/grunt-mocha-test/-/grunt-mocha-test-0.11.0.tgz' },
+578 silly resolved   { name: 'grunt-concurrent',
+578 silly resolved     version: '0.4.3',
+578 silly resolved     description: 'Run grunt tasks concurrently',
+578 silly resolved     keywords:
+578 silly resolved      [ 'gruntplugin',
+578 silly resolved        'concurrent',
+578 silly resolved        'parallel',
+578 silly resolved        'simultaneous',
+578 silly resolved        'optimize',
+578 silly resolved        'speed' ],
+578 silly resolved     homepage: 'https://github.com/sindresorhus/grunt-concurrent',
+578 silly resolved     bugs: { url: 'https://github.com/sindresorhus/grunt-concurrent/issues' },
+578 silly resolved     author:
+578 silly resolved      { name: 'Sindre Sorhus',
+578 silly resolved        email: 'sindresorhus@gmail.com',
+578 silly resolved        url: 'http://sindresorhus.com' },
+578 silly resolved     repository:
+578 silly resolved      { type: 'git',
+578 silly resolved        url: 'git://github.com/sindresorhus/grunt-concurrent.git' },
+578 silly resolved     scripts: { test: 'npm install nodemon -g && grunt' },
+578 silly resolved     dependencies: { lpad: '~0.1.0', async: '~0.2.9' },
+578 silly resolved     devDependencies:
+578 silly resolved      { grunt: '~0.4.1',
+578 silly resolved        'grunt-contrib-clean': '~0.5.0',
+578 silly resolved        'grunt-simple-mocha': '~0.4.0',
+578 silly resolved        'grunt-contrib-watch': '~0.5.3',
+578 silly resolved        'grunt-nodemon': '~0.1.2' },
+578 silly resolved     peerDependencies: { grunt: '~0.4.0' },
+578 silly resolved     engines: { node: '>=0.8.0' },
+578 silly resolved     licenses: { type: 'MIT' },
+578 silly resolved     readme: '# grunt-concurrent [![Build Status](https://secure.travis-ci.org/sindresorhus/grunt-concurrent.png?branch=master)](http://travis-ci.org/sindresorhus/grunt-concurrent) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)\n\n> Run grunt tasks concurrently\n\nRunning slow tasks like Coffee and Sass concurrently can potentially improve your build time significantly. This task is also useful if you need to run multiple blocking tasks like `nodemon` and `watch` at once, as seen in the example config.\n\n![screenshot](screenshot.png)\n\nThis task is similar to grunt-parallel, but more focused by leaving out support for shell scripts which results in a leaner config. It also has a smaller dependency size and pads the output of concurrent tasks, as seen above.\n\n\n## Getting Started\n\nIf you haven\'t used [grunt][] before, be sure to check out the [Getting Started][] guide, as it explains how to create a [gruntfile][Getting Started] as well as install and use grunt plugins. Once you\'re familiar with that process, install this plugin with this command:\n\n```sh\nnpm install grunt-concurrent --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks(\'grunt-concurrent\');\n```\n\n*Tip: the [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) module makes it easier to load multiple grunt tasks.*\n\n\n[grunt]: http://gruntjs.com\n[Getting Started]: https://github.com/gruntjs/grunt/wiki/Getting-started\n\n\n## Documentation\n\nSee the [Gruntfile](Gruntfile.js) in this repo for a full example.\n\nJust specify the tasks you want to run concurrently as an array in a target of this task as shown below.\n\n\n### Example config\n\nThis will first run the Coffee and Sass tasks at the same time, then the JSHint and Mocha tasks at the same time.\n\n```javascript\ngrunt.initConfig({\n\tconcurrent: {\n\t\ttarget1: [\'coffee\', \'sass\'],\n\t\ttarget2: [\'jshint\', \'mocha\']\n\t}\n});\n\ngrunt.loadNpmTasks(\'grunt-concurrent\');\ngrunt.registerTask(\'default\', [\'concurrent:target1\', \'concurrent:target2\']);\n```\n\n\n## Options\n\n### limit\n\nType: `Number`  \nDefault: Number of CPU cores (`require(\'os\').cpus().length`) with a minimum of 2\n\nLimit of how many tasks that are run concurrently.\n\n### logConcurrentOutput\n\nType: `Boolean`  \nDefault: `false`\n\nYou can optionally log the output of your concurrent tasks by specifying the `logConcurrentOutput` option. Here is an example config which runs [grunt-nodemon](https://github.com/ChrisWren/grunt-nodemon) to launch and monitor a node server and [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) to watch for asset changes all in one terminal tab:\n\n```javascript\ngrunt.initConfig({\n\tconcurrent: {\n\t\ttarget: {\n\t\t\ttasks: [\'nodemon\', \'watch\'],\n\t\t\toptions: {\n\t\t\t\tlogConcurrentOutput: true\n\t\t\t}\n\t\t}\n\t}\n});\n\ngrunt.loadNpmTasks(\'grunt-concurrent\');\ngrunt.registerTask(\'default\', [\'concurrent:target\']);\n```\n\n*Note the output will be messy when combining certain tasks. This option is best used with tasks that don\'t exit like watch and nodemon to monitor the output of long-running concurrent tasks.*\n\n\n## License\n\nMIT © [Sindre Sorhus](http://sindresorhus.com)\n',
+578 silly resolved     readmeFilename: 'readme.md',
+578 silly resolved     _id: 'grunt-concurrent@0.4.3',
+578 silly resolved     dist: { shasum: '0350cfc38433f08429cad6d52d3ea000e72373ee' },
+578 silly resolved     _from: 'grunt-concurrent@~0.4.3',
+578 silly resolved     _resolved: 'https://registry.npmjs.org/grunt-concurrent/-/grunt-concurrent-0.4.3.tgz' },
+578 silly resolved   { name: 'emailjs',
+578 silly resolved     description: 'send text/html emails and attachments (files, streams and strings) from node.js to any smtp server',
+578 silly resolved     version: '0.3.9',
+578 silly resolved     author: { name: 'eleith' },
+578 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+578 silly resolved     repository: { type: 'git', url: 'http://github.com/eleith/emailjs.git' },
+578 silly resolved     dependencies: { moment: '= 1.7.0', mimelib: '0.2.14', bufferjs: '=1.1.0' },
+578 silly resolved     optionalDependencies: { bufferjs: '=1.1.0' },
+578 silly resolved     devDependencies:
+578 silly resolved      { mocha: '= 1.7.4',
+578 silly resolved        chai: '= 1.1.0',
+578 silly resolved        simplesmtp: '0.3.32',
+578 silly resolved        mailparser: '0.4.1',
+578 silly resolved        iconv: '2.0.7' },
+578 silly resolved     engine: [ 'node >= 0.6' ],
+578 silly resolved     main: 'email',
+578 silly resolved     scripts: { test: 'mocha -R spec -t 5000' },
+578 silly resolved     readme: '# emailjs [![Build Status](https://secure.travis-ci.org/eleith/emailjs.png)](http://travis-ci.org/eleith/emailjs)\n\nsend emails, html and attachments (files, streams and strings) from node.js to any smtp server\n\n## INSTALLING\n\n\tnpm install emailjs\n\n## FEATURES\n - works with SSL and TLS smtp servers \n - supports smtp authentication (PLAIN, LOGIN, CRAMMD5)\n - emails are queued and the queue is sent asynchronously\n - supports sending html emails and emails with multiple attachments (MIME)\n - attachments can be added as strings, streams or file paths\n - supports utf-8 headers and body\n\n## REQUIRES\n - auth access to an SMTP Server\n - if your service (ex: gmail) uses two-step authentication, use an applicaiton specific password\n\n## EXAMPLE USAGE - text only emails\n\n```javascript\nvar email \t= require("./path/to/emailjs/email");\nvar server \t= email.server.connect({\n   user:    "username", \n   password:"password", \n   host:    "smtp.your-email.com", \n   ssl:     true\n});\n\n// send the message and get a callback with an error or details of the message that was sent\nserver.send({\n   text:    "i hope this works", \n   from:    "you <username@your-email.com>", \n   to:      "someone <someone@your-email.com>, another <another@your-email.com>",\n   cc:      "else <else@your-email.com>",\n   subject: "testing emailjs"\n}, function(err, message) { console.log(err || message); });\n```\n\n## EXAMPLE USAGE - html emails and attachments\n\n```javascript\nvar email \t= require("./path/to/emailjs/email");\nvar server \t= email.server.connect({\n   user:\t"username", \n   password:"password", \n   host:\t"smtp.your-email.com", \n   ssl:\t\ttrue\n});\n\nvar message\t= {\n   text:\t"i hope this works", \n   from:\t"you <username@your-email.com>", \n   to:\t\t"someone <someone@your-email.com>, another <another@your-email.com>",\n   cc:\t\t"else <else@your-email.com>",\n   subject:\t"testing emailjs",\n   attachment: \n   [\n      {data:"<html>i <i>hope</i> this works!</html>", alternative:true},\n      {path:"path/to/file.zip", type:"application/zip", name:"renamed.zip"}\n   ]\n};\n\n// send the message and get a callback with an error or details of the message that was sent\nserver.send(message, function(err, message) { console.log(err || message); });\n\n// you can continue to send more messages with successive calls to \'server.send\', \n// they will be queued on the same smtp connection\n\n// or you can create a new server connection with \'email.server.connect\' \n// to asynchronously send individual emails instead of a queue\n```\n\n## EXAMPLE USAGE - sending through hotmail/outlook\n\n```javascript\nvar email \t= require("./path/to/emailjs/email");\nvar server \t= email.server.connect({\n   user:\t"username", \n   password:"password", \n   host:\t"smtp-mail.outlook.com", \n   tls: {ciphers: "SSLv3"}\n});\n\nvar message\t= {\n   text:\t"i hope this works", \n   from:\t"you <username@outlook.com>", \n   to:\t\t"someone <someone@your-email.com>, another <another@your-email.com>",\n   cc:\t\t"else <else@your-email.com>",\n   subject:\t"testing emailjs",\n   attachment: \n   [\n      {data:"<html>i <i>hope</i> this works!</html>", alternative:true},\n      {path:"path/to/file.zip", type:"application/zip", name:"renamed.zip"}\n   ]\n};\n\n// send the message and get a callback with an error or details of the message that was sent\nserver.send(message, function(err, message) { console.log(err || message); });\n```\n\n# API \n\n## email.server.connect(options)\n\n\t// options is an object with the following keys\n\toptions =\n\t{\n\t\tuser \t\t// username for logging into smtp \n\t\tpassword // password for logging into smtp\n\t\thost\t\t// smtp host\n\t\tport\t\t// smtp port (if null a standard port number will be used)\n\t\tssl\t\t// boolean or object {key, ca, cert} (if true or object, ssl connection will be made)\n\t\ttls\t\t// boolean or object (if true or object, starttls will be initiated)\n\t\ttimeout\t// max number of milliseconds to wait for smtp responses (defaults to 5000)\n\t\tdomain\t// domain to greet smtp with (defaults to os.hostname)\n\t}\n\t\n## email.server.send(message, callback)\n\t\n\t// message can be a smtp.Message (as returned by email.message.create)\n\t// or an object identical to the first argument accepted by email.message.create\n\n\t// callback will be executed with (err, message)\n\t// either when message is sent or an error has occurred\n\n## message\n\n\t// headers is an object (\'from\' and \'to\' are required)\n\t// returns a Message object\n\n\t// you can actually pass more message headers than listed, the below are just the\n\t// most common ones you would want to use\n\n\theaders =\n\t{\n\t\ttext\t\t// text of the email \n\t\tfrom\t\t// sender of the format (address or name <address> or "name" <address>)\n\t\tto\t\t\t// recipients (same format as above), multiple recipients are separated by a comma\n\t\tcc\t\t\t// carbon copied recipients (same format as above)\n\t\tbcc\t\t// blind carbon copied recipients (same format as above)\n\t\tsubject\t// string subject of the email\n      attachment // one attachment or array of attachments\n\t}\n\n## attachment\n\n\t// can be called multiple times, each adding a new attachment\n\t// options is an object with the following possible keys:\n   \n    options =\n    {\n        // one of these fields is required\n        path      // string to where the file is located\n        data      // string of the data you want to attach\n        stream    // binary stream that will provide attachment data (make sure it is in the paused state)\n                  // better performance for binary streams is achieved if buffer.length % (76*6) == 0\n                  // current max size of buffer must be no larger than Message.BUFFERSIZE\n      \n        // optionally these fields are also accepted\n        type\t      // string of the file mime type\n        name        // name to give the file as perceived by the recipient\n        alternative // if true, will be attached inline as an alternative (also defaults type=\'text/html\')\n        inline      // if true, will be attached inline\n        encoded     // set this to true if the data is already base64 encoded, (avoid this if possible)\n        headers     // object containing header=>value pairs for inclusion in this attachment\'s header\n        related     // an array of attachments that you want to be related to the parent attachment\n    }\n\t\n## Authors\n\neleith\n\n## Testing\n\n\tnpm install -d\n\tnpm test\n\n## Contributions\n\nissues and pull requests are welcome\n',
+578 silly resolved     readmeFilename: 'Readme.md',
+578 silly resolved     bugs: { url: 'https://github.com/eleith/emailjs/issues' },
+578 silly resolved     homepage: 'https://github.com/eleith/emailjs',
+578 silly resolved     _id: 'emailjs@0.3.9',
+578 silly resolved     dist: { shasum: '3b59c29206a3d325d958dc0d8e93629d431580bb' },
+578 silly resolved     _from: 'emailjs@~0.3.8',
+578 silly resolved     _resolved: 'https://registry.npmjs.org/emailjs/-/emailjs-0.3.9.tgz' },
+578 silly resolved   { name: 'pdfkit',
+578 silly resolved     description: 'A PDF generation library for Node.js',
+578 silly resolved     keywords:
+578 silly resolved      [ 'pdf',
+578 silly resolved        'pdf writer',
+578 silly resolved        'pdf generator',
+578 silly resolved        'graphics',
+578 silly resolved        'document',
+578 silly resolved        'vector' ],
+578 silly resolved     version: '0.6.2',
+578 silly resolved     homepage: 'http://pdfkit.org/',
+578 silly resolved     author:
+578 silly resolved      { name: 'Devon Govett',
+578 silly resolved        email: 'devongovett@gmail.com',
+578 silly resolved        url: 'http://badassjs.com/' },
+578 silly resolved     repository:
+578 silly resolved      { type: 'git',
+578 silly resolved        url: 'https://github.com/devongovett/pdfkit.git' },
+578 silly resolved     bugs: { url: 'http://github.com/devongovett/pdfkit/issues' },
+578 silly resolved     devDependencies:
+578 silly resolved      { 'coffee-script': '>=1.0.1',
+578 silly resolved        codemirror: '~3.20.0',
+578 silly resolved        markdown: '~0.5.0',
+578 silly resolved        jade: '~1.1.5',
+578 silly resolved        coffeeify: '^0.6.0',
+578 silly resolved        browserify: '^3.39.0',
+578 silly resolved        brfs: '~1.0.1',
+578 silly resolved        exorcist: '^0.1.5',
+578 silly resolved        brace: '^0.2.1',
+578 silly resolved        'blob-stream': '^0.1.2' },
+578 silly resolved     dependencies: { 'png-js': '>=0.1.0', linebreak: '~0.1.0' },
+578 silly resolved     scripts: { prepublish: 'make js', postpublish: 'make clean' },
+578 silly resolved     main: 'js/document',
+578 silly resolved     browserify: { transform: [Object] },
+578 silly resolved     engine: [ 'node >= v0.10.0' ],
+578 silly resolved     readme: '# PDFKit\n\nA JavaScript PDF generation library for Node and the browser.\n\n## Description\n\nPDFKit is a PDF document generation library for Node and the browser that makes creating complex, multi-page, printable documents easy. \nIt\'s written in CoffeeScript, but you can choose to use the API in plain \'ol JavaScript if you like. The API embraces \nchainability, and includes both low level functions as well as abstractions for higher level functionality. The PDFKit API \nis designed to be simple, so generating complex documents is often as simple as a few function calls.\n\nCheck out some of the [documentation and examples](http://pdfkit.org/docs/getting_started.html) to see for yourself!\nYou can also read the guide as a [self-generated PDF](http://pdfkit.org/docs/guide.pdf) with example output displayed inline.\nIf you\'d like to see how it was generated, check out the README in the [docs](https://github.com/devongovett/pdfkit/tree/master/docs)\nfolder.\n\nYou can also try out an interactive in-browser demo of PDFKit [here](http://pdfkit.org/demo/browser.html).\n\n## Installation\n\nInstallation uses the [npm](http://npmjs.org/) package manager.  Just type the following command after installing npm.\n\n    npm install pdfkit\n\n## Features\n\n* Vector graphics\n  * HTML5 canvas-like API\n  * Path operations\n  * SVG path parser for easy path creation\n  * Transformations\n  * Linear and radial gradients\n* Text\n  * Line wrapping\n  * Text alignments\n  * Bulleted lists\n* Font embedding\n  * Supports TrueType (.ttf), TrueType Collections (.ttc), and Datafork TrueType (.dfont) fonts\n  * Font subsetting\n* Image embedding\n  * Supports JPEG and PNG files (including indexed PNGs, and PNGs with transparency)\n* Annotations\n  * Links\n  * Notes\n  * Highlights\n  * Underlines\n  * etc.\n  \n## Coming soon!\n\n* Patterns fills\n* Outlines\n* PDF Security\n* Higher level APIs for creating tables and laying out content\n* More performance optimizations\n* Even more awesomeness, perhaps written by you! Please fork this repository and send me pull requests.\n    \n## Example\n\n```coffeescript\nPDFDocument = require \'pdfkit\'\n\n# Create a document\ndoc = new PDFDocument\n\n# Pipe it\'s output somewhere, like to a file or HTTP response\n# See below for browser usage\ndoc.pipe fs.createWriteStream(\'output.pdf\')\n\n# Embed a font, set the font size, and render some text\ndoc.font(\'fonts/PalatinoBold.ttf\')\n   .fontSize(25)\n   .text(\'Some text with an embedded font!\', 100, 100)\n\n# Add another page\ndoc.addPage()\n   .fontSize(25)\n   .text(\'Here is some vector graphics...\', 100, 100)\n\n# Draw a triangle\ndoc.save()\n   .moveTo(100, 150)\n   .lineTo(100, 250)\n   .lineTo(200, 250)\n   .fill("#FF3300")\n\n# Apply some transforms and render an SVG path with the \'even-odd\' fill rule\ndoc.scale(0.6)\n   .translate(470, -380)\n   .path(\'M 250,75 L 323,301 131,161 369,161 177,301 z\')\n   .fill(\'red\', \'even-odd\')\n   .restore()\n\n# Add some text with annotations\ndoc.addPage()\n   .fillColor("blue")\n   .text(\'Here is a link!\', 100, 100)\n   .underline(100, 100, 160, 27, color: "#0000FF")\n   .link(100, 100, 160, 27, \'http://google.com/\')\n\n# Finalize PDF file\ndoc.end()\n```\n \n[The PDF output from this example](http://pdfkit.org/demo/out.pdf) (with a few additions) shows the power of PDFKit — producing \ncomplex documents with a very small amount of code.  For more, see the `demo` folder and the \n[PDFKit programming guide](http://pdfkit.org/docs/getting_started.html).\n\n## Browser Usage\n\nThere are two ways to use PDFKit in the browser.  The first is to use [Browserify](http://browserify.org/),\nwhich is a Node module packager for the browser with the familiar `require` syntax.  The second is to use\na prebuilt version of PDFKit, which you can [download from Github](https://github.com/devongovett/pdfkit/releases).\n\nIn addition to PDFKit, you\'ll need somewhere to stream the output to.  HTML5 has a \n[Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) object which can be used to store binary data, and\nget URLs to this data in order to display PDF output inside an iframe, or upload to a server, etc.  In order to \nget a Blob from the output of PDFKit, you can use the [blob-stream](https://github.com/devongovett/blob-stream)\nmodule.\n\nThe following example uses Browserify to load `PDFKit` and `blob-stream`, but if you\'re not using Browserify, \nyou can load them in whatever way you\'d like (e.g. script tags).\n\n```coffeescript\n# require dependencies\nPDFDocument = require \'pdfkit\'\nblobStream  = require \'blob-stream\'\n\n# create a document the same way as above\ndoc = new PDFDocument\n\n# pipe the document to a blob\nstream = doc.pipe(blobStream())\n\n# add your content to the document here, as usual\n\n# get a blob when you\'re done\ndoc.end()\nstream.on \'finish\', ->\n  # get a blob you can do whatever you like with\n  blob = stream.toBlob(\'application/pdf\')\n\n  # or get a blob URL for display in the browser\n  url = stream.toBlobURL(\'application/pdf\')\n  iframe.src = url\n```\n\nYou can see an interactive in-browser demo of PDFKit [here](http://pdfkit.org/demo/browser.html).\n\nNote that in order to Browserify a project using PDFKit, you need to install the `brfs` module with npm, \nwhich is used to load built-in font data into the package. It is listed as a `devDependency` in \nPDFKit\'s `package.json`, so it isn\'t installed by default for Node users. \nIf you forget to install it, Browserify will print an error message.\n\n## Documentation\n\nFor complete API documentation and more examples, see the [PDFKit website](http://pdfkit.org/).\n\n## License\n\nPDFKit is available under the MIT license.',
+578 silly resolved     readmeFilename: 'README.md',
+578 silly resolved     _id: 'pdfkit@0.6.2',
+578 silly resolved     dist: { shasum: 'd82ff84fc447f3c7f3717a376a3a1a0d13a98335' },
+578 silly resolved     _from: 'pdfkit@~0.6.0',
+578 silly resolved     _resolved: 'https://registry.npmjs.org/pdfkit/-/pdfkit-0.6.2.tgz' } ]
+579 info install grunt-mocha-test@0.11.0 into /home/jepz/Desarrollo/bacoba
+580 info install grunt-concurrent@0.4.3 into /home/jepz/Desarrollo/bacoba
+581 info install emailjs@0.3.9 into /home/jepz/Desarrollo/bacoba
+582 info install pdfkit@0.6.2 into /home/jepz/Desarrollo/bacoba
+583 info installOne grunt-mocha-test@0.11.0
+584 info installOne grunt-concurrent@0.4.3
+585 info installOne emailjs@0.3.9
+586 info installOne pdfkit@0.6.2
+587 info /home/jepz/Desarrollo/bacoba/node_modules/emailjs unbuild
+588 info /home/jepz/Desarrollo/bacoba/node_modules/grunt-mocha-test unbuild
+589 info preuninstall grunt-mocha-test@0.10.0
+590 info /home/jepz/Desarrollo/bacoba/node_modules/grunt-concurrent unbuild
+591 info preuninstall grunt-concurrent@0.5.0
+592 info /home/jepz/Desarrollo/bacoba/node_modules/pdfkit unbuild
+593 info preuninstall pdfkit@0.5.2
+594 info uninstall grunt-mocha-test@0.10.0
+595 info uninstall grunt-concurrent@0.5.0
+596 verbose tar unpack /home/jepz/.npm/emailjs/0.3.9/package.tgz
+597 silly lockFile 224450b4-ollo-bacoba-node-modules-emailjs tar:///home/jepz/Desarrollo/bacoba/node_modules/emailjs
+598 verbose lock tar:///home/jepz/Desarrollo/bacoba/node_modules/emailjs /home/jepz/.npm/224450b4-ollo-bacoba-node-modules-emailjs.lock
+599 silly lockFile bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz
+600 verbose lock tar:///home/jepz/.npm/emailjs/0.3.9/package.tgz /home/jepz/.npm/bb55b3ec-pz-npm-emailjs-0-3-9-package-tgz.lock
+601 info uninstall pdfkit@0.5.2
+602 verbose true,/home/jepz/Desarrollo/bacoba/node_modules,/home/jepz/Desarrollo/bacoba/node_modules unbuild grunt-mocha-test@0.10.0
+603 verbose /home/jepz/Desarrollo/bacoba/node_modules/.bin,[object Object] binRoot
+604 verbose true,/home/jepz/Desarrollo/bacoba/node_modules,/home/jepz/Desarrollo/bacoba/node_modules unbuild grunt-concurrent@0.5.0
+605 info postuninstall grunt-concurrent@0.5.0
+606 verbose true,/home/jepz/Desarrollo/bacoba/node_modules,/home/jepz/Desarrollo/bacoba/node_modules unbuild pdfkit@0.5.2
+607 info postuninstall pdfkit@0.5.2
+608 silly gunzTarPerm modes [ '755', '644' ]
+609 info /home/jepz/Desarrollo/bacoba/node_modules/grunt-mocha-test unbuild
+610 silly gunzTarPerm extractEntry package.json
+611 info preuninstall grunt-mocha-test@0.10.0
+612 info uninstall grunt-mocha-test@0.10.0
+613 silly gunzTarPerm extractEntry LICENSE
+614 silly gunzTarPerm extractEntry email.js
+615 verbose true,/home/jepz/Desarrollo/bacoba/node_modules,/home/jepz/Desarrollo/bacoba/node_modules unbuild grunt-mocha-test@0.10.0
+616 verbose /home/jepz/Desarrollo/bacoba/node_modules/.bin,[object Object] binRoot
+617 error error rolling back Error: EACCES, unlink '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test'
+617 error error rolling back  grunt-mocha-test@0.11.0 { [Error: EACCES, unlink '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test']
+617 error error rolling back   errno: 3,
+617 error error rolling back   code: 'EACCES',
+617 error error rolling back   path: '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test' }
+618 error Error: EACCES, unlink '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test'
+618 error  { [Error: EACCES, unlink '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test']
+618 error   errno: 3,
+618 error   code: 'EACCES',
+618 error   path: '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test' }
+619 error Please try running this command again as root/Administrator.
+620 error System Linux 3.13.0-30-generic
+621 error command "/usr/bin/node" "/usr/bin/npm" "install"
+622 error cwd /home/jepz/Desarrollo/bacoba
+623 error node -v v0.10.26
+624 error npm -v 1.4.3
+625 error path /home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test
+626 error code EACCES
+627 error errno 3
+628 error stack Error: EACCES, unlink '/home/jepz/Desarrollo/bacoba/node_modules/.bin/grunt-mocha-test'
+629 verbose exit [ 3, true ]

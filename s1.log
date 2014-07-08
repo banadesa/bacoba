@@ -1,0 +1,23 @@
+Sun Jul  6 17:20:20.186 [initandlisten] MongoDB starting : pid=6526 port=27017 dbpath=/var/lib/mongodb/ 32-bit host=jubuntu
+Sun Jul  6 17:20:20.186 [initandlisten] 
+Sun Jul  6 17:20:20.186 [initandlisten] ** NOTE: This is a 32 bit MongoDB binary.
+Sun Jul  6 17:20:20.187 [initandlisten] **       32 bit builds are limited to less than 2GB of data (or less with --journal).
+Sun Jul  6 17:20:20.187 [initandlisten] **       Note that journaling defaults to off for 32 bit and is currently off.
+Sun Jul  6 17:20:20.187 [initandlisten] **       See http://dochub.mongodb.org/core/32bit
+Sun Jul  6 17:20:20.187 [initandlisten] 
+Sun Jul  6 17:20:20.187 [initandlisten] db version v2.4.10
+Sun Jul  6 17:20:20.187 [initandlisten] git version: e3d78955d181e475345ebd60053a4738a4c5268a
+Sun Jul  6 17:20:20.187 [initandlisten] build info: Linux bs-linux32.10gen.cc 2.6.21.7-2.fc8xen #1 SMP Fri Feb 15 12:39:36 EST 2008 i686 BOOST_LIB_VERSION=1_49
+Sun Jul  6 17:20:20.187 [initandlisten] allocator: system
+Sun Jul  6 17:20:20.187 [initandlisten] options: { dbpath: "/var/lib/mongodb/", fork: true, logpath: "s1.log", oplogSize: 50, smallfiles: true }
+Sun Jul  6 17:20:20.234 [initandlisten] exception in initAndListen: 10309 Unable to create/open lock file: /var/lib/mongodb/mongod.lock errno:13 Permission denied Is a mongod instance already running?, terminating
+Sun Jul  6 17:20:20.234 dbexit: 
+Sun Jul  6 17:20:20.234 [initandlisten] shutdown: going to close listening sockets...
+Sun Jul  6 17:20:20.234 [initandlisten] shutdown: going to flush diaglog...
+Sun Jul  6 17:20:20.234 [initandlisten] shutdown: going to close sockets...
+Sun Jul  6 17:20:20.235 [initandlisten] shutdown: waiting for fs preallocator...
+Sun Jul  6 17:20:20.235 [initandlisten] shutdown: closing all files...
+Sun Jul  6 17:20:20.236 [initandlisten] closeAllFiles() finished
+Sun Jul  6 17:20:20.236 [initandlisten] shutdown: removing fs lock...
+Sun Jul  6 17:20:20.236 [initandlisten] couldn't remove fs lock errno:9 Bad file descriptor
+Sun Jul  6 17:20:20.236 dbexit: really exiting now

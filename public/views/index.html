@@ -87,10 +87,9 @@
             </li>
         </ul>
     </div>
-    <div class="row" ng-show="busqueda">
-        <div class="row" style="margin-bottom: 10px">
+    <div class="row" ng-show="busqueda" style="margin-top:10px">
         <h2 class="titulo-inline">{{nombreCategoria}}</h2>
-        <div class="col-md-6 col-sm-5 col-xs-5">
+        <div class="col-md-6 col-sm-5 col-xs-7">
             <div class="input-group">
                     <input class="form-control" type="text" placeholder="Filtro rapido por Nombre" ng-model= "filtro.nombre" ng-change="AgregarParametroUrl('filtro', filtro.nombre)">
                 <div class="input-group-btn">

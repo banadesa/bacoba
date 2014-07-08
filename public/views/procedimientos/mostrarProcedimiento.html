@@ -20,7 +20,7 @@
 <enviar_correo></enviar_correo>
 <ul class="list-inline">
     <li ng-repeat="categoria in procedimiento.categorias">
-        <div class="btn btn-success disabled btn-sm" >{{categoria.name}}</div>
+        <a class="btn btn-success btn-sm" ng-href="/#!/?categoria={{categoria.name}}">{{categoria.name}}</a>
     </li>
 </ul>
 <div>

@@ -13,7 +13,8 @@ var mongoose = require('mongoose'),
 var ProcedimientoSchema = new Schema({
     created: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        index: true
     },
     updated: [{
         type: Date,
@@ -150,7 +151,8 @@ var ProcedimientoSchema = new Schema({
     },
     visitas: {
         type: Number,
-        default: 0
+        default: 0,
+        index: true
     },
     eliminado: {
         type: String,

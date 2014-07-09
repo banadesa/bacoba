@@ -3,7 +3,7 @@
     <div class=" nav-lateral nav-lateral-grande">
         <h3>Categorias</h3>
         <ul class="list-unstyled">
-            <li ng-repeat="cats in categoriasUsuario | filter:filtroCategoria" id="{{cats._id}}" ng-class="cats.actual">
+            <li ng-repeat="cats in categoriasUsuario" id="{{cats._id}}" ng-class="cats.actual">
                 <div ng-click="mostrarProcs(cats._id,cats.name,$index)">{{cats.name}} ({{cats.cantProcs}})</div>
             </li>
         </ul>

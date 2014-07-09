@@ -59,7 +59,7 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             }
             else {
                 $scope.procedimiento.$remove();
-                $location.path('procedimientos');
+                $window.history.back();
             }
         });
     };

@@ -14,11 +14,63 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             params: {
                 campoQ: '_id',
                 valorQ: $scope.global.user.categorias,
-                sort: 'name',
+                sort: 'padre',
                 nav: true
             }
         }).then(function(res){
             $scope.categoriasUsuario = res.data;
+            var tienePadre = false;
+            var loop = 0;
+            var categoriasUsuarioOrdenado = [];
+            var cantHijosSuperior = 1;
+            while ($scope.categoriasUsuario.length > 0) {
+                for (var i = $scope.categoriasUsuario.length - 1; i >= 0; i--) {
+                    if ($scope.categoriasUsuario[loop].padre) {
+                        console.log($scope.categoriasUsuario[i].name, $scope.categoriasUsuario[i]._id,
+                            $scope.categoriasUsuario[loop].padre._id,$scope.categoriasUsuario[loop].padre.name,
+                             $scope.categoriasUsuario[loop].name)
+                        if ($scope.categoriasUsuario[i]._id === $scope.categoriasUsuario[loop].padre._id) {
+                            tienePadre = true;
+                            break;
+                        }
+                    }
+                }
+                if (!tienePadre) {
+                    console.log('categoriasUsuarioOrdenado pre');
+                    console.log(categoriasUsuarioOrdenado);
+                    console.log($scope.categoriasUsuario);
+                    categoriasUsuarioOrdenado.push($scope.categoriasUsuario[loop]);
+                    $scope.categoriasUsuario = $scope.categoriasUsuario.splice(loop,1);
+                    console.log('categoriasUsuarioOrdenado ppost');
+                    console.log(categoriasUsuarioOrdenado);
+                    console.log($scope.categoriasUsuario);
+                    var pos = categoriasUsuarioOrdenado.length -1;
+
+                    for (var r = 0 ; r <= categoriasUsuarioOrdenado.length - 2; r++) {
+                        if (categoriasUsuarioOrdenado[pos].padre) {
+                            if (categoriasUsuarioOrdenado[r]._id === categoriasUsuarioOrdenado[pos].padre._id) {
+                                if (categoriasUsuarioOrdenado[r].cantHijos) {
+                                    categoriasUsuarioOrdenado[r].cantHijos = categoriasUsuarioOrdenado[r].cantHijos +1 ;
+                                } else {
+                                    categoriasUsuarioOrdenado[r].cantHijos = 1;
+                                }
+                                categoriasUsuarioOrdenado[pos].nivel = categoriasUsuarioOrdenado[r].nivel + '.' + categoriasUsuarioOrdenado[r].cantHijos;
+                            }
+                        } else {
+                            categoriasUsuarioOrdenado[pos].nivel = cantHijosSuperior;
+                            cantHijosSuperior++;
+                        }
+                    };
+                    console.log(categoriasUsuarioOrdenado);
+                    console.log($scope.categoriasUsuario);
+                    loop--;
+                }
+                loop++;
+                tienePadre=false;
+                if (loop > 50) {
+                    break;
+                }
+            }
 
             if ($routeParams.filtro) {
                 $scope.filtro.nombre = $routeParams.filtro;

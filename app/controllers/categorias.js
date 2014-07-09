@@ -161,6 +161,8 @@ exports.all = function(req, res) {
                     var categoriasUsuario =  [];
                     cates[r]._doc.actual = 'nav-lateral-no-actual';
                     cates[r]._doc.cantProcs = c;
+                    cates[r]._doc.nivel = 0;
+                    cates[r]._doc.cantHijos = 0;
                     if (r < cates.length-1) {
                         r++;
                         cuentaProcs();

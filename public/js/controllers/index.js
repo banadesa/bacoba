@@ -23,7 +23,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             var loop = 0;
             var categoriasUsuarioOrdenado = [];
             var cantHijosSuperior = 1;
-            var divisor
+            var divisor;
             //recorro todos el array y voy sacando segun ya no tengan el padre en el array
             while ($scope.categoriasUsuario.length > 0) {
                 //Busco categorias sin papa en el array
@@ -88,7 +88,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             //Ordeno las categorias por el orden
             categoriasUsuarioOrdenado.sort(function(a,b) {
                 return a.numeroPasoDivido - b.numeroPasoDivido;
-            })
+            });
             $scope.categoriasUsuario = categoriasUsuarioOrdenado;
 
             if ($routeParams.filtro) {
@@ -167,7 +167,6 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             nombre= id;
             id = '';
             indice = 0;
-            var orden ;
             for (var e = 0; e < $scope.categoriasUsuario.length; e++) {
                 if ($scope.categoriasUsuario[e].cantProcs !== 0) {
                     if ($scope.categoriasUsuario[e].name === nombre) {
@@ -191,7 +190,6 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                     cateArray.push($scope.categoriasUsuario[g]._id);
                 }
             }
-            console.log(cateArray)
             var params = {};
             for (var a = 0; a < $scope.categoriasUsuario.length; a++) {
                 if ($scope.categoriasUsuario[a].cantProcs === 0) {

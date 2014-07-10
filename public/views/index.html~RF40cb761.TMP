@@ -4,7 +4,7 @@
         <h3>Categorias</h3>
         <ul class="list-unstyled">
             <li ng-repeat="cats in categoriasUsuario | filter:filtroCategoria" id="{{cats._id}}" ng-class="cats.actual">
-                <div style="padding-left: {{(cats.nivel-1)*10}}px" ng-click="mostrarProcs(cats._id,cats.name,$index, cats.orden)">{{cats.name}} ({{cats.cantProcs}})</div>
+                <div style="padding-left: {{(cats.nivel-1)*10}}px;font-size: {{16 - cats.nivel}}px" ng-click="mostrarProcs(cats._id,cats.name,$index, cats.orden)">{{cats.name}} ({{cats.cantProcs}})</div>
             </li>
         </ul>
     </div>

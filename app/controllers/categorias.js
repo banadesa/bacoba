@@ -161,7 +161,8 @@ exports.all = function(req, res) {
                     var categoriasUsuario =  [];
                     cates[r]._doc.actual = 'nav-lateral-no-actual';
                     cates[r]._doc.cantProcs = c;
-                    cates[r]._doc.nivel = 0;
+                    cates[r]._doc.nivel = 1;
+                    cates[r]._doc.orden = 1;
                     cates[r]._doc.cantHijos = 0;
                     if (r < cates.length-1) {
                         r++;
@@ -174,7 +175,7 @@ exports.all = function(req, res) {
                                 categoriasUsuario.push(req.query.valorQ);
                             }
                             Procedimiento.find({categorias: {$in: categoriasUsuario}}).count({}, function(err,tot) {
-                                cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: 'nav-lateral-no-actual'});
+                                cates.unshift({_id: 'todos', name: 'Todos', cantProcs: tot, actual: 'nav-lateral-no-actual', nivel : 1, cantHijos : 0, orden: 0});
                                 res.jsonp(cates);
                             });
                         } else {

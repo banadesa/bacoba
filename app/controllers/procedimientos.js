@@ -91,11 +91,11 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                 //creo el nuevo elemento de numeroPasoDivido en el objeto
                 nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido = 0;
                 var divisor = 1;
-                    for (var t = 0; t < aArray.length; t++) {
-                        nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido +
-                            (aArray[t] * divisor);
-                        divisor = divisor / 100;
-                    }
+                for (var t = 0; t < aArray.length; t++) {
+                    nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido = nuevoProc.pasos[nuevoProc.pasos.length -1 ].numeroPasoDivido +
+                        (aArray[t] * divisor);
+                    divisor = divisor / 100;
+                }
             }
 
             //Inserto el procedimiento a nuevo proc

@@ -28,6 +28,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             while ($scope.categoriasUsuario.length > 0) {
                 //Busco categorias sin papa en el array
                 for (var i = $scope.categoriasUsuario.length - 1; i >= 0; i--) {
+                    console.log(loop,i)
                     if ($scope.categoriasUsuario[loop].padre) {
                         if ($scope.categoriasUsuario[i]._id === $scope.categoriasUsuario[loop].padre._id) {
                             tienePadre = true;
@@ -62,7 +63,6 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                                 }
                                 categoriasUsuarioOrdenado[pos].orden = categoriasUsuarioOrdenado[r].orden + '.' + categoriasUsuarioOrdenado[r].cantHijos;
                                 categoriasUsuarioOrdenado[pos].nivel = categoriasUsuarioOrdenado[r].nivel + 1;
-                                categoriasUsuarioOrdenado[r].cantProcs = categoriasUsuarioOrdenado[r].cantProcs + categoriasUsuarioOrdenado[pos].cantProcs;
                                 break;
                             }
                         }
@@ -159,7 +159,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
      *@param {string} nombre nombre de la categoria a mostrar
      *@param {number} indice indice de la categoria seleccionada
      */
-     $scope.mostrarProcs = function(id, nombre,indice, orden) {
+     $scope.mostrarProcs = function(id, nombre,indice) {
         //si solo manda el id entonces la busqueda es por nombre
         //asi que busco los otros datos
         var cateArray=[];
@@ -167,12 +167,11 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
             nombre= id;
             id = '';
             indice = 0;
-            var orden ;
+            var nivel ;
             for (var e = 0; e < $scope.categoriasUsuario.length; e++) {
                 if ($scope.categoriasUsuario[e].cantProcs !== 0) {
                     if ($scope.categoriasUsuario[e].name === nombre) {
                         id = $scope.categoriasUsuario[e]._id;
-                        orden = $scope.categoriasUsuario[e].orden;
                         break;
                     }
                     indice++;
@@ -185,18 +184,16 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
         if (!id) {
                 $location.path('/#!/');
         } else {
+            ca
             for (var g = $scope.categoriasUsuario.length - 1; g >= 0; g--) {
-                 console.log(orden.length,orden);
-                if (orden === $scope.categoriasUsuario[g].orden.toString().substr(0,orden.length)) {
-                    cateArray.push($scope.categoriasUsuario[g]._id);
-                }
-            }
-            console.log(cateArray)
+                $scope.categoriasUsuario[g]
+
+            };
             var params = {};
             for (var a = 0; a < $scope.categoriasUsuario.length; a++) {
-                if ($scope.categoriasUsuario[a].cantProcs === 0) {
+                /*if ($scope.categoriasUsuario[a].cantProcs === 0) {
                     indice = indice +1;
-                }
+                }*/
                 $scope.categoriasUsuario[a].actual = 'nav-lateral-no-actual';
                 if (a === indice) {
                     $scope.categoriasUsuario[a].actual = 'nav-lateral-actual';
@@ -208,7 +205,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                     sort: 'visitas',
                     tipoSort: '-1',
                     campoQ: 'categorias',
-                    valorQ: cateArray
+                    valorQ: id
                 };
             } else {
                 params = {

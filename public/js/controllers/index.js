@@ -131,7 +131,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                     $http.get('procedimientos/', {
                         params: {
                             campoQ: '_id',
-                            valorQ: usuario.ultimosProcedimientos.splice(0,limite),
+                            valorQ: usuario.ultimosProcedimientos,
                             limite: limite
                         }
                     }).then(function(res){

@@ -185,8 +185,7 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                 $location.path('/#!/');
         } else {
             for (var g = $scope.categoriasUsuario.length - 1; g >= 0; g--) {
-                 console.log(orden.length,orden);
-                if (orden === $scope.categoriasUsuario[g].orden.toString().substr(0,orden.length)) {
+                 if (orden === $scope.categoriasUsuario[g].orden.toString().substr(0,orden.length)) {
                     cateArray.push($scope.categoriasUsuario[g]._id);
                 }
             }

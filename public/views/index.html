@@ -12,7 +12,7 @@
     <div class="row" ng-hide="busqueda||noVistos">
         <h2>Vistos Recientemente</h2>
         <ul class="cbp-rfgrid">
-            <li data-ng-repeat="procedimiento in procedimientosUltimosVistos | filter: {nombre: filtoRapido}" ng-click="irProcedimiento(procedimiento._id);" class= "no-busqueda animacion-ngrepeat">
+            <li data-ng-repeat="procedimiento in procedimientosUltimosVistos" ng-click="irProcedimiento(procedimiento._id);" class= "no-busqueda animacion-ngrepeat">
             <div class="clavo">
             <div class="cbp-rfgrid-tit">
                 <div>

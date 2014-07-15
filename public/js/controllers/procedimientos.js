@@ -30,7 +30,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
         }
 
         procedimiento.$save(function(response) {
-            console.log(response);
             $location.path('procedimientos/pasos/' + response._id);
         });
 
@@ -579,7 +578,6 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
     $scope.enviarDatosEditarPaso = function(id) {
         $scope.indexPaso = id;
         $scope.descripcionPaso = $scope.procedimiento.pasos[id].descripcion;
-        console.log($scope.descripcionPaso);
         $scope.numeroPaso = $scope.procedimiento.pasos[id].numeroPaso;
         $scope.edicionPaso = true;
         if ($scope.procedimiento.pasos[id].procedimiento) {
@@ -645,9 +643,12 @@ controller('ProcedimientosController', ['$scope', '$rootScope', '$routeParams', 
             $scope.indexPaso = -1;
             $scope.fileImagen = '';
             $scope.fileVideo = '';
+            $scope.fileAdjunto = '';
             $scope.videoPasoFake = '';
             $scope.adjuntoPasoFake = '';
             $scope.imagenPaso = '';
+            $scope.adjuntoPaso = '';
+            $scope.videoPaso='';
             $scope.descripcionPaso = '';
             $scope.numeroPaso = $scope.ultimoPaso();
             $scope.seleccionProcedimientoActivo = true;

@@ -206,6 +206,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         var subrayado = false; // si el texto va subrayado o no
         var indentado = 0; // si va indentado o no
         var textColor = 'black'; // color del texto
+        var font = 'Times-Roman'
         var refLink = ''; // link al que apunta el tag a
         var tags = []; //tags a los que he entrado pero no he cerrado
         var numLi = -1; //si esta en ol el numero que muestra el Li.
@@ -263,7 +264,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         .moveDown(1);
                         break;
                     case 'b':
-                        tamTexto = tamTexto + 1;
+                        font = 'Times-Bold'
                         break;
                     case 'u':
                         subrayado = true;
@@ -293,7 +294,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         .moveDown(1);
                         break;
                     case 'i':
-                        textColor = 'red';
+                        font = 'Times-Italic'
                         break;
                     case 'ul':
                         bulletLi = '•';
@@ -335,8 +336,11 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         break;
                     case 'pre':
                         break;
+                    case 'b':
+                        font = 'Times-Roman';
+                        break;
                     case 'i':
-                        textColor = 'black';
+                        font = 'Times-Roman';
                         break;
                     case 'ul':
                         bulletLi = '';
@@ -353,6 +357,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         }
         if (extracto) {
             doc.fontSize(tamTexto)
+            .font(font)
             .fillColor(textColor)
             .text(extracto, {
                 underline: subrayado,

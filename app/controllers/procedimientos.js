@@ -207,6 +207,8 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
         var indentado = 0; // si va indentado o no
         var textColor = 'black'; // color del texto
         var font = 'Times-Roman'
+        var bold = false;
+        var italic = false;
         var refLink = ''; // link al que apunta el tag a
         var tags = []; //tags a los que he entrado pero no he cerrado
         var numLi = -1; //si esta en ol el numero que muestra el Li.
@@ -222,8 +224,19 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             }
             else {
                 if (extracto) {
+                    //Determino si la fuente es negrita y kursiva
+                    if (bold && italic){ //negrita y kursiva
+                        font = 'Times-BoldItalic';
+                    } else if(bold &!italic) { //negrita
+                        font = 'Times-Bold';
+                    } else if (!bold && italic){
+                        font = 'Times-Italic'; //kursiva
+                    } else { //ninguna
+                        font = 'Times-Roman'
+                    }
                     if (refLink) {
                         doc.fontSize(tamTexto)
+                        .font(font)
                         .fillColor(textColor)
                         .text(extracto, {
                             underline: subrayado,
@@ -234,6 +247,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         refLink='';
                     } else {
                         doc.fontSize(tamTexto)
+                        .font(font)
                         .fillColor(textColor)
                         .text(extracto, {
                             underline: subrayado,
@@ -264,7 +278,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         .moveDown(1);
                         break;
                     case 'b':
-                        font = 'Times-Bold'
+                        bold = true;
                         break;
                     case 'u':
                         subrayado = true;
@@ -294,7 +308,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                         .moveDown(1);
                         break;
                     case 'i':
-                        font = 'Times-Italic'
+                        italic = true;
                         break;
                     case 'ul':
                         bulletLi = '•';
@@ -321,9 +335,6 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                     case 'h2':
                         tamTexto = tamTexto - 4;
                         break;
-                    case 'b':
-                        tamTexto = tamTexto - 1;
-                        break;
                     case 'u':
                         subrayado = false;
                         break;
@@ -337,10 +348,10 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                     case 'pre':
                         break;
                     case 'b':
-                        font = 'Times-Roman';
+                        bold = false;
                         break;
                     case 'i':
-                        font = 'Times-Roman';
+                        italic = false;
                         break;
                     case 'ul':
                         bulletLi = '';
@@ -356,6 +367,16 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             }
         }
         if (extracto) {
+            //Determino si la fuente es negrita y kursiva
+            if (bold && italic){ //negrita y kursiva
+                font = 'Times-BoldItalic';
+            } else if(bold &!italic) { //negrita
+                font = 'Times-Bold';
+            } else if (!bold && italic){
+                font = 'Times-Italic'; //kursiva
+            } else { //ninguna
+                font = 'Times-Roman'
+            }
             doc.fontSize(tamTexto)
             .font(font)
             .fillColor(textColor)
@@ -382,6 +403,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             doc.text('')
             .moveDown(1);
             doc.fontSize(15)
+            .font('Times-Bold')
             .fillColor('green')
             //Inserta el numero de paso
             .text('No° ' + procPdf.pasos[iPdf].numeroPasoReal, {
@@ -485,6 +507,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
 
     //nombre del procedimiento
     doc.fontSize(30)
+    .font('Times-Bold')
     .fillColor('green')
     .text(proc.nombre,doc.x,400,{
         align: 'center',
@@ -493,6 +516,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
 
     //fecha de actualizacion del procedimiento
     doc.fontSize(16)
+    .font('Times-Roman')
     .fillColor('black')
     .text(fechaActualizacion, doc.x, 650, {
         align: 'center'
@@ -501,6 +525,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
 
     //version a imprimir del documento
     doc.fontSize(10)
+    .font('Times-Roman')
     .text('Version ' + proc.versionActual, doc.x, 680, {
         align: 'right'
     });
@@ -510,6 +535,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
     //Inserta la Pagina de descripcion
     //titulo
     doc.fontSize(20)
+    .font('Times-Bold')
     .fillColor('black')
     .text('Descripcion', doc.x, doc.y, {
         align: 'center'
@@ -518,6 +544,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
 
     //Descripcion del procedimiento
     doc.fontSize(14)
+    .font('Times-Roman')
     .fillColor('black')
     .text(proc.descripcion, doc.x, doc.y, {
         align: 'left'

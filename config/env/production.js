@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: "mongodb://localhost/bacoba",
+    db: "mongodb://10.172.2.12/bacoba",
     app: {
         name: "Bacoba - Base de Conocimiento de Banadesa"
     },

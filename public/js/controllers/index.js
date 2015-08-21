@@ -128,14 +128,39 @@ angular.module('mean.index').controller('IndexController', ['$scope', '$location
                 Usuarios.get({
                     userId: $scope.global.user._id
                 }, function(usuario) {
+                    //Solo saco los ultimos procedimientos hasta el limite
+                    //Si el limite es mayor a la cantidad total de ultimos vistos dejar el total
+                    var limiteReal = limite;
+                    var ultimosProcedimientosConLimite = [];
+                    if (limite > usuario.ultimosProcedimientos.length) {
+                        limiteReal = usuario.ultimosProcedimientos.length ;
+                    }
+                    // Paso los procedimientos hasta el limite para uno nuevo temporal
+                    for (var i = 0; i < limiteReal; i++) {
+                        ultimosProcedimientosConLimite.push(usuario.ultimosProcedimientos[i]);
+                    }
+                    //console.log(ultimosProcedimientos)
                     $http.get('procedimientos/', {
                         params: {
                             campoQ: '_id',
-                            valorQ: usuario.ultimosProcedimientos,
+                            valorQ: ultimosProcedimientosConLimite,
                             limite: limite
                         }
                     }).then(function(res){
-                        $scope.procedimientosUltimosVistos = res.data;
+                        //$scope.procedimientosUltimosVistos = res.data;
+                        var procedimientosUltimosVistosNoOrdenado = res.data;
+                        var procedimientosUltimosVistosOrdenado = [];
+                        //Ordeno los procedimientos segun estaban originalmente
+                        for (var i = 0; i < ultimosProcedimientosConLimite.length; i++) {
+                            for (var j = 0; j < procedimientosUltimosVistosNoOrdenado.length; j++) {
+                                //Si coincide el procedimiento ponerlo en el orden
+                                if (ultimosProcedimientosConLimite[i] == procedimientosUltimosVistosNoOrdenado[j]._id) {
+                                    procedimientosUltimosVistosOrdenado.push(procedimientosUltimosVistosNoOrdenado[j]);
+                                    procedimientosUltimosVistosNoOrdenado.splice(j,1);
+                                }
+                            }
+                        }
+                        $scope.procedimientosUltimosVistos = procedimientosUltimosVistosOrdenado;
                         for (var i = $scope.procedimientosUltimosVistos.length - 1; i >= 0; i--) {
                             $scope.procedimientosUltimosVistos[i] = $scope.calculaRating($scope.procedimientosUltimosVistos[i]);
                         }

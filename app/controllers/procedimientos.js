@@ -59,7 +59,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
      *@param {object} proc procedimiento original
      *@param {number} i numero de posicion del objeto en el array
      *@param {object} padreProc procedimiento padre
-     *@param {number} iPadre numero de posicion del objeto en el array del procedimiento Padre
+     *@param {number} iPadre.pop() numero de posicion del objeto en el array del procedimiento Padre
      *@param {object} nuevoProc procedimiento agregando los pasos
      *@param {number} veces cantindad de veces que se "metera" a un subproceso
      *@param {function} callback
@@ -70,7 +70,15 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             if (proc.pasos[i]) {
                 actual = proc.pasos[i].actual;
                 nuevoProc.pasos.push(proc.pasos[i]);
-
+                console.log('proc.pasos[i]');
+                console.log(proc.pasos[i]);
+                console.log('i')
+                console.log(i)
+                console.log('pasoPadre');
+                console.log(pasoPadre);
+                console.log('iPadre')
+                console.log(iPadre)
+                console.log('*****************')
                 //Asigno el id del procedimiento por si este es distinto al procedimiento original
                 nuevoProc.pasos[nuevoProc.pasos.length -1 ].rutaImg = proc._id;
                 //Asigno el paso que aparece en pantalla recorriendo todos los padres ej 1.1.1.2
@@ -186,6 +194,7 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
                     llenarProc(proc, i, padreProc, iPadre, pasoPadre, nuevoProc, veces, callback);
                 } else { //si es el ultimo paso reviso que no tenga un padre
                     if (padreProc.length > 0) {
+                        pasoPadre.pop()
                         llenarProc(padreProc.pop(), iPadre.pop(), padreProc,
                                 iPadre, pasoPadre, nuevoProc, veces, callback);
                     } else { //si es el utimo paso y no tiene padres llamo el callback(salida)
@@ -556,11 +565,15 @@ var crearPdf = exports.crearPdf = function(req, res, next) {
             llenarProc(proc, 0, [], [], [], nuevoProc, 4, function () {
                 //Orden los pasos del procedimiento de forma ascendente
                 nuevoProc.pasos.sort(function(a,b) {
+                    console.log('actual a: ' + a.actual + 'actual b: ' + b.actual);
                     var n = b.actual - a.actual;
+                    console.log('Resultado de la diff: '+ n);
                     if (n !== 0) {
                         return n;
                     }
+                    console.log('Paso dividido a: ' + a.numeroPasoDivido + 'Paso dividido b: ' + b.numeroPasoDivido);
                     n = a.numeroPasoDivido - b.numeroPasoDivido;
+                    console.log('Resultado de la diff: '+ n);
                     if (n !== 0) {
                         return n;
                     }
